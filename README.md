@@ -53,6 +53,7 @@ This app will allow language-learners to match with each other based on what lan
 * Users can send voice memos
 * Users can make video calls
 * Users can expand their radius
+* Users can choose to see others nearby in a list view instead of map
 * Users can see a recommended list of other users based on similar interests
 * Users can include people that are also learning the same language
 * Users can filter results by preferences/times available
@@ -119,7 +120,6 @@ This app will allow language-learners to match with each other based on what lan
 
 
 ## Wireframes
-[Add picture of your hand sketched wireframes in this section]
 <img src="https://i.imgur.com/TuBLV3P.jpg" width=600>
 
 ### [BONUS] Digital Wireframes & Mockups
@@ -127,10 +127,97 @@ This app will allow language-learners to match with each other based on what lan
 ### [BONUS] Interactive Prototype
 
 ## Schema 
-[This section will be completed in Unit 9]
 ### Models
-[Add table of models]
+* Users 
+    | Property      | Type     | Description |
+    | ------------- | -------- | ------------|
+    Required
+    | name      | String   | a user's full name |
+    | username      | String   | a user's screenname |
+    | email        | String  | a user's email |
+    | profile picture         | File     | image that the user can set on their profile |
+    | native language | String | the language that the user is fluent in| 
+    | target langauge  | String | the language that the user wants to learn|
+    | interests | Array | array of user's different inetersts|
+    | joined | Date | date when user joined the app | 
+    Stretch
+    | numFollowers       | Number   | number of users that are following them |
+    | numFollowing | Number   | number of other users they are following |
+    | followers | Array | array of all users that are followers|
+    | following | Array | array of all users they are following |
+    | lastActive | Date | time when a user was last atcive on the app| 
+
+* Posts
+    | Property      | Type     | Description |
+    | ------------- | -------- | ------------|
+    Required
+    | author        | Pointer to a User| the post's author |
+    | post message  | String   | the post's text |
+    | image         | File     | image that user can post along with their message|
+    Stretch
+    | commentsCount | Number   | number of comments that has been posted to an image |
+    | likesCount    | Number   | number of likes for the post |
+    | createdAt     | Date | date when post is created (default field) |
+    | updatedAt     | Date | date when post is last updated (default field) |
+    
+* Message
+    | Property      | Type     | Description |
+    | ------------- | -------- | ------------|
+    Required
+    | author        | Pointer to a User| the message's author |
+    | text  | String   | the message's text |
+    | image         | File     | image that user can send along with their message|
+    Stretch
+    | createdAt     | Date | date when message is created (default field) |
+    | updatedAt     | Date | date when message is last updated (default field) |
+    
+* Location 
+    | Property      | Type     | Description |
+    | ------------- | -------- | ------------|
+    Required
+    | users        | Arrary | all the users within this location |
+
+* Schedules 
+    | Property      | Type     | Description |
+    | ------------- | -------- | ------------|
+    Required
+    | time        | Arrary | users within same time blocks for studying |
+    
+
 ### Networking
-- [Add list of network requests by screen ]
+[network requests by screen ]
+* Home Screen
+    * (Read/GET) Query all posts frome users that the user is following
+     ``` Objective-C
+     NSArray *following = user.following;
+     NSArray *posts = [[NSArray alloc] init]
+     // for each follower
+     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query orderByDescending:@"createdAt"];
+    [query includeKey:following.user.username];
+
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            NSLog(@"Successfully got posts");
+            self.userPosts add:posts;
+            [self.collectionView reloadData];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+    ```
+    * (Read/GET) Query all posts where likes are > 100
+* Compose Message screen
+    * (Create/POST) Create a new message object
+* Compose Post screen
+    * (Create/POST) Create a new post object
+* Profile screen
+    * (Read/GET) Query logged in user object
+    * (Read/GET) Query all posts that the user is an author of
+    * (Update/PUT) Update user profile image
+* Map Screen 
+    * (Read/GET) Query users within a certain location
+
 - [Create basic snippets for each Parse network request]
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
