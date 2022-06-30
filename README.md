@@ -120,6 +120,7 @@ This app will allow language-learners to match with each other based on what lan
 
 
 ## Wireframes
+[sketched wireframe]
 <img src="https://i.imgur.com/TuBLV3P.jpg" width=600>
 
 ### [BONUS] Digital Wireframes & Mockups
@@ -210,12 +211,50 @@ This app will allow language-learners to match with each other based on what lan
     * (Read/GET) Query all posts where likes are > 100
 * Compose Message screen
     * (Create/POST) Create a new message object
+    ``` Objective C
+    NSString *urlString = @"add-endpoint-here";
+    NSDictionary *parameters = @{@"message": text};
+    
+    [self POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable messageDictionary) {
+        Message *newMessage = [[Post alloc]initWithDictionary:messageDictionary];
+        completion(tweet, nil);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        completion(nil, error);
+    }];
+    ```
 * Compose Post screen
     * (Create/POST) Create a new post object
+    ``` Objective C
+    NSString *urlString = @"add-endpoint-here";
+    NSDictionary *parameters = @{@"post": text};
+    
+    [self POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable postDictionary) {
+        Post *newPost = [[Post alloc]initWithDictionary:postDictionary];
+        completion(tweet, nil);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        completion(nil, error);
+    }];
+    ```
 * Profile screen
     * (Read/GET) Query logged in user object
     * (Read/GET) Query all posts that the user is an author of
     * (Update/PUT) Update user profile image
+    ``` Objective C
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query orderByDescending:@"createdAt"];
+    [query includeKey:PFUser.currentUser.username];
+
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            NSLog(@"Successfully got posts");
+            self.userPosts = posts;
+            [self.collectionView reloadData];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+    ```
 * Map Screen 
     * (Read/GET) Query users within a certain location
 
