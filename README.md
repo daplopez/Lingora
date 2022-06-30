@@ -11,15 +11,15 @@ Original App Design Project - README Template
 
 ## Overview
 ### Description
-Allows language-learners to match with each other based on what language they are learning. The goal is for each user to match with someone that speaks the langauge they are trying to learn and who is trying to learn the language that you (the user) is learning. This would allow both users to speak to each other in their target lanaguage. The app would allow the user to select their desired language and then show suggestions based on those that speak that language and are nearby, but would also allow the user to expand their radius. Each user would have a profile where they can list their interests. User's could also make posts to their profile, which others can tap to translate to their langauge. Additional: in addition to recommending nearby people, tehy would also allow for a matching feature like Tinder's to make sure that both would be a good match for each other. 
+This app will allow language-learners to match with each other based on what language they are learning. The goal is for each user to meet people that speak the langauge they are trying to learn and who is trying to learn the language that the user is learning. This would allow both users to speak to each other to communicate in their target lanaguage. The app would allow the user to select their desired language and then show suggestions based on those that speak that language and are nearby. Each user would have a profile where they can list their interests and make public posts. In addition, there woud be a feature to allow users to translate any text such as messages or posts.
 
 ### App Evaluation
 - **Category:** Education / Social
-- **Mobile:** Users would be able to look at a map to see which users are nearby, make video calls with each other, and send voice memos, which would require access to location, camera and microphone. The accessibility of a mobile app allowing you to send messages and view on-the-go also makes it more uniquely mobile. 
-- **Story:** This app's value comes from being able to connect language-learners with each other. In addition, while many other language-learning platforms teach vocabulary, they don't have a lot of features to practice pronunciation and speaking it, and sometimes the vocabulary of native speakers is different from what you are learning or it may be more challenging to understand a native speaker speaking, so this would be a great place to practice and meet others. 
-- **Market:** My audience is language-leaners who want to gain practice in speaking the language that they are learning. This wouold prbably be a very niche group of people. While other language-learning apps have a large number of users, I feel like this app would not be the most beginner-friendly app since you would need too have some knowledge of the lnaguage you are trying to learn in order to communicate with others, or otherwise you wouldn't be getting much benefit from the app. 
-- **Habit:** Ideally, the user would use this app daily, for at least 30 minutes. There would be daily or weekly reminders set up by the user to remind the user to open the app. In order for users to build connections with each other and to retain what they are learning, it'd be best for them to build a habit of practicing daily or weekly. 
-- **Scope:** It will be challenging to implement some of the features sch as translation, but a very simple app that allows for matching, posting, and messaging is attainable in the given timeframe. 
+- **Mobile:** Users would be able to look at a map to see which users are nearby, which would require access to location. The accessibility of a mobile app allowing you to send messages and view on-the-go also makes it more uniquely mobile. 
+- **Story:** This app's value comes from being able to connect language-learners with each other. This would be a great platform to practice your skills and meet others. 
+- **Market:** My audience is language-leaners who want to gain practice in using the language that they are learning. This would likely be a very niche group of people. While other language-learning apps have a large number of users, I feel like this app would not be the most beginner-friendly app since users would need to already have some knowledge of the language they are trying to learn in order to communicate with others, or otherwise they wouldn't be getting much benefit from the app. 
+- **Habit:** Ideally, the user would use this app daily, for at least 30 minutes. There would be daily or weekly reminders set up by the user to remind them to open the app. In order for users to build connections with each other and to retain what they are learning, it'd be best for them to build a habit of practicing daily or weekly. 
+- **Scope:** It will be challenging to implement some of the features sch as translation and sending voice memos but a very simple app that allows for matching, posting, and messaging is attainable in the given timeframe. 
 
 ## Product Spec
 
@@ -27,72 +27,100 @@ Allows language-learners to match with each other based on what language they ar
 
 **Required Must-have Stories**
 
-* User can create an account
-* User can login
-* User can sign out
-* User can message each other and sens voice memos
-* User can maeke video calls
-* User can search for other users
-* User can view a list of recommended users 
-* User can change their language preferences
-* User has a profile and can update it
+* Users can create an account
+* Users can login
+* Users can sign out
+* Users can message each other
+* Users can view a map of those nearby
+* Users have a profile and can update it
+* Users can view each other's profiles
+* Users can make posts that would be visible on their profile
+* Users can click on posts to view them in detail
+* Users can translate text
+* Settings (Accesibility, General, etc.)
 
 **Optional Nice-to-have Stories**
 
-* User can make posts that would be visible on their profile
-* User can reply to posts on another user's profile
-* User can like posts
-* User can follow/unfollow other users
-* User can see a feed of popular posts
-* User can click on words of a posts/message and translate it
-* User can get notified when they receive a new message
-* User can link other social media platforms to their profile
+* Users can reply to posts on another user's profile
+* Users can like/unlike posts
+* Users can delete their posts
+* Users can follow/unfollow other users
+* Users can see a feed of popular posts/ friend's posts
+* Users can hear the pronunciation of text
+* Users can get notified when they receive a new message
+* Users can get daily reminders
+* Users can link other social media platforms to their profile
+* Users can send voice memos
+* Users can make video calls
+* Users can expand their radius
+* Users can see a recommended list of other users based on similar interests
+* Users can include people that are also learning the same language
+* Users can filter results by preferences/times available
+* Users can set proficiency
+* Users can add multiple languages 
+* User can change their language preferences
+* Users can search for others
+* Users can select from recommended prompts to start a conversation
+* Users can change app settings
+* Users can create group chats
 
 ### 2. Screen Archetypes
 
 * Login screen
-   * User can login
-   * ...
+   * Users can login in order to get access to their account
+   * Buttons to login or to sign up if they haven't already created an account
 * Registration screen
-   * User can create a new account
-   * ...
-* Reccommended Screen
-    * User can see a list of recommended users based on the prefernces they selected
+   * Users can create a new account
+   * Needs to fill in all fields, such as their native langauge and target language in addition to username and password
+* Home Screen
+    * Upon login, users are taken to a home screen where they can view a stream of their friends' posts and popular posts in their target language
+* Detail Screen
+    * Users can click on individual posts from the stream and view them in detail, which would include the post's author, their profile image, and timestamp
+* Message Compose Screen
+    * Users can compose a new message to another user 
+* Post Compose Screen
+    * Users can compose posts 
+* Profile Screen 
+    * Users can set a profile picture, add interests, and compose posts, which other users can view
+* Map Screen
+    * Users can see a map of nearby users based on the prefernces they selected and within a certain radius and can then choose to view their profile or message them
 * Message screen
-    * User can send messages to other users based
+    * Users can send messages to other users 
 * Search
-    * User can look up other users based on their username
+    * Users can look up other users based on their name or username
 
 ### 3. Navigation
 
 **Tab Navigation** (Tab to Screen)
 
-* Home: recommended users
+* Home: friends's posts / popular posts
 * Messages: view direct messages
+* Map: view a map of other users nearby
 * Profile: user's profile
 
 **Flow Navigation** (Screen to Screen)
 
 * Login Screen
    * Home
-   * ...
+   * Registration screen if new user
 * Registration screen
-   * Home
-   * ...
-* Recommended screen
-   * Messages when you click message icon next to a profile
-   * Also to user's profile if you click on it
+   * Home once user has created an account
+* Home screen
+   * Message compose screen when you click message icon next to a profile
+   * Also to user's profile if you click on their profile picture or username
+   * Details view if you click on a post
 * Message screen
-    * None
+    * Can take you to user's profile if you click on their profile picture or username
 * Search screen
-    * None
-    * Later: to profile/message if you click on it
+    * To profile/message if you click on a profile
+* Map Screen
+    * To profile if you click on user's profile image
 
 
 
 ## Wireframes
 [Add picture of your hand sketched wireframes in this section]
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+<img src="https://i.imgur.com/TuBLV3P.jpg" width=600>
 
 ### [BONUS] Digital Wireframes & Mockups
 
