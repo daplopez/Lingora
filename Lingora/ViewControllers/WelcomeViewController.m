@@ -6,6 +6,7 @@
 //
 
 #import "WelcomeViewController.h"
+#import "SceneDelegate.h"
 
 @interface WelcomeViewController ()
 
@@ -17,6 +18,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
+
+
+- (IBAction)didTapLogin:(id)sender {
+}
+
+
+- (IBAction)didTapSignup:(id)sender {
+    SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    myDelegate.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"Signup"];
+}
+
 
 /*
 #pragma mark - Navigation
