@@ -19,6 +19,9 @@
 		8D08BC5E2874A7A000E2D93D /* LingoraUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D08BC5D2874A7A000E2D93D /* LingoraUITests.m */; };
 		8D08BC602874A7A000E2D93D /* LingoraUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D08BC5F2874A7A000E2D93D /* LingoraUITestsLaunchTests.m */; };
 		8D08BC712874D7DF00E2D93D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D08BC702874D7DF00E2D93D /* LoginViewController.m */; };
+		8DC5AA18287612FF00011509 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5AA17287612FF00011509 /* WelcomeViewController.m */; };
+		8DC5AA1B28762BBE00011509 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5AA1A28762BBE00011509 /* SignupViewController.m */; };
+		8DC5AA1E28762BCE00011509 /* HomeFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5AA1D28762BCE00011509 /* HomeFeedViewController.m */; };
 		9C1302F8BB18527D57BD41AF /* Pods_Lingora.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 566C2FAE41767571A1226C5D /* Pods_Lingora.framework */; };
 		D5FF53575B139263212FD9F2 /* Pods_Lingora_LingoraUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372ECB9523BB67C15329F347 /* Pods_Lingora_LingoraUITests.framework */; };
 /* End PBXBuildFile section */
@@ -68,6 +71,12 @@
 		8D08BC5F2874A7A000E2D93D /* LingoraUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LingoraUITestsLaunchTests.m; sourceTree = "<group>"; };
 		8D08BC6F2874D7DF00E2D93D /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		8D08BC702874D7DF00E2D93D /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		8DC5AA16287612FF00011509 /* WelcomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
+		8DC5AA17287612FF00011509 /* WelcomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
+		8DC5AA1928762BBE00011509 /* SignupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
+		8DC5AA1A28762BBE00011509 /* SignupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
+		8DC5AA1C28762BCE00011509 /* HomeFeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeFeedViewController.h; sourceTree = "<group>"; };
+		8DC5AA1D28762BCE00011509 /* HomeFeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeFeedViewController.m; sourceTree = "<group>"; };
 		A49499F6E2D6E47A5F1B7B26 /* Pods-Lingora.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lingora.release.xcconfig"; path = "Target Support Files/Pods-Lingora/Pods-Lingora.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,7 +118,6 @@
 				699F34E8C57C046820D7058D /* Pods-LingoraTests.debug.xcconfig */,
 				2E777A70C4BCF88F09A9CDA2 /* Pods-LingoraTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -184,6 +192,12 @@
 		8D08BC722874D7E500E2D93D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8DC5AA1928762BBE00011509 /* SignupViewController.h */,
+				8DC5AA1A28762BBE00011509 /* SignupViewController.m */,
+				8DC5AA1C28762BCE00011509 /* HomeFeedViewController.h */,
+				8DC5AA1D28762BCE00011509 /* HomeFeedViewController.m */,
+				8DC5AA16287612FF00011509 /* WelcomeViewController.h */,
+				8DC5AA17287612FF00011509 /* WelcomeViewController.m */,
 				8D08BC6F2874D7DF00E2D93D /* LoginViewController.h */,
 				8D08BC702874D7DF00E2D93D /* LoginViewController.m */,
 			);
@@ -201,6 +215,7 @@
 				8D08BC302874A79F00E2D93D /* Sources */,
 				8D08BC312874A79F00E2D93D /* Frameworks */,
 				8D08BC322874A79F00E2D93D /* Resources */,
+				E0CC05434E44FF1461BD624C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -238,6 +253,7 @@
 				8D08BC552874A7A000E2D93D /* Sources */,
 				8D08BC562874A7A000E2D93D /* Frameworks */,
 				8D08BC572874A7A000E2D93D /* Resources */,
+				6F9390F092BF3B322999B2DC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -341,6 +357,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6F9390F092BF3B322999B2DC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lingora-LingoraUITests/Pods-Lingora-LingoraUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lingora-LingoraUITests/Pods-Lingora-LingoraUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Lingora-LingoraUITests/Pods-Lingora-LingoraUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7E2FA7269A2AEB5BB8A44C4A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -385,6 +418,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E0CC05434E44FF1461BD624C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lingora/Pods-Lingora-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lingora/Pods-Lingora-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Lingora/Pods-Lingora-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -397,6 +447,9 @@
 				8D08BC4A2874A7A000E2D93D /* main.m in Sources */,
 				8D08BC3C2874A79F00E2D93D /* SceneDelegate.m in Sources */,
 				8D08BC712874D7DF00E2D93D /* LoginViewController.m in Sources */,
+				8DC5AA1B28762BBE00011509 /* SignupViewController.m in Sources */,
+				8DC5AA18287612FF00011509 /* WelcomeViewController.m in Sources */,
+				8DC5AA1E28762BCE00011509 /* HomeFeedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

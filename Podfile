@@ -6,6 +6,7 @@ target 'Lingora' do
   use_frameworks!
 
   # Pods for Lingora
+  pod 'Parse'
 
   target 'LingoraTests' do
     inherit! :search_paths
