@@ -37,6 +37,7 @@
                                 <buttonConfiguration key="configuration" style="gray" title="Login"/>
                                 <connections>
                                     <action selector="didTapLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sXe-wZ-ay2"/>
+                                    <segue destination="9Rq-Eu-Qcu" kind="show" id="c0r-r5-Vdf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xut-sm-JaL">
@@ -46,6 +47,7 @@
                                 <buttonConfiguration key="configuration" style="gray" title="Signup"/>
                                 <connections>
                                     <action selector="didTapSignup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tJS-5p-0gA"/>
+                                    <segue destination="wry-HI-sVW" kind="show" id="seC-tZ-Nxx"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -62,7 +64,7 @@
             <objects>
                 <viewController storyboardIdentifier="Signup" id="wry-HI-sVW" customClass="SignupViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lmi-Qi-WVW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create an Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VjN-zY-Jw0">
@@ -127,6 +129,7 @@
                         <viewLayoutGuide key="safeArea" id="yEc-gL-2h9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="G0c-eZ-Lhq"/>
                     <connections>
                         <outlet property="emailField" destination="QDb-7Q-hcL" id="9u2-x9-T9M"/>
                         <outlet property="nameField" destination="UZt-uk-z9f" id="fdq-YF-bVF"/>
@@ -144,9 +147,9 @@
         <!--Login View Controller-->
         <scene sceneID="mFN-Z8-Lyn">
             <objects>
-                <viewController id="9Rq-Eu-Qcu" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" id="9Rq-Eu-Qcu" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lY0-W9-gfr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIn-is-PWz">
@@ -181,6 +184,7 @@
                         <viewLayoutGuide key="safeArea" id="cmv-fy-IWV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="72w-21-Kxi"/>
                     <connections>
                         <outlet property="passwordField" destination="gve-XV-0HO" id="SdK-yk-8ww"/>
                         <outlet property="usernameField" destination="QM5-Mm-uP4" id="Dzt-7E-pEO"/>

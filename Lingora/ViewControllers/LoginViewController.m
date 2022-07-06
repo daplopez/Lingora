@@ -6,6 +6,8 @@
 //
 
 #import "LoginViewController.h"
+#import <Parse/Parse.h>
+#import "SceneDelegate.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
@@ -22,7 +24,21 @@
 
 
 - (IBAction)didTapLogin:(id)sender {
-    
+    NSString *username = self.usernameField.text;
+    NSString *password = self.passwordField.text;
+        
+        [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
+            if (error != nil) {
+                NSLog(@"User log in failed: %@", error.localizedDescription);
+            } else {
+                NSLog(@"User logged in successfully");
+                
+                // display view controller that needs to shown after successful login
+                SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                myDelegate.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeFeed"];
+            }
+        }];
 }
 
 /*
