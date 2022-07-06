@@ -1,0 +1,6 @@
+framework module Pods_LingoraTests {
+  umbrella header "Pods-LingoraTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
