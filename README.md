@@ -36,12 +36,13 @@ This app will allow language-learners to match with each other based on what lan
 * Users can view each other's profiles
 * Users can make posts that would be visible on their profile
 * Users can click on posts to view them in detail
-* Users can translate text
+* Users can see a recommended list of other users based on similar interests
 * Settings (Accesibility, General, etc.)
 
 **Optional Nice-to-have Stories**
 
 * Users can reply to posts on another user's profile
+* Users can translate text
 * Users can like/unlike posts
 * Users can delete their posts
 * Users can follow/unfollow other users
@@ -54,7 +55,6 @@ This app will allow language-learners to match with each other based on what lan
 * Users can make video calls
 * Users can expand their radius
 * Users can choose to see others nearby in a list view instead of map
-* Users can see a recommended list of other users based on similar interests
 * Users can include people that are also learning the same language
 * Users can filter results by preferences/times available
 * Users can set proficiency
