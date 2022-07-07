@@ -125,6 +125,14 @@
                                     <action selector="didTapSignup:" destination="wry-HI-sVW" eventType="touchUpInside" id="icl-vT-K49"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="woF-4f-mAN">
+                                <rect key="frame" x="0.0" y="659" width="414" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mxE-Al-4K3">
+                                <rect key="frame" x="0.0" y="659" width="414" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yEc-gL-2h9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -134,9 +142,11 @@
                         <outlet property="emailField" destination="QDb-7Q-hcL" id="9u2-x9-T9M"/>
                         <outlet property="nameField" destination="UZt-uk-z9f" id="fdq-YF-bVF"/>
                         <outlet property="nativeLanguageField" destination="KJc-rB-PkH" id="5cb-DL-U23"/>
+                        <outlet property="nativeLanguagePickerView" destination="woF-4f-mAN" id="wa7-4M-MyA"/>
                         <outlet property="passwordField" destination="oTK-Sm-Qat" id="aNO-2U-rdB"/>
                         <outlet property="proficiencyLevelField" destination="EHd-Vb-hlh" id="WdK-t8-G2J"/>
                         <outlet property="targetLanguageField" destination="IRG-B1-aIN" id="Xdg-td-Gzs"/>
+                        <outlet property="targetLanguagePickerView" destination="mxE-Al-4K3" id="UaH-iV-PZm"/>
                         <outlet property="usernameField" destination="Vdq-QP-il2" id="JZF-sl-fep"/>
                         <segue destination="W1R-eu-xkp" kind="show" id="4Ix-Rm-u4B"/>
                     </connections>
