@@ -22,6 +22,7 @@
 		8DC5AA18287612FF00011509 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5AA17287612FF00011509 /* WelcomeViewController.m */; };
 		8DC5AA1B28762BBE00011509 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5AA1A28762BBE00011509 /* SignupViewController.m */; };
 		8DC5AA1E28762BCE00011509 /* HomeFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5AA1D28762BCE00011509 /* HomeFeedViewController.m */; };
+		8DC5AA212876561A00011509 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5AA202876561A00011509 /* Post.m */; };
 		9C1302F8BB18527D57BD41AF /* Pods_Lingora.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 566C2FAE41767571A1226C5D /* Pods_Lingora.framework */; };
 		D5FF53575B139263212FD9F2 /* Pods_Lingora_LingoraUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372ECB9523BB67C15329F347 /* Pods_Lingora_LingoraUITests.framework */; };
 /* End PBXBuildFile section */
@@ -77,6 +78,8 @@
 		8DC5AA1A28762BBE00011509 /* SignupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		8DC5AA1C28762BCE00011509 /* HomeFeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeFeedViewController.h; sourceTree = "<group>"; };
 		8DC5AA1D28762BCE00011509 /* HomeFeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeFeedViewController.m; sourceTree = "<group>"; };
+		8DC5AA1F2876561A00011509 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		8DC5AA202876561A00011509 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		A49499F6E2D6E47A5F1B7B26 /* Pods-Lingora.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lingora.release.xcconfig"; path = "Target Support Files/Pods-Lingora/Pods-Lingora.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,6 +166,8 @@
 				8D08BC3D2874A79F00E2D93D /* ViewController.h */,
 				8D08BC3E2874A79F00E2D93D /* ViewController.m */,
 				8D08BC402874A79F00E2D93D /* Main.storyboard */,
+				8DC5AA1F2876561A00011509 /* Post.h */,
+				8DC5AA202876561A00011509 /* Post.m */,
 				8D08BC722874D7E500E2D93D /* ViewControllers */,
 				8D08BC432874A7A000E2D93D /* Assets.xcassets */,
 				8D08BC452874A7A000E2D93D /* LaunchScreen.storyboard */,
@@ -446,6 +451,7 @@
 				8D08BC392874A79F00E2D93D /* AppDelegate.m in Sources */,
 				8D08BC4A2874A7A000E2D93D /* main.m in Sources */,
 				8D08BC3C2874A79F00E2D93D /* SceneDelegate.m in Sources */,
+				8DC5AA212876561A00011509 /* Post.m in Sources */,
 				8D08BC712874D7DF00E2D93D /* LoginViewController.m in Sources */,
 				8DC5AA1B28762BBE00011509 /* SignupViewController.m in Sources */,
 				8DC5AA18287612FF00011509 /* WelcomeViewController.m in Sources */,

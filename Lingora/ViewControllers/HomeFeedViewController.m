@@ -6,8 +6,14 @@
 //
 
 #import "HomeFeedViewController.h"
+#import "SceneDelegate.h"
+#import "Parse/Parse.h"
 
 @interface HomeFeedViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nativeLanguageLabel;
+@property (weak, nonatomic) IBOutlet UILabel *targetLanguageLabel;
 
 @end
 
@@ -15,7 +21,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    [self setUserProperties];
+}
+
+
+// Retrieve the current user's properties
+- (void)setUserProperties {
+    PFUser *curUser = [PFUser currentUser];
+    
+    self.nameLabel.text = curUser[@"fullName"];
+    self.nativeLanguageLabel.text = curUser[@"nativeLanguage"];
+    self.targetLanguageLabel.text = curUser[@"targetLanguage"];
+}
+
+
+- (IBAction)didTapLogout:(id)sender {
+    
+    // Logout current user
+    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
+        // PFUser.current() will now be nil
+    }];
+    // Return to Login screen
+    //[self dismissViewControllerAnimated:YES completion:nil];
+    SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    myDelegate.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"WelcomeVC"];
 }
 
 /*
