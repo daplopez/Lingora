@@ -20,6 +20,8 @@
 		8D08BC602874A7A000E2D93D /* LingoraUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D08BC5F2874A7A000E2D93D /* LingoraUITestsLaunchTests.m */; };
 		8D08BC712874D7DF00E2D93D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D08BC702874D7DF00E2D93D /* LoginViewController.m */; };
 		8DBA3EBA28789A720030EBEF /* ComposePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBA3EB928789A720030EBEF /* ComposePostViewController.m */; };
+		8DBA3EBE2878B8D40030EBEF /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBA3EBD2878B8D40030EBEF /* ProfileViewController.m */; };
+		8DBA3EC12878C2680030EBEF /* ProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBA3EC02878C2680030EBEF /* ProfileTableViewCell.m */; };
 		8DC5AA18287612FF00011509 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5AA17287612FF00011509 /* WelcomeViewController.m */; };
 		8DC5AA1B28762BBE00011509 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5AA1A28762BBE00011509 /* SignupViewController.m */; };
 		8DC5AA1E28762BCE00011509 /* HomeFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5AA1D28762BCE00011509 /* HomeFeedViewController.m */; };
@@ -76,6 +78,10 @@
 		8D08BC702874D7DF00E2D93D /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		8DBA3EB828789A720030EBEF /* ComposePostViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposePostViewController.h; sourceTree = "<group>"; };
 		8DBA3EB928789A720030EBEF /* ComposePostViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposePostViewController.m; sourceTree = "<group>"; };
+		8DBA3EBC2878B8D40030EBEF /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		8DBA3EBD2878B8D40030EBEF /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		8DBA3EBF2878C2680030EBEF /* ProfileTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ProfileTableViewCell.h; path = Lingora/ProfileTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		8DBA3EC02878C2680030EBEF /* ProfileTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ProfileTableViewCell.m; path = Lingora/ProfileTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		8DC5AA16287612FF00011509 /* WelcomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		8DC5AA17287612FF00011509 /* WelcomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		8DC5AA1928762BBE00011509 /* SignupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
@@ -213,6 +219,8 @@
 				8DC5AA17287612FF00011509 /* WelcomeViewController.m */,
 				8D08BC6F2874D7DF00E2D93D /* LoginViewController.h */,
 				8D08BC702874D7DF00E2D93D /* LoginViewController.m */,
+				8DBA3EBC2878B8D40030EBEF /* ProfileViewController.h */,
+				8DBA3EBD2878B8D40030EBEF /* ProfileViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -229,6 +237,8 @@
 		8DC5AA252877B40100011509 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				8DBA3EBF2878C2680030EBEF /* ProfileTableViewCell.h */,
+				8DBA3EC02878C2680030EBEF /* ProfileTableViewCell.m */,
 				8DC5AA222877B3F400011509 /* PostTableViewCell.h */,
 				8DC5AA232877B3F400011509 /* PostTableViewCell.m */,
 			);
@@ -480,9 +490,11 @@
 				8DC5AA212876561A00011509 /* Post.m in Sources */,
 				8D08BC712874D7DF00E2D93D /* LoginViewController.m in Sources */,
 				8DC5AA1B28762BBE00011509 /* SignupViewController.m in Sources */,
+				8DBA3EC12878C2680030EBEF /* ProfileTableViewCell.m in Sources */,
 				8DBA3EBA28789A720030EBEF /* ComposePostViewController.m in Sources */,
 				8DC5AA18287612FF00011509 /* WelcomeViewController.m in Sources */,
 				8DC5AA1E28762BCE00011509 /* HomeFeedViewController.m in Sources */,
+				8DBA3EBE2878B8D40030EBEF /* ProfileViewController.m in Sources */,
 				8DC5AA242877B3F400011509 /* PostTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
