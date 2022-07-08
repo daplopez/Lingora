@@ -40,7 +40,6 @@
             NSLog(@"User log in failed: %@", error.localizedDescription);
         } else {
             NSLog(@"User logged in successfully");
-            
             // display view controller that needs to shown after successful login
             SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -52,17 +51,11 @@
 - (void)emptyFieldAlert {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Required field cannot be empty" preferredStyle:(UIAlertControllerStyleAlert)];
     // create a cancel action
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-    // handle cancel response here. Doing nothing will dismiss the view.
-        
-    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}];
     // add the cancel action to the alertController
     [alert addAction:cancelAction];
-
     // create an OK action
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-    // handle response here.
-    }];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {}];
     // add the OK action to the alert controller
     [alert addAction:okAction];
     [self presentViewController:alert animated:YES completion:nil];
