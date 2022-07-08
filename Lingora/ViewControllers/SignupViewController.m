@@ -28,6 +28,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setUpPickerView];
+    
+}
+
+- (void)setUpPickerView {
     self.nativeLanguagePickerView.delegate = self;
     self.nativeLanguagePickerView.dataSource = self;
     self.targetLanguagePickerView.delegate = self;
@@ -42,7 +47,6 @@
     [self.targetLanguagePickerView setHidden:YES];
     
     self.languages = [[NSArray alloc] initWithObjects:@"English", @"Spanish", nil];
-    
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
