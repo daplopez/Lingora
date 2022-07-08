@@ -22,6 +22,11 @@
     // Do any additional setup after loading the view.
 }
 
+- (IBAction)didTapBack:(id)sender {
+    SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    myDelegate.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"WelcomeVC"];
+}
 
 - (IBAction)didTapLogin:(id)sender {
     NSString *username = self.usernameField.text;
