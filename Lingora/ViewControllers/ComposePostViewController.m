@@ -8,9 +8,10 @@
 #import "ComposePostViewController.h"
 #import "SceneDelegate.h"
 #import "Post.h"
+#import "Parse/PFImageView.h"
 
 @interface ComposePostViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
+@property (weak, nonatomic) IBOutlet PFImageView *profilePicture;
 @property (weak, nonatomic) IBOutlet UITextView *postTextView;
 
 @end
@@ -19,6 +20,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    if (PFUser.currentUser[@"image"] != nil) {
+        self.profilePicture.file = PFUser.currentUser[@"image"];
+        [self.profilePicture loadInBackground];
+    }
 }
 
 - (IBAction)didTapCancel:(id)sender {

@@ -265,7 +265,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZXn-nE-LTE">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZXn-nE-LTE" customClass="PFImageView">
                                 <rect key="frame" x="41" y="71" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemMintColor"/>
@@ -279,7 +279,7 @@
                     <connections>
                         <outlet property="nameLabel" destination="frI-kQ-uII" id="hlG-1l-tws"/>
                         <outlet property="nativeLanguageLabel" destination="Oin-6H-qNM" id="mpC-gn-1i4"/>
-                        <outlet property="profilePicture" destination="ZXn-nE-LTE" id="Wwp-gI-3oy"/>
+                        <outlet property="profilePicture" destination="ZXn-nE-LTE" id="khX-39-e6p"/>
                         <outlet property="tableView" destination="27x-Co-5Lw" id="YM7-Dr-u8s"/>
                         <outlet property="targetLanguageLabel" destination="UpR-Dl-FoL" id="w2F-JJ-Wpt"/>
                     </connections>
@@ -296,7 +296,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WtP-1h-yVc">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WtP-1h-yVc" customClass="PFImageView">
                                 <rect key="frame" x="33" y="91" width="81" height="81"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -333,7 +333,7 @@
                     <navigationItem key="navigationItem" id="kbu-we-9WC"/>
                     <connections>
                         <outlet property="postTextView" destination="BCG-JB-1os" id="yC5-W2-mN8"/>
-                        <outlet property="profilePicture" destination="WtP-1h-yVc" id="Lu4-jg-EM5"/>
+                        <outlet property="profilePicture" destination="WtP-1h-yVc" id="RZP-2u-hL8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EU3-bT-PRX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -460,7 +460,7 @@
                                 <buttonConfiguration key="configuration" style="gray" title="new post"/>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nIe-6l-NnV">
-                                <rect key="frame" x="0.0" y="173" width="414" height="586"/>
+                                <rect key="frame" x="0.0" y="159" width="414" height="600"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>

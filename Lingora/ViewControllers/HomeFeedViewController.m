@@ -10,11 +10,12 @@
 #import "Parse/Parse.h"
 #import "PostTableViewCell.h"
 #import "Post.h"
+#import "Parse/PFImageView.h"
 
 @interface HomeFeedViewController () <UITableViewDelegate, UITableViewDataSource>
 // current user info
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
+@property (weak, nonatomic) IBOutlet PFImageView *profilePicture;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nativeLanguageLabel;
 @property (weak, nonatomic) IBOutlet UILabel *targetLanguageLabel;
@@ -44,6 +45,11 @@
     self.nameLabel.text = curUser[@"fullName"];
     self.nativeLanguageLabel.text = curUser[@"nativeLanguage"];
     self.targetLanguageLabel.text = curUser[@"targetLanguage"];
+    if (curUser[@"image"] != nil) {
+        self.profilePicture.file = curUser[@"image"];
+        [self.profilePicture loadInBackground];
+    }
+    
 }
 
 
