@@ -122,7 +122,6 @@
     newUser[@"targetLanguage"] = self.targetLanguageField.text;
     newUser[@"proficiencyLevel"] = self.proficiencyLevelField.text;
     
-    
     if ([self.nameField.text isEqual:@""] || [self.usernameField.text isEqual:@""] || [self.passwordField.text isEqual:@""] || [self.nativeLanguageField.text isEqual:@""] || [self.targetLanguageField.text isEqual:@""] || [self.proficiencyLevelField.text isEqual:@""]) {
         [self emptyFieldAlert];
     }
