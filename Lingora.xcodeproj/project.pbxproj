@@ -172,8 +172,7 @@
 				8D08BC3D2874A79F00E2D93D /* ViewController.h */,
 				8D08BC3E2874A79F00E2D93D /* ViewController.m */,
 				8D08BC402874A79F00E2D93D /* Main.storyboard */,
-				8DC5AA1F2876561A00011509 /* Post.h */,
-				8DC5AA202876561A00011509 /* Post.m */,
+				8DBA3EBB2878B2730030EBEF /* DataModels */,
 				8DC5AA252877B40100011509 /* TableViewCells */,
 				8D08BC722874D7E500E2D93D /* ViewControllers */,
 				8D08BC432874A7A000E2D93D /* Assets.xcassets */,
@@ -216,6 +215,15 @@
 				8D08BC702874D7DF00E2D93D /* LoginViewController.m */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8DBA3EBB2878B2730030EBEF /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				8DC5AA1F2876561A00011509 /* Post.h */,
+				8DC5AA202876561A00011509 /* Post.m */,
+			);
+			path = DataModels;
 			sourceTree = "<group>";
 		};
 		8DC5AA252877B40100011509 /* TableViewCells */ = {
