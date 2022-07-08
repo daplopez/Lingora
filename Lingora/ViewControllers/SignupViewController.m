@@ -121,6 +121,12 @@
     newUser[@"nativeLanguage"] = self.nativeLanguageField.text;
     newUser[@"targetLanguage"] = self.targetLanguageField.text;
     newUser[@"proficiencyLevel"] = self.proficiencyLevelField.text;
+    
+    
+    if ([self.nameField.text isEqual:@""] || [self.usernameField.text isEqual:@""] || [self.passwordField.text isEqual:@""] || [self.nativeLanguageField.text isEqual:@""] || [self.targetLanguageField.text isEqual:@""] || [self.proficiencyLevelField.text isEqual:@""]) {
+        [self emptyFieldAlert];
+    }
+    
     // call sign up function on the object
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
         if (error != nil) {
@@ -134,6 +140,25 @@
             myDelegate.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeFeed"];
         }
     }];
+}
+
+- (void)emptyFieldAlert {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Required field cannot be empty" preferredStyle:(UIAlertControllerStyleAlert)];
+    // create a cancel action
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    // handle cancel response here. Doing nothing will dismiss the view.
+        
+    }];
+    // add the cancel action to the alertController
+    [alert addAction:cancelAction];
+
+    // create an OK action
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    // handle response here.
+    }];
+    // add the OK action to the alert controller
+    [alert addAction:okAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 /*
