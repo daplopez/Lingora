@@ -17,10 +17,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *nativeLanguageField;
 @property (weak, nonatomic) IBOutlet UITextField *targetLanguageField;
 @property (weak, nonatomic) IBOutlet UITextField *proficiencyLevelField;
-@property (strong, nonatomic) NSArray *languages;
 @property (weak, nonatomic) IBOutlet UIPickerView *nativeLanguagePickerView;
 @property (weak, nonatomic) IBOutlet UIPickerView *targetLanguagePickerView;
-
+@property (weak, nonatomic) IBOutlet UIPickerView *proficiencyPickerView;
+@property (strong, nonatomic) NSArray *languages;
+@property (strong, nonatomic) NSArray *proficiency;
 @end
 
 @implementation SignupViewController
@@ -28,32 +29,41 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setUpPickerView];
+    [self setUpPickerViews];
     
 }
 
-- (void)setUpPickerView {
+- (void)setUpPickerViews {
     self.nativeLanguagePickerView.delegate = self;
     self.nativeLanguagePickerView.dataSource = self;
     self.targetLanguagePickerView.delegate = self;
     self.targetLanguagePickerView.dataSource = self;
+    self.proficiencyPickerView.delegate = self;
+    self.proficiencyPickerView.dataSource = self;
     
     self.nativeLanguageField.delegate = self;
     self.nativeLanguageField.inputView = self.nativeLanguagePickerView;
     self.targetLanguageField.delegate = self;
     self.targetLanguageField.inputView = self.targetLanguagePickerView;
+    self.proficiencyLevelField.delegate = self;
+    self.proficiencyLevelField.inputView = self.proficiencyPickerView;
     
     [self.nativeLanguagePickerView setHidden:YES];
     [self.targetLanguagePickerView setHidden:YES];
+    [self.proficiencyPickerView setHidden:YES];
     
     self.languages = [[NSArray alloc] initWithObjects:@"English", @"Spanish", nil];
+    
+    self.proficiency = [[NSArray alloc] initWithObjects:@"Beginner", @"Intermediate", @"Advanced", nil];
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     if ([textField isEqual:self.nativeLanguageField]) {
         [self.nativeLanguagePickerView setHidden:NO];
-    } else {
+    } else if ([textField isEqual:self.targetLanguageField]) {
         [self.targetLanguagePickerView setHidden:NO];
+    } else {
+        [self.proficiencyPickerView setHidden:NO];
     }
     return NO;
 }
@@ -64,20 +74,31 @@
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return self.languages.count;
+    if ([pickerView isEqual:self.proficiencyPickerView]) {
+        return self.proficiency.count;
+    } else {
+        return self.languages.count;
+    }
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return self.languages[row];
+    if ([pickerView isEqual:self.proficiencyPickerView]) {
+        return self.proficiency[row];
+    } else {
+        return self.languages[row];
+    }
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     if ([pickerView isEqual:self.nativeLanguagePickerView]) {
         self.nativeLanguageField.text = self.languages[row];
         [self.nativeLanguagePickerView setHidden:YES];
-    } else {
+    } else if ([pickerView isEqual:self.targetLanguagePickerView]) {
         self.targetLanguageField.text = self.languages[row];
         [self.targetLanguagePickerView setHidden:YES];
+    } else {
+        self.proficiencyLevelField.text = self.proficiency[row];
+        [self.proficiencyPickerView setHidden:YES];
     }
 }
 
