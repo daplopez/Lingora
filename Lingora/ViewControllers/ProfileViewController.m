@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *targetLanguageLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) NSArray *posts;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 @end
 
@@ -30,7 +31,7 @@
     self.tableView.dataSource = self;
     
     [self getUserData];
-    
+    [self createRefreshControl];
     [self queryForPosts];
     
     [self.tableView reloadData];
@@ -50,6 +51,13 @@
 }
 
 
+- (void)createRefreshControl {
+    // refresh control
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(queryForPosts) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
+}
+
 - (void)queryForPosts {
     
     // construct query
@@ -67,6 +75,8 @@
             NSLog(@"%@", error.localizedDescription);
         }
     }];
+    
+    [self.refreshControl endRefreshing];
     
 }
 

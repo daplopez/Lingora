@@ -18,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nativeLanguageLabel;
 @property (weak, nonatomic) IBOutlet UILabel *targetLanguageLabel;
-
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) NSArray *posts;
 @end
 
@@ -31,7 +31,7 @@
     self.tableView.dataSource = self;
 
     [self setUserProperties];
-    
+    [self createRefreshControl];
     [self queryForUserPosts];
     
     [self.tableView reloadData];
@@ -44,6 +44,14 @@
     self.nameLabel.text = curUser[@"fullName"];
     self.nativeLanguageLabel.text = curUser[@"nativeLanguage"];
     self.targetLanguageLabel.text = curUser[@"targetLanguage"];
+}
+
+
+- (void)createRefreshControl {
+    // refresh control
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(queryForUserPosts) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
 }
 
 
@@ -64,6 +72,7 @@
             NSLog(@"%@", error.localizedDescription);
         }
     }];
+    [self.refreshControl endRefreshing];
 }
 
 
