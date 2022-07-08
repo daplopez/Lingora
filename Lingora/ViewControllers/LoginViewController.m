@@ -19,7 +19,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (IBAction)didTapBack:(id)sender {
@@ -31,6 +30,10 @@
 - (IBAction)didTapLogin:(id)sender {
     NSString *username = self.usernameField.text;
     NSString *password = self.passwordField.text;
+    
+    if ([self.usernameField.text isEqual:@""] || [self.passwordField.text isEqual:@""]) {
+        [self emptyFieldAlert];
+    }
         
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
         if (error != nil) {
@@ -46,14 +49,23 @@
     }];
 }
 
-/*
-#pragma mark - Navigation
+- (void)emptyFieldAlert {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Required field cannot be empty" preferredStyle:(UIAlertControllerStyleAlert)];
+    // create a cancel action
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    // handle cancel response here. Doing nothing will dismiss the view.
+        
+    }];
+    // add the cancel action to the alertController
+    [alert addAction:cancelAction];
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    // create an OK action
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    // handle response here.
+    }];
+    // add the OK action to the alert controller
+    [alert addAction:okAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
-*/
 
 @end

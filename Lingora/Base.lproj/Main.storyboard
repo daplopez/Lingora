@@ -57,7 +57,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="148" y="140"/>
+            <point key="canvasLocation" x="152" y="125"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="IRf-Ve-11T">
@@ -285,7 +285,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QDy-sP-rVX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2339.130434782609" y="173.4375"/>
+            <point key="canvasLocation" x="1781" y="427"/>
         </scene>
         <!--Compose Post View Controller-->
         <scene sceneID="XEJ-9e-6KK">
@@ -337,7 +337,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EU3-bT-PRX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4016" y="140"/>
+            <point key="canvasLocation" x="2625" y="427"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="mFN-Z8-Lyn">
@@ -397,7 +397,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ift-KS-vWA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="979.71014492753636" y="-297.32142857142856"/>
+            <point key="canvasLocation" x="980" y="-303"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
