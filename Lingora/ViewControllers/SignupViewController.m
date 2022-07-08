@@ -120,7 +120,7 @@
     newUser.password = self.passwordField.text;
     newUser[@"nativeLanguage"] = self.nativeLanguageField.text;
     newUser[@"targetLanguage"] = self.targetLanguageField.text;
-    newUser[@"profciencyLevel"] = self.proficiencyLevelField.text;
+    newUser[@"proficiencyLevel"] = self.proficiencyLevelField.text;
     // call sign up function on the object
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
         if (error != nil) {
