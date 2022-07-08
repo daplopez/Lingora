@@ -97,6 +97,10 @@
     cell.postNameLabel.text = post.author[@"fullName"];
     cell.postUsernameLabel.text = post.author.username;
     cell.postTextLabel.text = post[@"postText"];
+    if (post.author[@"image"] != nil) {
+        cell.postProfilePicture.file = post.author[@"image"];
+        [cell.postProfilePicture loadInBackground];
+    }
     return cell;
 }
 
