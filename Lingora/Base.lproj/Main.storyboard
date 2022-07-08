@@ -186,7 +186,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="138" id="Jxj-dk-igQ">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="138" id="Jxj-dk-igQ" customClass="PostTableViewCell">
                                                 <rect key="frame" x="0.0" y="44.5" width="414" height="138"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jxj-dk-igQ" id="HmL-C2-lxS">
@@ -211,8 +211,21 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Oi-iI-Yfl">
+                                                            <rect key="frame" x="13" y="50" width="51" height="22"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="postNameLabel" destination="bC2-Bf-06v" id="7bL-7H-Bd5"/>
+                                                    <outlet property="postProfilePicture" destination="CZ2-7O-8s1" id="ntk-Yk-vhV"/>
+                                                    <outlet property="postTextLabel" destination="2Oi-iI-Yfl" id="Lna-95-s4A"/>
+                                                    <outlet property="postUsernameLabel" destination="GRk-Ph-7eh" id="eOA-ju-iSo"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
@@ -273,6 +286,7 @@
                         <outlet property="nameLabel" destination="YIV-Gi-d75" id="iYd-Rx-X8e"/>
                         <outlet property="nativeLanguageLabel" destination="h9S-gr-RuP" id="lxk-41-5mQ"/>
                         <outlet property="profilePicture" destination="dDS-GU-eiU" id="MBG-kx-bY7"/>
+                        <outlet property="tableView" destination="QIQ-x3-XLO" id="4LP-pw-0fh"/>
                         <outlet property="targetLanguageLabel" destination="02v-L3-v8r" id="i6e-qe-qMr"/>
                     </connections>
                 </viewController>

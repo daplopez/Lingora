@@ -23,6 +23,7 @@
 		8DC5AA1B28762BBE00011509 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5AA1A28762BBE00011509 /* SignupViewController.m */; };
 		8DC5AA1E28762BCE00011509 /* HomeFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5AA1D28762BCE00011509 /* HomeFeedViewController.m */; };
 		8DC5AA212876561A00011509 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5AA202876561A00011509 /* Post.m */; };
+		8DC5AA242877B3F400011509 /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5AA232877B3F400011509 /* PostTableViewCell.m */; };
 		9C1302F8BB18527D57BD41AF /* Pods_Lingora.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 566C2FAE41767571A1226C5D /* Pods_Lingora.framework */; };
 		D5FF53575B139263212FD9F2 /* Pods_Lingora_LingoraUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372ECB9523BB67C15329F347 /* Pods_Lingora_LingoraUITests.framework */; };
 /* End PBXBuildFile section */
@@ -80,6 +81,8 @@
 		8DC5AA1D28762BCE00011509 /* HomeFeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeFeedViewController.m; sourceTree = "<group>"; };
 		8DC5AA1F2876561A00011509 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		8DC5AA202876561A00011509 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		8DC5AA222877B3F400011509 /* PostTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostTableViewCell.h; sourceTree = "<group>"; };
+		8DC5AA232877B3F400011509 /* PostTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostTableViewCell.m; sourceTree = "<group>"; };
 		A49499F6E2D6E47A5F1B7B26 /* Pods-Lingora.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lingora.release.xcconfig"; path = "Target Support Files/Pods-Lingora/Pods-Lingora.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,6 +171,7 @@
 				8D08BC402874A79F00E2D93D /* Main.storyboard */,
 				8DC5AA1F2876561A00011509 /* Post.h */,
 				8DC5AA202876561A00011509 /* Post.m */,
+				8DC5AA252877B40100011509 /* TableViewCells */,
 				8D08BC722874D7E500E2D93D /* ViewControllers */,
 				8D08BC432874A7A000E2D93D /* Assets.xcassets */,
 				8D08BC452874A7A000E2D93D /* LaunchScreen.storyboard */,
@@ -207,6 +211,15 @@
 				8D08BC702874D7DF00E2D93D /* LoginViewController.m */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8DC5AA252877B40100011509 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				8DC5AA222877B3F400011509 /* PostTableViewCell.h */,
+				8DC5AA232877B3F400011509 /* PostTableViewCell.m */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -456,6 +469,7 @@
 				8DC5AA1B28762BBE00011509 /* SignupViewController.m in Sources */,
 				8DC5AA18287612FF00011509 /* WelcomeViewController.m in Sources */,
 				8DC5AA1E28762BCE00011509 /* HomeFeedViewController.m in Sources */,
+				8DC5AA242877B3F400011509 /* PostTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
