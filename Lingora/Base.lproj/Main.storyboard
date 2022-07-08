@@ -270,7 +270,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="new post"/>
                                         <connections>
-                                            <action selector="didTapPost:" destination="W1R-eu-xkp" eventType="touchUpInside" id="cOf-I2-cGs"/>
+                                            <segue destination="AMS-bt-RPA" kind="show" id="SAs-Pi-0As"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -293,6 +293,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QDy-sP-rVX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1837.68115942029" y="139.95535714285714"/>
+        </scene>
+        <!--Compose Post View Controller-->
+        <scene sceneID="XEJ-9e-6KK">
+            <objects>
+                <viewController storyboardIdentifier="ComposePostVC" id="AMS-bt-RPA" customClass="ComposePostViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UL2-Xo-7hj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WtP-1h-yVc">
+                                <rect key="frame" x="34" y="91" width="81" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Post an update..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BCG-JB-1os">
+                                <rect key="frame" x="143" y="91" width="240" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jxq-TP-PgR">
+                                <rect key="frame" x="33" y="44" width="69" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
+                                <connections>
+                                    <action selector="didTapCancel:" destination="AMS-bt-RPA" eventType="touchUpInside" id="1yu-dY-tNC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0g6-nQ-C2V">
+                                <rect key="frame" x="319" y="44" width="62" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Share"/>
+                                <connections>
+                                    <action selector="didTapShare:" destination="AMS-bt-RPA" eventType="touchUpInside" id="nBw-ly-p7u"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="EtR-WF-WJW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="UrZ-mU-pU7"/>
+                    <connections>
+                        <outlet property="postTextView" destination="BCG-JB-1os" id="yC5-W2-mN8"/>
+                        <outlet property="profilePicture" destination="WtP-1h-yVc" id="Lu4-jg-EM5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EU3-bT-PRX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2676.811594202899" y="139.95535714285714"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="mFN-Z8-Lyn">
@@ -359,6 +411,9 @@
         <segue reference="3IL-cB-dPc"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
