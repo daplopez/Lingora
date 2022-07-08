@@ -13,11 +13,12 @@
 
 @interface HomeFeedViewController () <UITableViewDelegate, UITableViewDataSource>
 // current user info
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nativeLanguageLabel;
 @property (weak, nonatomic) IBOutlet UILabel *targetLanguageLabel;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @property (strong, nonatomic) NSArray *posts;
 @end
 
@@ -30,6 +31,10 @@
     self.tableView.dataSource = self;
 
     [self setUserProperties];
+    
+    [self queryForUserPosts];
+    
+    [self.tableView reloadData];
 }
 
 // Retrieve the current user's properties
