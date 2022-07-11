@@ -21,7 +21,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) NSArray *posts;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
-@property (strong, nonatomic) NSArray *userInterests;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) NSMutableArray *userInterests;
 
 @end
 
@@ -32,6 +33,8 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
     
     [self createRefreshControl];
     [self getUserData];
@@ -63,6 +66,7 @@
     if (user[@"interests"] != nil) {
         self.userInterests = user[@"interests"];
     }
+    
 }
 
 
@@ -220,6 +224,40 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     // Setting the poster size in collection view
     return CGSizeMake(130, 130);
+}
+
+
+- (IBAction)didTapAddInterest:(id)sender {
+    
+    // create the actual alert controller view that will be the pop-up
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Interests" message:@"Add an interest below:" preferredStyle:(UIAlertControllerStyleAlert)];
+
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"Interest";
+    }];
+
+
+    // add the buttons/actions to the view controller
+    // create a cancel action
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}];
+
+    // add the cancel action to the alertController
+    [alert addAction:cancelAction];
+
+    // create an OK action
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        [self.userInterests addObject:alert.textFields[0].text];
+        [self.collectionView reloadData];
+        
+        [PFUser.currentUser[@"interests"] addObject:alert.textFields[0].text];
+        [PFUser.currentUser[@"interests"] saveInBackground];
+        
+        
+    }];
+    // add the OK action to the alert controller
+    [alert addAction:okAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 @end

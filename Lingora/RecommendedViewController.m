@@ -35,7 +35,7 @@
     self.nativeLanguageLabel.text = curUser[@"nativeLanguage"];
     self.targetLanguageLabel.text = curUser[@"targetLanguage"];
     if (curUser[@"image"] != nil) {
-        self.profilePicture.file = curUser[@"user"];
+        self.profilePicture.file = curUser[@"image"];
         [self.profilePicture loadInBackground];
     }
 }
