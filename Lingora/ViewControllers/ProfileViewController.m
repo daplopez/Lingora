@@ -30,8 +30,11 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-   
     [self createRefreshControl];
+    [self getUserData];
+    [self queryForPosts];
+    [self.tableView reloadData];
+    
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
 
 }
