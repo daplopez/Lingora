@@ -118,13 +118,20 @@
 }
 
 
+- (IBAction)didTapPostCell:(id)sender {
+    SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    myDelegate.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"ProfileView"];
+}
+
+
 /*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+ In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+     Get the new view controller using [segue destinationViewController].
+     Pass the selected object to the new view controller.
 }
 */
 

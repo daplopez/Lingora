@@ -163,7 +163,7 @@
                         <outlet property="targetLanguageField" destination="IRG-B1-aIN" id="Xdg-td-Gzs"/>
                         <outlet property="targetLanguagePickerView" destination="mxE-Al-4K3" id="UaH-iV-PZm"/>
                         <outlet property="usernameField" destination="Vdq-QP-il2" id="JZF-sl-fep"/>
-                        <segue destination="7HC-vT-fta" kind="show" id="htF-bb-ZcZ"/>
+                        <segue destination="7HC-vT-fta" kind="show" identifier="SignupSegue" id="htF-bb-ZcZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YDk-Bi-NeN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -194,6 +194,7 @@
                                                     <rect key="frame" x="41" y="11" width="44" height="42"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                                    <gestureRecognizers/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CEt-hk-e2M">
                                                     <rect key="frame" x="93" y="11" width="110" height="21"/>
@@ -212,17 +213,21 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Asy-4w-xax">
                                                     <rect key="frame" x="93" y="32" width="110" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <gestureRecognizers/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <gestureRecognizers/>
                                         </tableViewCellContentView>
+                                        <gestureRecognizers/>
                                         <connections>
                                             <outlet property="postNameLabel" destination="CEt-hk-e2M" id="ZId-Qp-ZPV"/>
                                             <outlet property="postProfilePicture" destination="BCM-H8-hy5" id="vMA-ka-XId"/>
                                             <outlet property="postTextLabel" destination="Q1o-xk-pdt" id="Ieq-Mh-ARx"/>
                                             <outlet property="postUsernameLabel" destination="Asy-4w-xax" id="Tqe-pe-jCV"/>
+                                            <outletCollection property="gestureRecognizers" destination="R6M-Ej-4Ri" appends="YES" id="KZx-pf-s9E"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -292,9 +297,15 @@
                         <outlet property="profilePicture" destination="ZXn-nE-LTE" id="khX-39-e6p"/>
                         <outlet property="tableView" destination="27x-Co-5Lw" id="YM7-Dr-u8s"/>
                         <outlet property="targetLanguageLabel" destination="UpR-Dl-FoL" id="w2F-JJ-Wpt"/>
+                        <segue destination="ofW-9V-iD7" kind="show" id="NYk-CD-lhe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QDy-sP-rVX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="R6M-Ej-4Ri">
+                    <connections>
+                        <action selector="didTapPostCell:" destination="W1R-eu-xkp" id="82y-JN-HGg"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2492.753623188406" y="-303.34821428571428"/>
         </scene>
@@ -348,7 +359,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EU3-bT-PRX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3264" y="-629"/>
+            <point key="canvasLocation" x="3248" y="-994"/>
         </scene>
         <!--Recommended View Controller-->
         <scene sceneID="nYf-ch-bVO">
@@ -403,7 +414,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uhn-wX-a7m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3263.7681159420295" y="75"/>
+            <point key="canvasLocation" x="3248" y="427"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="mFN-Z8-Lyn">
@@ -458,7 +469,7 @@
                     <connections>
                         <outlet property="passwordField" destination="gve-XV-0HO" id="SdK-yk-8ww"/>
                         <outlet property="usernameField" destination="QM5-Mm-uP4" id="Dzt-7E-pEO"/>
-                        <segue destination="7HC-vT-fta" kind="show" id="G2g-KN-7FC"/>
+                        <segue destination="7HC-vT-fta" kind="show" identifier="loginSegue" id="G2g-KN-7FC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ift-KS-vWA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -611,7 +622,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qZi-eB-GB3">
-                                <rect key="frame" x="336" y="612" width="49" height="31"/>
+                                <rect key="frame" x="330" y="612" width="55" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="add"/>
@@ -637,9 +648,40 @@
             </objects>
             <point key="canvasLocation" x="2492.753623188406" y="426.5625"/>
         </scene>
+        <!--View Profile View Controller-->
+        <scene sceneID="TX1-fW-ZAH">
+            <objects>
+                <viewController storyboardIdentifier="ProfileView" id="ofW-9V-iD7" customClass="ViewProfileViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dPG-At-YWr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KBM-wb-ni8">
+                                <rect key="frame" x="26" y="75" width="91" height="89"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnN-Kx-kqE">
+                                <rect key="frame" x="26" y="36" width="106" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Back"/>
+                                <connections>
+                                    <action selector="didTapBack:" destination="ofW-9V-iD7" eventType="touchUpInside" id="9XX-9h-MPw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gdf-Dr-bpl"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="oON-fV-OxU"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Sl-PG-e5O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3248" y="-282"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="htF-bb-ZcZ"/>
+        <segue reference="G2g-KN-7FC"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">

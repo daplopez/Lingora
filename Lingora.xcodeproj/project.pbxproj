@@ -21,6 +21,7 @@
 		8D08BC712874D7DF00E2D93D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D08BC702874D7DF00E2D93D /* LoginViewController.m */; };
 		8D62442B287CBBE300B82B98 /* RecommendedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D62442A287CBBE300B82B98 /* RecommendedViewController.m */; };
 		8D62442E287CC05900B82B98 /* ProfileInterestsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D62442D287CC05900B82B98 /* ProfileInterestsCollectionViewCell.m */; };
+		8D6C5005287CDDD800D22747 /* ViewProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6C5004287CDDD800D22747 /* ViewProfileViewController.m */; };
 		8DBA3EBA28789A720030EBEF /* ComposePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBA3EB928789A720030EBEF /* ComposePostViewController.m */; };
 		8DBA3EBE2878B8D40030EBEF /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBA3EBD2878B8D40030EBEF /* ProfileViewController.m */; };
 		8DBA3EC12878C2680030EBEF /* ProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBA3EC02878C2680030EBEF /* ProfileTableViewCell.m */; };
@@ -82,6 +83,8 @@
 		8D62442A287CBBE300B82B98 /* RecommendedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RecommendedViewController.m; path = Lingora/RecommendedViewController.m; sourceTree = SOURCE_ROOT; };
 		8D62442C287CC05900B82B98 /* ProfileInterestsCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileInterestsCollectionViewCell.h; sourceTree = "<group>"; };
 		8D62442D287CC05900B82B98 /* ProfileInterestsCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileInterestsCollectionViewCell.m; sourceTree = "<group>"; };
+		8D6C5003287CDDD800D22747 /* ViewProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewProfileViewController.h; path = Lingora/ViewProfileViewController.h; sourceTree = SOURCE_ROOT; };
+		8D6C5004287CDDD800D22747 /* ViewProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewProfileViewController.m; path = Lingora/ViewProfileViewController.m; sourceTree = SOURCE_ROOT; };
 		8DBA3EB828789A720030EBEF /* ComposePostViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposePostViewController.h; sourceTree = "<group>"; };
 		8DBA3EB928789A720030EBEF /* ComposePostViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposePostViewController.m; sourceTree = "<group>"; };
 		8DBA3EBC2878B8D40030EBEF /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -216,6 +219,8 @@
 		8D08BC722874D7E500E2D93D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8D6C5003287CDDD800D22747 /* ViewProfileViewController.h */,
+				8D6C5004287CDDD800D22747 /* ViewProfileViewController.m */,
 				8D624429287CBBE300B82B98 /* RecommendedViewController.h */,
 				8D62442A287CBBE300B82B98 /* RecommendedViewController.m */,
 				8DBA3EB828789A720030EBEF /* ComposePostViewController.h */,
@@ -502,6 +507,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D08BC3F2874A79F00E2D93D /* ViewController.m in Sources */,
+				8D6C5005287CDDD800D22747 /* ViewProfileViewController.m in Sources */,
 				8D08BC392874A79F00E2D93D /* AppDelegate.m in Sources */,
 				8D08BC4A2874A7A000E2D93D /* main.m in Sources */,
 				8D08BC3C2874A79F00E2D93D /* SceneDelegate.m in Sources */,
