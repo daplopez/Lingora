@@ -20,6 +20,7 @@
 		8D08BC602874A7A000E2D93D /* LingoraUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D08BC5F2874A7A000E2D93D /* LingoraUITestsLaunchTests.m */; };
 		8D08BC712874D7DF00E2D93D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D08BC702874D7DF00E2D93D /* LoginViewController.m */; };
 		8D62442B287CBBE300B82B98 /* RecommendedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D62442A287CBBE300B82B98 /* RecommendedViewController.m */; };
+		8D62442E287CC05900B82B98 /* ProfileInterestsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D62442D287CC05900B82B98 /* ProfileInterestsCollectionViewCell.m */; };
 		8DBA3EBA28789A720030EBEF /* ComposePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBA3EB928789A720030EBEF /* ComposePostViewController.m */; };
 		8DBA3EBE2878B8D40030EBEF /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBA3EBD2878B8D40030EBEF /* ProfileViewController.m */; };
 		8DBA3EC12878C2680030EBEF /* ProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBA3EC02878C2680030EBEF /* ProfileTableViewCell.m */; };
@@ -79,6 +80,8 @@
 		8D08BC702874D7DF00E2D93D /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		8D624429287CBBE300B82B98 /* RecommendedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RecommendedViewController.h; path = Lingora/RecommendedViewController.h; sourceTree = SOURCE_ROOT; };
 		8D62442A287CBBE300B82B98 /* RecommendedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RecommendedViewController.m; path = Lingora/RecommendedViewController.m; sourceTree = SOURCE_ROOT; };
+		8D62442C287CC05900B82B98 /* ProfileInterestsCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileInterestsCollectionViewCell.h; sourceTree = "<group>"; };
+		8D62442D287CC05900B82B98 /* ProfileInterestsCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileInterestsCollectionViewCell.m; sourceTree = "<group>"; };
 		8DBA3EB828789A720030EBEF /* ComposePostViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposePostViewController.h; sourceTree = "<group>"; };
 		8DBA3EB928789A720030EBEF /* ComposePostViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposePostViewController.m; sourceTree = "<group>"; };
 		8DBA3EBC2878B8D40030EBEF /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -181,6 +184,7 @@
 				8D08BC3D2874A79F00E2D93D /* ViewController.h */,
 				8D08BC3E2874A79F00E2D93D /* ViewController.m */,
 				8D08BC402874A79F00E2D93D /* Main.storyboard */,
+				8D62442F287CC06000B82B98 /* CollectionViewCells */,
 				8DBA3EBB2878B2730030EBEF /* DataModels */,
 				8DC5AA252877B40100011509 /* TableViewCells */,
 				8D08BC722874D7E500E2D93D /* ViewControllers */,
@@ -228,6 +232,15 @@
 				8DBA3EBD2878B8D40030EBEF /* ProfileViewController.m */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8D62442F287CC06000B82B98 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				8D62442C287CC05900B82B98 /* ProfileInterestsCollectionViewCell.h */,
+				8D62442D287CC05900B82B98 /* ProfileInterestsCollectionViewCell.m */,
+			);
+			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
 		8DBA3EBB2878B2730030EBEF /* DataModels */ = {
@@ -494,6 +507,7 @@
 				8D08BC3C2874A79F00E2D93D /* SceneDelegate.m in Sources */,
 				8DC5AA212876561A00011509 /* Post.m in Sources */,
 				8D08BC712874D7DF00E2D93D /* LoginViewController.m in Sources */,
+				8D62442E287CC05900B82B98 /* ProfileInterestsCollectionViewCell.m in Sources */,
 				8DC5AA1B28762BBE00011509 /* SignupViewController.m in Sources */,
 				8DBA3EC12878C2680030EBEF /* ProfileTableViewCell.m in Sources */,
 				8D62442B287CBBE300B82B98 /* RecommendedViewController.m in Sources */,

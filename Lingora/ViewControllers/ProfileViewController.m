@@ -10,8 +10,10 @@
 #import "Post.h"
 #import "Parse/Parse.h"
 #import "Parse/PFImageView.h"
+#import "ProfileInterestsCollectionViewCell.h"
 
-@interface ProfileViewController () <UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface ProfileViewController () <UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
+
 @property (weak, nonatomic) IBOutlet PFImageView *profilePicture;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nativeLanguageLabel;
@@ -19,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) NSArray *posts;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (strong, nonatomic) NSArray *userInterests;
 
 @end
 
@@ -56,6 +59,10 @@
         self.profilePicture.file = user[@"image"];
         [self.profilePicture loadInBackground];
     }
+    
+    if (user[@"interests"] != nil) {
+        self.userInterests = user[@"interests"];
+    }
 }
 
 
@@ -88,6 +95,8 @@
     
 }
 
+// For table view
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ProfileTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfileCell"];
     Post *post = self.posts[indexPath.row];
@@ -99,6 +108,8 @@
     return self.posts.count;
 }
 
+
+// For setting/changing profile picture
 
 - (IBAction)didTapChangeProfilePic:(id)sender {
     [self useCamera];
@@ -188,6 +199,27 @@
     UIGraphicsEndImageContext();
     
     return newImage;
+}
+
+
+// For interests collection group
+
+- (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    ProfileInterestsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"profileInterestsCell" forIndexPath:indexPath];
+    
+    NSString *interest = self.userInterests[indexPath.row];
+    cell.interestLabel.text = interest;
+    
+    return cell;
+}
+
+- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.userInterests.count;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    // Setting the poster size in collection view
+    return CGSizeMake(130, 130);
 }
 
 @end
