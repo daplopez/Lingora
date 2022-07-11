@@ -30,13 +30,20 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-
-    [self setUserProperties];
-    [self createRefreshControl];
-    [self queryForUserPosts];
     
+    [self createRefreshControl];
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
     [self.tableView reloadData];
 }
+
+ 
+
+- (void)onTimer {
+    [self setUserProperties];
+    [self queryForUserPosts];
+    [self.tableView reloadData];
+}
+
 
 // Retrieve the current user's properties
 - (void)setUserProperties {
@@ -45,7 +52,7 @@
     self.nameLabel.text = curUser[@"fullName"];
     self.nativeLanguageLabel.text = curUser[@"nativeLanguage"];
     self.targetLanguageLabel.text = curUser[@"targetLanguage"];
-    if (curUser[@"image"] != nil) {
+    if (curUser[@"image"]) {
         self.profilePicture.file = curUser[@"image"];
         [self.profilePicture loadInBackground];
     }

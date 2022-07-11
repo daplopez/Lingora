@@ -30,13 +30,18 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    [self getUserData];
+   
     [self createRefreshControl];
-    [self queryForPosts];
-    
-    [self.tableView reloadData];
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
+
 }
 
+
+- (void)onTimer {
+    [self getUserData];
+    [self queryForPosts];
+    [self.tableView reloadData];
+}
 
 - (void)getUserData {
     PFUser *user = [PFUser currentUser];
@@ -142,6 +147,7 @@
         [self.profilePicture loadInBackground];
     }
     
+    [self.profilePicture loadInBackground];
     PFUser *curUser = [PFUser currentUser];
     curUser[@"image"] = self.profilePicture.file;
     [curUser saveInBackground];
