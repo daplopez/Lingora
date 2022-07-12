@@ -11,6 +11,7 @@
 #import "Parse/Parse.h"
 #import "Parse/PFImageView.h"
 #import "ProfileInterestsCollectionViewCell.h"
+#import "ProfileImageCollectionViewCell.h"
 
 @interface ProfileViewController () <UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -21,8 +22,10 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) NSArray *posts;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSMutableArray *userInterests;
+@property (strong, nonatomic) NSMutableArray *myImages;
+@property (weak, nonatomic) IBOutlet UICollectionView *interestsCollectionView;
+@property (weak, nonatomic) IBOutlet UICollectionView *imagesCollectionView;
 
 @end
 
@@ -33,8 +36,10 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.collectionView.delegate = self;
-    self.collectionView.dataSource = self;
+    self.interestsCollectionView.delegate = self;
+    self.interestsCollectionView.dataSource = self;
+    self.imagesCollectionView.delegate = self;
+    self.imagesCollectionView.dataSource = self;
     
     [self createRefreshControl];
     [self getUserData];
@@ -209,16 +214,27 @@
 // For interests collection group
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    ProfileInterestsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"profileInterestsCell" forIndexPath:indexPath];
     
-    NSString *interest = self.userInterests[indexPath.row];
-    cell.interestLabel.text = interest;
-    
-    return cell;
+    if ([collectionView isEqual:self.interestsCollectionView]) {
+        ProfileInterestsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"profileInterestsCell" forIndexPath:indexPath];
+        
+        NSString *interest = self.userInterests[indexPath.row];
+        cell.interestLabel.text = interest;
+        return cell;
+    } else {
+        ProfileImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"imageCell" forIndexPath:indexPath];
+        cell.profileImages.file = self.myImages[indexPath.row];
+        [cell.profileImages loadInBackground];
+        return cell;
+    }
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.userInterests.count;
+    if ([collectionView isEqual:self.interestsCollectionView]) {
+        return self.userInterests.count;
+    } else {
+        return self.myImages.count;
+    }
 }
 
 
@@ -247,7 +263,7 @@
         } else {
             self.userInterests = [[NSMutableArray alloc] initWithObjects:alert.textFields[0].text, nil];
         }
-        [self.collectionView reloadData];
+        [self.interestsCollectionView reloadData];
         
         PFUser.currentUser[@"interests"] = [NSArray arrayWithArray:self.userInterests];
         NSLog(@"------TESTING------");
@@ -290,7 +306,7 @@
             NSLog(@"Error, either array is null or does not contain that object");
             [self interestErrorAlert:sender];
         }
-        [self.collectionView reloadData];
+        [self.interestsCollectionView reloadData];
         
         PFUser.currentUser[@"interests"] = [NSArray arrayWithArray:self.userInterests];
         [PFUser.currentUser saveInBackground];
@@ -321,5 +337,11 @@
 
     [self presentViewController:alert animated:YES completion:nil];
 }
+
+
+- (IBAction)didTapAddImage:(id)sender {
+    
+}
+
 
 @end
