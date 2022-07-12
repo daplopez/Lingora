@@ -26,7 +26,8 @@
 @property (strong, nonatomic) NSMutableArray *myImages;
 @property (weak, nonatomic) IBOutlet UICollectionView *interestsCollectionView;
 @property (weak, nonatomic) IBOutlet UICollectionView *imagesCollectionView;
-
+@property (strong, nonatomic) UIImagePickerController *profilePictureImagePickerVC;
+@property (strong, nonatomic) UIImagePickerController *myImagesImagePickerVC;
 @end
 
 @implementation ProfileViewController
@@ -41,13 +42,19 @@
     self.imagesCollectionView.delegate = self;
     self.imagesCollectionView.dataSource = self;
     
+    self.profilePictureImagePickerVC = [UIImagePickerController new];
+    self.myImagesImagePickerVC = [UIImagePickerController new];
+    self.profilePictureImagePickerVC.delegate = self;
+    self.profilePictureImagePickerVC.allowsEditing = YES;
+    self.myImagesImagePickerVC.delegate = self;
+    self.myImagesImagePickerVC.allowsEditing = YES;
+    
     [self createRefreshControl];
     [self getUserData];
     [self queryForPosts];
     [self.tableView reloadData];
     
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
-
 }
 
 
@@ -70,6 +77,10 @@
     
     if (user[@"interests"] != nil) {
         self.userInterests = [NSMutableArray arrayWithArray:user[@"interests"]];
+    }
+    
+    if (user[@"profileCollectionView"] != nil) {
+        self.myImages = [NSMutableArray arrayWithArray:user[@"profileCollectionView"]];
     }
     
 }
@@ -121,13 +132,10 @@
 // For setting/changing profile picture
 
 - (IBAction)didTapChangeProfilePic:(id)sender {
-    [self useCamera];
+    [self useCamera:self.profilePictureImagePickerVC];
 }
 
-- (void)useCamera {
-    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
-    imagePickerVC.delegate = self;
-    imagePickerVC.allowsEditing = YES;
+- (void)useCamera: (UIImagePickerController *) imagePickerVC {
 
     // The Xcode simulator does not support taking pictures, so check that the camera is supported on device before trying to present it.
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
@@ -160,20 +168,43 @@
     
     CGRect bounds = UIScreen.mainScreen.bounds;
     CGFloat width = bounds.size.width;
-    if(editedImage) {
-        editedImage = [self resizeImage:editedImage withSize:CGSizeMake(width, width)];
-        self.profilePicture.file = [self getPFFileFromImage:editedImage];
+    if ([picker isEqual:self.profilePictureImagePickerVC]) {
+        if (editedImage) {
+            editedImage = [self resizeImage:editedImage withSize:CGSizeMake(width, width)];
+            self.profilePicture.file = [self getPFFileFromImage:editedImage];
+            [self.profilePicture loadInBackground];
+        } else {
+            originalImage = [self resizeImage:originalImage withSize:CGSizeMake(width, width)];
+            self.profilePicture.file = [self getPFFileFromImage:originalImage];
+            [self.profilePicture loadInBackground];
+        }
         [self.profilePicture loadInBackground];
+        PFUser *curUser = [PFUser currentUser];
+        curUser[@"image"] = self.profilePicture.file;
+        [curUser saveInBackground];
     } else {
-        originalImage = [self resizeImage:originalImage withSize:CGSizeMake(width, width)];
-        self.profilePicture.file = [self getPFFileFromImage:originalImage];
-        [self.profilePicture loadInBackground];
+        if (editedImage) {
+            editedImage = [self resizeImage:editedImage withSize:CGSizeMake(width, width)];
+            PFFileObject *newPictureFile = [self getPFFileFromImage:editedImage];
+            if (self.myImages != nil) {
+                [self.myImages addObject:newPictureFile];
+            } else {
+                self.myImages = [[NSMutableArray alloc] initWithObjects:newPictureFile, nil];
+            }
+            [self.imagesCollectionView reloadData];
+        } else {
+            originalImage = [self resizeImage:originalImage withSize:CGSizeMake(width, width)];
+            PFFileObject *newPictureFile = [self getPFFileFromImage:originalImage];
+            if (self.myImages != nil) {
+                [self.myImages addObject:newPictureFile];
+            } else {
+                self.myImages = [[NSMutableArray alloc] initWithObjects:newPictureFile, nil];
+            }
+            [self.imagesCollectionView reloadData];
+        }
+        PFUser.currentUser[@"profileCollectionView"] = [NSArray arrayWithArray:self.myImages];
+        [PFUser.currentUser saveInBackground];
     }
-    
-    [self.profilePicture loadInBackground];
-    PFUser *curUser = [PFUser currentUser];
-    curUser[@"image"] = self.profilePicture.file;
-    [curUser saveInBackground];
         
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -336,8 +367,8 @@
 
 
 - (IBAction)didTapAddImage:(id)sender {
-    
+    [self useCamera:self.myImagesImagePickerVC];
+    [self.imagesCollectionView reloadData];
 }
-
 
 @end

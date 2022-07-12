@@ -640,7 +640,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="whI-Y9-agY">
-                                <rect key="frame" x="0.0" y="609" width="414" height="130"/>
+                                <rect key="frame" x="0.0" y="609" width="405" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CFS-fx-BzO">
@@ -691,8 +691,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="imm-5H-1jO"/>
                     <connections>
-                        <outlet property="collectionView" destination="uVZ-qi-WQR" id="wvQ-J3-1Wr"/>
-                        <outlet property="imagesCollectionView" destination="uVZ-qi-WQR" id="UPA-S6-dsq"/>
+                        <outlet property="imagesCollectionView" destination="whI-Y9-agY" id="Wgz-eM-txo"/>
                         <outlet property="interestsCollectionView" destination="uVZ-qi-WQR" id="qcL-Gg-ayc"/>
                         <outlet property="nameLabel" destination="7vV-5M-Vxd" id="rqx-Ee-XKM"/>
                         <outlet property="nativeLanguageLabel" destination="V5B-7E-Id0" id="rlc-yw-AFC"/>
