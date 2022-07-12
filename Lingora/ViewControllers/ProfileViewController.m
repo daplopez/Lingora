@@ -263,4 +263,40 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
+
+- (IBAction)didTapRemoveInterest:(id)sender {
+    // create the actual alert controller view that will be the pop-up
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Interests" message:@"Remove an by entering it below:" preferredStyle:(UIAlertControllerStyleAlert)];
+
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"Interest";
+    }];
+
+
+    // add the buttons/actions to the view controller
+    // create a cancel action
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}];
+
+    // add the cancel action to the alertController
+    [alert addAction:cancelAction];
+
+    // create an OK action
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        NSString *newInterest = alert.textFields[0].text;
+        if (self.userInterests != nil && [self.userInterests containsObject:newInterest]) {
+            [self.userInterests removeObject:newInterest];
+        } else {
+            NSLog(@"Error, either array is null or does not contain that object");
+        }
+        [self.collectionView reloadData];
+        
+        PFUser.currentUser[@"interests"] = [NSArray arrayWithArray:self.userInterests];
+        [PFUser.currentUser saveInBackground];
+    }];
+    // add the OK action to the alert controller
+    [alert addAction:okAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 @end
