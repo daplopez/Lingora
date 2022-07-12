@@ -39,7 +39,6 @@
                 NSLog(@"Error sharing post");
             } else {
                 NSLog(@"Successfully posted");
-                
             }
     }];
     

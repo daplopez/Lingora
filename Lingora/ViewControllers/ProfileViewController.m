@@ -266,10 +266,6 @@
         [self.interestsCollectionView reloadData];
         
         PFUser.currentUser[@"interests"] = [NSArray arrayWithArray:self.userInterests];
-        NSLog(@"------TESTING------");
-        NSLog(@"%@", alert.textFields[0].text);
-        NSLog(@"%@", self.userInterests[0]);
-        NSLog(@"%@", PFUser.currentUser[@"interests"][0]);
         [PFUser.currentUser saveInBackground];
         
         
