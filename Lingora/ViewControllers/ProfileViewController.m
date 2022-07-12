@@ -288,6 +288,7 @@
             [self.userInterests removeObject:newInterest];
         } else {
             NSLog(@"Error, either array is null or does not contain that object");
+            [self interestErrorAlert:sender];
         }
         [self.collectionView reloadData];
         
@@ -296,6 +297,28 @@
     }];
     // add the OK action to the alert controller
     [alert addAction:okAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)interestErrorAlert:(id)sender {
+    // create the actual alert controller view that will be the pop-up
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"The value you entered does not exist" preferredStyle:(UIAlertControllerStyleAlert)];
+    
+    // create a cancel action
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}];
+
+    // add the cancel action to the alertController
+    [alert addAction:cancelAction];
+    
+    // add the buttons/actions to the view controller
+    // create a cancel action
+    UIAlertAction *tryAgainAction = [UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self didTapRemoveInterest:sender];
+    }];
+
+    // add the try again action to the alertController
+    [alert addAction:tryAgainAction];
+
     [self presentViewController:alert animated:YES completion:nil];
 }
 
