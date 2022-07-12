@@ -64,7 +64,7 @@
     }
     
     if (user[@"interests"] != nil) {
-        self.userInterests = user[@"interests"];
+        self.userInterests = [NSMutableArray arrayWithArray:user[@"interests"]];
     }
     
 }
@@ -221,11 +221,6 @@
     return self.userInterests.count;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    // Setting the poster size in collection view
-    return CGSizeMake(130, 130);
-}
-
 
 - (IBAction)didTapAddInterest:(id)sender {
     
@@ -247,11 +242,19 @@
     // create an OK action
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        [self.userInterests addObject:alert.textFields[0].text];
+        if (self.userInterests != nil) {
+            [self.userInterests addObject:alert.textFields[0].text];
+        } else {
+            self.userInterests = [[NSMutableArray alloc] initWithObjects:alert.textFields[0].text, nil];
+        }
         [self.collectionView reloadData];
         
-        [PFUser.currentUser[@"interests"] addObject:alert.textFields[0].text];
-        [PFUser.currentUser[@"interests"] saveInBackground];
+        PFUser.currentUser[@"interests"] = [NSArray arrayWithArray:self.userInterests];
+        NSLog(@"------TESTING------");
+        NSLog(@"%@", alert.textFields[0].text);
+        NSLog(@"%@", self.userInterests[0]);
+        NSLog(@"%@", PFUser.currentUser[@"interests"][0]);
+        [PFUser.currentUser saveInBackground];
         
         
     }];
