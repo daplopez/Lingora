@@ -35,7 +35,8 @@
     [self setUserProperties];
     [self queryForUserPosts];
     [self.tableView reloadData];
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
+    //TODO: change secs to 1 later but making too many requests rn
+    [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
 }
 
  
@@ -109,6 +110,7 @@
     if (post.author[@"image"] != nil) {
         cell.postProfilePicture.file = post.author[@"image"];
         [cell.postProfilePicture loadInBackground];
+        cell.postProfilePicture.userInteractionEnabled = YES;
     }
     return cell;
 }
@@ -117,12 +119,12 @@
     return self.posts.count;
 }
 
-
-- (IBAction)didTapPostCell:(id)sender {
+- (IBAction)didTapProfilePic:(id)sender {
     SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     myDelegate.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"ProfileView"];
 }
+
 
 @end
 

@@ -54,7 +54,8 @@
     [self queryForPosts];
     [self.tableView reloadData];
     
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
+    //TODO: change secs to 1 later but making too many requests rn
+    [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
 }
 
 
