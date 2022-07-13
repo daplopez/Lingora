@@ -22,6 +22,8 @@
 		8D42F8E8287F46CA0078FD29 /* PostInterestCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D42F8E7287F46CA0078FD29 /* PostInterestCollectionViewCell.m */; };
 		8D42F8EB287F47050078FD29 /* PostProfileImagesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D42F8EA287F47050078FD29 /* PostProfileImagesCollectionViewCell.m */; };
 		8D42F8EE287F480E0078FD29 /* PostProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D42F8ED287F480E0078FD29 /* PostProfileTableViewCell.m */; };
+		8D42F8F1287F5D5C0078FD29 /* RecommendedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D42F8F0287F5D5C0078FD29 /* RecommendedTableViewCell.m */; };
+		8D42F8F4287F65930078FD29 /* PostDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D42F8F3287F65930078FD29 /* PostDetailViewController.m */; };
 		8D62442B287CBBE300B82B98 /* RecommendedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D62442A287CBBE300B82B98 /* RecommendedViewController.m */; };
 		8D62442E287CC05900B82B98 /* ProfileInterestsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D62442D287CC05900B82B98 /* ProfileInterestsCollectionViewCell.m */; };
 		8D6C5005287CDDD800D22747 /* ViewProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6C5004287CDDD800D22747 /* ViewProfileViewController.m */; };
@@ -89,6 +91,10 @@
 		8D42F8EA287F47050078FD29 /* PostProfileImagesCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PostProfileImagesCollectionViewCell.m; path = Lingora/PostProfileImagesCollectionViewCell.m; sourceTree = SOURCE_ROOT; };
 		8D42F8EC287F480E0078FD29 /* PostProfileTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PostProfileTableViewCell.h; path = Lingora/PostProfileTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		8D42F8ED287F480E0078FD29 /* PostProfileTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PostProfileTableViewCell.m; path = Lingora/PostProfileTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		8D42F8EF287F5D5C0078FD29 /* RecommendedTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RecommendedTableViewCell.h; path = Lingora/RecommendedTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		8D42F8F0287F5D5C0078FD29 /* RecommendedTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RecommendedTableViewCell.m; path = Lingora/RecommendedTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		8D42F8F2287F65930078FD29 /* PostDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PostDetailViewController.h; path = Lingora/PostDetailViewController.h; sourceTree = SOURCE_ROOT; };
+		8D42F8F3287F65930078FD29 /* PostDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PostDetailViewController.m; path = Lingora/PostDetailViewController.m; sourceTree = SOURCE_ROOT; };
 		8D624429287CBBE300B82B98 /* RecommendedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RecommendedViewController.h; path = Lingora/RecommendedViewController.h; sourceTree = SOURCE_ROOT; };
 		8D62442A287CBBE300B82B98 /* RecommendedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RecommendedViewController.m; path = Lingora/RecommendedViewController.m; sourceTree = SOURCE_ROOT; };
 		8D62442C287CC05900B82B98 /* ProfileInterestsCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileInterestsCollectionViewCell.h; sourceTree = "<group>"; };
@@ -231,6 +237,8 @@
 		8D08BC722874D7E500E2D93D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8D42F8F2287F65930078FD29 /* PostDetailViewController.h */,
+				8D42F8F3287F65930078FD29 /* PostDetailViewController.m */,
 				8D6C5003287CDDD800D22747 /* ViewProfileViewController.h */,
 				8D6C5004287CDDD800D22747 /* ViewProfileViewController.m */,
 				8D624429287CBBE300B82B98 /* RecommendedViewController.h */,
@@ -278,6 +286,8 @@
 		8DC5AA252877B40100011509 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				8D42F8EF287F5D5C0078FD29 /* RecommendedTableViewCell.h */,
+				8D42F8F0287F5D5C0078FD29 /* RecommendedTableViewCell.m */,
 				8D42F8EC287F480E0078FD29 /* PostProfileTableViewCell.h */,
 				8D42F8ED287F480E0078FD29 /* PostProfileTableViewCell.m */,
 				8DBA3EBF2878C2680030EBEF /* ProfileTableViewCell.h */,
@@ -536,12 +546,14 @@
 				8D42F8EE287F480E0078FD29 /* PostProfileTableViewCell.m in Sources */,
 				8D62442E287CC05900B82B98 /* ProfileInterestsCollectionViewCell.m in Sources */,
 				8D98E587287DF50C00AC4475 /* ProfileImageCollectionViewCell.m in Sources */,
+				8D42F8F1287F5D5C0078FD29 /* RecommendedTableViewCell.m in Sources */,
 				8DC5AA1B28762BBE00011509 /* SignupViewController.m in Sources */,
 				8DBA3EC12878C2680030EBEF /* ProfileTableViewCell.m in Sources */,
 				8D62442B287CBBE300B82B98 /* RecommendedViewController.m in Sources */,
 				8DBA3EBA28789A720030EBEF /* ComposePostViewController.m in Sources */,
 				8DC5AA18287612FF00011509 /* WelcomeViewController.m in Sources */,
 				8DC5AA1E28762BCE00011509 /* HomeFeedViewController.m in Sources */,
+				8D42F8F4287F65930078FD29 /* PostDetailViewController.m in Sources */,
 				8DBA3EBE2878B8D40030EBEF /* ProfileViewController.m in Sources */,
 				8D42F8E8287F46CA0078FD29 /* PostInterestCollectionViewCell.m in Sources */,
 				8DC5AA242877B3F400011509 /* PostTableViewCell.m in Sources */,

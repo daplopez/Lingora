@@ -12,6 +12,7 @@
 #import "Post.h"
 #import "Parse/PFImageView.h"
 #import "ViewProfileViewController.h"
+#import "PostDetailViewController.h"
 
 @interface HomeFeedViewController () <UITableViewDelegate, UITableViewDataSource>
 // current user info
@@ -138,8 +139,12 @@
         PFUser *dataToPass = self.posts[indexPath.row][@"author"];
         ViewProfileViewController *viewProfileVC = (ViewProfileViewController *) [segue destinationViewController];
         viewProfileVC.user = dataToPass;
+    } else if ([segue.identifier isEqualToString:@"PostDetail"]) {
+        NSIndexPath *indexPath =[self.tableView indexPathForCell:sender];
+        Post *dataToPass = self.posts[indexPath.row];
+        PostDetailViewController *detailsVC = (PostDetailViewController *) [segue destinationViewController];
+        detailsVC.post = dataToPass;
     }
 }
 
 @end
-
