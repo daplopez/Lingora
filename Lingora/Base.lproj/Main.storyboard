@@ -576,7 +576,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uge-yI-dbX">
-                                                    <rect key="frame" x="57" y="11" width="300" height="63"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="42"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -774,7 +774,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="143" id="Aff-5n-m39">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostProfileCell" rowHeight="143" id="Aff-5n-m39" customClass="PostProfileTableViewCell">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="143"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Aff-5n-m39" id="KMh-WE-pUX">
@@ -797,6 +797,10 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="postTextLabel" destination="LYW-OY-SoC" id="OKj-su-C6i"/>
+                                            <outlet property="timestampLabel" destination="7tP-gv-8JX" id="IoQ-Fx-rVc"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -811,7 +815,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Bcg-QZ-njr">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="postInterestCell" id="Bcg-QZ-njr" customClass="PostInterestCollectionViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="145" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="twN-Sn-UhF">
@@ -828,6 +832,9 @@
                                             </subviews>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="145" height="36"/>
+                                        <connections>
+                                            <outlet property="interestLabel" destination="bJY-Ed-uSb" id="oWp-UK-fpT"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -849,7 +856,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="E7H-kt-hZP">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="postProfileImages" id="E7H-kt-hZP" customClass="PostProfileImagesCollectionViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="126" height="125"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="J5b-qT-8NL">
@@ -863,6 +870,9 @@
                                             </subviews>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="126" height="125"/>
+                                        <connections>
+                                            <outlet property="profileImages" destination="m52-tZ-sKi" id="xEL-GL-BOC"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -879,9 +889,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="oON-fV-OxU"/>
                     <connections>
+                        <outlet property="imagesCollectionView" destination="GWM-31-PTB" id="n1O-yp-uFZ"/>
+                        <outlet property="interestsCollectionView" destination="qvC-9L-Kde" id="Yot-FD-Ct8"/>
                         <outlet property="nameLabel" destination="2Yz-9M-atL" id="FlX-9e-NWa"/>
                         <outlet property="nativeLanguageLabel" destination="24K-9t-5fE" id="oqp-cq-8MU"/>
                         <outlet property="profilePicture" destination="KBM-wb-ni8" id="dPq-D7-Aaf"/>
+                        <outlet property="tableView" destination="MlJ-J1-Vbe" id="kWz-vZ-QRI"/>
                         <outlet property="targetLanguageLabel" destination="oW7-1s-S7t" id="eYr-yr-Lkv"/>
                     </connections>
                 </viewController>
