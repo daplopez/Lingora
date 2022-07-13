@@ -139,7 +139,6 @@
         ViewProfileViewController *viewProfileVC = (ViewProfileViewController *) [segue destinationViewController];
         viewProfileVC.user = dataToPass;
     }
-    
 }
 
 @end
