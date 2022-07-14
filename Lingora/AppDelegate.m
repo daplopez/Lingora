@@ -27,7 +27,8 @@
 
     [Parse initializeWithConfiguration:config];
     
-    [GMSServices provideAPIKey:@"AIzaSyAxAdibRjms5VgjohDW2NMXizWVFELPgHA"];
+    //Testing
+    [GMSServices provideAPIKey:@""];
 
         return YES;
 }
