@@ -310,7 +310,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1559" y="1838"/>
+            <point key="canvasLocation" x="-2303" y="1838"/>
         </scene>
         <!--Post Detail View Controller-->
         <scene sceneID="MWw-vq-3uL">
@@ -325,14 +325,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNa-fz-2gU">
-                                <rect key="frame" x="87" y="44" width="42" height="21"/>
+                                <rect key="frame" x="87" y="44" width="133" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQA-9m-2h7">
-                                <rect key="frame" x="87" y="73" width="42" height="21"/>
+                                <rect key="frame" x="87" y="73" width="133" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -359,7 +359,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oMe-VF-NVL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-488.40579710144931" y="2684.5982142857142"/>
+            <point key="canvasLocation" x="-1233" y="2737"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="T8A-nS-KID">
+            <objects>
+                <viewController id="MVt-wa-9CY" customClass="MapViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q5I-Zt-9CL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="JKn-KJ-cwY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="P37-W7-Kaj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BK9-wp-97f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-488" y="1838"/>
         </scene>
         <!--Compose Post View Controller-->
         <scene sceneID="XEJ-9e-6KK">
@@ -411,7 +427,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EU3-bT-PRX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1912" y="2685"/>
+            <point key="canvasLocation" x="-2658" y="2737"/>
         </scene>
         <!--Recommended View Controller-->
         <scene sceneID="nYf-ch-bVO">
@@ -527,7 +543,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uhn-wX-a7m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1222" y="2685"/>
+            <point key="canvasLocation" x="-1968" y="2737"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="mFN-Z8-Lyn">
@@ -602,6 +618,7 @@
                     <connections>
                         <segue destination="W1R-eu-xkp" kind="relationship" relationship="viewControllers" id="eFQ-ry-dza"/>
                         <segue destination="wia-Cs-Gh9" kind="relationship" relationship="viewControllers" id="Yi8-rr-iGD"/>
+                        <segue destination="MVt-wa-9CY" kind="relationship" relationship="viewControllers" id="GSq-Qz-weo"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aa8-pa-LE6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -815,7 +832,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7GV-hL-COj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="597" y="1838"/>
+            <point key="canvasLocation" x="1517" y="1838"/>
         </scene>
         <!--View Profile View Controller-->
         <scene sceneID="TX1-fW-ZAH">
@@ -992,7 +1009,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Sl-PG-e5O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2630" y="2685"/>
+            <point key="canvasLocation" x="-3375" y="2737"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

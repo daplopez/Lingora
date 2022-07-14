@@ -31,6 +31,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self getUserData];
+    [self queryForUsers];
     [self.tableView reloadData];
     
 }
@@ -46,6 +47,23 @@
     }
 }
 
+
+- (void)queryForUsers {
+    PFQuery *query = [PFQuery queryWithClassName:@"_User"];
+    [query orderByDescending:@"createdAt"];
+    query.limit = 20;
+    
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
+        if (users != nil) {
+            NSLog(@"Successfully got users");
+            self.recommendedUsers = [NSArray arrayWithArray:users];
+            [self.tableView reloadData];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RecommendedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"recommendedCell"];

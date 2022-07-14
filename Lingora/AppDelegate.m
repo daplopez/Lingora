@@ -7,6 +7,7 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+@import GoogleMaps;
 
 @interface AppDelegate ()
 
@@ -22,9 +23,11 @@
             configuration.applicationId = @"br3tfJvr91ICV46owI5EuDK19G2dHpDsdIkNpur5";
             configuration.clientKey = @"MtocH1ODD1D95uh2FufxYdmivI9gIZtMpx2ynK4v";
             configuration.server = @"https://parseapi.back4app.com";
-        }];
+    }];
 
-        [Parse initializeWithConfiguration:config];
+    [Parse initializeWithConfiguration:config];
+    
+    [GMSServices provideAPIKey:@"AIzaSyAxAdibRjms5VgjohDW2NMXizWVFELPgHA"];
 
         return YES;
 }

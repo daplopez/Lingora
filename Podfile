@@ -8,6 +8,7 @@ target 'Lingora' do
   # Pods for Lingora
   pod 'Parse'
   pod 'Parse/UI'
+  pod 'GoogleMaps', '7.0.0'
 
   target 'LingoraTests' do
     inherit! :search_paths
