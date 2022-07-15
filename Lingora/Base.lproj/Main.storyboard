@@ -361,7 +361,7 @@
             </objects>
             <point key="canvasLocation" x="-1233" y="2737"/>
         </scene>
-        <!--Item-->
+        <!--Map-->
         <scene sceneID="T8A-nS-KID">
             <objects>
                 <viewController id="MVt-wa-9CY" customClass="MapViewController" sceneMemberID="viewController">
@@ -371,7 +371,7 @@
                         <viewLayoutGuide key="safeArea" id="JKn-KJ-cwY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="P37-W7-Kaj"/>
+                    <tabBarItem key="tabBarItem" title="Map" id="P37-W7-Kaj"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BK9-wp-97f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -572,15 +572,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWM-6v-wAB">
-                                <rect key="frame" x="226" y="531" width="60" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Login"/>
-                                <connections>
-                                    <action selector="didTapLogin:" destination="9Rq-Eu-Qcu" eventType="touchUpInside" id="uTe-po-JEa"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6D-q0-T0L">
                                 <rect key="frame" x="53" y="69" width="88" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -588,6 +579,15 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Back"/>
                                 <connections>
                                     <action selector="didTapBack:" destination="9Rq-Eu-Qcu" eventType="touchUpInside" id="Ovj-VO-64d"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWM-6v-wAB">
+                                <rect key="frame" x="307" y="419" width="60" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Login"/>
+                                <connections>
+                                    <action selector="didTapLogin:" destination="9Rq-Eu-Qcu" eventType="touchUpInside" id="uTe-po-JEa"/>
                                 </connections>
                             </button>
                         </subviews>

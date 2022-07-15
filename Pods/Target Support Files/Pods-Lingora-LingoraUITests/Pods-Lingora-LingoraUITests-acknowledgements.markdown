@@ -38,6 +38,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 Copyright 2022 Google
 
+## GooglePlaces
+
+Copyright 2022 Google
+
 ## Parse
 
 BSD License

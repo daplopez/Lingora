@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		11F616D466443D96239E31BE /* Pods_LingoraTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7438AD08CF16B028467E58EC /* Pods_LingoraTests.framework */; };
+		029111F89A79A6C65C329EE7 /* Pods_Lingora_LingoraUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1471240839B0BD0A2BBB11 /* Pods_Lingora_LingoraUITests.framework */; };
+		3C465AE2D181D29A79F0781C /* Pods_LingoraTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45546C0E6C1DC29190654511 /* Pods_LingoraTests.framework */; };
 		8D08BC392874A79F00E2D93D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D08BC382874A79F00E2D93D /* AppDelegate.m */; };
 		8D08BC3C2874A79F00E2D93D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D08BC3B2874A79F00E2D93D /* SceneDelegate.m */; };
 		8D08BC3F2874A79F00E2D93D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D08BC3E2874A79F00E2D93D /* ViewController.m */; };
@@ -37,8 +38,7 @@
 		8DC5AA1E28762BCE00011509 /* HomeFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5AA1D28762BCE00011509 /* HomeFeedViewController.m */; };
 		8DC5AA212876561A00011509 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5AA202876561A00011509 /* Post.m */; };
 		8DC5AA242877B3F400011509 /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5AA232877B3F400011509 /* PostTableViewCell.m */; };
-		9C1302F8BB18527D57BD41AF /* Pods_Lingora.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 566C2FAE41767571A1226C5D /* Pods_Lingora.framework */; };
-		D5FF53575B139263212FD9F2 /* Pods_Lingora_LingoraUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372ECB9523BB67C15329F347 /* Pods_Lingora_LingoraUITests.framework */; };
+		F4A4BA7BAA55E8254E2809F1 /* Pods_Lingora.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9F396EA7F6C2C08CEB415D /* Pods_Lingora.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,14 +59,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		02E7E12F973816EDB9CA559A /* Pods-Lingora-LingoraUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lingora-LingoraUITests.release.xcconfig"; path = "Target Support Files/Pods-Lingora-LingoraUITests/Pods-Lingora-LingoraUITests.release.xcconfig"; sourceTree = "<group>"; };
-		1B92C1E771E66F8B3B7807DE /* Pods-Lingora-LingoraUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lingora-LingoraUITests.debug.xcconfig"; path = "Target Support Files/Pods-Lingora-LingoraUITests/Pods-Lingora-LingoraUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		2E777A70C4BCF88F09A9CDA2 /* Pods-LingoraTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LingoraTests.release.xcconfig"; path = "Target Support Files/Pods-LingoraTests/Pods-LingoraTests.release.xcconfig"; sourceTree = "<group>"; };
-		372ECB9523BB67C15329F347 /* Pods_Lingora_LingoraUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lingora_LingoraUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4AC9B60667D9CF6F6313AD6A /* Pods-Lingora.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lingora.debug.xcconfig"; path = "Target Support Files/Pods-Lingora/Pods-Lingora.debug.xcconfig"; sourceTree = "<group>"; };
-		566C2FAE41767571A1226C5D /* Pods_Lingora.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lingora.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		699F34E8C57C046820D7058D /* Pods-LingoraTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LingoraTests.debug.xcconfig"; path = "Target Support Files/Pods-LingoraTests/Pods-LingoraTests.debug.xcconfig"; sourceTree = "<group>"; };
-		7438AD08CF16B028467E58EC /* Pods_LingoraTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LingoraTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		01AA6A31E6D7D3BBD0689275 /* Pods-Lingora.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lingora.debug.xcconfig"; path = "Target Support Files/Pods-Lingora/Pods-Lingora.debug.xcconfig"; sourceTree = "<group>"; };
+		099EFCCD233CE4398689CBAC /* Pods-Lingora-LingoraUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lingora-LingoraUITests.debug.xcconfig"; path = "Target Support Files/Pods-Lingora-LingoraUITests/Pods-Lingora-LingoraUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2C1471240839B0BD0A2BBB11 /* Pods_Lingora_LingoraUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lingora_LingoraUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A9F396EA7F6C2C08CEB415D /* Pods_Lingora.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lingora.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45546C0E6C1DC29190654511 /* Pods_LingoraTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LingoraTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		764867815445D58D3F2B9098 /* Pods-Lingora-LingoraUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lingora-LingoraUITests.release.xcconfig"; path = "Target Support Files/Pods-Lingora-LingoraUITests/Pods-Lingora-LingoraUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8D08BC342874A79F00E2D93D /* Lingora.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lingora.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D08BC372874A79F00E2D93D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8D08BC382874A79F00E2D93D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -122,7 +120,9 @@
 		8DC5AA202876561A00011509 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		8DC5AA222877B3F400011509 /* PostTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostTableViewCell.h; sourceTree = "<group>"; };
 		8DC5AA232877B3F400011509 /* PostTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostTableViewCell.m; sourceTree = "<group>"; };
-		A49499F6E2D6E47A5F1B7B26 /* Pods-Lingora.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lingora.release.xcconfig"; path = "Target Support Files/Pods-Lingora/Pods-Lingora.release.xcconfig"; sourceTree = "<group>"; };
+		D0202880DCEBFB0B7B05458B /* Pods-LingoraTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LingoraTests.debug.xcconfig"; path = "Target Support Files/Pods-LingoraTests/Pods-LingoraTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E3790AAAFC7DEA2F5390122C /* Pods-LingoraTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LingoraTests.release.xcconfig"; path = "Target Support Files/Pods-LingoraTests/Pods-LingoraTests.release.xcconfig"; sourceTree = "<group>"; };
+		F56DCA3193B987F897B02C73 /* Pods-Lingora.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lingora.release.xcconfig"; path = "Target Support Files/Pods-Lingora/Pods-Lingora.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C1302F8BB18527D57BD41AF /* Pods_Lingora.framework in Frameworks */,
+				F4A4BA7BAA55E8254E2809F1 /* Pods_Lingora.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11F616D466443D96239E31BE /* Pods_LingoraTests.framework in Frameworks */,
+				3C465AE2D181D29A79F0781C /* Pods_LingoraTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,7 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5FF53575B139263212FD9F2 /* Pods_Lingora_LingoraUITests.framework in Frameworks */,
+				029111F89A79A6C65C329EE7 /* Pods_Lingora_LingoraUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,22 +156,22 @@
 		0EE68344FB2931705B4DFC88 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4AC9B60667D9CF6F6313AD6A /* Pods-Lingora.debug.xcconfig */,
-				A49499F6E2D6E47A5F1B7B26 /* Pods-Lingora.release.xcconfig */,
-				1B92C1E771E66F8B3B7807DE /* Pods-Lingora-LingoraUITests.debug.xcconfig */,
-				02E7E12F973816EDB9CA559A /* Pods-Lingora-LingoraUITests.release.xcconfig */,
-				699F34E8C57C046820D7058D /* Pods-LingoraTests.debug.xcconfig */,
-				2E777A70C4BCF88F09A9CDA2 /* Pods-LingoraTests.release.xcconfig */,
+				01AA6A31E6D7D3BBD0689275 /* Pods-Lingora.debug.xcconfig */,
+				F56DCA3193B987F897B02C73 /* Pods-Lingora.release.xcconfig */,
+				099EFCCD233CE4398689CBAC /* Pods-Lingora-LingoraUITests.debug.xcconfig */,
+				764867815445D58D3F2B9098 /* Pods-Lingora-LingoraUITests.release.xcconfig */,
+				D0202880DCEBFB0B7B05458B /* Pods-LingoraTests.debug.xcconfig */,
+				E3790AAAFC7DEA2F5390122C /* Pods-LingoraTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		60EF7124EE4E0F98AFBB5DF0 /* Frameworks */ = {
+		25A9F55D2D564442FB4D2481 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				566C2FAE41767571A1226C5D /* Pods_Lingora.framework */,
-				372ECB9523BB67C15329F347 /* Pods_Lingora_LingoraUITests.framework */,
-				7438AD08CF16B028467E58EC /* Pods_LingoraTests.framework */,
+				3A9F396EA7F6C2C08CEB415D /* Pods_Lingora.framework */,
+				2C1471240839B0BD0A2BBB11 /* Pods_Lingora_LingoraUITests.framework */,
+				45546C0E6C1DC29190654511 /* Pods_LingoraTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -184,7 +184,7 @@
 				8D08BC5C2874A7A000E2D93D /* LingoraUITests */,
 				8D08BC352874A79F00E2D93D /* Products */,
 				0EE68344FB2931705B4DFC88 /* Pods */,
-				60EF7124EE4E0F98AFBB5DF0 /* Frameworks */,
+				25A9F55D2D564442FB4D2481 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -310,12 +310,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8D08BC632874A7A000E2D93D /* Build configuration list for PBXNativeTarget "Lingora" */;
 			buildPhases = (
-				7E2FA7269A2AEB5BB8A44C4A /* [CP] Check Pods Manifest.lock */,
+				E00461DEF476CB779B178CEA /* [CP] Check Pods Manifest.lock */,
 				8D08BC302874A79F00E2D93D /* Sources */,
 				8D08BC312874A79F00E2D93D /* Frameworks */,
 				8D08BC322874A79F00E2D93D /* Resources */,
-				E0CC05434E44FF1461BD624C /* [CP] Embed Pods Frameworks */,
-				08D2E99C41A3596030767544 /* [CP] Copy Pods Resources */,
+				8475CD90B0AB3E7AFC0EFF07 /* [CP] Embed Pods Frameworks */,
+				E239D4E851999896146F11DB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -330,7 +330,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8D08BC662874A7A000E2D93D /* Build configuration list for PBXNativeTarget "LingoraTests" */;
 			buildPhases = (
-				0F3958D26FB2C1F508305617 /* [CP] Check Pods Manifest.lock */,
+				0061F95CA098A441ACEB2816 /* [CP] Check Pods Manifest.lock */,
 				8D08BC4B2874A7A000E2D93D /* Sources */,
 				8D08BC4C2874A7A000E2D93D /* Frameworks */,
 				8D08BC4D2874A7A000E2D93D /* Resources */,
@@ -349,12 +349,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8D08BC692874A7A000E2D93D /* Build configuration list for PBXNativeTarget "LingoraUITests" */;
 			buildPhases = (
-				96E0AB73D1324CDD59978954 /* [CP] Check Pods Manifest.lock */,
+				34B5D3A32C2179EE57ABBB88 /* [CP] Check Pods Manifest.lock */,
 				8D08BC552874A7A000E2D93D /* Sources */,
 				8D08BC562874A7A000E2D93D /* Frameworks */,
 				8D08BC572874A7A000E2D93D /* Resources */,
-				6F9390F092BF3B322999B2DC /* [CP] Embed Pods Frameworks */,
-				31164BCD68EF05DB00449B2F /* [CP] Copy Pods Resources */,
+				5BE63DF15592451CF0B8DB6F /* [CP] Embed Pods Frameworks */,
+				DCB1C4866486FB48408300CA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -436,24 +436,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		08D2E99C41A3596030767544 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Lingora/Pods-Lingora-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Lingora/Pods-Lingora-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Lingora/Pods-Lingora-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		0F3958D26FB2C1F508305617 /* [CP] Check Pods Manifest.lock */ = {
+		0061F95CA098A441ACEB2816 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -475,63 +458,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		31164BCD68EF05DB00449B2F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Lingora-LingoraUITests/Pods-Lingora-LingoraUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Lingora-LingoraUITests/Pods-Lingora-LingoraUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Lingora-LingoraUITests/Pods-Lingora-LingoraUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6F9390F092BF3B322999B2DC /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Lingora-LingoraUITests/Pods-Lingora-LingoraUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Lingora-LingoraUITests/Pods-Lingora-LingoraUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Lingora-LingoraUITests/Pods-Lingora-LingoraUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7E2FA7269A2AEB5BB8A44C4A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Lingora-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		96E0AB73D1324CDD59978954 /* [CP] Check Pods Manifest.lock */ = {
+		34B5D3A32C2179EE57ABBB88 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -553,7 +480,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E0CC05434E44FF1461BD624C /* [CP] Embed Pods Frameworks */ = {
+		5BE63DF15592451CF0B8DB6F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lingora-LingoraUITests/Pods-Lingora-LingoraUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lingora-LingoraUITests/Pods-Lingora-LingoraUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Lingora-LingoraUITests/Pods-Lingora-LingoraUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8475CD90B0AB3E7AFC0EFF07 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -568,6 +512,62 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Lingora/Pods-Lingora-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DCB1C4866486FB48408300CA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lingora-LingoraUITests/Pods-Lingora-LingoraUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lingora-LingoraUITests/Pods-Lingora-LingoraUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Lingora-LingoraUITests/Pods-Lingora-LingoraUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E00461DEF476CB779B178CEA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Lingora-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E239D4E851999896146F11DB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lingora/Pods-Lingora-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lingora/Pods-Lingora-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Lingora/Pods-Lingora-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -767,7 +767,7 @@
 		};
 		8D08BC642874A7A000E2D93D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4AC9B60667D9CF6F6313AD6A /* Pods-Lingora.debug.xcconfig */;
+			baseConfigurationReference = 01AA6A31E6D7D3BBD0689275 /* Pods-Lingora.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -795,7 +795,7 @@
 		};
 		8D08BC652874A7A000E2D93D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A49499F6E2D6E47A5F1B7B26 /* Pods-Lingora.release.xcconfig */;
+			baseConfigurationReference = F56DCA3193B987F897B02C73 /* Pods-Lingora.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -823,7 +823,7 @@
 		};
 		8D08BC672874A7A000E2D93D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 699F34E8C57C046820D7058D /* Pods-LingoraTests.debug.xcconfig */;
+			baseConfigurationReference = D0202880DCEBFB0B7B05458B /* Pods-LingoraTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -842,7 +842,7 @@
 		};
 		8D08BC682874A7A000E2D93D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2E777A70C4BCF88F09A9CDA2 /* Pods-LingoraTests.release.xcconfig */;
+			baseConfigurationReference = E3790AAAFC7DEA2F5390122C /* Pods-LingoraTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -861,7 +861,7 @@
 		};
 		8D08BC6A2874A7A000E2D93D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1B92C1E771E66F8B3B7807DE /* Pods-Lingora-LingoraUITests.debug.xcconfig */;
+			baseConfigurationReference = 099EFCCD233CE4398689CBAC /* Pods-Lingora-LingoraUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -878,7 +878,7 @@
 		};
 		8D08BC6B2874A7A000E2D93D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 02E7E12F973816EDB9CA559A /* Pods-Lingora-LingoraUITests.release.xcconfig */;
+			baseConfigurationReference = 764867815445D58D3F2B9098 /* Pods-Lingora-LingoraUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
