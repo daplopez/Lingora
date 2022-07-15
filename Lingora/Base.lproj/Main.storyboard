@@ -35,7 +35,7 @@
                                 <buttonConfiguration key="configuration" style="gray" title=" Login "/>
                                 <connections>
                                     <action selector="didTapLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sXe-wZ-ay2"/>
-                                    <segue destination="9Rq-Eu-Qcu" kind="show" id="c0r-r5-Vdf"/>
+                                    <segue destination="9fa-UN-cQE" kind="show" id="c0r-r5-Vdf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xut-sm-JaL">
@@ -588,7 +588,7 @@
         <!--Login View Controller-->
         <scene sceneID="mFN-Z8-Lyn">
             <objects>
-                <viewController storyboardIdentifier="Login" id="9Rq-Eu-Qcu" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController id="9Rq-Eu-Qcu" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lY0-W9-gfr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -612,15 +612,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6D-q0-T0L">
-                                <rect key="frame" x="53" y="69" width="88" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Back"/>
-                                <connections>
-                                    <action selector="didTapBack:" destination="9Rq-Eu-Qcu" eventType="touchUpInside" id="Ovj-VO-64d"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWM-6v-wAB">
                                 <rect key="frame" x="307" y="419" width="60" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -634,7 +625,19 @@
                         <viewLayoutGuide key="safeArea" id="cmv-fy-IWV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="72w-21-Kxi"/>
+                    <navigationItem key="navigationItem" id="72w-21-Kxi">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="0oT-KS-bvS">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="U6D-q0-T0L">
+                                <rect key="frame" x="53" y="69" width="88" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Back"/>
+                                <connections>
+                                    <action selector="didTapBack:" destination="9Rq-Eu-Qcu" eventType="touchUpInside" id="Ovj-VO-64d"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="passwordField" destination="gve-XV-0HO" id="SdK-yk-8ww"/>
                         <outlet property="usernameField" destination="QM5-Mm-uP4" id="Dzt-7E-pEO"/>
@@ -643,7 +646,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ift-KS-vWA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="863.768115942029" y="371.65178571428572"/>
+            <point key="canvasLocation" x="1419" y="372"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ofG-9a-npw">
@@ -1070,9 +1073,28 @@
             </objects>
             <point key="canvasLocation" x="-1649" y="372"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pkg-QW-Q1Q">
+            <objects>
+                <navigationController storyboardIdentifier="Login" automaticallyAdjustsScrollViewInsets="NO" id="9fa-UN-cQE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="AOl-sJ-4wj"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="58d-bH-QaS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9Rq-Eu-Qcu" kind="relationship" relationship="rootViewController" id="VdZ-vZ-BwV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mcY-iJ-Chc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="697" y="372"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="htF-bb-ZcZ"/>
+        <segue reference="G2g-KN-7FC"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
