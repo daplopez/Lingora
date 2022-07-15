@@ -13,8 +13,9 @@
 #import "Parse/PFImageView.h"
 #import "ViewProfileViewController.h"
 #import "PostDetailViewController.h"
+#import <GoogleMaps/GoogleMaps.h>
 
-@interface HomeFeedViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface HomeFeedViewController () <UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate>
 // current user info
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet PFImageView *profilePicture;
@@ -23,6 +24,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *targetLanguageLabel;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) NSArray *posts;
+// location
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) CLLocation * _Nullable currentLocation;
+@property (strong, nonatomic) GMSMapView *mapView;
 @end
 
 @implementation HomeFeedViewController
@@ -33,12 +38,25 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    
+    [self initLocationManager];
+    
     [self createRefreshControl];
     [self setUserProperties];
     [self queryForUserPosts];
     [self.tableView reloadData];
     //TODO: change secs to 1 later but making too many requests rn
     [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
+}
+
+
+- (void)initLocationManager {
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [self.locationManager requestWhenInUseAuthorization];
+    self.locationManager.distanceFilter = 50;
+    [self.locationManager startUpdatingLocation];
+    self.locationManager.delegate = self;
 }
 
  
@@ -146,5 +164,63 @@
         detailsVC.post = dataToPass;
     }
 }
+
+
+// Delegates to handle events for the location manager.
+#pragma mark - CLLocationManagerDelegate
+
+// Handle incoming location events.
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
+{
+    CLLocation *location = locations.lastObject;
+    NSLog(@"Location: %@", location);
+  
+//    float zoomLevel = self.locationManager.accuracyAuthorization == CLAccuracyAuthorizationFullAccuracy ? self.preciseLocationZoomLevel:self.approximateLocationZoomLevel;
+    GMSCameraPosition * camera = [GMSCameraPosition cameraWithLatitude:location.coordinate.latitude
+                                                           longitude:location.coordinate.longitude zoom:10];
+  
+    self.mapView.camera = camera;
+    [self.mapView animateToCameraPosition:camera];
+    
+}
+
+// Handle authorization for the location manager.
+- (void)locationManagerDidChangeAuthorization:(CLLocationManager *)manager
+{
+  // Check accuracy authorization
+  CLAccuracyAuthorization accuracy = manager.accuracyAuthorization;
+  switch (accuracy) {
+    case CLAccuracyAuthorizationFullAccuracy:
+      NSLog(@"Location accuracy is precise.");
+      break;
+    case CLAccuracyAuthorizationReducedAccuracy:
+      NSLog(@"Location accuracy is not precise.");
+      break;
+  }
+  
+  // Handle authorization status
+  switch (manager.authorizationStatus) {
+    case kCLAuthorizationStatusRestricted:
+      NSLog(@"Location access was restricted.");
+      break;
+    case kCLAuthorizationStatusDenied:
+      NSLog(@"User denied access to location.");
+      // Display the map using the default location.
+      self.mapView.hidden = NO;
+    case kCLAuthorizationStatusNotDetermined:
+      NSLog(@"Location status not determined.");
+    case kCLAuthorizationStatusAuthorizedAlways:
+    case kCLAuthorizationStatusAuthorizedWhenInUse:
+      NSLog(@"Location status is OK.");
+  }
+}
+
+// Handle location manager errors.
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+  [manager stopUpdatingLocation];
+  NSLog(@"Error: %@", error.localizedDescription);
+}
+
 
 @end
