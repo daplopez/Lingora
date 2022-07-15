@@ -593,28 +593,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIn-is-PWz">
-                                <rect key="frame" x="158" y="345" width="95" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIn-is-PWz">
+                                <rect key="frame" x="16" y="340" width="382" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QM5-Mm-uP4">
-                                <rect key="frame" x="129" y="419" width="152" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QM5-Mm-uP4">
+                                <rect key="frame" x="130" y="413" width="154" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gve-XV-0HO">
-                                <rect key="frame" x="129" y="470" width="152" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gve-XV-0HO">
+                                <rect key="frame" x="130" y="463" width="154" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWM-6v-wAB">
-                                <rect key="frame" x="307" y="419" width="60" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWM-6v-wAB">
+                                <rect key="frame" x="224" y="505" width="60" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Login"/>
                                 <connections>
@@ -624,11 +620,25 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cmv-fy-IWV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cmv-fy-IWV" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="tWM-6v-wAB" secondAttribute="trailing" constant="130" id="1sw-88-zmC"/>
+                            <constraint firstItem="gve-XV-0HO" firstAttribute="top" secondItem="QM5-Mm-uP4" secondAttribute="bottom" constant="16" id="5NH-be-0dB"/>
+                            <constraint firstItem="cmv-fy-IWV" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="gve-XV-0HO" secondAttribute="trailing" constant="130" id="BIf-fx-gHp"/>
+                            <constraint firstItem="tWM-6v-wAB" firstAttribute="top" secondItem="gve-XV-0HO" secondAttribute="bottom" constant="4" id="Gh1-m6-Whw"/>
+                            <constraint firstItem="cmv-fy-IWV" firstAttribute="trailing" secondItem="fIn-is-PWz" secondAttribute="trailing" constant="16" id="HaE-T1-2Ba"/>
+                            <constraint firstItem="cmv-fy-IWV" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="tWM-6v-wAB" secondAttribute="bottom" constant="16" id="PvI-4i-wM9"/>
+                            <constraint firstItem="cmv-fy-IWV" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="QM5-Mm-uP4" secondAttribute="trailing" constant="130" id="YVJ-Vq-bQE"/>
+                            <constraint firstItem="gve-XV-0HO" firstAttribute="leading" relation="lessThanOrEqual" secondItem="cmv-fy-IWV" secondAttribute="leading" constant="130" id="d0x-Mp-jzv"/>
+                            <constraint firstItem="fIn-is-PWz" firstAttribute="top" relation="greaterThanOrEqual" secondItem="cmv-fy-IWV" secondAttribute="top" constant="150" id="eN7-Qo-mao"/>
+                            <constraint firstItem="QM5-Mm-uP4" firstAttribute="leading" relation="lessThanOrEqual" secondItem="cmv-fy-IWV" secondAttribute="leading" constant="130" id="fhG-sU-HwF"/>
+                            <constraint firstItem="QM5-Mm-uP4" firstAttribute="top" secondItem="fIn-is-PWz" secondAttribute="bottom" constant="25" id="k3e-7n-224"/>
+                            <constraint firstItem="fIn-is-PWz" firstAttribute="leading" secondItem="cmv-fy-IWV" secondAttribute="leading" constant="16" id="kK2-4u-Z2I"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="72w-21-Kxi">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="0oT-KS-bvS">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="U6D-q0-T0L">
-                                <rect key="frame" x="53" y="69" width="88" height="31"/>
+                                <rect key="frame" x="20" y="11" width="88" height="34.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Back"/>
