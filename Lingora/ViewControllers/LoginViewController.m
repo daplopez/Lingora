@@ -9,7 +9,7 @@
 #import <Parse/Parse.h>
 #import "SceneDelegate.h"
 
-@interface LoginViewController ()
+@interface LoginViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 
@@ -19,6 +19,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self assignDelegates];
+}
+
+
+- (void)assignDelegates {
+    self.usernameField.delegate = self;
+    self.passwordField.delegate = self;
 }
 
 - (IBAction)didTapBack:(id)sender {
@@ -59,6 +67,13 @@
     // add the OK action to the alert controller
     [alert addAction:okAction];
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    NSLog(@"Text field was dismissed by the delegate");
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end
