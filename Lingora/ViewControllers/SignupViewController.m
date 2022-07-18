@@ -42,6 +42,10 @@
     self.proficiencyPickerView.delegate = self;
     self.proficiencyPickerView.dataSource = self;
     
+    self.nameField.delegate = self;
+    self.emailField.delegate = self;
+    self.usernameField.delegate = self;
+    self.passwordField.delegate = self;
     self.nativeLanguageField.delegate = self;
     self.nativeLanguageField.inputView = self.nativeLanguagePickerView;
     self.targetLanguageField.delegate = self;
@@ -68,12 +72,15 @@
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     if ([textField isEqual:self.nativeLanguageField]) {
         [self.nativeLanguagePickerView setHidden:NO];
+        return NO;
     } else if ([textField isEqual:self.targetLanguageField]) {
         [self.targetLanguagePickerView setHidden:NO];
-    } else {
+        return NO;
+    } else if ([textField isEqual: self.proficiencyLevelField]){
         [self.proficiencyPickerView setHidden:NO];
+        return NO;
     }
-    return NO;
+    return YES;
 }
 
 
@@ -154,5 +161,15 @@
     [alert addAction:okAction];
     [self presentViewController:alert animated:YES completion:nil];
 }
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    NSLog(@"Text field was dismissed by the delegate");
+    
+    [textField resignFirstResponder];
+    
+    return YES;
+}
+
 
 @end

@@ -57,9 +57,9 @@
     CLLocation *location = locations.lastObject;
     NSLog(@"Location: %@", location);
   
-//    float zoomLevel = self.locationManager.accuracyAuthorization == CLAccuracyAuthorizationFullAccuracy ? self.preciseLocationZoomLevel:self.approximateLocationZoomLevel;
+    float zoomLevel = self.locationManager.accuracyAuthorization == CLAccuracyAuthorizationFullAccuracy ? self.preciseLocationZoomLevel:self.approximateLocationZoomLevel;
     GMSCameraPosition * camera = [GMSCameraPosition cameraWithLatitude:location.coordinate.latitude
-                                                           longitude:location.coordinate.longitude zoom:10];
+                                                           longitude:location.coordinate.longitude zoom:zoomLevel];
   
     self.mapView.camera = camera;
     [self.mapView animateToCameraPosition:camera];
