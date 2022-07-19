@@ -22,6 +22,7 @@
 		8D08BC602874A7A000E2D93D /* LingoraUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D08BC5F2874A7A000E2D93D /* LingoraUITestsLaunchTests.m */; };
 		8D08BC712874D7DF00E2D93D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D08BC702874D7DF00E2D93D /* LoginViewController.m */; };
 		8D181DE228874ECC00011E25 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D181DE128874ECC00011E25 /* ChatViewController.m */; };
+		8D181DE52887547900011E25 /* ChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D181DE42887547900011E25 /* ChatTableViewCell.m */; };
 		8D1A7D782880A1AE005146C4 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1A7D772880A1AE005146C4 /* MapViewController.m */; };
 		8D42F8E8287F46CA0078FD29 /* PostInterestCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D42F8E7287F46CA0078FD29 /* PostInterestCollectionViewCell.m */; };
 		8D42F8EB287F47050078FD29 /* PostProfileImagesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D42F8EA287F47050078FD29 /* PostProfileImagesCollectionViewCell.m */; };
@@ -90,6 +91,8 @@
 		8D08BC702874D7DF00E2D93D /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		8D181DE028874ECC00011E25 /* ChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		8D181DE128874ECC00011E25 /* ChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		8D181DE32887547900011E25 /* ChatTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatTableViewCell.h; sourceTree = "<group>"; };
+		8D181DE42887547900011E25 /* ChatTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatTableViewCell.m; sourceTree = "<group>"; };
 		8D1A7D762880A1AE005146C4 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = Lingora/MapViewController.h; sourceTree = SOURCE_ROOT; };
 		8D1A7D772880A1AE005146C4 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = Lingora/MapViewController.m; sourceTree = SOURCE_ROOT; };
 		8D42F8E6287F46CA0078FD29 /* PostInterestCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PostInterestCollectionViewCell.h; path = Lingora/PostInterestCollectionViewCell.h; sourceTree = SOURCE_ROOT; };
@@ -309,6 +312,8 @@
 				8DBA3EC02878C2680030EBEF /* ProfileTableViewCell.m */,
 				8DC5AA222877B3F400011509 /* PostTableViewCell.h */,
 				8DC5AA232877B3F400011509 /* PostTableViewCell.m */,
+				8D181DE32887547900011E25 /* ChatTableViewCell.h */,
+				8D181DE42887547900011E25 /* ChatTableViewCell.m */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -588,6 +593,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D08BC3F2874A79F00E2D93D /* ViewController.m in Sources */,
+				8D181DE52887547900011E25 /* ChatTableViewCell.m in Sources */,
 				8D6C5005287CDDD800D22747 /* ViewProfileViewController.m in Sources */,
 				8D08BC392874A79F00E2D93D /* AppDelegate.m in Sources */,
 				8D08BC4A2874A7A000E2D93D /* main.m in Sources */,
