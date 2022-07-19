@@ -21,6 +21,7 @@
 		8D08BC5E2874A7A000E2D93D /* LingoraUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D08BC5D2874A7A000E2D93D /* LingoraUITests.m */; };
 		8D08BC602874A7A000E2D93D /* LingoraUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D08BC5F2874A7A000E2D93D /* LingoraUITestsLaunchTests.m */; };
 		8D08BC712874D7DF00E2D93D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D08BC702874D7DF00E2D93D /* LoginViewController.m */; };
+		8D181DE228874ECC00011E25 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D181DE128874ECC00011E25 /* ChatViewController.m */; };
 		8D1A7D782880A1AE005146C4 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1A7D772880A1AE005146C4 /* MapViewController.m */; };
 		8D42F8E8287F46CA0078FD29 /* PostInterestCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D42F8E7287F46CA0078FD29 /* PostInterestCollectionViewCell.m */; };
 		8D42F8EB287F47050078FD29 /* PostProfileImagesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D42F8EA287F47050078FD29 /* PostProfileImagesCollectionViewCell.m */; };
@@ -87,6 +88,8 @@
 		8D08BC5F2874A7A000E2D93D /* LingoraUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LingoraUITestsLaunchTests.m; sourceTree = "<group>"; };
 		8D08BC6F2874D7DF00E2D93D /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		8D08BC702874D7DF00E2D93D /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		8D181DE028874ECC00011E25 /* ChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		8D181DE128874ECC00011E25 /* ChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		8D1A7D762880A1AE005146C4 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = Lingora/MapViewController.h; sourceTree = SOURCE_ROOT; };
 		8D1A7D772880A1AE005146C4 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = Lingora/MapViewController.m; sourceTree = SOURCE_ROOT; };
 		8D42F8E6287F46CA0078FD29 /* PostInterestCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PostInterestCollectionViewCell.h; path = Lingora/PostInterestCollectionViewCell.h; sourceTree = SOURCE_ROOT; };
@@ -263,6 +266,8 @@
 				8D08BC702874D7DF00E2D93D /* LoginViewController.m */,
 				8DBA3EBC2878B8D40030EBEF /* ProfileViewController.h */,
 				8DBA3EBD2878B8D40030EBEF /* ProfileViewController.m */,
+				8D181DE028874ECC00011E25 /* ChatViewController.h */,
+				8D181DE128874ECC00011E25 /* ChatViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -604,6 +609,7 @@
 				8DBA3EBE2878B8D40030EBEF /* ProfileViewController.m in Sources */,
 				8D42F8E8287F46CA0078FD29 /* PostInterestCollectionViewCell.m in Sources */,
 				8DC5AA242877B3F400011509 /* PostTableViewCell.m in Sources */,
+				8D181DE228874ECC00011E25 /* ChatViewController.m in Sources */,
 				8D06F97A2881F75F0071205C /* Location.m in Sources */,
 				8D42F8EB287F47050078FD29 /* PostProfileImagesCollectionViewCell.m in Sources */,
 			);
