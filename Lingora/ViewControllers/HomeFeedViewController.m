@@ -16,7 +16,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "Location.h"
 
-@interface HomeFeedViewController () <UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate>
+@interface HomeFeedViewController () <UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, PostTableViewCellProfileDelegate>
 // current user info
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet PFImageView *profilePicture;
@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *targetLanguageLabel;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) NSArray *posts;
+@property (strong, nonatomic) PFUser *dataToPass;
 // location
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation * _Nullable currentLocation;
@@ -132,12 +133,20 @@
         [cell.postProfilePicture loadInBackground];
         cell.postProfilePicture.userInteractionEnabled = YES;
     }
+    
+//    cell.tapG
     return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.posts.count;
 }
+
+//-(void)didTapProfileButton:(PostTableViewCell *)cell {
+//    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+//    self.dataToPass = self.posts[indexPath.row][@"author"];
+//    NSLog(@"\n ====-----HEREEEEE-----====");
+//}
 
 - (IBAction)didTapProfilePic:(id)sender {
     SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
@@ -153,10 +162,10 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if([segue.identifier isEqualToString:@"profileView"]) {
-        NSIndexPath *indexPath =[self.tableView indexPathForCell:sender];
-        PFUser *dataToPass = self.posts[indexPath.row][@"author"];
+//        NSIndexPath *indexPath =[self.tableView indexPathForCell:sender];
+//        PFUser *dataToPass = self.posts[indexPath.row][@"author"];
         ViewProfileViewController *viewProfileVC = (ViewProfileViewController *) [segue destinationViewController];
-        viewProfileVC.user = dataToPass;
+        viewProfileVC.user = self.dataToPass;
     } else if ([segue.identifier isEqualToString:@"PostDetail"]) {
         NSIndexPath *indexPath =[self.tableView indexPathForCell:sender];
         Post *dataToPass = self.posts[indexPath.row];
@@ -219,6 +228,17 @@
 {
   [manager stopUpdatingLocation];
   NSLog(@"Error: %@", error.localizedDescription);
+}
+
+
+- (void)didTapProfileButton:(nonnull PostTableViewCell *)cell {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    self.dataToPass = self.posts[indexPath.row][@"author"];
+    NSLog(@"\n ====-----HEREEEEE-----====");
+    SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    myDelegate.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"ProfileView"];
+
 }
 
 

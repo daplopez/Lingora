@@ -261,6 +261,15 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1k5-8u-Dhf">
+                                                    <rect key="frame" x="131" y="83" width="67" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                    <connections>
+                                                        <action selector="didTapProfileButton:" destination="QAH-zP-Fea" eventType="touchUpInside" id="Z6a-Lz-t6R"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <gestureRecognizers/>
                                             <constraints>

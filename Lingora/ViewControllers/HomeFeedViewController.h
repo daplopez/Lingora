@@ -6,10 +6,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "PostTableViewCell.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HomeFeedViewController : UIViewController
+@interface HomeFeedViewController : UIViewController //<PostTableViewCellProfileDelegate>
 
 @end
 
