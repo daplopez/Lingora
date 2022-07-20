@@ -329,12 +329,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QDy-sP-rVX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="axE-FZ-cTQ">
-                    <connections>
-                        <action selector="didTapProfilePic:" destination="W1R-eu-xkp" id="YXf-DX-q91"/>
-                        <segue destination="ofW-9V-iD7" kind="show" identifier="profileView" id="oC8-av-VRx"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-2671.0144927536235" y="1837.5"/>
         </scene>
@@ -346,12 +340,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eGO-b2-g3f" customClass="PFImageView">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eGO-b2-g3f" customClass="PFImageView">
                                 <rect key="frame" x="16" y="72" width="50" height="50"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="TQ9-R6-TvL"/>
                                     <constraint firstAttribute="height" constant="50" id="Uqe-A7-n7c"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="X1L-gt-JLp" appends="YES" id="lcz-cC-267"/>
+                                </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNa-fz-2gU">
                                 <rect key="frame" x="74" y="72" width="45" height="21"/>
@@ -418,8 +416,14 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oMe-VF-NVL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="X1L-gt-JLp">
+                    <connections>
+                        <action selector="didTapProfilePicture:" destination="tN0-KZ-pLV" id="1tb-fD-oWL"/>
+                        <segue destination="ofW-9V-iD7" kind="show" identifier="PostProfile" id="wTC-3H-oL6"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1497.1014492753625" y="2777.6785714285711"/>
+            <point key="canvasLocation" x="-2355" y="2660"/>
         </scene>
         <!--Chat-->
         <scene sceneID="ukB-Ul-awr">
@@ -559,7 +563,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EU3-bT-PRX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3041" y="2778"/>
+            <point key="canvasLocation" x="-3813" y="2660"/>
         </scene>
         <!--Recommended View Controller-->
         <scene sceneID="nYf-ch-bVO">
@@ -675,7 +679,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uhn-wX-a7m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2270" y="2778"/>
+            <point key="canvasLocation" x="-3083" y="2660"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="mFN-Z8-Lyn">
@@ -1164,7 +1168,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Sl-PG-e5O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3845" y="2778"/>
+            <point key="canvasLocation" x="-1619" y="2660"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GXX-aP-75n">

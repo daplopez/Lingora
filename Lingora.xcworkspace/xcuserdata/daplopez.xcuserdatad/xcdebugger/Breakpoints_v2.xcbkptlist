@@ -71,16 +71,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A5C91827-A195-4F8A-829D-D04F6D9B6697"
+            uuid = "4D4F74B4-36F2-451F-8E62-C1ACFFEB1518"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Lingora/ViewControllers/HomeFeedViewController.m"
+            filePath = "Lingora/PostDetailViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "234"
-            endingLineNumber = "234"
-            landmarkName = "-didTapProfileButton:"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "-didTapProfilePicture:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
