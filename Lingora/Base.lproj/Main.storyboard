@@ -371,15 +371,31 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4f1-h6-wXt">
+                                <rect key="frame" x="20" y="256" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEd-LN-FYU">
+                                <rect key="frame" x="346" y="256" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="I8s-Iz-dzX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="qet-2z-Rkh"/>
                     <connections>
+                        <outlet property="languageLabel" destination="4f1-h6-wXt" id="9dj-zg-koA"/>
                         <outlet property="nameLabel" destination="uNa-fz-2gU" id="hdl-bh-6xV"/>
                         <outlet property="postTextLabel" destination="Me5-Pr-EvK" id="wOT-9H-DIA"/>
                         <outlet property="profilePicture" destination="eGO-b2-g3f" id="RwQ-hf-Vmm"/>
+                        <outlet property="timestampLabel" destination="jEd-LN-FYU" id="3W1-gA-BPj"/>
                         <outlet property="usernameLabel" destination="QQA-9m-2h7" id="elq-S3-Xjd"/>
                     </connections>
                 </viewController>
