@@ -7,6 +7,7 @@
 
 #import "PostDetailViewController.h"
 #import "Parse/PFImageView.h"
+#import "DateTools/DateTools.h"
 
 @interface PostDetailViewController ()
 @property (weak, nonatomic) IBOutlet PFImageView *profilePicture;
@@ -33,7 +34,7 @@
     self.usernameLabel.text = user.username;
     self.postTextLabel.text = self.post.postText;
     self.languageLabel.text = user[@"nativeLanguage"];
-    
+    self.timestampLabel.text = [self.post.createdAt shortTimeAgoSinceNow];
 }
 
 @end
