@@ -9,7 +9,7 @@
 #import "PostTableViewCell.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HomeFeedViewController : UIViewController //<PostTableViewCellProfileDelegate>
+@interface HomeFeedViewController : UIViewController
 
 @end
 
