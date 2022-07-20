@@ -32,6 +32,8 @@
     self.nameLabel.text = user[@"fullName"];
     self.usernameLabel.text = user.username;
     self.postTextLabel.text = self.post.postText;
+    self.languageLabel.text = user[@"nativeLanguage"];
+    
 }
 
 @end
