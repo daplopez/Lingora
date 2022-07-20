@@ -14,6 +14,7 @@
 #import "ViewProfileViewController.h"
 #import "PostDetailViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import "Location.h"
 
 @interface HomeFeedViewController () <UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate>
 // current user info
@@ -27,7 +28,6 @@
 // location
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation * _Nullable currentLocation;
-@property (strong, nonatomic) GMSMapView *mapView;
 @end
 
 @implementation HomeFeedViewController
@@ -172,15 +172,16 @@
 // Handle incoming location events.
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
 {
-    CLLocation *location = locations.lastObject;
-    NSLog(@"Location: %@", location);
-  
-//    float zoomLevel = self.locationManager.accuracyAuthorization == CLAccuracyAuthorizationFullAccuracy ? self.preciseLocationZoomLevel:self.approximateLocationZoomLevel;
-    GMSCameraPosition * camera = [GMSCameraPosition cameraWithLatitude:location.coordinate.latitude
-                                                           longitude:location.coordinate.longitude zoom:10];
-  
-    self.mapView.camera = camera;
-    [self.mapView animateToCameraPosition:camera];
+   
+    self.currentLocation = locations.lastObject;
+    [Location addUserLocation:self.currentLocation withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+            if (error) {
+                NSLog(@"Error getting user location");
+            } else {
+                NSLog(@"Successfully got user location");
+            }
+    }];
+
     
 }
 
@@ -205,8 +206,6 @@
       break;
     case kCLAuthorizationStatusDenied:
       NSLog(@"User denied access to location.");
-      // Display the map using the default location.
-      self.mapView.hidden = NO;
     case kCLAuthorizationStatusNotDetermined:
       NSLog(@"Location status not determined.");
     case kCLAuthorizationStatusAuthorizedAlways:
