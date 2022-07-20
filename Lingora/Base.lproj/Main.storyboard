@@ -255,17 +255,20 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1o-xk-pdt">
-                                                    <rect key="frame" x="16" y="77" width="353" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1o-xk-pdt">
+                                                    <rect key="frame" x="16" y="77" width="41.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1k5-8u-Dhf">
-                                                    <rect key="frame" x="131" y="83" width="67" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1k5-8u-Dhf">
+                                                    <rect key="frame" x="16" y="16" width="45" height="45"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="45" id="Uz9-xb-Vez"/>
+                                                        <constraint firstAttribute="width" constant="45" id="f3b-ON-PmR"/>
+                                                    </constraints>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain"/>
                                                     <connections>
                                                         <action selector="didTapProfileButton:" destination="QAH-zP-Fea" eventType="touchUpInside" id="Z6a-Lz-t6R"/>
                                                     </connections>
@@ -274,12 +277,15 @@
                                             <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Q1o-xk-pdt" secondAttribute="bottom" constant="16" id="JBa-l2-46R"/>
+                                                <constraint firstItem="1k5-8u-Dhf" firstAttribute="leading" secondItem="1BK-ZD-SPt" secondAttribute="leading" constant="16" id="W8A-wU-prt"/>
+                                                <constraint firstItem="Q1o-xk-pdt" firstAttribute="top" secondItem="1k5-8u-Dhf" secondAttribute="bottom" constant="16" id="YIK-zv-frV"/>
                                                 <constraint firstItem="BCM-H8-hy5" firstAttribute="top" secondItem="1BK-ZD-SPt" secondAttribute="top" constant="16" id="Ymf-Jr-owH"/>
                                                 <constraint firstItem="Asy-4w-xax" firstAttribute="leading" secondItem="BCM-H8-hy5" secondAttribute="trailing" constant="8" id="jY1-5A-heF"/>
                                                 <constraint firstItem="Q1o-xk-pdt" firstAttribute="leading" secondItem="1BK-ZD-SPt" secondAttribute="leading" constant="16" id="kmy-B2-meh"/>
                                                 <constraint firstItem="CEt-hk-e2M" firstAttribute="leading" secondItem="BCM-H8-hy5" secondAttribute="trailing" constant="8" id="mCg-eE-BQq"/>
                                                 <constraint firstItem="Q1o-xk-pdt" firstAttribute="top" secondItem="BCM-H8-hy5" secondAttribute="bottom" constant="16" id="mRz-za-mmP"/>
                                                 <constraint firstItem="Asy-4w-xax" firstAttribute="top" secondItem="CEt-hk-e2M" secondAttribute="bottom" constant="4" id="rzZ-HP-dp8"/>
+                                                <constraint firstItem="1k5-8u-Dhf" firstAttribute="top" secondItem="1BK-ZD-SPt" secondAttribute="top" constant="16" id="s2g-BR-2IT"/>
                                                 <constraint firstItem="CEt-hk-e2M" firstAttribute="top" secondItem="BCM-H8-hy5" secondAttribute="top" id="sVU-ZR-9QX"/>
                                                 <constraint firstItem="BCM-H8-hy5" firstAttribute="leading" secondItem="1BK-ZD-SPt" secondAttribute="leading" constant="16" id="vOL-Ii-gSg"/>
                                             </constraints>
@@ -378,7 +384,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-2670" y="1838"/>
+            <point key="canvasLocation" x="-2671.0144927536235" y="1837.5"/>
         </scene>
         <!--Post Detail View Controller-->
         <scene sceneID="MWw-vq-3uL">
