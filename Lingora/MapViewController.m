@@ -27,9 +27,7 @@
     
     [self initLocationManager];
     
-    [self defaultCoordinates];
     [self queryForUsers];
-    [self addMarkersToMap];
 }
 
 
@@ -53,7 +51,8 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
         if (users != nil) {
             NSLog(@"Successfully got users");
-            self.users = users;
+            self.users = [NSArray arrayWithArray:users];
+            [self defaultCoordinates];
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
@@ -69,6 +68,21 @@
     self.mapView = [GMSMapView mapWithFrame:self.view.frame camera:camera];
     self.mapView.myLocationEnabled = YES;
     [self.view addSubview:self.mapView];
+    
+    [self addMarkersToMap];
+}
+
+// TODO: figure out why it isn't entering the for loop
+- (void)addMarkersToMap {
+    for (int i = 0; i < self.users.count; i++) {
+        NSLog(@"\n INSIDE THE FOR LOOP \n");
+        PFGeoPoint *point = self.users[i][@"location"];
+        GMSMarker *marker = [[GMSMarker alloc] init];
+        marker.position = CLLocationCoordinate2DMake(point.latitude, point.longitude);
+        marker.title = self.users[i][@"fullName"];
+        marker.snippet = self.users[i][@"username"];
+        marker.map = self.mapView;
+    }
 }
 
 // Delegates to handle events for the location manager.
