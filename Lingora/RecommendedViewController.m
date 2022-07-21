@@ -88,6 +88,7 @@
     RecommendedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"recommendedCell"];
     PFUser *user = self.recommendedUsers[indexPath.row];
     cell.profilePicture.file = user[@"image"];
+    [cell.profilePicture loadInBackground];
     cell.nameLabel.text = user[@"fullName"];
     cell.nativeLanguageLabel.text = user[@"nativeLanguage"];
     cell.targetLanguageLabel.text = user[@"targetLanguage"];
