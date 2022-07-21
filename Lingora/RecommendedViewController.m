@@ -92,10 +92,24 @@
     cell.nameLabel.text = user[@"fullName"];
     cell.nativeLanguageLabel.text = user[@"nativeLanguage"];
     cell.targetLanguageLabel.text = user[@"targetLanguage"];
-    cell.proficiencyLevel.text = user[@"proficiency"];
+    cell.proficiencyLevel.text = user[@"proficiencyLevel"];
+    double distance = [self getDistanceFromUser:user];
+    distance = distance / 1609.34;
+    NSString *distanceString = [NSString stringWithFormat:@"%.2f", distance];
+    distanceString = [distanceString stringByAppendingString:@" miles"];
+    cell.distanceFromUser.text = distanceString;
     return cell;
 }
 
+
+- (double)getDistanceFromUser:(PFUser *)user {
+    PFGeoPoint *start = PFUser.currentUser[@"location"];
+    PFGeoPoint *end = user[@"location"];
+    CLLocation *startLoc = [[CLLocation alloc] initWithLatitude:start.latitude longitude:start.longitude];
+    CLLocation *endLoc = [[CLLocation alloc] initWithLatitude:end.latitude longitude:end.longitude];
+    CLLocationDistance distance = [startLoc distanceFromLocation:endLoc];
+    return distance;
+}
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.recommendedUsers.count;

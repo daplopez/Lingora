@@ -673,6 +673,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="distanceFromUser" destination="MAy-so-ebz" id="poK-1b-Qc4"/>
                                             <outlet property="nameLabel" destination="7Rz-sQ-kR6" id="ay7-iJ-jBV"/>
                                             <outlet property="nativeLanguageLabel" destination="ybq-yz-yGK" id="NPy-3J-BBd"/>
                                             <outlet property="proficiencyLevel" destination="GFo-WC-nOL" id="5eR-6D-JGf"/>
