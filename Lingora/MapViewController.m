@@ -71,7 +71,7 @@
     [self addMarkersToMap];
 }
 
-// TODO: figure out why it isn't entering the for loop
+
 - (void)addMarkersToMap {
     for (int i = 0; i < self.users.count; i++) {
         PFGeoPoint *point = self.users[i][@"location"];

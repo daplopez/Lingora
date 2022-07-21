@@ -57,7 +57,25 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
         if (users != nil) {
             NSLog(@"Successfully got users");
+            NSArray *usersFromQuery = [[NSArray alloc] initWithArray:users];
             self.recommendedUsers = [NSArray arrayWithArray:users];
+            self.recommendedUsers = [usersFromQuery sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+                PFGeoPoint *start = PFUser.currentUser[@"location"];
+                PFGeoPoint *obj1End = obj1[@"location"];
+                PFGeoPoint *obj2End = obj2[@"location"];
+                CLLocation *startLoc = [[CLLocation alloc] initWithLatitude:start.latitude longitude:start.longitude];
+                CLLocation *obj1Loc = [[CLLocation alloc] initWithLatitude:obj1End.latitude longitude:obj1End.longitude];
+                CLLocation *obj2Loc = [[CLLocation alloc] initWithLatitude:obj2End.latitude longitude:obj2End.longitude];
+                CLLocationDistance distance1 = [startLoc distanceFromLocation:obj1Loc];
+                CLLocationDistance distance2 = [startLoc distanceFromLocation:obj2Loc];
+                if (distance1 > distance2) {
+                    return (NSComparisonResult)NSOrderedDescending;
+                }
+                if (distance2 < distance1) {
+                    return (NSComparisonResult)NSOrderedAscending;
+                }
+                return (NSComparisonResult)NSOrderedSame;
+            }];
             [self.tableView reloadData];
         } else {
             NSLog(@"%@", error.localizedDescription);
