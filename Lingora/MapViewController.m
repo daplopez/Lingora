@@ -8,6 +8,7 @@
 #import "MapViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import <GooglePlaces/GooglePlaces.h>
+#import "Parse/Parse.h"
 
 @interface MapViewController () <CLLocationManagerDelegate>
 @property (strong, nonatomic) CLLocationManager *locationManager;
@@ -15,6 +16,7 @@
 @property (strong, nonatomic) GMSMapView *mapView;
 @property float preciseLocationZoomLevel;
 @property float approximateLocationZoomLevel;
+@property (strong, nonatomic) NSArray *users;
 
 @end
 
@@ -26,6 +28,7 @@
     [self initLocationManager];
     
     [self defaultCoordinates];
+    [self queryForUsers];
 }
 
 
@@ -36,6 +39,25 @@
     self.locationManager.distanceFilter = 50;
     [self.locationManager startUpdatingLocation];
     self.locationManager.delegate = self;
+}
+
+
+- (void)queryForUsers {
+    // construct query
+    PFQuery *query = [PFQuery queryWithClassName:@"_User"];
+    [query orderByDescending:@"createdAt"];
+    [query includeKey:@"location"];
+    [query whereKey:@"username" notEqualTo:PFUser.currentUser[@"username"]];
+    
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
+        if (users != nil) {
+            NSLog(@"Successfully got users");
+            self.users = users;
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
 }
 
 
