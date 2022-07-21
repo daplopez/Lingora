@@ -9,14 +9,17 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import <GooglePlaces/GooglePlaces.h>
 #import "Parse/Parse.h"
+#import "SceneDelegate.h"
+#import "ViewProfileViewController.h"
 
-@interface MapViewController () <CLLocationManagerDelegate>
+@interface MapViewController () <CLLocationManagerDelegate, GMSMapViewDelegate>
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation * _Nullable currentLocation;
 @property (strong, nonatomic) GMSMapView *mapView;
 @property float preciseLocationZoomLevel;
 @property float approximateLocationZoomLevel;
 @property (strong, nonatomic) NSArray *users;
+@property (strong, nonatomic) PFUser *dataToPass;
 
 @end
 
@@ -67,7 +70,7 @@
     self.mapView = [GMSMapView mapWithFrame:self.view.frame camera:camera];
     self.mapView.myLocationEnabled = YES;
     [self.view addSubview:self.mapView];
-    
+    self.mapView.delegate = self;
     [self addMarkersToMap];
 }
 
@@ -79,10 +82,21 @@
         marker.position = CLLocationCoordinate2DMake(point.latitude, point.longitude);
         marker.title = self.users[i][@"fullName"];
         marker.snippet = self.users[i][@"username"];
+        self.dataToPass = self.users[i];
         marker.map = self.mapView;
     }
 }
 
+
+#pragma mark - Navigation
+
+- (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
+    SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ViewProfileViewController *viewProfileVC = [storyboard instantiateViewControllerWithIdentifier:@"ProfileView"];
+    viewProfileVC.user = self.dataToPass;
+    myDelegate.window.rootViewController = viewProfileVC;
+}
 
 
 // Delegates to handle events for the location manager.

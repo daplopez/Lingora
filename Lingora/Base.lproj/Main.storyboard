@@ -508,6 +508,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" id="P37-W7-Kaj"/>
+                    <connections>
+                        <segue destination="ofW-9V-iD7" kind="show" id="ClM-qD-quL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BK9-wp-97f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1238,6 +1241,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="wTC-3H-oL6"/>
         <segue reference="G2g-KN-7FC"/>
     </inferredMetricsTieBreakers>
     <resources>
