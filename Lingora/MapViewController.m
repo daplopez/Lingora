@@ -26,7 +26,6 @@
     [super viewDidLoad];
     
     [self initLocationManager];
-    
     [self queryForUsers];
 }
 
@@ -75,7 +74,6 @@
 // TODO: figure out why it isn't entering the for loop
 - (void)addMarkersToMap {
     for (int i = 0; i < self.users.count; i++) {
-        NSLog(@"\n INSIDE THE FOR LOOP \n");
         PFGeoPoint *point = self.users[i][@"location"];
         GMSMarker *marker = [[GMSMarker alloc] init];
         marker.position = CLLocationCoordinate2DMake(point.latitude, point.longitude);
