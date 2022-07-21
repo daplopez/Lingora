@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		029111F89A79A6C65C329EE7 /* Pods_Lingora_LingoraUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1471240839B0BD0A2BBB11 /* Pods_Lingora_LingoraUITests.framework */; };
 		3C465AE2D181D29A79F0781C /* Pods_LingoraTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45546C0E6C1DC29190654511 /* Pods_LingoraTests.framework */; };
-		8D06F97A2881F75F0071205C /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D06F9792881F75F0071205C /* Location.m */; };
 		8D08BC392874A79F00E2D93D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D08BC382874A79F00E2D93D /* AppDelegate.m */; };
 		8D08BC3C2874A79F00E2D93D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D08BC3B2874A79F00E2D93D /* SceneDelegate.m */; };
 		8D08BC3F2874A79F00E2D93D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D08BC3E2874A79F00E2D93D /* ViewController.m */; };
@@ -68,8 +67,6 @@
 		3A9F396EA7F6C2C08CEB415D /* Pods_Lingora.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lingora.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45546C0E6C1DC29190654511 /* Pods_LingoraTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LingoraTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		764867815445D58D3F2B9098 /* Pods-Lingora-LingoraUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lingora-LingoraUITests.release.xcconfig"; path = "Target Support Files/Pods-Lingora-LingoraUITests/Pods-Lingora-LingoraUITests.release.xcconfig"; sourceTree = "<group>"; };
-		8D06F9782881F75F0071205C /* Location.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
-		8D06F9792881F75F0071205C /* Location.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		8D08BC342874A79F00E2D93D /* Lingora.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lingora.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D08BC372874A79F00E2D93D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8D08BC382874A79F00E2D93D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -295,8 +292,6 @@
 			children = (
 				8DC5AA1F2876561A00011509 /* Post.h */,
 				8DC5AA202876561A00011509 /* Post.m */,
-				8D06F9782881F75F0071205C /* Location.h */,
-				8D06F9792881F75F0071205C /* Location.m */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -616,7 +611,6 @@
 				8D42F8E8287F46CA0078FD29 /* PostInterestCollectionViewCell.m in Sources */,
 				8DC5AA242877B3F400011509 /* PostTableViewCell.m in Sources */,
 				8D181DE228874ECC00011E25 /* ChatViewController.m in Sources */,
-				8D06F97A2881F75F0071205C /* Location.m in Sources */,
 				8D42F8EB287F47050078FD29 /* PostProfileImagesCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,7 +14,6 @@
 #import "ViewProfileViewController.h"
 #import "PostDetailViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
-#import "Location.h"
 #import "Parse/PFGeoPoint.h"
 
 @interface HomeFeedViewController () <UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate>
