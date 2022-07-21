@@ -29,6 +29,7 @@
     
     [self defaultCoordinates];
     [self queryForUsers];
+    [self addMarkersToMap];
 }
 
 
@@ -46,7 +47,6 @@
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"_User"];
     [query orderByDescending:@"createdAt"];
-    [query includeKey:@"location"];
     [query whereKey:@"username" notEqualTo:PFUser.currentUser[@"username"]];
     
     // fetch data asynchronously
@@ -63,8 +63,9 @@
 
 - (void)defaultCoordinates {
     // Create a default GMSCameraPosition that tells the map to display the
-    // coordinate 37.4530,-122.1817 at zoom level 15.
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:37.4530 longitude:-122.1817 zoom:15];
+    // previous coordinates at zoom level 15.
+    PFGeoPoint *point = PFUser.currentUser[@"location"];
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:point.latitude longitude:point.longitude zoom:15];
     self.mapView = [GMSMapView mapWithFrame:self.view.frame camera:camera];
     self.mapView.myLocationEnabled = YES;
     [self.view addSubview:self.mapView];
