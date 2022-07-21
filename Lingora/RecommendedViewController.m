@@ -50,6 +50,7 @@
 
 - (void)queryForUsers {
     PFQuery *query = [PFQuery queryWithClassName:@"_User"];
+    [query whereKey:@"username" notEqualTo:PFUser.currentUser.username];
     [query orderByDescending:@"createdAt"];
     query.limit = 20;
     
