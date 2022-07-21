@@ -24,14 +24,11 @@
     userLocation.longitude = location.coordinate.longitude;
     
     [userLocation saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        PFUser.currentUser[@"Location"] = userLocation;
+        PFUser.currentUser[@"location"] = userLocation;
+        NSLog(@"/n%@/n", PFUser.currentUser[@"location"]);
         [PFUser.currentUser saveInBackground];
         completion(succeeded, error);
     }];
-//    [userLocation saveInBackgroundWithBlock:completion];
-    
-//    PFUser.currentUser[@"Location"] = userLocation;
-//    [PFUser.currentUser saveInBackground];
 }
 
 @end

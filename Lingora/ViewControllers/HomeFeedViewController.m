@@ -15,6 +15,7 @@
 #import "PostDetailViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import "Location.h"
+#import "Parse/PFGeoPoint.h"
 
 @interface HomeFeedViewController () <UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate>
 // current user info
@@ -111,7 +112,6 @@
     [self.refreshControl endRefreshing];
 }
 
-
 - (IBAction)didTapLogout:(id)sender {
     // Logout current user
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {}];
@@ -162,17 +162,23 @@
 // Handle incoming location events.
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
 {
-   
     self.currentLocation = locations.lastObject;
-    [Location addUserLocation:self.currentLocation withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-            if (error) {
-                NSLog(@"Error getting user location");
-            } else {
-                NSLog(@"Successfully got user location");
-            }
-    }];
-
     
+    double curLat = self.currentLocation.coordinate.latitude;
+    double curLong = self.currentLocation.coordinate.longitude;
+    PFUser *curUser = PFUser.currentUser;
+    PFGeoPoint *pastLocation = curUser[@"location"];
+    if (pastLocation == nil) {
+        curUser[@"location"] = [PFGeoPoint geoPointWithLatitude:curLat longitude:curLong];
+        [PFUser.currentUser saveInBackground];
+    } else {
+        double pastLat = pastLocation.latitude;
+        double pastLong = pastLocation.longitude;
+        if (curLat != pastLat || curLong != pastLong) {
+            curUser[@"location"] = [PFGeoPoint geoPointWithLatitude:curLat longitude:curLong];
+            [PFUser.currentUser saveInBackground];
+        }
+    }
 }
 
 // Handle authorization for the location manager.
