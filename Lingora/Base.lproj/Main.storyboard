@@ -271,16 +271,14 @@
                                     <action selector="didTapLogout:" destination="W1R-eu-xkp" eventType="touchUpInside" id="ZgJ-Nw-Xu0"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frI-kQ-uII">
-                                <rect key="frame" x="74" y="72" width="27" height="10"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frI-kQ-uII">
+                                <rect key="frame" x="74" y="72" width="194" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oin-6H-qNM">
-                                <rect key="frame" x="74" y="90" width="26.5" height="12"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oin-6H-qNM">
+                                <rect key="frame" x="74" y="90" width="194" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -301,9 +299,8 @@
                                     <segue destination="2BI-YE-DHC" kind="show" identifier="recommendedSegue" id="vc1-ec-DHW"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UpR-Dl-FoL">
-                                <rect key="frame" x="74" y="110" width="26.5" height="12"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UpR-Dl-FoL">
+                                <rect key="frame" x="74" y="110" width="194" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -312,10 +309,19 @@
                         <viewLayoutGuide key="safeArea" id="VGi-Zg-cmh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="jpi-Jv-Svu" firstAttribute="leading" secondItem="UpR-Dl-FoL" secondAttribute="trailing" constant="16" id="AGi-Fa-0Nl"/>
                             <constraint firstItem="ZXn-nE-LTE" firstAttribute="leading" secondItem="VGi-Zg-cmh" secondAttribute="leading" constant="16" id="Dek-7z-Qwp"/>
                             <constraint firstItem="OsW-WG-2X5" firstAttribute="top" secondItem="ZXn-nE-LTE" secondAttribute="bottom" constant="8" id="Frf-Wm-6DV"/>
+                            <constraint firstItem="frI-kQ-uII" firstAttribute="top" secondItem="ZXn-nE-LTE" secondAttribute="top" id="Lf4-73-0ac"/>
+                            <constraint firstItem="jpi-Jv-Svu" firstAttribute="leading" secondItem="Oin-6H-qNM" secondAttribute="trailing" constant="16" id="TLb-Fg-ZhU"/>
+                            <constraint firstItem="frI-kQ-uII" firstAttribute="leading" secondItem="ZXn-nE-LTE" secondAttribute="trailing" constant="8" id="TSz-dJ-ZiQ"/>
                             <constraint firstItem="OsW-WG-2X5" firstAttribute="leading" secondItem="VGi-Zg-cmh" secondAttribute="leading" constant="16" id="ccm-Mq-HOb"/>
+                            <constraint firstItem="Oin-6H-qNM" firstAttribute="top" secondItem="frI-kQ-uII" secondAttribute="bottom" constant="6" id="fSU-Tr-BaJ"/>
+                            <constraint firstItem="Oin-6H-qNM" firstAttribute="leading" secondItem="ZXn-nE-LTE" secondAttribute="trailing" constant="8" id="hJt-sF-oBo"/>
+                            <constraint firstItem="qqN-iK-EyD" firstAttribute="leading" secondItem="frI-kQ-uII" secondAttribute="trailing" constant="16" id="ih4-n3-7y3"/>
+                            <constraint firstItem="UpR-Dl-FoL" firstAttribute="bottom" secondItem="ZXn-nE-LTE" secondAttribute="bottom" id="o1L-56-9dj"/>
                             <constraint firstItem="ZXn-nE-LTE" firstAttribute="top" secondItem="VGi-Zg-cmh" secondAttribute="top" constant="16" id="sdp-63-pHn"/>
+                            <constraint firstItem="UpR-Dl-FoL" firstAttribute="leading" secondItem="ZXn-nE-LTE" secondAttribute="trailing" constant="8" id="w9W-gF-Oh6"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="vJN-sb-XGd"/>
@@ -897,7 +903,6 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rN1-vC-QeN">
                                                     <rect key="frame" x="8" y="12" width="173" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" systemColor="systemRedColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1259,9 +1264,6 @@
         </systemColor>
         <systemColor name="systemMintColor">
             <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
