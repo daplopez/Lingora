@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *targetLanguageLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *recommendedUsers;
+@property (strong, nonatomic) NSMutableArray *userScores;
 
 @end
 
@@ -51,6 +52,8 @@
 - (void)queryForUsers {
     PFQuery *query = [PFQuery queryWithClassName:@"_User"];
     [query whereKey:@"username" notEqualTo:PFUser.currentUser.username];
+    [query whereKey:@"nativeLanguage" equalTo:PFUser.currentUser[@"targetLanguage"]];
+    [query whereKey:@"targetLanguage" equalTo:PFUser.currentUser[@"nativeLanguage"]];
     [query orderByDescending:@"createdAt"];
     query.limit = 20;
     
@@ -109,6 +112,43 @@
     CLLocation *endLoc = [[CLLocation alloc] initWithLatitude:end.latitude longitude:end.longitude];
     CLLocationDistance distance = [startLoc distanceFromLocation:endLoc];
     return distance;
+}
+
+
+- (void)getUserScores {
+    self.userScores = [[NSMutableArray alloc] initWithCapacity:self.recommendedUsers.count];
+    [self getLocationScore];
+    
+}
+
+
+
+- (void)getLocationScore {
+    for (int i = 0; i < self.recommendedUsers.count; i++) {
+        PFUser *user = self.recommendedUsers[i];
+        double distance = [self getDistanceFromUser:user];
+        double score = 0;
+        if (distance <= 5) {
+            score = 5;
+        } else if (distance <= 10) {
+            score = 4;
+        } else if (distance <= 20) {
+            score = 3;
+        } else if (distance <= 30) {
+            score = 2;
+        } else if (distance <= 50) {
+            score = 1;
+        } else if (distance <= 100) {
+            score = 0.5;
+        }
+        [self.userScores insertObject:[NSNumber numberWithDouble:score] atIndex:i];
+    }
+    NSLog(@"%@", self.userScores[0]);
+}
+
+
+- (void)getProficiencyScore {
+    
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
