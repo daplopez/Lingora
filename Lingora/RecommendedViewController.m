@@ -63,6 +63,8 @@
             NSLog(@"Successfully got users");
             NSArray *usersFromQuery = [[NSArray alloc] initWithArray:users];
             self.recommendedUsers = [NSArray arrayWithArray:users];
+            [self getUserScores];
+            //NSLog(@"%@", self.userScores[0]);
             self.recommendedUsers = [usersFromQuery sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
                 PFGeoPoint *start = PFUser.currentUser[@"location"];
                 PFGeoPoint *obj1End = obj1[@"location"];
@@ -118,7 +120,7 @@
 - (void)getUserScores {
     self.userScores = [[NSMutableArray alloc] initWithCapacity:self.recommendedUsers.count];
     [self getLocationScore];
-    
+    [self getProficiencyScore];
 }
 
 
@@ -143,12 +145,20 @@
         }
         [self.userScores insertObject:[NSNumber numberWithDouble:score] atIndex:i];
     }
-    NSLog(@"%@", self.userScores[0]);
 }
 
 
 - (void)getProficiencyScore {
-    
+    for (int i = 0; i < self.recommendedUsers.count; i++) {
+        PFUser *user = self.recommendedUsers[i];
+        NSString *proficiency = user[@"proficiencyLevel"];
+        double score = 1.5;
+        if ([proficiency isEqualToString:PFUser.currentUser[@"proficiencyLevel"]]) {
+            score = 3;
+        }
+        double newScore = [self.userScores[i] doubleValue] + score;
+        [self.userScores replaceObjectAtIndex:i withObject:[NSNumber numberWithDouble:newScore]];
+    }
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
