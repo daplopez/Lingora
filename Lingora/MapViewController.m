@@ -69,7 +69,7 @@
         GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:point.latitude longitude:point.longitude zoom:15];
         self.mapView = [GMSMapView mapWithFrame:self.view.frame camera:camera];
     } else {
-        CLLocation *defaultLoc = [[CLLocation alloc] initWithLatitude:37.4530 longitude:122.1817];
+        CLLocation *defaultLoc = [[CLLocation alloc] initWithLatitude:37.4530 longitude:-122.1817];
         GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:defaultLoc.coordinate.latitude longitude:defaultLoc.coordinate.longitude zoom:15];
         self.mapView = [GMSMapView mapWithFrame:self.view.frame camera:camera];
     }
