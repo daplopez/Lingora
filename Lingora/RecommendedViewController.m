@@ -121,6 +121,7 @@
     self.userScores = [[NSMutableArray alloc] initWithCapacity:self.recommendedUsers.count];
     [self getLocationScore];
     [self getProficiencyScore];
+    [self getInterestsScore];
 }
 
 
@@ -155,6 +156,24 @@
         double score = 1.5;
         if ([proficiency isEqualToString:PFUser.currentUser[@"proficiencyLevel"]]) {
             score = 3;
+        }
+        double newScore = [self.userScores[i] doubleValue] + score;
+        [self.userScores replaceObjectAtIndex:i withObject:[NSNumber numberWithDouble:newScore]];
+    }
+}
+
+
+- (void)getInterestsScore {
+    double score = 0;
+    for (int i = 0; i < self.recommendedUsers.count; i++) {
+        PFUser *user = self.recommendedUsers[i];
+        NSArray *userInterests = [[NSArray alloc] initWithArray:user[@"interests"]];
+        NSArray *curUserInterests = [[NSArray alloc] initWithArray:PFUser.currentUser[@"interests"]];
+        for (int interest = 0; interest < curUserInterests.count; interest++) {
+            NSString *curInterest = curUserInterests[interest];
+            if ([userInterests containsObject:curInterest]) {
+                score += 1;
+            }
         }
         double newScore = [self.userScores[i] doubleValue] + score;
         [self.userScores replaceObjectAtIndex:i withObject:[NSNumber numberWithDouble:newScore]];
