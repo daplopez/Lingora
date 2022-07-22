@@ -30,6 +30,7 @@
 		8D42F8F4287F65930078FD29 /* PostDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D42F8F3287F65930078FD29 /* PostDetailViewController.m */; };
 		8D62442B287CBBE300B82B98 /* RecommendedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D62442A287CBBE300B82B98 /* RecommendedViewController.m */; };
 		8D62442E287CC05900B82B98 /* ProfileInterestsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D62442D287CC05900B82B98 /* ProfileInterestsCollectionViewCell.m */; };
+		8D63C1A6288B6127007F99DE /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D63C1A5288B6127007F99DE /* Message.m */; };
 		8D6C5005287CDDD800D22747 /* ViewProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6C5004287CDDD800D22747 /* ViewProfileViewController.m */; };
 		8D98E587287DF50C00AC4475 /* ProfileImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D98E586287DF50C00AC4475 /* ProfileImageCollectionViewCell.m */; };
 		8DBA3EBA28789A720030EBEF /* ComposePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBA3EB928789A720030EBEF /* ComposePostViewController.m */; };
@@ -106,6 +107,8 @@
 		8D62442A287CBBE300B82B98 /* RecommendedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RecommendedViewController.m; path = Lingora/RecommendedViewController.m; sourceTree = SOURCE_ROOT; };
 		8D62442C287CC05900B82B98 /* ProfileInterestsCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileInterestsCollectionViewCell.h; sourceTree = "<group>"; };
 		8D62442D287CC05900B82B98 /* ProfileInterestsCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileInterestsCollectionViewCell.m; sourceTree = "<group>"; };
+		8D63C1A4288B6127007F99DE /* Message.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		8D63C1A5288B6127007F99DE /* Message.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		8D6C5003287CDDD800D22747 /* ViewProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewProfileViewController.h; path = Lingora/ViewProfileViewController.h; sourceTree = SOURCE_ROOT; };
 		8D6C5004287CDDD800D22747 /* ViewProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewProfileViewController.m; path = Lingora/ViewProfileViewController.m; sourceTree = SOURCE_ROOT; };
 		8D98E585287DF50C00AC4475 /* ProfileImageCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ProfileImageCollectionViewCell.h; path = Lingora/ProfileImageCollectionViewCell.h; sourceTree = SOURCE_ROOT; };
@@ -292,6 +295,8 @@
 			children = (
 				8DC5AA1F2876561A00011509 /* Post.h */,
 				8DC5AA202876561A00011509 /* Post.m */,
+				8D63C1A4288B6127007F99DE /* Message.h */,
+				8D63C1A5288B6127007F99DE /* Message.m */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -598,6 +603,7 @@
 				8D42F8EE287F480E0078FD29 /* PostProfileTableViewCell.m in Sources */,
 				8D62442E287CC05900B82B98 /* ProfileInterestsCollectionViewCell.m in Sources */,
 				8D98E587287DF50C00AC4475 /* ProfileImageCollectionViewCell.m in Sources */,
+				8D63C1A6288B6127007F99DE /* Message.m in Sources */,
 				8D42F8F1287F5D5C0078FD29 /* RecommendedTableViewCell.m in Sources */,
 				8DC5AA1B28762BBE00011509 /* SignupViewController.m in Sources */,
 				8DBA3EC12878C2680030EBEF /* ProfileTableViewCell.m in Sources */,
