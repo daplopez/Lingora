@@ -64,10 +64,6 @@
             NSArray *usersFromQuery = [[NSArray alloc] initWithArray:users];
             self.recommendedUsers = [NSArray arrayWithArray:users];
             [self getUserScores];
-            NSLog(@"%@", self.userScores[0]);
-           // NSLog(@"%@", self.recommendedUsers[0]); MARIANA
-            NSLog(@"%@", self.userScores[1]);
-            //NSLog(@"%@", self.recommendedUsers[1]); DAPHNE
             self.recommendedUsers = [usersFromQuery sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull user1, id  _Nonnull user2) {
                 unsigned long index1 = [self.recommendedUsers indexOfObject:user1];
                 unsigned long index2 = [self.recommendedUsers indexOfObject:user2];
