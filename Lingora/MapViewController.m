@@ -19,7 +19,6 @@
 @property float preciseLocationZoomLevel;
 @property float approximateLocationZoomLevel;
 @property (strong, nonatomic) NSArray *users;
-@property (strong, nonatomic) PFUser *dataToPass;
 
 @end
 
@@ -82,7 +81,7 @@
         marker.position = CLLocationCoordinate2DMake(point.latitude, point.longitude);
         marker.title = self.users[i][@"fullName"];
         marker.snippet = self.users[i][@"username"];
-        self.dataToPass = self.users[i];
+        marker.userData = self.users[i];
         marker.map = self.mapView;
     }
 }
@@ -94,7 +93,8 @@
     SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ViewProfileViewController *viewProfileVC = [storyboard instantiateViewControllerWithIdentifier:@"ProfileView"];
-    viewProfileVC.user = self.dataToPass;
+    PFUser *dataToPass = marker.userData;
+    viewProfileVC.user = dataToPass;
     myDelegate.window.rootViewController = viewProfileVC;
 }
 
