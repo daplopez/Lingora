@@ -65,19 +65,15 @@
             self.recommendedUsers = [NSArray arrayWithArray:users];
             [self getUserScores];
             //NSLog(@"%@", self.userScores[0]);
-            self.recommendedUsers = [usersFromQuery sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
-                PFGeoPoint *start = PFUser.currentUser[@"location"];
-                PFGeoPoint *obj1End = obj1[@"location"];
-                PFGeoPoint *obj2End = obj2[@"location"];
-                CLLocation *startLoc = [[CLLocation alloc] initWithLatitude:start.latitude longitude:start.longitude];
-                CLLocation *obj1Loc = [[CLLocation alloc] initWithLatitude:obj1End.latitude longitude:obj1End.longitude];
-                CLLocation *obj2Loc = [[CLLocation alloc] initWithLatitude:obj2End.latitude longitude:obj2End.longitude];
-                CLLocationDistance distance1 = [startLoc distanceFromLocation:obj1Loc];
-                CLLocationDistance distance2 = [startLoc distanceFromLocation:obj2Loc];
-                if (distance1 > distance2) {
+            self.recommendedUsers = [usersFromQuery sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull user1, id  _Nonnull user2) {
+                unsigned long index1 = [self.recommendedUsers indexOfObject:user1];
+                unsigned long index2 = [self.recommendedUsers indexOfObject:user2];
+                double score1 = [self.userScores[index1] doubleValue];
+                double score2 = [self.userScores[index2] doubleValue];
+                if (score1 > score2) {
                     return (NSComparisonResult)NSOrderedDescending;
                 }
-                if (distance2 < distance1) {
+                if (score2 < score1) {
                     return (NSComparisonResult)NSOrderedAscending;
                 }
                 return (NSComparisonResult)NSOrderedSame;
