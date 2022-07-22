@@ -111,9 +111,12 @@
 
 
 - (IBAction)didTapBack:(id)sender {
-    SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    myDelegate.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBar"];
+//    SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    myDelegate.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBar"];
+    [self.navigationController popViewControllerAnimated:YES];
 }
+
+
 
 @end
