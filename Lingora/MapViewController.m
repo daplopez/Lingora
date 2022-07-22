@@ -64,9 +64,15 @@
 - (void)defaultCoordinates {
     // Create a default GMSCameraPosition that tells the map to display the
     // previous coordinates at zoom level 15.
-    PFGeoPoint *point = PFUser.currentUser[@"location"];
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:point.latitude longitude:point.longitude zoom:15];
-    self.mapView = [GMSMapView mapWithFrame:self.view.frame camera:camera];
+    if (PFUser.currentUser[@"location"]) {
+        PFGeoPoint *point = PFUser.currentUser[@"location"];
+        GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:point.latitude longitude:point.longitude zoom:15];
+        self.mapView = [GMSMapView mapWithFrame:self.view.frame camera:camera];
+    } else {
+        CLLocation *defaultLoc = [[CLLocation alloc] initWithLatitude:37.4530 longitude:122.1817];
+        GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:defaultLoc.coordinate.latitude longitude:defaultLoc.coordinate.longitude zoom:15];
+        self.mapView = [GMSMapView mapWithFrame:self.view.frame camera:camera];
+    }
     self.mapView.myLocationEnabled = YES;
     [self.view addSubview:self.mapView];
     self.mapView.delegate = self;
