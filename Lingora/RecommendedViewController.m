@@ -65,6 +65,7 @@
             self.recommendedUsers = [NSArray arrayWithArray:users];
             [self getUserScores];
             self.recommendedUsers = [usersFromQuery sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull user1, id  _Nonnull user2) {
+                // get rid of array, do calculations here
                 unsigned long index1 = [self.recommendedUsers indexOfObject:user1];
                 unsigned long index2 = [self.recommendedUsers indexOfObject:user2];
                 double score1 = [self.userScores[index1] doubleValue];
@@ -125,6 +126,7 @@
     for (int i = 0; i < self.recommendedUsers.count; i++) {
         PFUser *user = self.recommendedUsers[i];
         double distance = [self getDistanceFromUser:user];
+        // equation for finding score
         double score = 0;
         if (distance <= 5) {
             score = 5;
@@ -145,6 +147,8 @@
 
 
 - (void)getProficiencyScore {
+    // handle cases for no native language speakers near you
+    // create tests
     for (int i = 0; i < self.recommendedUsers.count; i++) {
         PFUser *user = self.recommendedUsers[i];
         NSString *proficiency = user[@"proficiencyLevel"];
