@@ -12,6 +12,7 @@
 #import "Post.h"
 #import "PostProfileImagesCollectionViewCell.h"
 #import "PostInterestCollectionViewCell.h"
+#import "DirectMessageViewController.h"
 
 @interface ViewProfileViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet PFImageView *profilePicture;
@@ -116,6 +117,17 @@
     myDelegate.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBar"];
 }
 
+#pragma mark - Navigation
 
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"DMSegue"]) {
+        PFUser *dataToPass = self.user;
+        DirectMessageViewController *messageVC = (DirectMessageViewController *) [segue destinationViewController];
+        messageVC.user = dataToPass;
+    }
+}
 
 @end

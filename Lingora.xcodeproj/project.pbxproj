@@ -34,6 +34,8 @@
 		8D63C1A9288B61FD007F99DE /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D63C1A8288B61FD007F99DE /* Conversation.m */; };
 		8D63C1AC288F0F23007F99DE /* SearchUsersToMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D63C1AB288F0F23007F99DE /* SearchUsersToMessageViewController.m */; };
 		8D63C1AF288F175D007F99DE /* ChatUserSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D63C1AE288F175D007F99DE /* ChatUserSearchTableViewCell.m */; };
+		8D63C1B2288F3342007F99DE /* DirectMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D63C1B1288F3342007F99DE /* DirectMessageViewController.m */; };
+		8D63C1B5288F389B007F99DE /* DirectMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D63C1B4288F389B007F99DE /* DirectMessageTableViewCell.m */; };
 		8D6C5005287CDDD800D22747 /* ViewProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6C5004287CDDD800D22747 /* ViewProfileViewController.m */; };
 		8D98E587287DF50C00AC4475 /* ProfileImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D98E586287DF50C00AC4475 /* ProfileImageCollectionViewCell.m */; };
 		8DBA3EBA28789A720030EBEF /* ComposePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBA3EB928789A720030EBEF /* ComposePostViewController.m */; };
@@ -118,6 +120,10 @@
 		8D63C1AB288F0F23007F99DE /* SearchUsersToMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SearchUsersToMessageViewController.m; path = Lingora/SearchUsersToMessageViewController.m; sourceTree = SOURCE_ROOT; };
 		8D63C1AD288F175D007F99DE /* ChatUserSearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatUserSearchTableViewCell.h; sourceTree = "<group>"; };
 		8D63C1AE288F175D007F99DE /* ChatUserSearchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatUserSearchTableViewCell.m; sourceTree = "<group>"; };
+		8D63C1B0288F3342007F99DE /* DirectMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DirectMessageViewController.h; sourceTree = "<group>"; };
+		8D63C1B1288F3342007F99DE /* DirectMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DirectMessageViewController.m; sourceTree = "<group>"; };
+		8D63C1B3288F389B007F99DE /* DirectMessageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DirectMessageTableViewCell.h; path = Lingora/DirectMessageTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		8D63C1B4288F389B007F99DE /* DirectMessageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DirectMessageTableViewCell.m; path = Lingora/DirectMessageTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		8D6C5003287CDDD800D22747 /* ViewProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewProfileViewController.h; path = Lingora/ViewProfileViewController.h; sourceTree = SOURCE_ROOT; };
 		8D6C5004287CDDD800D22747 /* ViewProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewProfileViewController.m; path = Lingora/ViewProfileViewController.m; sourceTree = SOURCE_ROOT; };
 		8D98E585287DF50C00AC4475 /* ProfileImageCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ProfileImageCollectionViewCell.h; path = Lingora/ProfileImageCollectionViewCell.h; sourceTree = SOURCE_ROOT; };
@@ -282,6 +288,8 @@
 				8DBA3EBD2878B8D40030EBEF /* ProfileViewController.m */,
 				8D181DE028874ECC00011E25 /* ChatViewController.h */,
 				8D181DE128874ECC00011E25 /* ChatViewController.m */,
+				8D63C1B0288F3342007F99DE /* DirectMessageViewController.h */,
+				8D63C1B1288F3342007F99DE /* DirectMessageViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -317,6 +325,8 @@
 		8DC5AA252877B40100011509 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				8D63C1B3288F389B007F99DE /* DirectMessageTableViewCell.h */,
+				8D63C1B4288F389B007F99DE /* DirectMessageTableViewCell.m */,
 				8D42F8EF287F5D5C0078FD29 /* RecommendedTableViewCell.h */,
 				8D42F8F0287F5D5C0078FD29 /* RecommendedTableViewCell.m */,
 				8D42F8EC287F480E0078FD29 /* PostProfileTableViewCell.h */,
@@ -622,6 +632,7 @@
 				8D98E587287DF50C00AC4475 /* ProfileImageCollectionViewCell.m in Sources */,
 				8D63C1A6288B6127007F99DE /* Message.m in Sources */,
 				8D42F8F1287F5D5C0078FD29 /* RecommendedTableViewCell.m in Sources */,
+				8D63C1B2288F3342007F99DE /* DirectMessageViewController.m in Sources */,
 				8DC5AA1B28762BBE00011509 /* SignupViewController.m in Sources */,
 				8DBA3EC12878C2680030EBEF /* ProfileTableViewCell.m in Sources */,
 				8D1A7D782880A1AE005146C4 /* MapViewController.m in Sources */,
@@ -636,6 +647,7 @@
 				8D63C1A9288B61FD007F99DE /* Conversation.m in Sources */,
 				8D181DE228874ECC00011E25 /* ChatViewController.m in Sources */,
 				8D42F8EB287F47050078FD29 /* PostProfileImagesCollectionViewCell.m in Sources */,
+				8D63C1B5288F389B007F99DE /* DirectMessageTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
