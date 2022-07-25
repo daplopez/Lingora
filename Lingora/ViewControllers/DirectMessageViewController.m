@@ -29,6 +29,7 @@
 }
 
 
+
 - (void)setUpUserProperties {
     self.profileImage.file = self.user[@"image"];
     [self.profileImage loadInBackground];
@@ -36,11 +37,36 @@
     self.usernameLabel.text = self.user[@"username"];
 }
 
-
 - (void)setDelegates {
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
 }
+
+
+- (void)queryForMessages {
+    // construct query
+    PFQuery *query = [PFQuery queryWithClassName:@"Conversation"];
+    [query orderByDescending:@"createdAt"];
+    [query whereKey:@"user1" equalTo:PFUser.currentUser];
+    [query whereKey:@"user1" equalTo:self.user];
+    [query whereKey:@"user2" equalTo:PFUser.currentUser];
+    [query whereKey:@"user2" equalTo:self.user];
+    [query includeKey:@"messages"];
+    query.limit = 20;
+    
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *conversation, NSError *error) {
+        if (conversation != nil) {
+            NSLog(@"Successfully got convo");
+            Conversation *curConvo = conversation[0];
+            self.messages = [NSMutableArray arrayWithArray:curConvo.messages];
+            [self.tableView reloadData];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.messages.count;
