@@ -6,11 +6,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Parse/PFImageView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ChatTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
+@property (weak, nonatomic) IBOutlet PFImageView *profilePicture;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
 
