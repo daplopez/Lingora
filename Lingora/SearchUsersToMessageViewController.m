@@ -14,13 +14,14 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *users;
 @property (strong, nonatomic) NSArray *filteredData;
+@property (strong, nonatomic) NSMutableArray *dataToFilterBy;
 @end
 
 @implementation SearchUsersToMessageViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self setDelegates];
     [self queryForUsers];
 }
 
@@ -37,7 +38,7 @@
         if (users != nil) {
             NSLog(@"Successfully got users");
             self.users = [[NSArray alloc] initWithArray:users];
-            [self setUpView];
+            [self setDataToFilterBy];
             [self.tableView reloadData];
         } else {
             NSLog(@"%@", error.localizedDescription);
@@ -45,11 +46,26 @@
     }];
 }
 
-- (void)setUpView {
+- (void)setDelegates {
     self.searchBar.delegate = self;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.filteredData = self.users;
+}
+
+
+- (void)setDataToFilterBy {
+    self.dataToFilterBy = [[NSMutableArray alloc] initWithCapacity:self.users.count];
+    for (int i = 0; i < self.users.count; i++) {
+        NSString *name = self.users[i][@"fullName"];
+        NSLog(@"\nHELLLOOOOO\n");
+        NSLog(@"%@", name);
+        [self.dataToFilterBy addObject:name];
+        NSLog(@"%@", self.dataToFilterBy[i]);
+    }
+    self.filteredData = [[NSArray alloc] initWithArray:self.dataToFilterBy];
+    NSLog(@"%@", self.dataToFilterBy[0]);
+    NSLog(@"%@", self.filteredData[0]);
+    NSLog(@"\n");
 }
 
 
@@ -59,20 +75,30 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ChatUserSearchTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"ChatSearchCell" forIndexPath:indexPath];
-    cell.profilePicture.file = self.filteredData[indexPath.row][@"image"];
-    cell.nameLabel.text = self.filteredData[indexPath.row][@"fullName"];
-    cell.usernameLabel.text = self.filteredData[indexPath.row][@"username"];
+    cell.profilePicture.file = self.users[indexPath.row][@"image"];
+    [cell.profilePicture loadInBackground];
+    cell.nameLabel.text = self.filteredData[indexPath.row];
+    cell.usernameLabel.text = self.users[indexPath.row][@"username"];
     return cell;
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    if (searchText.length != 0) {
+            
+            NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSString *evaluatedObject, NSDictionary *bindings) {
+                return [evaluatedObject containsString:searchText];
+            }];
+            self.filteredData = [self.dataToFilterBy filteredArrayUsingPredicate:predicate];
+            
+            NSLog(@"%@", self.dataToFilterBy);
+            
+        }
+        else {
+            self.filteredData = self.dataToFilterBy;
+        }
+        
+        [self.tableView reloadData];
 }
-*/
 
 @end
