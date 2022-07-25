@@ -7,6 +7,7 @@
 
 #import "SearchUsersToMessageViewController.h"
 #import "ChatUserSearchTableViewCell.h"
+#import "DirectMessageViewController.h"
 #import "Parse/Parse.h"
 
 @interface SearchUsersToMessageViewController () <UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
@@ -99,6 +100,22 @@
         }
         
         [self.tableView reloadData];
+}
+
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"SearchToDM"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        PFUser *dataToPass = self.users[indexPath.row];
+        NSLog(@"\n%@\n", dataToPass);
+        DirectMessageViewController *messageVC = (DirectMessageViewController *) [segue destinationViewController];
+        messageVC.user = dataToPass;
+    }
 }
 
 @end

@@ -9,10 +9,11 @@
 #import "Conversation.h"
 #import "Message.h"
 #import "DirectMessageTableViewCell.h"
+#import "Parse/PFImageView.h"
 
 @interface DirectMessageViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
+@property (weak, nonatomic) IBOutlet PFImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (strong, nonatomic) NSMutableArray *messages;
@@ -23,8 +24,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setUpUserProperties];
     [self setDelegates];
 }
+
+
+- (void)setUpUserProperties {
+    self.profileImage.file = self.user[@"image"];
+    [self.profileImage loadInBackground];
+    self.nameLabel.text = self.user[@"fullName"];
+    self.usernameLabel.text = self.user[@"username"];
+}
+
 
 - (void)setDelegates {
     self.tableView.delegate = self;

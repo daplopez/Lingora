@@ -562,7 +562,7 @@
                                             <outlet property="nameLabel" destination="8gh-bF-Xex" id="Q1G-oI-azE"/>
                                             <outlet property="profilePicture" destination="a13-gc-H7m" id="BYK-wI-Y6Z"/>
                                             <outlet property="usernameLabel" destination="Prj-83-FNd" id="CFu-xR-jzp"/>
-                                            <segue destination="pFh-l4-2be" kind="show" id="4uq-lq-MK9"/>
+                                            <segue destination="pFh-l4-2be" kind="show" identifier="SearchToDM" id="4uq-lq-MK9"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -616,7 +616,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4HF-Vc-Buz">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4HF-Vc-Buz" customClass="PFImageView">
                                 <rect key="frame" x="16" y="72" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="Fnf-ej-sIa"/>
@@ -668,7 +668,7 @@
                     <navigationItem key="navigationItem" id="aiK-7F-hPD"/>
                     <connections>
                         <outlet property="nameLabel" destination="Y68-0T-P5m" id="n3w-7h-gx9"/>
-                        <outlet property="profilePicture" destination="4HF-Vc-Buz" id="1BI-E5-hPB"/>
+                        <outlet property="profileImage" destination="4HF-Vc-Buz" id="AJE-Pa-CN1"/>
                         <outlet property="tableView" destination="W3x-0P-tAa" id="L8J-3f-tUY"/>
                         <outlet property="usernameLabel" destination="P4Y-pJ-hQO" id="XcF-qE-B08"/>
                     </connections>
@@ -1444,7 +1444,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="ClM-qD-quL"/>
         <segue reference="G2g-KN-7FC"/>
-        <segue reference="wBg-Rh-3qM"/>
+        <segue reference="4uq-lq-MK9"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="message" catalog="system" width="128" height="113"/>
