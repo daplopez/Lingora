@@ -57,11 +57,13 @@
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Conversation"];
     [query orderByDescending:@"createdAt"];
+    NSArray *includeKeys = [[NSArray alloc] initWithObjects:@"messages", @"user1", @"user2", nil];
+    [query includeKeys:includeKeys];
     [query whereKey:@"user1" equalTo:PFUser.currentUser];
-    [query whereKey:@"user1" equalTo:self.user];
-    [query whereKey:@"user2" equalTo:PFUser.currentUser];
-    [query whereKey:@"user2" equalTo:self.user];
-    [query includeKey:@"messages"];
+    // [query whereKey:@"user1" equalTo:self.user];
+    //[query whereKey:@"user2" equalTo:PFUser.currentUser];
+    //[query whereKey:@"user2" equalTo:self.user];
+    //[query includeKey:@"messages"];
     query.limit = 20;
     
     // fetch data asynchronously
