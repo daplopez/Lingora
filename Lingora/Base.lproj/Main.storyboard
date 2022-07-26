@@ -593,8 +593,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="W3x-0P-tAa">
-                                <rect key="frame" x="0.0" y="125" width="414" height="636"/>
+                                <rect key="frame" x="0.0" y="161" width="414" height="584"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="584" id="P7v-7i-DUo"/>
+                                    <constraint firstAttribute="width" constant="414" id="Uq7-TX-ss1"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DMCell" rowHeight="64" id="Lgw-fB-jie" customClass="DirectMessageTableViewCell">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="64"/>
@@ -617,6 +621,9 @@
                                                 <constraint firstAttribute="trailing" secondItem="FTH-FQ-WAc" secondAttribute="trailing" constant="16" id="fD0-II-x8a"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="messageTextLabel" destination="FTH-FQ-WAc" id="sYw-vd-0hQ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -641,7 +648,10 @@
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GCC-gs-CcK">
                                 <rect key="frame" x="326" y="770" width="72" height="31"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Send"/>
+                                <connections>
+                                    <action selector="didTapSend:" destination="pFh-l4-2be" eventType="touchUpInside" id="Shb-BW-224"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P4Y-pJ-hQO">
                                 <rect key="frame" x="69" y="96" width="329" height="21"/>
@@ -659,10 +669,12 @@
                             <constraint firstItem="xAx-RP-Yuz" firstAttribute="trailing" secondItem="GCC-gs-CcK" secondAttribute="trailing" constant="16" id="8ys-BP-CFb"/>
                             <constraint firstItem="4HF-Vc-Buz" firstAttribute="top" secondItem="xAx-RP-Yuz" secondAttribute="top" constant="16" id="Fet-4L-3KO"/>
                             <constraint firstItem="Y68-0T-P5m" firstAttribute="leading" secondItem="4HF-Vc-Buz" secondAttribute="trailing" constant="8" id="Omr-jW-yKe"/>
+                            <constraint firstItem="GCC-gs-CcK" firstAttribute="top" secondItem="W3x-0P-tAa" secondAttribute="bottom" constant="25" id="W9Y-G0-gn2"/>
                             <constraint firstItem="4HF-Vc-Buz" firstAttribute="leading" secondItem="xAx-RP-Yuz" secondAttribute="leading" constant="16" id="WpC-z6-uqa"/>
+                            <constraint firstItem="D8u-xa-vZw" firstAttribute="top" secondItem="W3x-0P-tAa" secondAttribute="bottom" constant="24" id="Z0d-Wg-g3W"/>
                             <constraint firstItem="D8u-xa-vZw" firstAttribute="leading" secondItem="xAx-RP-Yuz" secondAttribute="leading" constant="16" id="d1K-UX-wdy"/>
                             <constraint firstItem="GCC-gs-CcK" firstAttribute="leading" secondItem="D8u-xa-vZw" secondAttribute="trailing" constant="8" id="kQg-wc-gyY"/>
-                            <constraint firstItem="W3x-0P-tAa" firstAttribute="top" secondItem="P4Y-pJ-hQO" secondAttribute="bottom" constant="8" symbolic="YES" id="tGv-0H-D9O"/>
+                            <constraint firstItem="W3x-0P-tAa" firstAttribute="top" relation="greaterThanOrEqual" secondItem="P4Y-pJ-hQO" secondAttribute="bottom" constant="16" id="tGv-0H-D9O"/>
                             <constraint firstItem="xAx-RP-Yuz" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="D8u-xa-vZw" secondAttribute="bottom" constant="16" id="u1x-sE-j38"/>
                             <constraint firstItem="xAx-RP-Yuz" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="GCC-gs-CcK" secondAttribute="bottom" constant="16" id="xPM-s3-u0h"/>
                             <constraint firstItem="P4Y-pJ-hQO" firstAttribute="bottom" secondItem="4HF-Vc-Buz" secondAttribute="bottom" id="xcs-7i-dHG"/>
@@ -671,9 +683,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="aiK-7F-hPD"/>
                     <connections>
+                        <outlet property="messageTextField" destination="D8u-xa-vZw" id="ogi-bx-JUe"/>
                         <outlet property="nameLabel" destination="Y68-0T-P5m" id="n3w-7h-gx9"/>
                         <outlet property="profileImage" destination="4HF-Vc-Buz" id="AJE-Pa-CN1"/>
-                        <outlet property="tableView" destination="W3x-0P-tAa" id="L8J-3f-tUY"/>
+                        <outlet property="tableView" destination="W3x-0P-tAa" id="lHQ-y7-fnF"/>
                         <outlet property="usernameLabel" destination="P4Y-pJ-hQO" id="XcF-qE-B08"/>
                     </connections>
                 </viewController>
@@ -1447,7 +1460,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="ClM-qD-quL"/>
-        <segue reference="G2g-KN-7FC"/>
+        <segue reference="htF-bb-ZcZ"/>
         <segue reference="gS8-Ms-r7q"/>
     </inferredMetricsTieBreakers>
     <resources>

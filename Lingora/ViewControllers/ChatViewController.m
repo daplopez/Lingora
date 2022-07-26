@@ -30,7 +30,7 @@
 
 - (void)queryForConversations {
     PFQuery *query = [PFQuery queryWithClassName:@"Conversation"];
-    NSArray *includeUsers = [[NSArray alloc] initWithObjects:@"user1", @"user2", nil];
+    NSArray *includeUsers = [[NSArray alloc] initWithObjects:@"user1", @"user2", @"messages", nil];
     [query includeKeys:includeUsers];
     [query whereKey:@"username1" equalTo:PFUser.currentUser.username];
     [query orderByDescending:@"createdAt"];
@@ -63,7 +63,8 @@
     [cell.profilePicture loadInBackground];
     cell.nameLabel.text = user[@"fullName"];
     if (curConvo.messages.count != 0) {
-        cell.messageLabel.text = curConvo.messages[curConvo.messages.count - 1];
+        //NSLog(@"%d", curConvo.messages.count);
+        cell.messageLabel.text = curConvo.messages[curConvo.messages.count - 1][@"messageText"];
     }
     return cell;
 }

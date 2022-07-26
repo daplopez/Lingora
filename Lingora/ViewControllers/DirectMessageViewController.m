@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (strong, nonatomic) NSMutableArray *messages;
+@property (weak, nonatomic) IBOutlet UITextField *messageTextField;
 @end
 
 @implementation DirectMessageViewController
@@ -24,8 +25,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //[self setDelegates];
     [self setUpUserProperties];
-    [self setDelegates];
     // If opened DM from any other screen, query for a conversation between the two users
     if (self.conversation == nil) {
         [self queryForMessages];
@@ -33,9 +34,12 @@
     } else {
        // NSLog(@"\n%@\n", self.conversation.messages[0]);
         //NSLog(@"\n%d\n", self.conversation.messages == nil);
+        [self setDelegates];
         self.messages = [NSMutableArray arrayWithArray:self.conversation.messages];
-        
+        [self.tableView reloadData];
+        NSLog(@"HERE");
     }
+    [self.tableView reloadData];
 }
 
 
@@ -72,6 +76,7 @@
                 NSLog(@"-----HHHHHEEERRRRREEEE----");
                 Conversation *curConvo = conversation[0];
                 self.messages = [NSMutableArray arrayWithArray:curConvo.messages];
+                [self.tableView reloadData];
             } else {
                 // If no convresation has previously existed
                 self.messages = [[NSMutableArray alloc] init];
@@ -97,9 +102,25 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DirectMessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DMCell"];
-    cell.textLabel.text = self.messages[indexPath.row];
+    cell.messageTextLabel.text = self.messages[indexPath.row][@"messageText"];
     return cell;
 }
 
+- (IBAction)didTapSend:(id)sender {
+    // create new message and add it to current conversation
+    
+    Message *newMessage = [Message sendMessage:self.messageTextField.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+            if (succeeded) {
+                NSLog(@"Successfully sent message");
+                // clear message field once sent
+                self.messageTextField.text = @"";
+            } else {
+                NSLog(@"Failed to send message");
+            }
+    }];
+    [self.messages addObject:newMessage];
+    self.conversation.messages = [NSArray arrayWithArray:self.messages];
+    [self.conversation saveInBackground];
+}
 
 @end
