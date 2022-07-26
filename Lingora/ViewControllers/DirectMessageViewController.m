@@ -26,6 +26,11 @@
     
     [self setUpUserProperties];
     [self setDelegates];
+    if (![self.conversation isEqual:nil]) {
+        self.messages = [NSMutableArray arrayWithArray:self.conversation.messages];
+    } else {
+        [self queryForMessages];
+    }
 }
 
 
@@ -60,9 +65,20 @@
             NSLog(@"Successfully got convo");
             Conversation *curConvo = conversation[0];
             self.messages = [NSMutableArray arrayWithArray:curConvo.messages];
+            
             [self.tableView reloadData];
         } else {
             NSLog(@"%@", error.localizedDescription);
+            
+            // If no convresation has previously existed
+            self.messages = [[NSMutableArray alloc] init];
+            [Conversation createConversation:self.messages withUser:self.user withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+                if (succeeded) {
+                    NSLog(@"Successsfully created a new conversation");
+                } else {
+                    NSLog(@"%@", error.localizedDescription);
+                }
+            }];
         }
     }];
 }
