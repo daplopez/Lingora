@@ -26,10 +26,15 @@
     
     [self setUpUserProperties];
     [self setDelegates];
-    if (![self.conversation isEqual:nil]) {
-        self.messages = [NSMutableArray arrayWithArray:self.conversation.messages];
-    } else {
+    // If opened DM from any other screen, query for a conversation between the two users
+    if (self.conversation == nil) {
         [self queryForMessages];
+    // If conversation was selected from chat vc, then messages already exist
+    } else {
+       // NSLog(@"\n%@\n", self.conversation.messages[0]);
+        //NSLog(@"\n%d\n", self.conversation.messages == nil);
+        self.messages = [NSMutableArray arrayWithArray:self.conversation.messages];
+        
     }
 }
 
@@ -63,22 +68,24 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *conversation, NSError *error) {
         if (conversation != nil) {
             NSLog(@"Successfully got convo");
-            Conversation *curConvo = conversation[0];
-            self.messages = [NSMutableArray arrayWithArray:curConvo.messages];
-            
+            if (conversation.count != 0) {
+                NSLog(@"-----HHHHHEEERRRRREEEE----");
+                Conversation *curConvo = conversation[0];
+                self.messages = [NSMutableArray arrayWithArray:curConvo.messages];
+            } else {
+                // If no convresation has previously existed
+                self.messages = [[NSMutableArray alloc] init];
+                [Conversation createConversation:self.messages withUser:self.user withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+                    if (succeeded) {
+                        NSLog(@"Successsfully created a new conversation");
+                    } else {
+                        NSLog(@"%@", error.localizedDescription);
+                    }
+                }];
+            }
             [self.tableView reloadData];
         } else {
             NSLog(@"%@", error.localizedDescription);
-            
-            // If no convresation has previously existed
-            self.messages = [[NSMutableArray alloc] init];
-            [Conversation createConversation:self.messages withUser:self.user withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-                if (succeeded) {
-                    NSLog(@"Successsfully created a new conversation");
-                } else {
-                    NSLog(@"%@", error.localizedDescription);
-                }
-            }];
         }
     }];
 }

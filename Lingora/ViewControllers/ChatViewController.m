@@ -21,16 +21,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     [self queryForConversations];
+    [self.tableView reloadData];
 }
 
 
 - (void)queryForConversations {
     PFQuery *query = [PFQuery queryWithClassName:@"Conversation"];
-    [query whereKey:@"user1" equalTo:PFUser.currentUser];
-    [query whereKey:@"user2" equalTo:PFUser.currentUser];
+    NSArray *includeUsers = [[NSArray alloc] initWithObjects:@"user1", @"user2", nil];
+    [query includeKeys:includeUsers];
+    [query whereKey:@"username1" equalTo:PFUser.currentUser.username];
     [query orderByDescending:@"createdAt"];
-    query.limit = 20;
     
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *conversations, NSError *error) {
@@ -38,6 +41,7 @@
             NSLog(@"Successfully got users");
             
             self.conversations = [NSArray arrayWithArray:conversations];
+            NSLog(@"%@", self.conversations[0][@"user2"]);
             [self.tableView reloadData];
         } else {
             NSLog(@"%@", error.localizedDescription);
@@ -53,11 +57,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ChatTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChatCell"];
     Conversation *curConvo = self.conversations[indexPath.row];
-    PFUser *user = [curConvo.user1 isEqual:PFUser.currentUser] ? curConvo.user2 : curConvo.user1;
+    //PFUser *user = curConvo.user2;
+    PFUser *user = [curConvo.user1.username isEqualToString:PFUser.currentUser.username] ? curConvo.user2 : curConvo.user1;
     cell.profilePicture.file = user[@"image"];
     [cell.profilePicture loadInBackground];
     cell.nameLabel.text = user[@"fullName"];
-    cell.messageLabel.text = curConvo.messages[curConvo.messages.count - 1];
+    if (curConvo.messages.count != 0) {
+        cell.messageLabel.text = curConvo.messages[curConvo.messages.count - 1];
+    }
     return cell;
 }
 
@@ -67,12 +74,14 @@
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
      // Get the new view controller using [segue destinationViewController].
      // Pass the selected object to the new view controller.
-     if ([segue.identifier isEqualToString:@"SearchToDM"]) {
+     if ([segue.identifier isEqualToString:@"ChatsToDM"]) {
          NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-         Conversation *dataToPass = self.conversations[indexPath.row];
-         NSLog(@"\n%@\n", dataToPass);
+         Conversation *convoToPass = self.conversations[indexPath.row];
+         PFUser *userToPass = ([convoToPass.user1.username isEqualToString:PFUser.currentUser.username]) ? convoToPass.user2 : convoToPass.user1;
+         NSLog(@"\n%@\n", convoToPass);
          DirectMessageViewController *messageVC = (DirectMessageViewController *) [segue destinationViewController];
-         messageVC.conversation = dataToPass;
+         messageVC.conversation = convoToPass;
+         messageVC.user = userToPass;
      }
  }
 

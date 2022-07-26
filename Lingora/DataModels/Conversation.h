@@ -13,7 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSArray *messages;
 @property (nonatomic, strong) PFUser *user1;
+@property (nonatomic, strong) NSString *username1;
 @property (nonatomic, strong) PFUser *user2;
+@property (nonatomic, strong) NSString *username2;
 
 + (void) createConversation: (NSArray * _Nullable )messages withUser:(PFUser *)user2 withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
