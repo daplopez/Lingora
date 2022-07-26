@@ -57,13 +57,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ChatTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChatCell"];
     Conversation *curConvo = self.conversations[indexPath.row];
-    //PFUser *user = curConvo.user2;
     PFUser *user = [curConvo.user1.username isEqualToString:PFUser.currentUser.username] ? curConvo.user2 : curConvo.user1;
     cell.profilePicture.file = user[@"image"];
     [cell.profilePicture loadInBackground];
     cell.nameLabel.text = user[@"fullName"];
     if (curConvo.messages.count != 0) {
-        //NSLog(@"%d", curConvo.messages.count);
         cell.messageLabel.text = curConvo.messages[curConvo.messages.count - 1][@"messageText"];
     }
     return cell;
@@ -79,7 +77,6 @@
          NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
          Conversation *convoToPass = self.conversations[indexPath.row];
          PFUser *userToPass = ([convoToPass.user1.username isEqualToString:PFUser.currentUser.username]) ? convoToPass.user2 : convoToPass.user1;
-         NSLog(@"\n%@\n", convoToPass);
          DirectMessageViewController *messageVC = (DirectMessageViewController *) [segue destinationViewController];
          messageVC.conversation = convoToPass;
          messageVC.user = userToPass;

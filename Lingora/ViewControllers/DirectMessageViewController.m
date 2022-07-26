@@ -25,19 +25,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //[self setDelegates];
+    [self setDelegates];
     [self setUpUserProperties];
     // If opened DM from any other screen, query for a conversation between the two users
     if (self.conversation == nil) {
         [self queryForMessages];
     // If conversation was selected from chat vc, then messages already exist
     } else {
-       // NSLog(@"\n%@\n", self.conversation.messages[0]);
-        //NSLog(@"\n%d\n", self.conversation.messages == nil);
-        [self setDelegates];
         self.messages = [NSMutableArray arrayWithArray:self.conversation.messages];
         [self.tableView reloadData];
-        NSLog(@"HERE");
     }
     [self.tableView reloadData];
 }
@@ -73,7 +69,6 @@
         if (conversation != nil) {
             NSLog(@"Successfully got convo");
             if (conversation.count != 0) {
-                NSLog(@"-----HHHHHEEERRRRREEEE----");
                 Conversation *curConvo = conversation[0];
                 self.messages = [NSMutableArray arrayWithArray:curConvo.messages];
                 [self.tableView reloadData];
