@@ -124,6 +124,8 @@
     PostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"];
     Post *post = self.posts[indexPath.row];
     cell.postTextLabel.text = post[@"postText"];
+    cell.layer.cornerRadius = 10;
+    cell.layer.masksToBounds = YES;
     return cell;
 }
 
