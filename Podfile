@@ -12,6 +12,7 @@ target 'Lingora' do
   pod 'GooglePlaces', '7.0.0'
   pod 'DateTools'
   pod 'ParseLiveQuery'
+  pod 'DZNEmptyDataSet'
 
   target 'LingoraTests' do
     inherit! :search_paths
