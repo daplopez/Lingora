@@ -1,5 +1,5 @@
 //
-//  ConversationHandler.h
+//  ConversationManager.h
 //  Lingora
 //
 //  Created by Daphne Lopez on 7/28/22.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ConversationHandler : NSObject
+@interface ConversationManager : NSObject
 
 @end
 

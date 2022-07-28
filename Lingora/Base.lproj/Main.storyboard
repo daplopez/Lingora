@@ -577,6 +577,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="7LC-9U-Rkx"/>
                     <connections>
+                        <outlet property="searchBar" destination="ifN-rS-K5d" id="ngO-L3-yQI"/>
                         <outlet property="tableView" destination="LOF-oM-9jE" id="0vh-D0-90P"/>
                     </connections>
                 </viewController>
@@ -1461,7 +1462,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="ClM-qD-quL"/>
         <segue reference="htF-bb-ZcZ"/>
-        <segue reference="gS8-Ms-r7q"/>
+        <segue reference="4uq-lq-MK9"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="message" catalog="system" width="128" height="113"/>

@@ -46,7 +46,8 @@
 		8DC5AA1E28762BCE00011509 /* HomeFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5AA1D28762BCE00011509 /* HomeFeedViewController.m */; };
 		8DC5AA212876561A00011509 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5AA202876561A00011509 /* Post.m */; };
 		8DC5AA242877B3F400011509 /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5AA232877B3F400011509 /* PostTableViewCell.m */; };
-		8DFC72452891BF390088E08D /* ConversationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFC72442891BF390088E08D /* ConversationHandler.m */; };
+		8DFC725728932DE20088E08D /* ConversationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFC725628932DE20088E08D /* ConversationHandler.m */; };
+		8DFC725A28932F0F0088E08D /* ConversationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFC725928932F0F0088E08D /* ConversationManager.m */; };
 		F4A4BA7BAA55E8254E2809F1 /* Pods_Lingora.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9F396EA7F6C2C08CEB415D /* Pods_Lingora.framework */; };
 /* End PBXBuildFile section */
 
@@ -145,8 +146,10 @@
 		8DC5AA202876561A00011509 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		8DC5AA222877B3F400011509 /* PostTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostTableViewCell.h; sourceTree = "<group>"; };
 		8DC5AA232877B3F400011509 /* PostTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostTableViewCell.m; sourceTree = "<group>"; };
-		8DFC72432891BF390088E08D /* ConversationHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationHandler.h; sourceTree = SOURCE_ROOT; };
-		8DFC72442891BF390088E08D /* ConversationHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConversationHandler.m; sourceTree = SOURCE_ROOT; };
+		8DFC725528932DE20088E08D /* ConversationHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationHandler.h; sourceTree = "<group>"; };
+		8DFC725628932DE20088E08D /* ConversationHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConversationHandler.m; sourceTree = "<group>"; };
+		8DFC725828932F0F0088E08D /* ConversationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationManager.h; sourceTree = "<group>"; };
+		8DFC725928932F0F0088E08D /* ConversationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConversationManager.m; sourceTree = "<group>"; };
 		D0202880DCEBFB0B7B05458B /* Pods-LingoraTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LingoraTests.debug.xcconfig"; path = "Target Support Files/Pods-LingoraTests/Pods-LingoraTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E3790AAAFC7DEA2F5390122C /* Pods-LingoraTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LingoraTests.release.xcconfig"; path = "Target Support Files/Pods-LingoraTests/Pods-LingoraTests.release.xcconfig"; sourceTree = "<group>"; };
 		F56DCA3193B987F897B02C73 /* Pods-Lingora.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lingora.release.xcconfig"; path = "Target Support Files/Pods-Lingora/Pods-Lingora.release.xcconfig"; sourceTree = "<group>"; };
@@ -350,8 +353,10 @@
 		8DFC72422891BE9B0088E08D /* LiveQueryHandlers */ = {
 			isa = PBXGroup;
 			children = (
-				8DFC72432891BF390088E08D /* ConversationHandler.h */,
-				8DFC72442891BF390088E08D /* ConversationHandler.m */,
+				8DFC725528932DE20088E08D /* ConversationHandler.h */,
+				8DFC725628932DE20088E08D /* ConversationHandler.m */,
+				8DFC725828932F0F0088E08D /* ConversationManager.h */,
+				8DFC725928932F0F0088E08D /* ConversationManager.m */,
 			);
 			path = LiveQueryHandlers;
 			sourceTree = "<group>";
@@ -639,10 +644,11 @@
 				8D08BC4A2874A7A000E2D93D /* main.m in Sources */,
 				8D08BC3C2874A79F00E2D93D /* SceneDelegate.m in Sources */,
 				8DC5AA212876561A00011509 /* Post.m in Sources */,
-				8DFC72452891BF390088E08D /* ConversationHandler.m in Sources */,
+				8DFC725728932DE20088E08D /* ConversationHandler.m in Sources */,
 				8D08BC712874D7DF00E2D93D /* LoginViewController.m in Sources */,
 				8D42F8EE287F480E0078FD29 /* PostProfileTableViewCell.m in Sources */,
 				8D62442E287CC05900B82B98 /* ProfileInterestsCollectionViewCell.m in Sources */,
+				8DFC725A28932F0F0088E08D /* ConversationManager.m in Sources */,
 				8D98E587287DF50C00AC4475 /* ProfileImageCollectionViewCell.m in Sources */,
 				8D63C1A6288B6127007F99DE /* Message.m in Sources */,
 				8D42F8F1287F5D5C0078FD29 /* RecommendedTableViewCell.m in Sources */,
