@@ -10,6 +10,7 @@
 #import "Message.h"
 #import "DirectMessageTableViewCell.h"
 #import "Parse/PFImageView.h"
+@import ParseLiveQuery;
 
 @interface DirectMessageViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -18,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (strong, nonatomic) NSMutableArray *messages;
 @property (weak, nonatomic) IBOutlet UITextField *messageTextField;
+@property (strong, nonatomic) PFLiveQueryClient *client;
 @end
 
 @implementation DirectMessageViewController
@@ -27,14 +29,7 @@
     
     [self setDelegates];
     [self setUpUserProperties];
-    // If opened DM from any other screen, query for a conversation between the two users
-    if (self.conversation == nil) {
-        [self queryForMessages];
-    // If conversation was selected from chat vc, then messages already exist
-    } else {
-        self.messages = [NSMutableArray arrayWithArray:self.conversation.messages];
-        [self.tableView reloadData];
-    }
+    [self queryForMessages];
     [self.tableView reloadData];
 }
 
@@ -54,20 +49,18 @@
 
 
 - (void)queryForMessages {
-    // construct query
-    PFQuery *query = [PFQuery queryWithClassName:@"Conversation"];
-    [query orderByDescending:@"createdAt"];
+    PFQuery *convosByThisUser = [self queryForConversationsThisUserCreated];
+    PFQuery *convosByOthers = [self queryForConversationsByOtherUser];
+    NSArray *queries = [[NSArray alloc] initWithObjects:convosByThisUser, convosByOthers, nil];
+    PFQuery *queryMessages = [PFQuery orQueryWithSubqueries:queries];
     NSArray *includeKeys = [[NSArray alloc] initWithObjects:@"messages", @"user1", @"user2", nil];
-    [query includeKeys:includeKeys];
-    [query whereKey:@"user1" equalTo:PFUser.currentUser];
-    // [query whereKey:@"user1" equalTo:self.user];
-    //[query whereKey:@"user2" equalTo:PFUser.currentUser];
-    //[query whereKey:@"user2" equalTo:self.user];
-    //[query includeKey:@"messages"];
-    query.limit = 20;
+    [queryMessages includeKeys:includeKeys];
+    [queryMessages orderByDescending:@"createdAt"];
+    [queryMessages includeKey:@"messages"];
+    queryMessages.limit = 20;
     
     // fetch data asynchronously
-    [query findObjectsInBackgroundWithBlock:^(NSArray *conversation, NSError *error) {
+    [queryMessages findObjectsInBackgroundWithBlock:^(NSArray *conversation, NSError *error) {
         if (conversation != nil) {
             NSLog(@"Successfully got convo");
             if (conversation.count != 0) {
@@ -92,6 +85,27 @@
     }];
 }
 
+
+- (PFQuery *)queryForConversationsThisUserCreated {
+    // construct query
+    PFQuery *query = [PFQuery queryWithClassName:@"Conversation"];
+    [query whereKey:@"username1" equalTo:PFUser.currentUser.username];
+    [query whereKey:@"user2" equalTo:self.user.username];
+    
+    // create subscription
+    
+    return query;
+}
+
+
+- (PFQuery *)queryForConversationsByOtherUser {
+    // construct query
+    PFQuery *query = [PFQuery queryWithClassName:@"Conversation"];
+    [query whereKey:@"username1" equalTo:self.user.username];
+    [query whereKey:@"username2" equalTo:PFUser.currentUser.username];
+    
+    return query;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.messages.count;

@@ -46,6 +46,7 @@
 		8DC5AA1E28762BCE00011509 /* HomeFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5AA1D28762BCE00011509 /* HomeFeedViewController.m */; };
 		8DC5AA212876561A00011509 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5AA202876561A00011509 /* Post.m */; };
 		8DC5AA242877B3F400011509 /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5AA232877B3F400011509 /* PostTableViewCell.m */; };
+		8DFC72452891BF390088E08D /* ConversationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFC72442891BF390088E08D /* ConversationHandler.m */; };
 		F4A4BA7BAA55E8254E2809F1 /* Pods_Lingora.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9F396EA7F6C2C08CEB415D /* Pods_Lingora.framework */; };
 /* End PBXBuildFile section */
 
@@ -144,6 +145,8 @@
 		8DC5AA202876561A00011509 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		8DC5AA222877B3F400011509 /* PostTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostTableViewCell.h; sourceTree = "<group>"; };
 		8DC5AA232877B3F400011509 /* PostTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostTableViewCell.m; sourceTree = "<group>"; };
+		8DFC72432891BF390088E08D /* ConversationHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationHandler.h; sourceTree = SOURCE_ROOT; };
+		8DFC72442891BF390088E08D /* ConversationHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConversationHandler.m; sourceTree = SOURCE_ROOT; };
 		D0202880DCEBFB0B7B05458B /* Pods-LingoraTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LingoraTests.debug.xcconfig"; path = "Target Support Files/Pods-LingoraTests/Pods-LingoraTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E3790AAAFC7DEA2F5390122C /* Pods-LingoraTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LingoraTests.release.xcconfig"; path = "Target Support Files/Pods-LingoraTests/Pods-LingoraTests.release.xcconfig"; sourceTree = "<group>"; };
 		F56DCA3193B987F897B02C73 /* Pods-Lingora.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lingora.release.xcconfig"; path = "Target Support Files/Pods-Lingora/Pods-Lingora.release.xcconfig"; sourceTree = "<group>"; };
@@ -232,6 +235,7 @@
 				8D08BC3D2874A79F00E2D93D /* ViewController.h */,
 				8D08BC3E2874A79F00E2D93D /* ViewController.m */,
 				8D08BC402874A79F00E2D93D /* Main.storyboard */,
+				8DFC72422891BE9B0088E08D /* LiveQueryHandlers */,
 				8D62442F287CC06000B82B98 /* CollectionViewCells */,
 				8DBA3EBB2878B2730030EBEF /* DataModels */,
 				8DC5AA252877B40100011509 /* TableViewCells */,
@@ -341,6 +345,15 @@
 				8D63C1AE288F175D007F99DE /* ChatUserSearchTableViewCell.m */,
 			);
 			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		8DFC72422891BE9B0088E08D /* LiveQueryHandlers */ = {
+			isa = PBXGroup;
+			children = (
+				8DFC72432891BF390088E08D /* ConversationHandler.h */,
+				8DFC72442891BF390088E08D /* ConversationHandler.m */,
+			);
+			path = LiveQueryHandlers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -626,6 +639,7 @@
 				8D08BC4A2874A7A000E2D93D /* main.m in Sources */,
 				8D08BC3C2874A79F00E2D93D /* SceneDelegate.m in Sources */,
 				8DC5AA212876561A00011509 /* Post.m in Sources */,
+				8DFC72452891BF390088E08D /* ConversationHandler.m in Sources */,
 				8D08BC712874D7DF00E2D93D /* LoginViewController.m in Sources */,
 				8D42F8EE287F480E0078FD29 /* PostProfileTableViewCell.m in Sources */,
 				8D62442E287CC05900B82B98 /* ProfileInterestsCollectionViewCell.m in Sources */,

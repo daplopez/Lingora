@@ -10,6 +10,7 @@
 #import "Conversation.h"
 #import "Parse/Parse.h"
 #import "ChatTableViewCell.h"
+@import ParseLiveQuery;
 
 @interface ChatViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -27,26 +28,42 @@
     [self.tableView reloadData];
 }
 
-
 - (void)queryForConversations {
-    PFQuery *query = [PFQuery queryWithClassName:@"Conversation"];
+    PFQuery *conversationsInitiatedByCurrentUser = [self queryForConversationsThisUserCreated];
+    PFQuery *conversationsInitiatedByOthers = [self queryForConversationsCreatedByOthers];
+    NSArray *conversationQueries = [[NSArray alloc] initWithObjects:conversationsInitiatedByCurrentUser, conversationsInitiatedByOthers, nil];
+    PFQuery *queryAllConversations = [PFQuery orQueryWithSubqueries:conversationQueries];
     NSArray *includeUsers = [[NSArray alloc] initWithObjects:@"user1", @"user2", @"messages", nil];
-    [query includeKeys:includeUsers];
-    [query whereKey:@"username1" equalTo:PFUser.currentUser.username];
-    [query orderByDescending:@"createdAt"];
+    [queryAllConversations includeKeys:includeUsers];
+    [queryAllConversations orderByDescending:@"createdAt"];
     
     // fetch data asynchronously
-    [query findObjectsInBackgroundWithBlock:^(NSArray *conversations, NSError *error) {
+    [queryAllConversations findObjectsInBackgroundWithBlock:^(NSArray *conversations, NSError *error) {
         if (conversations != nil) {
             NSLog(@"Successfully got users");
-            
-            self.conversations = [NSArray arrayWithArray:conversations];
-            NSLog(@"%@", self.conversations[0][@"user2"]);
-            [self.tableView reloadData];
+            if (conversations.count != 0) {
+                self.conversations = [NSArray arrayWithArray:conversations];
+                NSLog(@"%@", self.conversations[0][@"user2"]);
+                [self.tableView reloadData];
+            }
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
     }];
+}
+
+- (PFQuery *)queryForConversationsThisUserCreated {
+    PFQuery *query = [PFQuery queryWithClassName:@"Conversation"];
+    [query whereKey:@"username1" equalTo:PFUser.currentUser.username];
+    
+    return query;
+}
+
+- (PFQuery *)queryForConversationsCreatedByOthers {
+    PFQuery *query = [PFQuery queryWithClassName:@"Conversation"];
+    [query whereKey:@"username2" equalTo:PFUser.currentUser.username];
+
+    return query;
 }
 
 
