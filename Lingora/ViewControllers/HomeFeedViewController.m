@@ -134,6 +134,13 @@
 }
 
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    cell.alpha = 0;
+    [UIView animateWithDuration:0.5 animations: ^{
+        cell.alpha = 1;
+    }];
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
