@@ -46,6 +46,7 @@
 		8DC5AA1E28762BCE00011509 /* HomeFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5AA1D28762BCE00011509 /* HomeFeedViewController.m */; };
 		8DC5AA212876561A00011509 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5AA202876561A00011509 /* Post.m */; };
 		8DC5AA242877B3F400011509 /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5AA232877B3F400011509 /* PostTableViewCell.m */; };
+		8DEDC5CE289484330048AEB9 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DEDC5CD289484330048AEB9 /* Keys.plist */; };
 		8DFC725728932DE20088E08D /* ConversationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFC725628932DE20088E08D /* ConversationHandler.m */; };
 		8DFC725A28932F0F0088E08D /* ConversationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFC725928932F0F0088E08D /* ConversationManager.m */; };
 		F4A4BA7BAA55E8254E2809F1 /* Pods_Lingora.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9F396EA7F6C2C08CEB415D /* Pods_Lingora.framework */; };
@@ -146,6 +147,7 @@
 		8DC5AA202876561A00011509 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		8DC5AA222877B3F400011509 /* PostTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostTableViewCell.h; sourceTree = "<group>"; };
 		8DC5AA232877B3F400011509 /* PostTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostTableViewCell.m; sourceTree = "<group>"; };
+		8DEDC5CD289484330048AEB9 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		8DFC725528932DE20088E08D /* ConversationHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationHandler.h; sourceTree = "<group>"; };
 		8DFC725628932DE20088E08D /* ConversationHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConversationHandler.m; sourceTree = "<group>"; };
 		8DFC725828932F0F0088E08D /* ConversationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationManager.h; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				8D08BC432874A7A000E2D93D /* Assets.xcassets */,
 				8D08BC452874A7A000E2D93D /* LaunchScreen.storyboard */,
 				8D08BC482874A7A000E2D93D /* Info.plist */,
+				8DEDC5CD289484330048AEB9 /* Keys.plist */,
 				8D08BC492874A7A000E2D93D /* main.m */,
 			);
 			path = Lingora;
@@ -471,6 +474,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DEDC5CE289484330048AEB9 /* Keys.plist in Resources */,
 				8D08BC472874A7A000E2D93D /* LaunchScreen.storyboard in Resources */,
 				8D08BC442874A7A000E2D93D /* Assets.xcassets in Resources */,
 				8D08BC422874A79F00E2D93D /* Main.storyboard in Resources */,

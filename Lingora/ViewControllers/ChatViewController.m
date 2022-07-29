@@ -34,13 +34,6 @@
 }
 
 - (void)queryForConversations {
-//    PFQuery *conversationsInitiatedByCurrentUser = [self queryForConversationsThisUserCreated];
-//    PFQuery *conversationsInitiatedByOthers = [self queryForConversationsCreatedByOthers];
-//    NSArray *conversationQueries = [[NSArray alloc] initWithObjects:conversationsInitiatedByCurrentUser, conversationsInitiatedByOthers, nil];
-//    PFQuery *queryAllConversations = [PFQuery orQueryWithSubqueries:conversationQueries];
-//    NSArray *includeUsers = [[NSArray alloc] initWithObjects:@"user1", @"user2", @"messages", nil];
-//    [queryAllConversations includeKeys:includeUsers];
-//    [queryAllConversations orderByDescending:@"createdAt"];
     
     ConversationHandler *handler = [[ConversationHandler alloc] init];
     ConversationManager *manager = [[ConversationManager alloc] initWithDataSource:(id)handler delegate:(id)handler];
@@ -52,11 +45,6 @@
         if (conversations != nil) {
             NSLog(@"Successfully got users");
             if (conversations.count != 0) {
-//                self.conversations = [NSArray arrayWithArray:conversations];
-//                NSLog(@"%@", self.conversations[0][@"user2"]);
-//                [self.tableView reloadData];
-                //NSLog(@"%d", conversations.count);
-                //self.conversations = [NSArray arrayWithArray:conversations];
                 for (int i = 0; i < conversations.count; i++) {
                     self.conversations = [handler conversationManager:manager didCreateConversation:conversations[i] forTableView:self.tableView newConvos:self.conversations];
                     [self.tableView reloadData];

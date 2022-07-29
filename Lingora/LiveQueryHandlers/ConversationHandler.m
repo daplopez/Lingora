@@ -23,10 +23,12 @@
     self = [super init];
     if (!self) return self;
 
-    //self.convo = conversation;
-    NSString *server = @"wss://lingora.back4app.io";
-    NSString *appID = @"br3tfJvr91ICV46owI5EuDK19G2dHpDsdIkNpur5";
-    NSString *clientKey = @"MtocH1ODD1D95uh2FufxYdmivI9gIZtMpx2ynK4v";
+    NSString *path = [[NSBundle mainBundle] pathForResource: @"Keys" ofType: @"plist"];
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: path];
+    
+    NSString *server = [dict objectForKey: @"ParseLiveQueryServer"];;
+    NSString *appID = [dict objectForKey: @"ParseAppID"];;
+    NSString *clientKey = [dict objectForKey: @"ParseClientKey"];;
     PFLiveQueryClient *queryClient = [[PFLiveQueryClient alloc] initWithServer:server applicationId:appID clientKey:clientKey];
     self.client = queryClient;
   return self;
