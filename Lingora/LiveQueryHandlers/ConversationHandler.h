@@ -6,10 +6,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Conversation.h"
+#import "Parse/Parse.h"
+#import "ConversationManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
+@class ConversationHandler;
 
 @interface ConversationHandler : NSObject
+
+- (instancetype)init;
+
+- (PFQuery *)queryForConversations:(ConversationManager *) manager;
+- (PFQuery *)queryForConversationsThisUserCreated;
+- (PFQuery *)queryForConversationsCreatedByOthers;
+- (PFLiveQueryClient *)liveQueryClientForConversationManager:(ConversationManager *)manager;
+- (NSArray *)conversationManager:(ConversationManager *)manager didCreateConversation:(NSArray *)conversations;
 
 @end
 

@@ -10,17 +10,31 @@
 #import "ConversationManager.h"
 @import ParseLiveQuery;
 
-@interface ConversationHandler ()
+@interface ConversationHandler () <ConversationManagerDelegate, ConversationManagerDataSource>
 
-@property (nonatomic, strong, readonly) Conversation *convo;
-@property (nonatomic, strong, readonly) PFLiveQueryClient *client;
+//@property (nonatomic, strong) Conversation *convo;
+@property (nonatomic, strong) PFLiveQueryClient *client;
 
 @end
 
 @implementation ConversationHandler
 
+- (instancetype)init {
+    self = [super init];
+    if (!self) return self;
+
+    //self.convo = conversation;
+    NSString *server = @"wss://lingora.back4app.io";
+    NSString *appID = @"br3tfJvr91ICV46owI5EuDK19G2dHpDsdIkNpur5";
+    NSString *clientKey = @"MtocH1ODD1D95uh2FufxYdmivI9gIZtMpx2ynK4v";
+    PFLiveQueryClient *queryClient = [[PFLiveQueryClient alloc] initWithServer:server applicationId:appID clientKey:clientKey];
+
+  return self;
+}
+
+
 // Query for conversations in create handler in manager
-- (PFQuery *)queryForConversations {
+- (PFQuery *)queryForConversations:(ConversationManager *) manager {
     PFQuery *conversationsInitiatedByCurrentUser = [self queryForConversationsThisUserCreated];
     PFQuery *conversationsInitiatedByOthers = [self queryForConversationsCreatedByOthers];
     NSArray *conversationQueries = [[NSArray alloc] initWithObjects:conversationsInitiatedByCurrentUser, conversationsInitiatedByOthers, nil];
@@ -32,6 +46,7 @@
     return queryAllConversations;
 }
 
+
 - (PFQuery *)queryForConversationsThisUserCreated {
     PFQuery *query = [PFQuery queryWithClassName:@"Conversation"];
     [query whereKey:@"username1" equalTo:PFUser.currentUser.username];
@@ -42,14 +57,23 @@
 - (PFQuery *)queryForConversationsCreatedByOthers {
     PFQuery *query = [PFQuery queryWithClassName:@"Conversation"];
     [query whereKey:@"username2" equalTo:PFUser.currentUser.username];
-
+    
     return query;
 }
 
 
 // Return current client
-- (PFLiveQueryClient *)liveQueryClientForChatRoomManager:(ConversationManager *)manager {
-  return _client;
+- (PFLiveQueryClient *)liveQueryClientForConversationManager:(ConversationManager *)manager {
+    return self.client;
+}
+
+// What to do when conversation is created
+- (NSArray *)conversationManager:(ConversationManager *)manager didCreateConversation:(NSArray *)conversations {
+    NSLog(@"\nStart of creating a new conversation\n");
+    
+    NSLog(@"\nEnd\n");
+    return conversations;
 }
 
 @end
+

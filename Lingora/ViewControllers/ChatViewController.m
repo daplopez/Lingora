@@ -11,6 +11,8 @@
 #import "Parse/Parse.h"
 #import "ChatTableViewCell.h"
 #import "UIScrollView+EmptyDataSet.h"
+#import "ConversationHandler.h"
+#import "ConversationManager.h"
 @import ParseLiveQuery;
 
 @interface ChatViewController () <UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
@@ -32,27 +34,40 @@
 }
 
 - (void)queryForConversations {
-    PFQuery *conversationsInitiatedByCurrentUser = [self queryForConversationsThisUserCreated];
-    PFQuery *conversationsInitiatedByOthers = [self queryForConversationsCreatedByOthers];
-    NSArray *conversationQueries = [[NSArray alloc] initWithObjects:conversationsInitiatedByCurrentUser, conversationsInitiatedByOthers, nil];
-    PFQuery *queryAllConversations = [PFQuery orQueryWithSubqueries:conversationQueries];
-    NSArray *includeUsers = [[NSArray alloc] initWithObjects:@"user1", @"user2", @"messages", nil];
-    [queryAllConversations includeKeys:includeUsers];
-    [queryAllConversations orderByDescending:@"createdAt"];
+//    PFQuery *conversationsInitiatedByCurrentUser = [self queryForConversationsThisUserCreated];
+//    PFQuery *conversationsInitiatedByOthers = [self queryForConversationsCreatedByOthers];
+//    NSArray *conversationQueries = [[NSArray alloc] initWithObjects:conversationsInitiatedByCurrentUser, conversationsInitiatedByOthers, nil];
+//    PFQuery *queryAllConversations = [PFQuery orQueryWithSubqueries:conversationQueries];
+//    NSArray *includeUsers = [[NSArray alloc] initWithObjects:@"user1", @"user2", @"messages", nil];
+//    [queryAllConversations includeKeys:includeUsers];
+//    [queryAllConversations orderByDescending:@"createdAt"];
+    
+    ConversationHandler *handler = [[ConversationHandler alloc] init];
+    ConversationManager *manager = [[ConversationManager alloc] initWithDataSource:(id)handler delegate:(id)handler];
+    
+    PFQuery *query = [handler queryForConversations:manager];
     
     // fetch data asynchronously
-    [queryAllConversations findObjectsInBackgroundWithBlock:^(NSArray *conversations, NSError *error) {
+    [query findObjectsInBackgroundWithBlock:^(NSArray *conversations, NSError *error) {
         if (conversations != nil) {
             NSLog(@"Successfully got users");
             if (conversations.count != 0) {
-                self.conversations = [NSArray arrayWithArray:conversations];
-                NSLog(@"%@", self.conversations[0][@"user2"]);
+//                self.conversations = [NSArray arrayWithArray:conversations];
+//                NSLog(@"%@", self.conversations[0][@"user2"]);
+//                [self.tableView reloadData];
+                //NSLog(@"%d", conversations.count);
+                //self.conversations = [NSArray arrayWithArray:conversations];
+                self.conversations = [handler conversationManager:manager didCreateConversation:conversations];
                 [self.tableView reloadData];
             }
+            
+            [manager connect];
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
     }];
+    
+    
 }
 
 - (PFQuery *)queryForConversationsThisUserCreated {
