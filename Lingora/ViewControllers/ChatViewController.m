@@ -57,11 +57,13 @@
 //                [self.tableView reloadData];
                 //NSLog(@"%d", conversations.count);
                 //self.conversations = [NSArray arrayWithArray:conversations];
-                self.conversations = [handler conversationManager:manager didCreateConversation:conversations];
-                [self.tableView reloadData];
+                for (int i = 0; i < conversations.count; i++) {
+                    self.conversations = [handler conversationManager:manager didCreateConversation:conversations[i] forTableView:self.tableView newConvos:self.conversations];
+                    [self.tableView reloadData];
+                }
             }
             
-            [manager connect];
+            [manager connect:self.tableView newConvos:self.conversations];
         } else {
             NSLog(@"%@", error.localizedDescription);
         }

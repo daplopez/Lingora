@@ -20,25 +20,33 @@
 @implementation ConversationManager
 
 - (instancetype)initWithDataSource:(id<ConversationManagerDataSource>)dataSource delegate:(id<ConversationManagerDelegate>)delegate{
-  self = [super init];
-  if (!self) return self;
+    self = [super init];
+    if (!self) return self;
 
-  self.dataSource = dataSource;
-  self.delegate = delegate;
+    self.dataSource = dataSource;
+    self.delegate = delegate;
 
-  return self;
+    return self;
 }
 
-- (void)connect {
-  self.client = [self.dataSource liveQueryClientForConversationManager:self];
-  self.query = [self.dataSource queryForConversations:self];
+- (void)connect:(UITableView *)tableView newConvos:(NSArray *)newConvos {
+    self.client = [self.dataSource liveQueryClientForConversationManager:self];
+    self.query = [self.dataSource queryForConversations:self];
+    
+    
+    
+    __weak typeof(self) weakSelf = self;
 
-  __weak typeof(self) weakSelf = self;
-
-  self.subscription = [[self.client subscribeToQuery:self.query] addCreateHandler:^(PFQuery *query, PFObject *conversations) {
-      [weakSelf.delegate conversationManager:weakSelf didCreateConversation:(NSArray *)conversations];
-  }];
+    self.subscription = [self.client subscribeToQuery:self.query];
+    
+    self.subscription = [self.subscription addCreateHandler:^(PFQuery<Conversation *> *query, PFObject *conversation) {
+        [weakSelf.delegate conversationManager:weakSelf didCreateConversation:(Conversation *)conversation forTableView:tableView newConvos:newConvos];
+    }];
 }
 
+
+- (BOOL)isConnected {
+  return self.subscription != nil;
+}
 
 @end

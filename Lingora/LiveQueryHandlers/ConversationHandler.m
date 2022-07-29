@@ -28,7 +28,7 @@
     NSString *appID = @"br3tfJvr91ICV46owI5EuDK19G2dHpDsdIkNpur5";
     NSString *clientKey = @"MtocH1ODD1D95uh2FufxYdmivI9gIZtMpx2ynK4v";
     PFLiveQueryClient *queryClient = [[PFLiveQueryClient alloc] initWithServer:server applicationId:appID clientKey:clientKey];
-
+    self.client = queryClient;
   return self;
 }
 
@@ -68,11 +68,17 @@
 }
 
 // What to do when conversation is created
-- (NSArray *)conversationManager:(ConversationManager *)manager didCreateConversation:(NSArray *)conversations {
-    NSLog(@"\nStart of creating a new conversation\n");
+- (NSArray *)conversationManager:(ConversationManager *)manager didCreateConversation:(Conversation *)conversations forTableView:(UITableView *)tableView newConvos:(NSArray *)newConvos {
     
+    NSLog(@"\nStart of creating a new conversation\n");
+    NSMutableArray *newConvo = [[NSMutableArray alloc] initWithArray:newConvos];
+    [newConvo addObject:conversations];
+    newConvos = [NSArray arrayWithArray:newConvo];
+    [tableView reloadData];
+    NSLog(@"reload table View");
+    NSLog(@"Table Vew should be reloaded");
     NSLog(@"\nEnd\n");
-    return conversations;
+    return newConvos;
 }
 
 @end

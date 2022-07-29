@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol ConversationManagerDelegate <NSObject>
 
-- (void)conversationManager:(ConversationManager *)manager didCreateConversation:(NSArray *)conversations;
+- (NSArray *)conversationManager:(ConversationManager *)manager didCreateConversation:(Conversation *)conversations forTableView:(UITableView *)tableView newConvos:(NSArray *)newConvos;
 
 @end
 
@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithDataSource:(id<ConversationManagerDataSource>)dataSource delegate:(id<ConversationManagerDelegate>)delegate;
 
-- (void)connect;
+- (void)connect:(UITableView *)tableView newConvos:(NSArray *)newConvos;
 
 
 @end

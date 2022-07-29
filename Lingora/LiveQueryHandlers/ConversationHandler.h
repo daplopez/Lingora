@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (PFQuery *)queryForConversationsThisUserCreated;
 - (PFQuery *)queryForConversationsCreatedByOthers;
 - (PFLiveQueryClient *)liveQueryClientForConversationManager:(ConversationManager *)manager;
-- (NSArray *)conversationManager:(ConversationManager *)manager didCreateConversation:(NSArray *)conversations;
+- (NSArray *)conversationManager:(ConversationManager *)manager didCreateConversation:(Conversation *)conversation forTableView:(nonnull UITableView *)tableView newConvos:(nonnull NSArray *)newConvos;
 
 @end
 
