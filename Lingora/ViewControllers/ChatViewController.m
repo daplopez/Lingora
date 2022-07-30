@@ -17,7 +17,11 @@
 
 @interface ChatViewController () <UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSArray *conversations;
+@property (strong, nonatomic) NSMutableArray *conversations;
+@property (strong, nonatomic) PFLiveQueryClient *client;
+@property (strong, nonatomic) PFQuery *query;
+@property (strong, nonatomic) PFLiveQuerySubscription *subscription;
+
 @end
 
 @implementation ChatViewController
@@ -29,34 +33,53 @@
     self.tableView.dataSource = self;
     self.tableView.emptyDataSetSource = self;
     self.tableView.emptyDataSetDelegate = self;
-    [self queryForConversations];
+    [self runQueryForConversations];
     [self.tableView reloadData];
 }
 
-- (void)queryForConversations {
-    
-    ConversationHandler *handler = [[ConversationHandler alloc] init];
-    ConversationManager *manager = [[ConversationManager alloc] initWithDataSource:(id)handler delegate:(id)handler];
-    
-    PFQuery *query = [handler queryForConversations:manager];
-    
+- (void)runQueryForConversations {
+    self.query = [self queryForAllConversations];
+
     // fetch data asynchronously
-    [query findObjectsInBackgroundWithBlock:^(NSArray *conversations, NSError *error) {
+    [self.query findObjectsInBackgroundWithBlock:^(NSArray *conversations, NSError *error) {
         if (conversations != nil) {
             NSLog(@"Successfully got users");
             if (conversations.count != 0) {
-                for (int i = 0; i < conversations.count; i++) {
-                    self.conversations = [handler conversationManager:manager didCreateConversation:conversations[i] forTableView:self.tableView newConvos:self.conversations];
-                    [self.tableView reloadData];
+                self.conversations = [NSMutableArray arrayWithArray:conversations];
+                [self.tableView reloadData];
+                
+                [self liveQuerySetup];
                 }
-            }
-            
-            [manager connect:self.tableView newConvos:self.conversations];
-        } else {
+            } else {
             NSLog(@"%@", error.localizedDescription);
         }
     }];
     
+    
+}
+
+- (PFQuery *)queryForAllConversations {
+    PFQuery *conversationsInitiatedByCurrentUser = [self queryForConversationsThisUserCreated];
+    PFQuery *conversationsInitiatedByOthers = [self queryForConversationsCreatedByOthers];
+    NSArray *conversationQueries = [[NSArray alloc] initWithObjects:conversationsInitiatedByCurrentUser, conversationsInitiatedByOthers, nil];
+    PFQuery *queryAllConversations = [PFQuery orQueryWithSubqueries:conversationQueries];
+    NSArray *includeUsers = [[NSArray alloc] initWithObjects:@"user1", @"user2", nil];
+    [queryAllConversations includeKeys:includeUsers];
+    [queryAllConversations orderByDescending:@"createdAt"];
+    
+    return queryAllConversations;
+}
+
+- (void)liveQuerySetup {
+    self.client = [[PFLiveQueryClient alloc] init];
+    self.subscription = [[self.client subscribeToQuery:self.query] addCreateHandler:^(PFQuery *query, PFObject *object) {
+        Conversation *convo = (Conversation *)object;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.conversations addObject:convo];
+            [self.tableView reloadData];
+        });
+        
+    }];
     
 }
 

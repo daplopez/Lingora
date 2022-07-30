@@ -29,7 +29,7 @@
     NSString *server = [dict objectForKey: @"ParseLiveQueryServer"];;
     NSString *appID = [dict objectForKey: @"ParseAppID"];;
     NSString *clientKey = [dict objectForKey: @"ParseClientKey"];;
-    PFLiveQueryClient *queryClient = [[PFLiveQueryClient alloc] initWithServer:server applicationId:appID clientKey:clientKey];
+    PFLiveQueryClient *queryClient = [[PFLiveQueryClient alloc] init];
     self.client = queryClient;
   return self;
 }
@@ -41,7 +41,7 @@
     PFQuery *conversationsInitiatedByOthers = [self queryForConversationsCreatedByOthers];
     NSArray *conversationQueries = [[NSArray alloc] initWithObjects:conversationsInitiatedByCurrentUser, conversationsInitiatedByOthers, nil];
     PFQuery *queryAllConversations = [PFQuery orQueryWithSubqueries:conversationQueries];
-    NSArray *includeUsers = [[NSArray alloc] initWithObjects:@"user1", @"user2", @"messages", nil];
+    NSArray *includeUsers = [[NSArray alloc] initWithObjects:@"user1", @"user2", @"messages", @"username1", @"username2", nil];
     [queryAllConversations includeKeys:includeUsers];
     [queryAllConversations orderByDescending:@"createdAt"];
     
