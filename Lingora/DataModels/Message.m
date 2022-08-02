@@ -11,6 +11,7 @@
 
 @dynamic author;
 @dynamic messageText;
+@dynamic username;
 
 + (nonnull NSString *)parseClassName {
     return @"Message";
@@ -20,6 +21,7 @@
     
     Message *newMessage = [Message new];
     newMessage.author = [PFUser currentUser];
+    newMessage.username = PFUser.currentUser.username;
     newMessage.messageText = messageText;
     
     [newMessage saveInBackgroundWithBlock: completion];

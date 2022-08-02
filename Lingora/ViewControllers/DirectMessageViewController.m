@@ -20,6 +20,8 @@
 @property (strong, nonatomic) NSMutableArray *messages;
 @property (weak, nonatomic) IBOutlet UITextField *messageTextField;
 @property (strong, nonatomic) PFLiveQueryClient *client;
+@property (strong, nonatomic) PFQuery *query;
+@property (strong, nonatomic) PFLiveQuerySubscription *subscription;
 @end
 
 @implementation DirectMessageViewController
@@ -29,7 +31,14 @@
     
     [self setDelegates];
     [self setUpUserProperties];
-    [self queryForMessages];
+    if (self.conversation != nil) {
+        self.messages = [NSMutableArray arrayWithArray:self.conversation.messages];
+        [self liveQuerySetup];
+    } else {
+        [self queryForConversation];
+        [self liveQuerySetup];
+    }
+    
     [self.tableView reloadData];
 }
 
@@ -48,7 +57,7 @@
 }
 
 
-- (void)queryForMessages {
+- (void)queryForConversation {
     PFQuery *convosByThisUser = [self queryForConversationsThisUserCreated];
     PFQuery *convosByOthers = [self queryForConversationsByOtherUser];
     NSArray *queries = [[NSArray alloc] initWithObjects:convosByThisUser, convosByOthers, nil];
@@ -56,7 +65,6 @@
     NSArray *includeKeys = [[NSArray alloc] initWithObjects:@"messages", @"user1", @"user2", nil];
     [queryMessages includeKeys:includeKeys];
     [queryMessages orderByDescending:@"createdAt"];
-    [queryMessages includeKey:@"messages"];
     queryMessages.limit = 20;
     
     // fetch data asynchronously
@@ -86,14 +94,75 @@
 }
 
 
+- (void)runAllMessagesQuery {
+    self.query = [self queryForMessagesBetweenTwoUsers];
+    
+    // fetch data asynchronously
+    [self.query findObjectsInBackgroundWithBlock:^(NSArray *messages, NSError *error) {
+        if (messages != nil) {
+            NSLog(@"Successfully got messages");
+            [self liveQuerySetup];
+            self.messages = [NSMutableArray arrayWithArray:messages];
+            
+            [self.tableView reloadData];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
+- (PFQuery *)queryForMessagesBetweenTwoUsers {
+    PFQuery *messagesByThisUser = [self messagesCreatedByCurUser];
+    PFQuery *messagesByOthers = [self messagesCreatedByOtherUser];
+    NSArray *queries = [[NSArray alloc] initWithObjects:messagesByThisUser, messagesByOthers, nil];
+    PFQuery *query = [PFQuery orQueryWithSubqueries:queries];
+    
+    //NSArray *includeKeys = [[NSArray alloc] initWithObjects:@"author", nil];
+    //[query includeKeys:includeKeys];
+    [query orderByDescending:@"createdAt"];
+    
+    return query;
+}
+
+- (PFQuery *)messagesCreatedByCurUser {
+    PFQuery *query = [PFQuery queryWithClassName:@"Message"];
+   [query whereKey:@"username" equalTo:self.conversation.usersInConversation[0][@"username"]];
+    
+    return query;
+}
+
+- (PFQuery *)messagesCreatedByOtherUser {
+    PFQuery *query = [PFQuery queryWithClassName:@"Message"];
+    [query whereKey:@"username" equalTo:self.conversation.usersInConversation[1][@"username"]];
+    
+    return query;
+}
+
+
+- (void)liveQuerySetup {
+    self.client = [[PFLiveQueryClient alloc] init];
+    self.query = [self queryForMessagesBetweenTwoUsers];
+    self.subscription = [[self.client subscribeToQuery:self.query] addCreateHandler:^(PFQuery *query, PFObject *object) {
+        Message *message = (Message *)object;
+        message = [message fetchIfNeeded];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.messages addObject:message];
+            self.conversation.messages = [NSArray arrayWithArray:self.messages];
+            [self.conversation saveInBackground];
+            [self.tableView reloadData];
+        });
+    }];
+}
+
+
+
 - (PFQuery *)queryForConversationsThisUserCreated {
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Conversation"];
     [query whereKey:@"username1" equalTo:PFUser.currentUser.username];
     [query whereKey:@"user2" equalTo:self.user.username];
-    
-    // create subscription
-    
+        
     return query;
 }
 
@@ -113,7 +182,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DirectMessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DMCell"];
-    cell.messageTextLabel.text = self.messages[indexPath.row][@"messageText"];
+    Message *message = [self.messages[indexPath.row] fetchIfNeeded];
+    cell.messageTextLabel.text = message[@"messageText"];
     return cell;
 }
 
@@ -124,14 +194,15 @@
             if (succeeded) {
                 NSLog(@"Successfully sent message");
                 // clear message field once sent
+                //[self liveQuerySetup];
                 self.messageTextField.text = @"";
             } else {
                 NSLog(@"Failed to send message");
             }
     }];
-    [self.messages addObject:newMessage];
-    self.conversation.messages = [NSArray arrayWithArray:self.messages];
-    [self.conversation saveInBackground];
+    //[self.messages addObject:newMessage];
+    //self.conversation.messages = [NSArray arrayWithArray:self.messages];
+    //[self.conversation saveInBackground];
 }
 
 @end

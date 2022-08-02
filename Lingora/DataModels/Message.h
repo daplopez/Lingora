@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString *messageText;
 @property (nonatomic, strong) PFUser *author;
+@property (nonatomic, strong) NSString *username;
 
 + (Message *) sendMessage: ( NSString * _Nullable )messageText withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 

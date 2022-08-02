@@ -13,6 +13,7 @@
 #import "UIScrollView+EmptyDataSet.h"
 #import "ConversationHandler.h"
 #import "ConversationManager.h"
+#import "Message.h"
 @import ParseLiveQuery;
 
 @interface ChatViewController () <UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
@@ -117,7 +118,9 @@
     cell.nameLabel.text = user[@"fullName"];
     
     if (curConvo.messages.count != 0) {
-        cell.messageLabel.text = curConvo.messages[curConvo.messages.count - 1][@"messageText"];
+        Message *message = [curConvo.messages[curConvo.messages.count - 1] fetchIfNeeded];
+        cell.messageLabel.text = message[@"messageText"];
+        NSLog(@"%@", message[@"messageText"]);
     }
     return cell;
 }
