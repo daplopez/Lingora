@@ -44,18 +44,16 @@
     [self.query findObjectsInBackgroundWithBlock:^(NSArray *conversations, NSError *error) {
         if (conversations != nil) {
             NSLog(@"Successfully got users");
+            [self liveQuerySetup];
+
             if (conversations.count != 0) {
                 self.conversations = [NSMutableArray arrayWithArray:conversations];
                 [self.tableView reloadData];
-                
-                [self liveQuerySetup];
-                }
-            } else {
+            }
+        } else {
             NSLog(@"%@", error.localizedDescription);
         }
     }];
-    
-    
 }
 
 - (PFQuery *)queryForAllConversations {
@@ -63,8 +61,8 @@
     PFQuery *conversationsInitiatedByOthers = [self queryForConversationsCreatedByOthers];
     NSArray *conversationQueries = [[NSArray alloc] initWithObjects:conversationsInitiatedByCurrentUser, conversationsInitiatedByOthers, nil];
     PFQuery *queryAllConversations = [PFQuery orQueryWithSubqueries:conversationQueries];
-    NSArray *includeUsers = [[NSArray alloc] initWithObjects:@"user1", @"user2", nil];
-    [queryAllConversations includeKeys:includeUsers];
+    //NSArray *includeUsers = [[NSArray alloc] initWithObjects:@"usersInConversation", nil];
+    [queryAllConversations includeKey:@"usersInConversation"];
     [queryAllConversations orderByDescending:@"createdAt"];
     
     return queryAllConversations;
@@ -72,16 +70,22 @@
 
 - (void)liveQuerySetup {
     self.client = [[PFLiveQueryClient alloc] init];
+    self.query = [self queryForAllConversations];
+    [self.query includeKey:@"usersInConversation"];
     self.subscription = [[self.client subscribeToQuery:self.query] addCreateHandler:^(PFQuery *query, PFObject *object) {
         Conversation *convo = (Conversation *)object;
+        PFUser *user1 = [convo.usersInConversation[0] fetchIfNeeded];
+        PFUser *user2 = [convo.usersInConversation[1] fetchIfNeeded];
+        NSArray *convoUsers = [[NSArray alloc] initWithObjects:user1, user2, nil];
+        convo.usersInConversation = [NSArray arrayWithArray:convoUsers];
+        
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.conversations addObject:convo];
+            [self.conversations insertObject:convo atIndex:0];
             [self.tableView reloadData];
         });
-        
     }];
-    
 }
+
 
 - (PFQuery *)queryForConversationsThisUserCreated {
     PFQuery *query = [PFQuery queryWithClassName:@"Conversation"];
@@ -105,10 +109,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ChatTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChatCell"];
     Conversation *curConvo = self.conversations[indexPath.row];
-    PFUser *user = [curConvo.user1.username isEqualToString:PFUser.currentUser.username] ? curConvo.user2 : curConvo.user1;
+    PFUser *user1 = curConvo.usersInConversation[0];
+    PFUser *user2 = curConvo.usersInConversation[1];
+    PFUser *user = [user1.username isEqualToString:PFUser.currentUser.username] ? user2 : user1;
     cell.profilePicture.file = user[@"image"];
     [cell.profilePicture loadInBackground];
     cell.nameLabel.text = user[@"fullName"];
+    
     if (curConvo.messages.count != 0) {
         cell.messageLabel.text = curConvo.messages[curConvo.messages.count - 1][@"messageText"];
     }
@@ -124,7 +131,7 @@
      if ([segue.identifier isEqualToString:@"ChatsToDM"]) {
          NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
          Conversation *convoToPass = self.conversations[indexPath.row];
-         PFUser *userToPass = ([convoToPass.user1.username isEqualToString:PFUser.currentUser.username]) ? convoToPass.user2 : convoToPass.user1;
+         PFUser *userToPass = [convoToPass.usersInConversation[0][@"username"] isEqualToString:PFUser.currentUser.username] ? convoToPass.usersInConversation[1] : convoToPass.usersInConversation[0];
          DirectMessageViewController *messageVC = (DirectMessageViewController *) [segue destinationViewController];
          messageVC.conversation = convoToPass;
          messageVC.user = userToPass;
