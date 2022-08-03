@@ -98,6 +98,26 @@
 }
 
 
+- (PFQuery *)queryForConversationsThisUserCreated {
+    // construct query
+    PFQuery *query = [PFQuery queryWithClassName:@"Conversation"];
+    [query whereKey:@"username1" equalTo:PFUser.currentUser.username];
+    [query whereKey:@"username2" equalTo:self.user.username];
+        
+    return query;
+}
+
+
+- (PFQuery *)queryForConversationsByOtherUser {
+    // construct query
+    PFQuery *query = [PFQuery queryWithClassName:@"Conversation"];
+    [query whereKey:@"username1" equalTo:self.user.username];
+    [query whereKey:@"username2" equalTo:PFUser.currentUser.username];
+    
+    return query;
+}
+
+
 - (void)runAllMessagesQuery {
     self.query = [self queryForMessagesBetweenTwoUsers];
     
@@ -161,26 +181,6 @@
 }
 
 
-
-- (PFQuery *)queryForConversationsThisUserCreated {
-    // construct query
-    PFQuery *query = [PFQuery queryWithClassName:@"Conversation"];
-    [query whereKey:@"username1" equalTo:PFUser.currentUser.username];
-    [query whereKey:@"username2" equalTo:self.user.username];
-        
-    return query;
-}
-
-
-- (PFQuery *)queryForConversationsByOtherUser {
-    // construct query
-    PFQuery *query = [PFQuery queryWithClassName:@"Conversation"];
-    [query whereKey:@"username1" equalTo:self.user.username];
-    [query whereKey:@"username2" equalTo:PFUser.currentUser.username];
-    
-    return query;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.messages.count;
 }
@@ -193,9 +193,8 @@
 }
 
 - (IBAction)didTapSend:(id)sender {
-    // create new message and add it to current conversation
-    
-    Message *newMessage = [Message sendMessage:self.messageTextField.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    // create new message
+    [Message sendMessage:self.messageTextField.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
             if (succeeded) {
                 NSLog(@"Successfully sent message");
                 // clear message field once sent
@@ -205,9 +204,6 @@
                 NSLog(@"Failed to send message");
             }
     }];
-    //[self.messages addObject:newMessage];
-    //self.conversation.messages = [NSArray arrayWithArray:self.messages];
-    //[self.conversation saveInBackground];
 }
 
 @end

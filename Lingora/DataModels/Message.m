@@ -17,7 +17,7 @@
     return @"Message";
 }
 
-+ (Message *) sendMessage:(NSString *)messageText withCompletion:(PFBooleanResultBlock)completion {
++ (void) sendMessage:(NSString *)messageText withCompletion:(PFBooleanResultBlock)completion {
     
     Message *newMessage = [Message new];
     newMessage.author = [PFUser currentUser];
@@ -25,7 +25,6 @@
     newMessage.messageText = messageText;
     
     [newMessage saveInBackgroundWithBlock: completion];
-    return newMessage;
 }
 
 

@@ -30,13 +30,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setDelegates];
+    [self runQueryForConversations];
+    [self.tableView reloadData];
+}
+
+
+- (void)setDelegates {
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.emptyDataSetSource = self;
     self.tableView.emptyDataSetDelegate = self;
-    [self runQueryForConversations];
-    [self.tableView reloadData];
 }
+
 
 - (void)runQueryForConversations {
     self.query = [self queryForAllConversations];
