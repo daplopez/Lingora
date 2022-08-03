@@ -189,6 +189,7 @@
     DirectMessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DMCell"];
     Message *message = [self.messages[indexPath.row] fetchIfNeeded];
     cell.messageTextLabel.text = message[@"messageText"];
+    cell.senderNameLabel.text = message.username;
     return cell;
 }
 

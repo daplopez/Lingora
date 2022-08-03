@@ -591,15 +591,21 @@
                                     <constraint firstAttribute="width" constant="414" id="Uq7-TX-ss1"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DMCell" rowHeight="95" id="Lgw-fB-jie" customClass="DirectMessageTableViewCell">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="95"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DMCell" rowHeight="106" id="Lgw-fB-jie" customClass="DirectMessageTableViewCell">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="106"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lgw-fB-jie" id="Diu-rO-sew">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="95"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="106"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTH-FQ-WAc">
-                                                    <rect key="frame" x="16" y="16" width="382" height="20.5"/>
+                                                    <rect key="frame" x="16" y="41" width="382" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ie-yb-kXn">
+                                                    <rect key="frame" x="16" y="16" width="382" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -608,12 +614,16 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="FTH-FQ-WAc" secondAttribute="bottom" constant="16" id="2b8-LT-x2I"/>
                                                 <constraint firstAttribute="trailing" secondItem="FTH-FQ-WAc" secondAttribute="trailing" constant="16" id="2hd-cb-t4y"/>
+                                                <constraint firstItem="6Ie-yb-kXn" firstAttribute="leading" secondItem="Diu-rO-sew" secondAttribute="leading" constant="16" id="CL2-WO-T12"/>
+                                                <constraint firstAttribute="trailing" secondItem="6Ie-yb-kXn" secondAttribute="trailing" constant="16" id="GMN-qD-THf"/>
+                                                <constraint firstItem="6Ie-yb-kXn" firstAttribute="top" secondItem="Diu-rO-sew" secondAttribute="top" constant="16" id="caM-45-wss"/>
                                                 <constraint firstItem="FTH-FQ-WAc" firstAttribute="leading" secondItem="Diu-rO-sew" secondAttribute="leading" constant="16" id="cyx-o2-sSR"/>
-                                                <constraint firstItem="FTH-FQ-WAc" firstAttribute="top" secondItem="Diu-rO-sew" secondAttribute="top" constant="16" id="fbB-GZ-bgf"/>
+                                                <constraint firstItem="FTH-FQ-WAc" firstAttribute="top" secondItem="6Ie-yb-kXn" secondAttribute="bottom" constant="4" id="gvM-nP-iH7"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="messageTextLabel" destination="FTH-FQ-WAc" id="sYw-vd-0hQ"/>
+                                            <outlet property="senderNameLabel" destination="6Ie-yb-kXn" id="Wc1-bs-nru"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
