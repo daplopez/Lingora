@@ -11,6 +11,7 @@
 #import "HomeFeedViewController.h"
 #import "SceneDelegate.h"
 #import "RecommendedTableViewCell.h"
+#import "ViewProfileViewController.h"
 
 @interface RecommendedViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -189,4 +190,22 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     myDelegate.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBar"];
 }
+
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"RecToProfile"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        PFUser *dataToPass = self.recommendedUsers[indexPath.row];
+        NSLog(@"\n%@\n", dataToPass);
+        ViewProfileViewController *profileVC = (ViewProfileViewController *) [segue destinationViewController];
+        profileVC.user = dataToPass;
+    }
+}
+
+
 @end

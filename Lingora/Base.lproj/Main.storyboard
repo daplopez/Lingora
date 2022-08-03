@@ -869,6 +869,7 @@
                                             <outlet property="proficiencyLevel" destination="GFo-WC-nOL" id="5eR-6D-JGf"/>
                                             <outlet property="profilePicture" destination="K2G-TH-53O" id="lB4-19-FNw"/>
                                             <outlet property="targetLanguageLabel" destination="NtA-jK-H0u" id="QAt-QO-WUJ"/>
+                                            <segue destination="ofW-9V-iD7" kind="show" identifier="RecToProfile" id="GfF-nn-gPr"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1452,7 +1453,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ClM-qD-quL"/>
+        <segue reference="GfF-nn-gPr"/>
         <segue reference="htF-bb-ZcZ"/>
         <segue reference="wBg-Rh-3qM"/>
     </inferredMetricsTieBreakers>
