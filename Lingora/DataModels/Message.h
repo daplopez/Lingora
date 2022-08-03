@@ -6,6 +6,7 @@
 //
 
 #import <Parse/Parse.h>
+#import "Conversation.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,8 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *messageText;
 @property (nonatomic, strong) PFUser *author;
 @property (nonatomic, strong) NSString *username;
+@property (nonatomic, strong) NSString *convoID;
 
-+ (void) sendMessage: ( NSString * _Nullable )messageText withCompletion: (PFBooleanResultBlock  _Nullable)completion;
++ (void) sendMessage: ( NSString * _Nullable )messageText conversation:(Conversation *)conversation withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
 @end
 

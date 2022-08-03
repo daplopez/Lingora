@@ -195,7 +195,7 @@
 
 - (IBAction)didTapSend:(id)sender {
     // create new message
-    [Message sendMessage:self.messageTextField.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    [Message sendMessage:self.messageTextField.text conversation:self.conversation withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
             if (succeeded) {
                 NSLog(@"Successfully sent message");
                 // clear message field once sent
