@@ -57,7 +57,7 @@
     [self.targetLanguagePickerView setHidden:YES];
     [self.proficiencyPickerView setHidden:YES];
     
-    self.languages = [[NSArray alloc] initWithObjects:@"English", @"Spanish", nil];
+    self.languages = [[NSArray alloc] initWithObjects:@"Arabic", @"Dutch", @"Chinese", @"English", @"German", @"Hindi", @"Italian", @"Japanese", @"Korean", @"Malay", @"Portugese", @"Russian", @"Spanish", @"Swahili", @"Tamil", @"Thai", @"Vietnamese", nil];
     
     self.proficiency = [[NSArray alloc] initWithObjects:@"Beginner", @"Intermediate", @"Advanced", nil];
 }

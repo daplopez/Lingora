@@ -12,6 +12,7 @@
 #import "SceneDelegate.h"
 #import "RecommendedTableViewCell.h"
 #import "ViewProfileViewController.h"
+#import "RecommendUsersHandler.h"
 
 @interface RecommendedViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -30,13 +31,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
+    [self setDelegates];
     [self getUserData];
     [self queryForUsers];
     [self.tableView reloadData];
     
 }
+
+- (void)setDelegates {
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+}
+
 
 - (void)getUserData {
     PFUser *curUser = [PFUser currentUser];
