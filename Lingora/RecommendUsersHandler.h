@@ -12,11 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RecommendUsersHandler : NSObject
 
+- (double)getUserScore: (PFUser *)user;
 - (double)getDistanceFromUser:(PFUser *)user;
-- (void)getUserScores;
-- (void)getLocationScore;
-- (void)getProficiencyScore;
-- (void)getInterestsScore;
+- (double)getLocationScoreFromUser: (PFUser *)user;
+- (double)getProficiencyScoreFromUser: (PFUser *)user;
+- (double)getInterestsScoreFromUser: (PFUser *)user;
 
 @end
 

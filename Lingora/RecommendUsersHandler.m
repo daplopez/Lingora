@@ -16,7 +16,6 @@
 
 @implementation RecommendUsersHandler
 
-
 - (double)getDistanceFromUser:(PFUser *)user {
     PFGeoPoint *start = PFUser.currentUser[@"location"];
     PFGeoPoint *end = user[@"location"];
@@ -27,70 +26,51 @@
 }
 
 
-- (void)getUserScores {
-    self.userScores = [[NSMutableArray alloc] initWithCapacity:self.recommendedUsers.count];
-    [self getLocationScore];
-    [self getProficiencyScore];
-    [self getInterestsScore];
+- (double)getUserScore:(PFUser *)user {
+    double finalScore = ([self getProficiencyScoreFromUser:user] + [self getInterestsScoreFromUser:user]) * [self getLocationScoreFromUser:user];
+    return finalScore;
 }
 
 
 
-- (void)getLocationScore {
-    for (int i = 0; i < self.recommendedUsers.count; i++) {
-        PFUser *user = self.recommendedUsers[i];
+- (double)getLocationScoreFromUser: (PFUser *)user {
         double distance = [self getDistanceFromUser:user];
-        // equation for finding score
-        double score = 0;
-        if (distance <= 5) {
-            score = 5;
-        } else if (distance <= 10) {
-            score = 4;
-        } else if (distance <= 20) {
-            score = 3;
-        } else if (distance <= 30) {
-            score = 2;
-        } else if (distance <= 50) {
-            score = 1;
-        } else if (distance <= 100) {
-            score = 0.5;
-        }
-        [self.userScores insertObject:[NSNumber numberWithDouble:score] atIndex:i];
-    }
+       
+        /* Reccomendations are weighted the most heavily on proximity;
+        the smaller the distance the better.
+        So to get a score for location, divide 1 over the distance
+        and multiply by 100 - incase the user's distance is multiple
+        miles then we don't want the number to be too small */
+        double score = (1 / distance) * 100;
+        
+        return score;
 }
 
 
-- (void)getProficiencyScore {
+- (double)getProficiencyScoreFromUser: (PFUser *)user {
     // handle cases for no native language speakers near you
     // create tests
-    for (int i = 0; i < self.recommendedUsers.count; i++) {
-        PFUser *user = self.recommendedUsers[i];
-        NSString *proficiency = user[@"proficiencyLevel"];
-        double score = 1.5;
-        if ([proficiency isEqualToString:PFUser.currentUser[@"proficiencyLevel"]]) {
-            score = 3;
-        }
-        double newScore = [self.userScores[i] doubleValue] + score;
-        [self.userScores replaceObjectAtIndex:i withObject:[NSNumber numberWithDouble:newScore]];
+    NSString *proficiency = user[@"proficiencyLevel"];
+    double score = 1.5;
+    if ([proficiency isEqualToString:PFUser.currentUser[@"proficiencyLevel"]]) {
+        score = 3;
     }
+    return  score;
 }
 
 
-- (void)getInterestsScore {
+- (double)getInterestsScoreFromUser:(PFUser *)user {
     double score = 0;
-    for (int i = 0; i < self.recommendedUsers.count; i++) {
-        PFUser *user = self.recommendedUsers[i];
-        NSArray *userInterests = [[NSArray alloc] initWithArray:user[@"interests"]];
-        NSArray *curUserInterests = [[NSArray alloc] initWithArray:PFUser.currentUser[@"interests"]];
-        for (int interest = 0; interest < curUserInterests.count; interest++) {
-            NSString *curInterest = curUserInterests[interest];
-            if ([userInterests containsObject:curInterest]) {
-                score += 1;
-            }
+    // interest score is determined by how many ineterests overlap between two users
+    NSArray *userInterests = [[NSArray alloc] initWithArray:user[@"interests"]];
+    NSArray *curUserInterests = [[NSArray alloc] initWithArray:PFUser.currentUser[@"interests"]];
+    for (int interest = 0; interest < curUserInterests.count; interest++) {
+        NSString *curInterest = curUserInterests[interest];
+        if ([userInterests containsObject:curInterest]) {
+            score += 1;
         }
-        double newScore = [self.userScores[i] doubleValue] + score;
-        [self.userScores replaceObjectAtIndex:i withObject:[NSNumber numberWithDouble:newScore]];
     }
+    return score;
 }
 
 

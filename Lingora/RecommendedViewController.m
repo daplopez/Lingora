@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *recommendedUsers;
 @property (strong, nonatomic) NSMutableArray *userScores;
+@property (strong, nonatomic) RecommendUsersHandler *recommendationHandler;
 
 @end
 
@@ -41,6 +42,7 @@
 - (void)setDelegates {
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.recommendationHandler = [[RecommendUsersHandler alloc] init];
 }
 
 
@@ -73,10 +75,8 @@
             [self getUserScores];
             self.recommendedUsers = [usersFromQuery sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull user1, id  _Nonnull user2) {
                 // get rid of array, do calculations here
-                unsigned long index1 = [self.recommendedUsers indexOfObject:user1];
-                unsigned long index2 = [self.recommendedUsers indexOfObject:user2];
-                double score1 = [self.userScores[index1] doubleValue];
-                double score2 = [self.userScores[index2] doubleValue];
+                double score1 = [self.recommendationHandler getUserScore:user1];
+                double score2 = [self.recommendationHandler getUserScore:user2];
                 if (score1 > score2) {
                     return (NSComparisonResult)NSOrderedAscending;
                 }
