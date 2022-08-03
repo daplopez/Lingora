@@ -36,7 +36,7 @@
         [self liveQuerySetup];
     } else {
         [self queryForConversation];
-        [self liveQuerySetup];
+        
     }
     
     [self.tableView reloadData];
@@ -62,7 +62,7 @@
     PFQuery *convosByOthers = [self queryForConversationsByOtherUser];
     NSArray *queries = [[NSArray alloc] initWithObjects:convosByThisUser, convosByOthers, nil];
     PFQuery *queryMessages = [PFQuery orQueryWithSubqueries:queries];
-    NSArray *includeKeys = [[NSArray alloc] initWithObjects:@"messages", @"user1", @"user2", nil];
+    NSArray *includeKeys = [[NSArray alloc] initWithObjects:@"messages", @"usersInConversation", nil];
     [queryMessages includeKeys:includeKeys];
     [queryMessages orderByDescending:@"createdAt"];
     queryMessages.limit = 20;
@@ -73,19 +73,23 @@
             NSLog(@"Successfully got convo");
             if (conversation.count != 0) {
                 Conversation *curConvo = conversation[0];
+                self.conversation = curConvo;
                 self.messages = [NSMutableArray arrayWithArray:curConvo.messages];
+                [self liveQuerySetup];
                 [self.tableView reloadData];
             } else {
                 // If no convresation has previously existed
                 self.messages = [[NSMutableArray alloc] init];
-                [Conversation createConversation:self.messages withUser:self.user withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+                self.conversation = [Conversation createConversation:self.messages withUser:self.user withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
                     if (succeeded) {
                         NSLog(@"Successsfully created a new conversation");
                     } else {
                         NSLog(@"%@", error.localizedDescription);
                     }
                 }];
+                [self liveQuerySetup];
             }
+            
             [self.tableView reloadData];
         } else {
             NSLog(@"%@", error.localizedDescription);
@@ -143,8 +147,9 @@
     self.client = [[PFLiveQueryClient alloc] init];
     self.query = [self queryForMessagesBetweenTwoUsers];
     self.subscription = [[self.client subscribeToQuery:self.query] addCreateHandler:^(PFQuery *query, PFObject *object) {
-        Message *message = (Message *)object;
-        message = [message fetchIfNeeded];
+        Message *message = [(Message *)object fetchIfNeeded];;
+        //message = [message fetchIfNeeded];
+        message.author = [message.author fetchIfNeeded];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.messages addObject:message];
@@ -161,7 +166,7 @@
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Conversation"];
     [query whereKey:@"username1" equalTo:PFUser.currentUser.username];
-    [query whereKey:@"user2" equalTo:self.user.username];
+    [query whereKey:@"username2" equalTo:self.user.username];
         
     return query;
 }

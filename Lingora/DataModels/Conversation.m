@@ -19,7 +19,7 @@
     return @"Conversation";
 }
 
-+ (void) createConversation:(NSArray *)messages withUser:(PFUser *)user2 withCompletion:(PFBooleanResultBlock)completion {
++ (Conversation *) createConversation:(NSArray *)messages withUser:(PFUser *)user2 withCompletion:(PFBooleanResultBlock)completion {
     Conversation *newConversation = [Conversation new];
     newConversation.usersInConversation = [NSArray arrayWithObjects:[PFUser currentUser], user2, nil];
     newConversation.username1 = newConversation.usersInConversation[0][@"username"];
@@ -27,6 +27,8 @@
     newConversation.messages = messages;
     
     [newConversation saveInBackgroundWithBlock: completion];
+    
+    return newConversation;
 }
 
 
