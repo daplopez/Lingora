@@ -12,6 +12,9 @@ PODS:
   - GoogleMaps/Base (7.0.0)
   - GoogleMaps/Maps (7.0.0):
     - GoogleMaps/Base
+  - GoogleMLKit/LanguageID (3.1.0):
+    - GoogleMLKit/MLKitCore
+    - MLKitLanguageID (~> 3.1.0)
   - GoogleMLKit/MLKitCore (3.1.0):
     - MLKitCommon (~> 7.0.0)
   - GoogleMLKit/Translate (3.1.0):
@@ -50,6 +53,8 @@ PODS:
     - GoogleUtilitiesComponents (~> 1.0)
     - GTMSessionFetcher/Core (~> 1.1)
     - Protobuf (~> 3.12)
+  - MLKitLanguageID (3.1.0):
+    - MLKitNaturalLanguage (~> 4.1)
   - MLKitNaturalLanguage (4.1.0):
     - GoogleToolboxForMac/Logger (~> 2.1)
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
@@ -85,6 +90,7 @@ DEPENDENCIES:
   - DateTools
   - DZNEmptyDataSet
   - GoogleMaps (= 7.0.0)
+  - GoogleMLKit/LanguageID (= 3.1.0)
   - GoogleMLKit/Translate (= 3.1.0)
   - GooglePlaces (= 7.0.0)
   - Parse
@@ -106,6 +112,7 @@ SPEC REPOS:
     - GoogleUtilitiesComponents
     - GTMSessionFetcher
     - MLKitCommon
+    - MLKitLanguageID
     - MLKitNaturalLanguage
     - MLKitTranslate
     - nanopb
@@ -130,6 +137,7 @@ SPEC CHECKSUMS:
   GoogleUtilitiesComponents: 679b2c881db3b615a2777504623df6122dd20afe
   GTMSessionFetcher: 5595ec75acf5be50814f81e9189490412bad82ba
   MLKitCommon: 20f4aca0ec2bb37cef2b9c211b50586817bac5d3
+  MLKitLanguageID: 307e8e8bb45443d6ea2db51fcd6e4ca9371fdfac
   MLKitNaturalLanguage: d10a5cebc36bfe2660af77fe726b4ba4b290c8a4
   MLKitTranslate: 44fb6692eeffd71ccba80c337c59570d7cf25ea7
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
@@ -140,6 +148,6 @@ SPEC CHECKSUMS:
   SSZipArchive: 155943602f0dd5ca75464bcb77e57a0bf33144a5
   Starscream: 5178aed56b316f13fa3bc55694e583d35dd414d9
 
-PODFILE CHECKSUM: c070b6813df5b4fb47a7d42d6d68703539f7e3fe
+PODFILE CHECKSUM: d7aa49c74942b2ebbb1fd734f619000cf46e3f2b
 
 COCOAPODS: 1.11.3

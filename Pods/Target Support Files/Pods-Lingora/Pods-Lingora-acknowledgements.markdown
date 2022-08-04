@@ -1195,6 +1195,10 @@ Fuller's blog</a>
 
 Copyright 2022 Google
 
+## MLKitLanguageID
+
+Copyright 2022 Google
+
 ## MLKitNaturalLanguage
 
 Copyright 2022 Google

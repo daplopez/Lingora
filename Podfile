@@ -14,6 +14,7 @@ target 'Lingora' do
   pod 'ParseLiveQuery'
   pod 'DZNEmptyDataSet'
   pod 'GoogleMLKit/Translate', '3.1.0'
+  pod 'GoogleMLKit/LanguageID', '3.1.0'
 
   target 'LingoraTests' do
     inherit! :search_paths

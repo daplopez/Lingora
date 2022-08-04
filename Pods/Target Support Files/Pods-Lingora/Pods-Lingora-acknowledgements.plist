@@ -1290,6 +1290,16 @@ Fuller's blog&lt;/a&gt;
 			<key>License</key>
 			<string>Copyright</string>
 			<key>Title</key>
+			<string>MLKitLanguageID</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>Copyright 2022 Google</string>
+			<key>License</key>
+			<string>Copyright</string>
+			<key>Title</key>
 			<string>MLKitNaturalLanguage</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
