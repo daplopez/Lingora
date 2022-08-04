@@ -7,6 +7,7 @@
 
 #import "SavedPostsViewController.h"
 #import "SavedPostsTableViewCell.h"
+#import "PostDetailViewController.h"
 #import "Parse/Parse.h"
 #import "Post.h"
 
@@ -64,18 +65,21 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"%d", self.savedPosts.count);
     return self.savedPosts.count;
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"SavedPostDetail"]) {
+        NSIndexPath *indexPath =[self.tableView indexPathForCell:sender];
+        Post *dataToPass = self.savedPosts[indexPath.row];
+        dataToPass.author = [dataToPass.author fetchIfNeeded];
+        PostDetailViewController *detailsVC = (PostDetailViewController *) [segue destinationViewController];
+        detailsVC.post = dataToPass;
+    }
 }
-*/
 
 @end

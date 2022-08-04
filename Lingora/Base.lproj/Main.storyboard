@@ -1293,6 +1293,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="postTextLabel" destination="ObB-X0-lXp" id="6oX-rE-Kfo"/>
+                                            <segue destination="tN0-KZ-pLV" kind="show" identifier="SavedPostDetail" id="vW6-ge-osT"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1537,6 +1538,7 @@
         <segue reference="GfF-nn-gPr"/>
         <segue reference="htF-bb-ZcZ"/>
         <segue reference="wBg-Rh-3qM"/>
+        <segue reference="zcI-tg-bt3"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="message" catalog="system" width="128" height="113"/>
