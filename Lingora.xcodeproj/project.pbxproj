@@ -10,6 +10,7 @@
 		029111F89A79A6C65C329EE7 /* Pods_Lingora_LingoraUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1471240839B0BD0A2BBB11 /* Pods_Lingora_LingoraUITests.framework */; };
 		3C465AE2D181D29A79F0781C /* Pods_LingoraTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45546C0E6C1DC29190654511 /* Pods_LingoraTests.framework */; };
 		8D01F068289B4BDF00AF1484 /* SavedPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D01F067289B4BDF00AF1484 /* SavedPostsViewController.m */; };
+		8D01F06B289B506C00AF1484 /* SavedPostsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D01F06A289B506C00AF1484 /* SavedPostsTableViewCell.m */; };
 		8D08BC392874A79F00E2D93D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D08BC382874A79F00E2D93D /* AppDelegate.m */; };
 		8D08BC3C2874A79F00E2D93D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D08BC3B2874A79F00E2D93D /* SceneDelegate.m */; };
 		8D08BC3F2874A79F00E2D93D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D08BC3E2874A79F00E2D93D /* ViewController.m */; };
@@ -80,6 +81,8 @@
 		764867815445D58D3F2B9098 /* Pods-Lingora-LingoraUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lingora-LingoraUITests.release.xcconfig"; path = "Target Support Files/Pods-Lingora-LingoraUITests/Pods-Lingora-LingoraUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8D01F066289B4BDF00AF1484 /* SavedPostsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SavedPostsViewController.h; sourceTree = "<group>"; };
 		8D01F067289B4BDF00AF1484 /* SavedPostsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SavedPostsViewController.m; sourceTree = "<group>"; };
+		8D01F069289B506C00AF1484 /* SavedPostsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SavedPostsTableViewCell.h; sourceTree = "<group>"; };
+		8D01F06A289B506C00AF1484 /* SavedPostsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SavedPostsTableViewCell.m; sourceTree = "<group>"; };
 		8D08BC342874A79F00E2D93D /* Lingora.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lingora.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D08BC372874A79F00E2D93D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8D08BC382874A79F00E2D93D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -347,6 +350,8 @@
 			children = (
 				8D63C1B3288F389B007F99DE /* DirectMessageTableViewCell.h */,
 				8D63C1B4288F389B007F99DE /* DirectMessageTableViewCell.m */,
+				8D01F069289B506C00AF1484 /* SavedPostsTableViewCell.h */,
+				8D01F06A289B506C00AF1484 /* SavedPostsTableViewCell.m */,
 				8D42F8EF287F5D5C0078FD29 /* RecommendedTableViewCell.h */,
 				8D42F8F0287F5D5C0078FD29 /* RecommendedTableViewCell.m */,
 				8D42F8EC287F480E0078FD29 /* PostProfileTableViewCell.h */,
@@ -684,6 +689,7 @@
 				8D181DE228874ECC00011E25 /* ChatViewController.m in Sources */,
 				8D42F8EB287F47050078FD29 /* PostProfileImagesCollectionViewCell.m in Sources */,
 				8D63C1B5288F389B007F99DE /* DirectMessageTableViewCell.m in Sources */,
+				8D01F06B289B506C00AF1484 /* SavedPostsTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
