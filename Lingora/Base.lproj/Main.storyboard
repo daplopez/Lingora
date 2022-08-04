@@ -376,11 +376,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9dt-Pd-6aq">
-                                <rect key="frame" x="174" y="220" width="67" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9dt-Pd-6aq">
+                                <rect key="frame" x="74" y="173.5" width="84" height="31"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Translate"/>
                                 <connections>
                                     <action selector="translate:" destination="tN0-KZ-pLV" eventType="touchUpInside" id="zi8-EJ-fBO"/>
                                 </connections>
@@ -390,7 +389,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="I8s-Iz-dzX" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="jEd-LN-FYU" secondAttribute="bottom" constant="16" id="6oc-Zw-Vtm"/>
-                            <constraint firstItem="jEd-LN-FYU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4f1-h6-wXt" secondAttribute="trailing" constant="16" id="8nU-rc-P02"/>
                             <constraint firstItem="jEd-LN-FYU" firstAttribute="top" secondItem="Me5-Pr-EvK" secondAttribute="bottom" constant="16" id="Byd-LS-oTw"/>
                             <constraint firstItem="4f1-h6-wXt" firstAttribute="leading" secondItem="I8s-Iz-dzX" secondAttribute="leading" constant="16" id="EVE-ge-5H4"/>
                             <constraint firstItem="I8s-Iz-dzX" firstAttribute="trailing" secondItem="jEd-LN-FYU" secondAttribute="trailing" constant="16" id="Iz1-Kp-gsS"/>
@@ -403,10 +401,13 @@
                             <constraint firstItem="I8s-Iz-dzX" firstAttribute="trailing" secondItem="QQA-9m-2h7" secondAttribute="trailing" constant="16" id="go6-qX-4cn"/>
                             <constraint firstItem="QQA-9m-2h7" firstAttribute="bottom" secondItem="eGO-b2-g3f" secondAttribute="bottom" id="h2C-bl-brf"/>
                             <constraint firstItem="Me5-Pr-EvK" firstAttribute="leading" secondItem="I8s-Iz-dzX" secondAttribute="leading" constant="16" id="itq-08-hUR"/>
+                            <constraint firstItem="9dt-Pd-6aq" firstAttribute="centerY" secondItem="4f1-h6-wXt" secondAttribute="centerY" id="mGA-LS-ydS"/>
+                            <constraint firstItem="9dt-Pd-6aq" firstAttribute="leading" secondItem="4f1-h6-wXt" secondAttribute="trailing" constant="16" id="tfk-a5-dsZ"/>
                             <constraint firstItem="uNa-fz-2gU" firstAttribute="top" secondItem="eGO-b2-g3f" secondAttribute="top" id="uW5-jO-Yue"/>
                             <constraint firstItem="I8s-Iz-dzX" firstAttribute="trailing" secondItem="Me5-Pr-EvK" secondAttribute="trailing" constant="16" id="vBD-sD-Ele"/>
                             <constraint firstItem="eGO-b2-g3f" firstAttribute="leading" secondItem="I8s-Iz-dzX" secondAttribute="leading" constant="16" id="xG2-h7-3Nh"/>
                             <constraint firstItem="QQA-9m-2h7" firstAttribute="leading" secondItem="eGO-b2-g3f" secondAttribute="trailing" constant="8" id="yzx-kw-P6y"/>
+                            <constraint firstItem="jEd-LN-FYU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9dt-Pd-6aq" secondAttribute="trailing" constant="16" id="zOc-3h-Afk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qet-2z-Rkh"/>
@@ -1544,7 +1545,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GfF-nn-gPr"/>
+        <segue reference="wTC-3H-oL6"/>
         <segue reference="htF-bb-ZcZ"/>
         <segue reference="wBg-Rh-3qM"/>
         <segue reference="zcI-tg-bt3"/>
