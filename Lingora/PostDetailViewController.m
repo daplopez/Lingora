@@ -26,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setPostProperties];
+    [self createTapGestureRecognizer];
 }
 
 - (void)setPostProperties {
@@ -37,6 +38,19 @@
     self.postTextLabel.text = self.post.postText;
     self.languageLabel.text = user[@"nativeLanguage"];
     self.timestampLabel.text = [self.post.createdAt shortTimeAgoSinceNow];
+}
+
+
+- (void)createTapGestureRecognizer {
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
+    tapGesture.numberOfTapsRequired = 2;
+    [self.view addGestureRecognizer:tapGesture];
+}
+
+- (void)handleTapGesture:(UITapGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateRecognized) {
+        NSLog(@"Double tap recognized");
+    }
 }
 
 #pragma mark - Navigation

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		029111F89A79A6C65C329EE7 /* Pods_Lingora_LingoraUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1471240839B0BD0A2BBB11 /* Pods_Lingora_LingoraUITests.framework */; };
 		3C465AE2D181D29A79F0781C /* Pods_LingoraTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45546C0E6C1DC29190654511 /* Pods_LingoraTests.framework */; };
+		8D01F068289B4BDF00AF1484 /* SavedPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D01F067289B4BDF00AF1484 /* SavedPostsViewController.m */; };
 		8D08BC392874A79F00E2D93D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D08BC382874A79F00E2D93D /* AppDelegate.m */; };
 		8D08BC3C2874A79F00E2D93D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D08BC3B2874A79F00E2D93D /* SceneDelegate.m */; };
 		8D08BC3F2874A79F00E2D93D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D08BC3E2874A79F00E2D93D /* ViewController.m */; };
@@ -77,6 +78,8 @@
 		3A9F396EA7F6C2C08CEB415D /* Pods_Lingora.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lingora.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45546C0E6C1DC29190654511 /* Pods_LingoraTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LingoraTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		764867815445D58D3F2B9098 /* Pods-Lingora-LingoraUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lingora-LingoraUITests.release.xcconfig"; path = "Target Support Files/Pods-Lingora-LingoraUITests/Pods-Lingora-LingoraUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8D01F066289B4BDF00AF1484 /* SavedPostsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SavedPostsViewController.h; sourceTree = "<group>"; };
+		8D01F067289B4BDF00AF1484 /* SavedPostsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SavedPostsViewController.m; sourceTree = "<group>"; };
 		8D08BC342874A79F00E2D93D /* Lingora.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lingora.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D08BC372874A79F00E2D93D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8D08BC382874A79F00E2D93D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -292,6 +295,8 @@
 				8DBA3EB828789A720030EBEF /* ComposePostViewController.h */,
 				8DBA3EB928789A720030EBEF /* ComposePostViewController.m */,
 				8DC5AA1928762BBE00011509 /* SignupViewController.h */,
+				8D01F066289B4BDF00AF1484 /* SavedPostsViewController.h */,
+				8D01F067289B4BDF00AF1484 /* SavedPostsViewController.m */,
 				8DC5AA1A28762BBE00011509 /* SignupViewController.m */,
 				8DC5AA1C28762BCE00011509 /* HomeFeedViewController.h */,
 				8DC5AA1D28762BCE00011509 /* HomeFeedViewController.m */,
@@ -654,6 +659,7 @@
 				8D08BC3C2874A79F00E2D93D /* SceneDelegate.m in Sources */,
 				8DC5AA212876561A00011509 /* Post.m in Sources */,
 				8DFC725728932DE20088E08D /* ConversationHandler.m in Sources */,
+				8D01F068289B4BDF00AF1484 /* SavedPostsViewController.m in Sources */,
 				8D08BC712874D7DF00E2D93D /* LoginViewController.m in Sources */,
 				8D42F8EE287F480E0078FD29 /* PostProfileTableViewCell.m in Sources */,
 				8D62442E287CC05900B82B98 /* ProfileInterestsCollectionViewCell.m in Sources */,
