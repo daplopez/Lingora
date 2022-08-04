@@ -50,6 +50,17 @@
 - (void)handleTapGesture:(UITapGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateRecognized) {
         NSLog(@"Double tap recognized");
+        if (PFUser.currentUser[@"savedPosts"] != nil) {
+            NSMutableArray *saved = [[NSMutableArray alloc] initWithArray:PFUser.currentUser[@"savedPosts"]];
+            if (![saved containsObject:self.post]) {
+                [saved addObject:self.post];
+                PFUser.currentUser[@"savedPosts"] = [[NSArray alloc] initWithArray:saved];
+            }
+        } else {
+            NSArray *saved = [[NSArray alloc] initWithObjects:self.post, nil];
+            PFUser.currentUser[@"savedPosts"] = saved;
+        }
+        [PFUser.currentUser saveInBackground];
     }
 }
 
