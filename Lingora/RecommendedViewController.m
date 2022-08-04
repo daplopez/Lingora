@@ -69,25 +69,56 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
         if (users != nil) {
             NSLog(@"Successfully got users");
-            NSArray *usersFromQuery = [[NSArray alloc] initWithArray:users];
-            self.recommendedUsers = [NSArray arrayWithArray:users];
-            self.recommendedUsers = [usersFromQuery sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull user1, id  _Nonnull user2) {
-                // get rid of array, do calculations here
-                double score1 = [self.recommendationHandler getUserScore:user1];
-                double score2 = [self.recommendationHandler getUserScore:user2];
-                if (score1 > score2) {
-                    return (NSComparisonResult)NSOrderedAscending;
-                }
-                if (score1 < score2) {
-                    return (NSComparisonResult)NSOrderedDescending;
-                }
-                return (NSComparisonResult)NSOrderedSame;
-            }];
-            [self.tableView reloadData];
+            if (users.count != 0) {
+                NSArray *usersFromQuery = [[NSArray alloc] initWithArray:users];
+                self.recommendedUsers = [NSArray arrayWithArray:users];
+                self.recommendedUsers = [usersFromQuery sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull user1, id  _Nonnull user2) {
+                    return [self userScoreComparator:user1 withUser:user2];
+                }];
+                [self.tableView reloadData];
+            } else {
+                PFQuery *newQuery = [self queryForUsersWithSameLanguages];
+                [newQuery findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
+                    if (users != nil) {
+                        NSLog(@"Successfully got users");
+                        NSArray *usersFromQuery = [[NSArray alloc] initWithArray:users];
+                        self.recommendedUsers = [NSArray arrayWithArray:users];
+                        self.recommendedUsers = [usersFromQuery sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull user1, id  _Nonnull user2) {
+                            return [self userScoreComparator:user1 withUser:user2];
+                        }];
+                        [self.tableView reloadData];
+                    } else {
+                        NSLog(@"%@", error.localizedDescription);
+                    }
+                }];
+            }
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
     }];
+}
+
+
+- (NSComparisonResult)userScoreComparator:(PFUser *)user1 withUser:(PFUser *)user2 {
+    double score1 = [self.recommendationHandler getUserScore:user1];
+    double score2 = [self.recommendationHandler getUserScore:user2];
+    if (score1 > score2) {
+        return (NSComparisonResult)NSOrderedAscending;
+    }
+    if (score1 < score2) {
+        return (NSComparisonResult)NSOrderedDescending;
+    }
+    return (NSComparisonResult)NSOrderedSame;
+}
+
+- (PFQuery *)queryForUsersWithSameLanguages {
+    PFQuery *query = [PFQuery queryWithClassName:@"_User"];
+    [query whereKey:@"username" notEqualTo:PFUser.currentUser.username];
+    [query whereKey:@"nativeLanguage" equalTo:PFUser.currentUser[@"nativeLanguage"]];
+    [query whereKey:@"targetLanguage" equalTo:PFUser.currentUser[@"targetLanguage"]];
+    [query orderByDescending:@"createdAt"];
+    
+    return  query;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
