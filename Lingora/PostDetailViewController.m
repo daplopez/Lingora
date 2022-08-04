@@ -10,9 +10,7 @@
 #import "DateTools/DateTools.h"
 #import "ViewProfileViewController.h"
 #import "SceneDelegate.h"
-#import "MLKitTranslate/MLKitTranslate.h"
-#import "MLKitCommon/MLKModelDownloadConditions.h"
-@import MLKitTranslate;
+@import MLKit;
 
 @interface PostDetailViewController ()
 @property (weak, nonatomic) IBOutlet PFImageView *profilePicture;
@@ -87,10 +85,34 @@
 }
 
 
-- (MLKTranslateLanguage)identifyTextLanguage {
-    MLKTranslateLanguage language = nil;
+- (MLKTranslateLanguage)identifyTextLanguage:(NSString *)text {
+    MLKLanguageIdentification *languageId = [MLKLanguageIdentification languageIdentification];
+    __block MLKTranslateLanguage language = nil;
+    [languageId identifyLanguageForText:text completion:^(NSString * _Nullable languageCode, NSError * _Nullable error) {
+        if (error != nil) {
+            NSLog(@"Failed with error: %@", error.localizedDescription);
+                return;
+            }
+            if (![languageCode isEqualToString:@"und"] ) {
+                NSLog(@"Identified Language: %@", languageCode);
+                NSLog(@"CHECK");
+                language = (MLKTranslateLanguage) languageCode;
+                MLKTranslateLanguage nativeLanguage = (MLKTranslateLanguage) self.post.author[@"nativeLanguageTag"];
+                MLKTranslateLanguage targetLanguage = (MLKTranslateLanguage) self.post.author[@"targetLanguageTag"];
+                if (nativeLanguage == language) {
+                    [self translateText:language toLanguage:targetLanguage];
+                } else {
+                    [self translateText:language toLanguage:nativeLanguage];
+                }
+                
+            } else {
+                NSLog(@"No language was identified");
+            }
+    }];
     return language;
 }
+
+
 
 - (void)translateText:(MLKTranslateLanguage)sourceLanguage toLanguage:(MLKTranslateLanguage)translateLanguage {
     // Create an English-Spanish translator:
@@ -122,7 +144,7 @@
 }
 
 - (IBAction)translate:(id)sender {
-    [self translateText:MLKTranslateLanguageEnglish toLanguage:MLKTranslateLanguageSpanish];
+    [self identifyTextLanguage:self.postTextLabel.text];
 }
 
 @end

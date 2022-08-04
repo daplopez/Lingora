@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *nativeLanguagePickerView;
 @property (weak, nonatomic) IBOutlet UIPickerView *targetLanguagePickerView;
 @property (weak, nonatomic) IBOutlet UIPickerView *proficiencyPickerView;
+@property (strong, nonatomic) NSArray *languageTags;
 @property (strong, nonatomic) NSArray *languages;
 @property (strong, nonatomic) NSArray *proficiency;
 @end
@@ -107,9 +108,13 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     if ([pickerView isEqual:self.nativeLanguagePickerView]) {
         self.nativeLanguageField.text = self.languages[row];
+        PFUser.currentUser[@"nativeLanguageCode"] = self.languageTags[row];
+        [PFUser.currentUser saveInBackground];
         [self.nativeLanguagePickerView setHidden:YES];
     } else if ([pickerView isEqual:self.targetLanguagePickerView]) {
         self.targetLanguageField.text = self.languages[row];
+        PFUser.currentUser[@"targetLanguageCode"] = self.languageTags[row];
+        [PFUser.currentUser saveInBackground];
         [self.targetLanguagePickerView setHidden:YES];
     } else {
         self.proficiencyLevelField.text = self.proficiency[row];
@@ -120,6 +125,8 @@
 - (IBAction)didTapSignup:(id)sender {
     // initialize a user object
     PFUser *newUser = [PFUser user];
+    
+    self.languageTags = [[NSArray alloc] initWithObjects:@"ar", @"nl", @"zh", @"en", @"de", @"hi", @"it", @"ja", @"ko", @"ms", @"pt", @"ru", @"es", @"sw", @"ta", @"th", @"vi", nil];
     
     // set user properties
     newUser[@"fullName"] = self.nameField.text;
