@@ -32,7 +32,7 @@
 
 - (void)setPostProperties {
     PFUser *user = self.post.author;
-    self.profilePicture.file = [user[@"image"] fetchIfNeeded];
+    self.profilePicture.file = user[@"image"];
     [self.profilePicture loadInBackground];
     self.nameLabel.text = user[@"fullName"];
     self.usernameLabel.text = user.username;

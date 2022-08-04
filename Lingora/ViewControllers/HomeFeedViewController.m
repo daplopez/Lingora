@@ -150,6 +150,7 @@
     if ([segue.identifier isEqualToString:@"PostDetail"]) {
         NSIndexPath *indexPath =[self.tableView indexPathForCell:sender];
         Post *dataToPass = self.posts[indexPath.row];
+        dataToPass.author = [dataToPass.author fetchIfNeeded];
         PostDetailViewController *detailsVC = (PostDetailViewController *) [segue destinationViewController];
         detailsVC.post = dataToPass;
     }
