@@ -10,6 +10,9 @@
 #import "DateTools/DateTools.h"
 #import "ViewProfileViewController.h"
 #import "SceneDelegate.h"
+#import "MLKitTranslate/MLKitTranslate.h"
+#import "MLKitCommon/MLKModelDownloadConditions.h"
+@import MLKitTranslate;
 
 @interface PostDetailViewController ()
 @property (weak, nonatomic) IBOutlet PFImageView *profilePicture;
@@ -83,5 +86,43 @@
     myDelegate.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"ProfileView"];
 }
 
+
+- (MLKTranslateLanguage)identifyTextLanguage {
+    MLKTranslateLanguage language = nil;
+    return language;
+}
+
+- (void)translateText:(MLKTranslateLanguage)sourceLanguage toLanguage:(MLKTranslateLanguage)translateLanguage {
+    // Create an English-Spanish translator:
+    MLKTranslatorOptions *options = [[MLKTranslatorOptions alloc] initWithSourceLanguage:MLKTranslateLanguageEnglish
+                                    targetLanguage:MLKTranslateLanguageSpanish];
+    MLKTranslator *englishSpanishTranslator = [MLKTranslator translatorWithOptions:options];
+    MLKModelDownloadConditions *conditions = [[MLKModelDownloadConditions alloc] initWithAllowsCellularAccess:NO
+                                             allowsBackgroundDownloading:YES];
+    [englishSpanishTranslator downloadModelIfNeededWithConditions:conditions completion:^(NSError *_Nullable error) {
+        if (error != nil) {
+            return;
+        }
+    // Model downloaded successfully. Okay to start translating.
+    [englishSpanishTranslator translateText:self.postTextLabel.text completion:^(NSString *_Nullable translatedText, NSError *_Nullable error) {
+        if (error != nil || translatedText == nil) {
+            return;
+        }
+
+        // Translation succeeded.
+        self.postTextLabel.text = translatedText;
+        MLKTranslateRemoteModel *spanishModel = [MLKTranslateRemoteModel translateRemoteModelWithLanguage:MLKTranslateLanguageSpanish];
+        [[MLKModelManager modelManager] deleteDownloadedModel:spanishModel completion:^(NSError * _Nullable error) {
+            if (error != nil) {
+                return;
+            }
+            NSLog(@"DELETED MODEL"); }];
+        }];
+    }];
+}
+
+- (IBAction)translate:(id)sender {
+    [self translateText:MLKTranslateLanguageEnglish toLanguage:MLKTranslateLanguageSpanish];
+}
 
 @end
