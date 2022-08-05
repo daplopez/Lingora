@@ -62,36 +62,24 @@
     [query whereKey:@"username" notEqualTo:PFUser.currentUser.username];
     [query whereKey:@"nativeLanguage" equalTo:PFUser.currentUser[@"targetLanguage"]];
     [query whereKey:@"targetLanguage" equalTo:PFUser.currentUser[@"nativeLanguage"]];
-    [query orderByDescending:@"createdAt"];
-    query.limit = 20;
     
+    PFQuery *sameLanguageQuery = [PFQuery queryWithClassName:@"_User"];
+    [sameLanguageQuery whereKey:@"targetLanguage" equalTo:PFUser.currentUser[@"targetLanguage"]];
+    
+    PFQuery *orQuery = [PFQuery orQueryWithSubqueries:[[NSArray alloc] initWithObjects:query, sameLanguageQuery, nil]];
+    [orQuery whereKey:@"username" notEqualTo:PFUser.currentUser.username];
+    [orQuery orderByDescending:@"createdAt"];
+
     // fetch data asynchronously
-    [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
+    [orQuery findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
         if (users != nil) {
             NSLog(@"Successfully got users");
-            if (users.count != 0) {
-                NSArray *usersFromQuery = [[NSArray alloc] initWithArray:users];
-                self.recommendedUsers = [NSArray arrayWithArray:users];
-                self.recommendedUsers = [usersFromQuery sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull user1, id  _Nonnull user2) {
-                    return [self userScoreComparator:user1 withUser:user2];
-                }];
-                [self.tableView reloadData];
-            } else {
-                PFQuery *newQuery = [self queryForUsersWithSameLanguages];
-                [newQuery findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
-                    if (users != nil) {
-                        NSLog(@"Successfully got users");
-                        NSArray *usersFromQuery = [[NSArray alloc] initWithArray:users];
-                        self.recommendedUsers = [NSArray arrayWithArray:users];
-                        self.recommendedUsers = [usersFromQuery sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull user1, id  _Nonnull user2) {
-                            return [self userScoreComparator:user1 withUser:user2];
-                        }];
-                        [self.tableView reloadData];
-                    } else {
-                        NSLog(@"%@", error.localizedDescription);
-                    }
-                }];
-            }
+            NSArray *usersFromQuery = [[NSArray alloc] initWithArray:users];
+            self.recommendedUsers = [NSArray arrayWithArray:users];
+            self.recommendedUsers = [usersFromQuery sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull user1, id  _Nonnull user2) {
+                return [self userScoreComparator:user1 withUser:user2];
+            }];
+            [self.tableView reloadData];
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
