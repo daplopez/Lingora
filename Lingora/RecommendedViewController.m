@@ -22,7 +22,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *targetLanguageLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *recommendedUsers;
-@property (strong, nonatomic) RecommendUsersHandler *recommendationHandler;
 
 @end
 
@@ -41,7 +40,6 @@
 - (void)setDelegates {
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.recommendationHandler = [[RecommendUsersHandler alloc] init];
 }
 
 
@@ -88,8 +86,8 @@
 
 
 - (NSComparisonResult)userScoreComparator:(PFUser *)user1 withUser:(PFUser *)user2 {
-    double score1 = [self.recommendationHandler getUserScore:user1];
-    double score2 = [self.recommendationHandler getUserScore:user2];
+    double score1 = [RecommendUsersHandler getUserScore:user1];
+    double score2 = [RecommendUsersHandler getUserScore:user2];
     if (score1 > score2) {
         return (NSComparisonResult)NSOrderedAscending;
     }
@@ -99,15 +97,6 @@
     return (NSComparisonResult)NSOrderedSame;
 }
 
-- (PFQuery *)queryForUsersWithSameLanguages {
-    PFQuery *query = [PFQuery queryWithClassName:@"_User"];
-    [query whereKey:@"username" notEqualTo:PFUser.currentUser.username];
-    [query whereKey:@"nativeLanguage" equalTo:PFUser.currentUser[@"nativeLanguage"]];
-    [query whereKey:@"targetLanguage" equalTo:PFUser.currentUser[@"targetLanguage"]];
-    [query orderByDescending:@"createdAt"];
-    
-    return  query;
-}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RecommendedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"recommendedCell"];
@@ -118,7 +107,7 @@
     cell.nativeLanguageLabel.text = user[@"nativeLanguage"];
     cell.targetLanguageLabel.text = user[@"targetLanguage"];
     cell.proficiencyLevel.text = user[@"proficiencyLevel"];
-    double distance = [self.recommendationHandler getDistanceFromUser:user];
+    double distance = [RecommendUsersHandler getDistanceFromUser:user];
     distance = distance / 1609.34;
     NSString *distanceString = [NSString stringWithFormat:@"%.2f", distance];
     distanceString = [distanceString stringByAppendingString:@" miles"];

@@ -25,6 +25,9 @@
     return distance;
 }
 
+
+
+
 - (double)getUserScore:(PFUser *)user {
     // since location has the most weight, it is multiplied by instead of added
     double finalScore = ([self getProficiencyScoreFromUser:user] + [self getInterestsScoreFromUser:user] + [self getLanguageScoreFromUser:user])
