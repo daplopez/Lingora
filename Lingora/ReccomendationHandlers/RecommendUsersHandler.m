@@ -27,7 +27,7 @@
 
 - (double)getUserScore:(PFUser *)user {
     // since location has the most weight, it is multiplied by instead of added
-    double finalScore = ([self getProficiencyScoreFromUser:user] + [self getInterestsScoreFromUser:user])
+    double finalScore = ([self getProficiencyScoreFromUser:user] + [self getInterestsScoreFromUser:user] + [self getLanguageScoreFromUser:user])
                         * [self getLocationScoreFromUser:user];
     return finalScore;
 }
@@ -45,6 +45,17 @@
         
         return score;
 }
+
+
+- (double)getLanguageScoreFromUser:(PFUser *)user {
+    NSString *nativeLanguage = user[@"nativeLanguage"];
+    double score = 1;
+    if ([nativeLanguage isEqualToString:PFUser.currentUser[@"targetLanguage"]]) {
+        score = 10;
+    }
+    return score;
+}
+
 
 - (double)getProficiencyScoreFromUser:(PFUser *)user {
     // handle cases for no native language speakers near you
