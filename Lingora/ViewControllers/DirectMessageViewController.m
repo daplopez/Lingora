@@ -139,28 +139,12 @@
 }
 
 - (PFQuery *)queryForMessagesBetweenTwoUsers {
-    PFQuery *messagesByThisUser = [self messagesCreatedByCurUser];
-    PFQuery *messagesByOthers = [self messagesCreatedByOtherUser];
-    NSArray *queries = [[NSArray alloc] initWithObjects:messagesByThisUser, messagesByOthers, nil];
-    PFQuery *query = [PFQuery orQueryWithSubqueries:queries];
+    PFQuery *query = [PFQuery queryWithClassName:@"Message"];
+    [query whereKey:@"convoID" equalTo:self.conversation.objectId];
     
     //NSArray *includeKeys = [[NSArray alloc] initWithObjects:@"author", nil];
     //[query includeKeys:includeKeys];
     [query orderByDescending:@"createdAt"];
-    
-    return query;
-}
-
-- (PFQuery *)messagesCreatedByCurUser {
-    PFQuery *query = [PFQuery queryWithClassName:@"Message"];
-   [query whereKey:@"username" equalTo:self.conversation.usersInConversation[0][@"username"]];
-    
-    return query;
-}
-
-- (PFQuery *)messagesCreatedByOtherUser {
-    PFQuery *query = [PFQuery queryWithClassName:@"Message"];
-    [query whereKey:@"username" equalTo:self.conversation.usersInConversation[1][@"username"]];
     
     return query;
 }
