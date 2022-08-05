@@ -86,11 +86,11 @@
                 self.conversation = [Conversation createConversation:self.messages withUser:self.user withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
                     if (succeeded) {
                         NSLog(@"Successsfully created a new conversation");
+                        [self liveQuerySetup];
                     } else {
                         NSLog(@"%@", error.localizedDescription);
                     }
                 }];
-                [self liveQuerySetup];
             }
             
             [self.tableView reloadData];
