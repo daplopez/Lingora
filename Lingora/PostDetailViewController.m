@@ -95,12 +95,12 @@
             }
             if (![languageCode isEqualToString:@"und"] ) {
                 NSLog(@"Identified Language: %@", languageCode);
-                NSLog(@"CHECK");
                 language = (MLKTranslateLanguage) languageCode;
-                MLKTranslateLanguage nativeLanguage = (MLKTranslateLanguage) self.post.author[@"nativeLanguageTag"];
-                MLKTranslateLanguage targetLanguage = (MLKTranslateLanguage) self.post.author[@"targetLanguageTag"];
+                MLKTranslateLanguage nativeLanguage = (MLKTranslateLanguage) PFUser.currentUser[@"nativeLanguageTag"];
+                MLKTranslateLanguage targetLanguage = (MLKTranslateLanguage) PFUser.currentUser[@"targetLanguageTag"];
                 if (nativeLanguage == language) {
                     [self translateText:language toLanguage:targetLanguage];
+                    NSLog(@"Translate Language: %@", targetLanguage);
                 } else {
                     [self translateText:language toLanguage:nativeLanguage];
                 }
@@ -113,28 +113,27 @@
 }
 
 
-
 - (void)translateText:(MLKTranslateLanguage)sourceLanguage toLanguage:(MLKTranslateLanguage)translateLanguage {
     // Create an English-Spanish translator:
-    MLKTranslatorOptions *options = [[MLKTranslatorOptions alloc] initWithSourceLanguage:MLKTranslateLanguageEnglish
-                                    targetLanguage:MLKTranslateLanguageSpanish];
-    MLKTranslator *englishSpanishTranslator = [MLKTranslator translatorWithOptions:options];
+    MLKTranslatorOptions *options = [[MLKTranslatorOptions alloc] initWithSourceLanguage:sourceLanguage
+                                    targetLanguage:translateLanguage];
+    MLKTranslator *translator = [MLKTranslator translatorWithOptions:options];
     MLKModelDownloadConditions *conditions = [[MLKModelDownloadConditions alloc] initWithAllowsCellularAccess:NO
                                              allowsBackgroundDownloading:YES];
-    [englishSpanishTranslator downloadModelIfNeededWithConditions:conditions completion:^(NSError *_Nullable error) {
+    [translator downloadModelIfNeededWithConditions:conditions completion:^(NSError *_Nullable error) {
         if (error != nil) {
             return;
         }
     // Model downloaded successfully. Okay to start translating.
-    [englishSpanishTranslator translateText:self.postTextLabel.text completion:^(NSString *_Nullable translatedText, NSError *_Nullable error) {
+    [translator translateText:self.postTextLabel.text completion:^(NSString *_Nullable translatedText, NSError *_Nullable error) {
         if (error != nil || translatedText == nil) {
             return;
         }
 
         // Translation succeeded.
         self.postTextLabel.text = translatedText;
-        MLKTranslateRemoteModel *spanishModel = [MLKTranslateRemoteModel translateRemoteModelWithLanguage:MLKTranslateLanguageSpanish];
-        [[MLKModelManager modelManager] deleteDownloadedModel:spanishModel completion:^(NSError * _Nullable error) {
+        MLKTranslateRemoteModel *model = [MLKTranslateRemoteModel translateRemoteModelWithLanguage:translateLanguage];
+        [[MLKModelManager modelManager] deleteDownloadedModel:model completion:^(NSError * _Nullable error) {
             if (error != nil) {
                 return;
             }
