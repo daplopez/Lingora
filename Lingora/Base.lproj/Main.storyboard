@@ -1059,8 +1059,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tNg-t4-ad5">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tNg-t4-ad5">
                                 <rect key="frame" x="291" y="96" width="83" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="new post"/>
                             </button>
@@ -1247,7 +1248,6 @@
                             <constraint firstItem="ZDX-2M-6Ti" firstAttribute="bottom" secondItem="8h3-T0-1Cr" secondAttribute="bottom" id="73C-NH-DEj"/>
                             <constraint firstItem="J4a-uP-edJ" firstAttribute="centerX" secondItem="8h3-T0-1Cr" secondAttribute="centerX" id="KRA-Kt-GMn"/>
                             <constraint firstItem="9Ii-ZH-Iii" firstAttribute="top" secondItem="8h3-T0-1Cr" secondAttribute="top" constant="16" id="KxJ-XG-HfZ"/>
-                            <constraint firstItem="tNg-t4-ad5" firstAttribute="leading" secondItem="ZDX-2M-6Ti" secondAttribute="trailing" constant="16" id="LgD-k6-NMd"/>
                             <constraint firstItem="7vV-5M-Vxd" firstAttribute="top" secondItem="8h3-T0-1Cr" secondAttribute="top" id="NJA-L3-G4p"/>
                             <constraint firstItem="J4a-uP-edJ" firstAttribute="top" secondItem="8h3-T0-1Cr" secondAttribute="bottom" constant="2" id="gnT-mQ-lxU"/>
                             <constraint firstItem="V5B-7E-Id0" firstAttribute="centerY" secondItem="8h3-T0-1Cr" secondAttribute="centerY" id="ncO-AM-qTq"/>
@@ -1280,7 +1280,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TIJ-jZ-Yk5">
-                                <rect key="frame" x="0.0" y="86" width="414" height="756"/>
+                                <rect key="frame" x="0.0" y="56" width="414" height="786"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -1548,7 +1548,7 @@
         <segue reference="wTC-3H-oL6"/>
         <segue reference="htF-bb-ZcZ"/>
         <segue reference="wBg-Rh-3qM"/>
-        <segue reference="vW6-ge-osT"/>
+        <segue reference="zcI-tg-bt3"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="message" catalog="system" width="128" height="113"/>
