@@ -26,12 +26,25 @@
 }
 
 
-
++ (double)getSimilarityToUser:(PFUser *)user {
+    NSArray *curUserRankedInterests = [[NSArray alloc] initWithArray:PFUser.currentUser[@"rankedInterests"]];
+    NSArray *otherUserRankedInterests = [[NSArray alloc] initWithArray:user[@"rankedInterests"]];
+    double distance = 0.0;
+    // Use Euclidean Distance formula to find similarity of interests between users; the
+    // smaller the distance the better
+    for (int i = 0; i < curUserRankedInterests.count; i++) {
+        int diff = [curUserRankedInterests[i] intValue] - [otherUserRankedInterests[i] intValue];
+        distance += diff * diff;
+    }
+    distance = sqrt(distance);
+    return distance;
+}
 
 + (double)getUserScore:(PFUser *)user {
     // since location has the most weight, it is multiplied by instead of added
-    double finalScore = ([self getProficiencyScoreFromUser:user] + [self getInterestsScoreFromUser:user] + [self getLanguageScoreFromUser:user])
-                        * [self getLocationScoreFromUser:user];
+    double finalScore = ([self getProficiencyScoreFromUser:user] + [self getInterestsScoreFromUser:user] + [self getLanguageScoreFromUser:user] + [self getSimilarityToUser:user]) * [self getLocationScoreFromUser:user];
+    NSLog(@"%@", user.username);
+    NSLog(@"%f", finalScore);
     return finalScore;
 }
 
@@ -54,7 +67,7 @@
     NSString *nativeLanguage = user[@"nativeLanguage"];
     double score = 1;
     if ([nativeLanguage isEqualToString:PFUser.currentUser[@"targetLanguage"]]) {
-        score = 10;
+        score = 5;
     }
     return score;
 }

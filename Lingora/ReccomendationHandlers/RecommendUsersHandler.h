@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (double)getLocationScoreFromUser:(PFUser *)user;
 + (double)getProficiencyScoreFromUser:(PFUser *)user;
 + (double)getInterestsScoreFromUser:(PFUser *)user;
++ (double)getSimilarityToUser:(PFUser *)user;
 
 @end
 

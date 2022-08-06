@@ -37,7 +37,7 @@
 - (IBAction)didTapMusicSlider:(id)sender {
     self.musicSlider = (UISlider *) sender;
     NSLog(@"%f", self.musicSlider.value);
-    
+
 }
 
 
