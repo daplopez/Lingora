@@ -16,7 +16,7 @@
 
 @implementation RecommendUsersHandler
 
-- (double)getDistanceFromUser:(PFUser *)user {
++ (double)getDistanceFromUser:(PFUser *)user {
     PFGeoPoint *start = PFUser.currentUser[@"location"];
     PFGeoPoint *end = user[@"location"];
     CLLocation *startLoc = [[CLLocation alloc] initWithLatitude:start.latitude longitude:start.longitude];
@@ -28,14 +28,14 @@
 
 
 
-- (double)getUserScore:(PFUser *)user {
++ (double)getUserScore:(PFUser *)user {
     // since location has the most weight, it is multiplied by instead of added
     double finalScore = ([self getProficiencyScoreFromUser:user] + [self getInterestsScoreFromUser:user] + [self getLanguageScoreFromUser:user])
                         * [self getLocationScoreFromUser:user];
     return finalScore;
 }
 
-- (double)getLocationScoreFromUser:(PFUser *)user {
++ (double)getLocationScoreFromUser:(PFUser *)user {
         double distance = [self getDistanceFromUser:user];
        
         /* Reccomendations are weighted the most heavily on proximity;
@@ -50,7 +50,7 @@
 }
 
 
-- (double)getLanguageScoreFromUser:(PFUser *)user {
++ (double)getLanguageScoreFromUser:(PFUser *)user {
     NSString *nativeLanguage = user[@"nativeLanguage"];
     double score = 1;
     if ([nativeLanguage isEqualToString:PFUser.currentUser[@"targetLanguage"]]) {
@@ -60,7 +60,7 @@
 }
 
 
-- (double)getProficiencyScoreFromUser:(PFUser *)user {
++ (double)getProficiencyScoreFromUser:(PFUser *)user {
     // handle cases for no native language speakers near you
     // create tests
     NSString *proficiency = user[@"proficiencyLevel"];
@@ -71,7 +71,7 @@
     return  score;
 }
 
-- (double)getInterestsScoreFromUser:(PFUser *)user {
++ (double)getInterestsScoreFromUser:(PFUser *)user {
     double score = 0;
     // interest score is determined by how many ineterests overlap between two users
     NSArray *userInterests = [[NSArray alloc] initWithArray:user[@"interests"]];

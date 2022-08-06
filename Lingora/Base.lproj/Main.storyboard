@@ -203,12 +203,113 @@
                         <outlet property="targetLanguageField" destination="IRG-B1-aIN" id="Xdg-td-Gzs"/>
                         <outlet property="targetLanguagePickerView" destination="mxE-Al-4K3" id="UaH-iV-PZm"/>
                         <outlet property="usernameField" destination="Vdq-QP-il2" id="JZF-sl-fep"/>
-                        <segue destination="7HC-vT-fta" kind="show" identifier="SignupSegue" id="htF-bb-ZcZ"/>
+                        <segue destination="LpD-ca-Wiv" kind="show" identifier="SignUpToInterests" id="3dH-LB-f4B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YDk-Bi-NeN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1251" y="372"/>
+            <point key="canvasLocation" x="-1277" y="372"/>
+        </scene>
+        <!--Rank Interests View Controller-->
+        <scene sceneID="4JT-xC-sWh">
+            <objects>
+                <viewController storyboardIdentifier="RankInterests" id="LpD-ca-Wiv" customClass="RankInterestsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1XD-Br-5ge">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Au-Tf-0k9">
+                                <rect key="frame" x="262" y="678" width="63" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Next"/>
+                                <connections>
+                                    <action selector="didTapNext:" destination="LpD-ca-Wiv" eventType="touchUpInside" id="nzW-SK-n9E"/>
+                                </connections>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="EGJ-aW-dqu">
+                                <rect key="frame" x="50" y="170" width="310" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="didTapMusicSlider:" destination="LpD-ca-Wiv" eventType="valueChanged" id="Nvu-Nr-mCw"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rank some interests to get started" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5AN-v6-k1v">
+                                <rect key="frame" x="77" y="114" width="262" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="EI1-A0-Uy0">
+                                <rect key="frame" x="51" y="239" width="308" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="didTapTechnologySlider:" destination="LpD-ca-Wiv" eventType="valueChanged" id="NOF-D5-K7y"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="zpo-Sz-cBS">
+                                <rect key="frame" x="51" y="314" width="308" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="didTapArtSlider:" destination="LpD-ca-Wiv" eventType="valueChanged" id="eg6-ew-fC7"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="de8-fp-ILE">
+                                <rect key="frame" x="50" y="383" width="310" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="didTapFitnessSlider:" destination="LpD-ca-Wiv" eventType="valueChanged" id="dOa-Ag-MBq"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="y2Q-ZX-LR9">
+                                <rect key="frame" x="50" y="442" width="309" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="didTapOutdoorSlider:" destination="LpD-ca-Wiv" eventType="valueChanged" id="9fn-qq-o4k"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="u0f-c1-cJL">
+                                <rect key="frame" x="50" y="510" width="308" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="didTapVideoGamesSlider:" destination="LpD-ca-Wiv" eventType="valueChanged" id="T7p-a8-F86"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="FtO-zm-hKC">
+                                <rect key="frame" x="50" y="576" width="308" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="didTapPoliticsSlider:" destination="LpD-ca-Wiv" eventType="valueChanged" id="t0y-VF-gav"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="L34-K2-1B1">
+                                <rect key="frame" x="52" y="641" width="310" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="didTapSportsSlider:" destination="LpD-ca-Wiv" eventType="valueChanged" id="H50-Mo-JbY"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2iJ-zV-Ih8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="EJk-oe-L86"/>
+                    <connections>
+                        <outlet property="artSlider" destination="zpo-Sz-cBS" id="57M-QM-fVc"/>
+                        <outlet property="fitnessSlider" destination="de8-fp-ILE" id="N1T-J1-ZMh"/>
+                        <outlet property="musicSlider" destination="EGJ-aW-dqu" id="5wY-vQ-9Pp"/>
+                        <outlet property="outdoorSlider" destination="y2Q-ZX-LR9" id="Fif-UM-Xb0"/>
+                        <outlet property="politicsSlider" destination="FtO-zm-hKC" id="xVi-r9-tam"/>
+                        <outlet property="sportsSlider" destination="L34-K2-1B1" id="Xmo-qb-4Wk"/>
+                        <outlet property="technologySlider" destination="EI1-A0-Uy0" id="Lxd-Dg-Uey"/>
+                        <outlet property="videoGameSlider" destination="u0f-c1-cJL" id="mo4-US-7cd"/>
+                        <segue destination="7HC-vT-fta" kind="show" id="wRR-2n-7rX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ePw-Nv-cDY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-510" y="372"/>
         </scene>
         <!--Home-->
         <scene sceneID="atE-tZ-Ddz">
@@ -428,7 +529,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-2355" y="2660"/>
+            <point key="canvasLocation" x="-2290" y="2660"/>
         </scene>
         <!--Chat-->
         <scene sceneID="ukB-Ul-awr">
@@ -784,7 +885,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EU3-bT-PRX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3813" y="2660"/>
+            <point key="canvasLocation" x="-3080" y="2660"/>
         </scene>
         <!--Find-->
         <scene sceneID="nYf-ch-bVO">
@@ -1522,7 +1623,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuQ-Q4-AHg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1968" y="372"/>
+            <point key="canvasLocation" x="-2032" y="372"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pkg-QW-Q1Q">
@@ -1546,7 +1647,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="wTC-3H-oL6"/>
-        <segue reference="htF-bb-ZcZ"/>
+        <segue reference="wRR-2n-7rX"/>
         <segue reference="wBg-Rh-3qM"/>
         <segue reference="zcI-tg-bt3"/>
     </inferredMetricsTieBreakers>

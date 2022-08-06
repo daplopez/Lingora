@@ -40,6 +40,7 @@
 		8D63C1B2288F3342007F99DE /* DirectMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D63C1B1288F3342007F99DE /* DirectMessageViewController.m */; };
 		8D63C1B5288F389B007F99DE /* DirectMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D63C1B4288F389B007F99DE /* DirectMessageTableViewCell.m */; };
 		8D6C5005287CDDD800D22747 /* ViewProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6C5004287CDDD800D22747 /* ViewProfileViewController.m */; };
+		8D7396E3289DBA9900748374 /* RankInterestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7396E2289DBA9900748374 /* RankInterestsViewController.m */; };
 		8D98E587287DF50C00AC4475 /* ProfileImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D98E586287DF50C00AC4475 /* ProfileImageCollectionViewCell.m */; };
 		8DBA3EBA28789A720030EBEF /* ComposePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBA3EB928789A720030EBEF /* ComposePostViewController.m */; };
 		8DBA3EBE2878B8D40030EBEF /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBA3EBD2878B8D40030EBEF /* ProfileViewController.m */; };
@@ -138,6 +139,8 @@
 		8D63C1B4288F389B007F99DE /* DirectMessageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DirectMessageTableViewCell.m; path = Lingora/DirectMessageTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		8D6C5003287CDDD800D22747 /* ViewProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewProfileViewController.h; path = Lingora/ViewProfileViewController.h; sourceTree = SOURCE_ROOT; };
 		8D6C5004287CDDD800D22747 /* ViewProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewProfileViewController.m; path = Lingora/ViewProfileViewController.m; sourceTree = SOURCE_ROOT; };
+		8D7396E1289DBA9900748374 /* RankInterestsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RankInterestsViewController.h; sourceTree = "<group>"; };
+		8D7396E2289DBA9900748374 /* RankInterestsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RankInterestsViewController.m; sourceTree = "<group>"; };
 		8D98E585287DF50C00AC4475 /* ProfileImageCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ProfileImageCollectionViewCell.h; path = Lingora/ProfileImageCollectionViewCell.h; sourceTree = SOURCE_ROOT; };
 		8D98E586287DF50C00AC4475 /* ProfileImageCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ProfileImageCollectionViewCell.m; path = Lingora/ProfileImageCollectionViewCell.m; sourceTree = SOURCE_ROOT; };
 		8DBA3EB828789A720030EBEF /* ComposePostViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposePostViewController.h; sourceTree = "<group>"; };
@@ -297,9 +300,9 @@
 				8DBA3EB828789A720030EBEF /* ComposePostViewController.h */,
 				8DBA3EB928789A720030EBEF /* ComposePostViewController.m */,
 				8DC5AA1928762BBE00011509 /* SignupViewController.h */,
+				8DC5AA1A28762BBE00011509 /* SignupViewController.m */,
 				8D01F066289B4BDF00AF1484 /* SavedPostsViewController.h */,
 				8D01F067289B4BDF00AF1484 /* SavedPostsViewController.m */,
-				8DC5AA1A28762BBE00011509 /* SignupViewController.m */,
 				8DC5AA1C28762BCE00011509 /* HomeFeedViewController.h */,
 				8DC5AA1D28762BCE00011509 /* HomeFeedViewController.m */,
 				8DC5AA16287612FF00011509 /* WelcomeViewController.h */,
@@ -312,6 +315,8 @@
 				8D181DE128874ECC00011E25 /* ChatViewController.m */,
 				8D63C1B0288F3342007F99DE /* DirectMessageViewController.h */,
 				8D63C1B1288F3342007F99DE /* DirectMessageViewController.m */,
+				8D7396E1289DBA9900748374 /* RankInterestsViewController.h */,
+				8D7396E2289DBA9900748374 /* RankInterestsViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -679,6 +684,7 @@
 				8DFC725A28932F0F0088E08D /* ConversationManager.m in Sources */,
 				8D98E587287DF50C00AC4475 /* ProfileImageCollectionViewCell.m in Sources */,
 				8D63C1A6288B6127007F99DE /* Message.m in Sources */,
+				8D7396E3289DBA9900748374 /* RankInterestsViewController.m in Sources */,
 				8D42F8F1287F5D5C0078FD29 /* RecommendedTableViewCell.m in Sources */,
 				8D63C1B2288F3342007F99DE /* DirectMessageViewController.m in Sources */,
 				8DC5AA1B28762BBE00011509 /* SignupViewController.m in Sources */,
