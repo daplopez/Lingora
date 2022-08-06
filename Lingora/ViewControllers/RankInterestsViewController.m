@@ -81,7 +81,6 @@
     for (int i = 0; i < self.sliders.count; i++) {
         UISlider *curSlider = self.sliders[i];
         double sliderScore = curSlider.value;
-        NSLog(@"%f", sliderScore);
         [rankings addObject:[NSNumber numberWithInt:sliderScore]];
     }
     

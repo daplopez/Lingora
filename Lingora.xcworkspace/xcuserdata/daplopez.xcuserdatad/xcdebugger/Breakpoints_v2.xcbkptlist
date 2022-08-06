@@ -718,8 +718,8 @@
             filePath = "Lingora/ViewControllers/RankInterestsViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "-didTapNext:"
             landmarkType = "7">
          </BreakpointContent>
