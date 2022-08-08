@@ -370,7 +370,7 @@
         <!--Home-->
         <scene sceneID="atE-tZ-Ddz">
             <objects>
-                <viewController storyboardIdentifier="HomeFeed" id="W1R-eu-xkp" customClass="HomeFeedViewController" sceneMemberID="viewController">
+                <viewController id="W1R-eu-xkp" customClass="HomeFeedViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0o9-hd-KQm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -410,32 +410,14 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="jpi-Jv-Svu">
-                                <rect key="frame" x="284" y="97" width="121" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="new post"/>
-                                <connections>
-                                    <segue destination="AMS-bt-RPA" kind="show" id="NJD-dg-1hD"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="qqN-iK-EyD">
-                                <rect key="frame" x="284" y="66" width="117" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Logout"/>
-                                <connections>
-                                    <action selector="didTapLogout:" destination="W1R-eu-xkp" eventType="touchUpInside" id="ZgJ-Nw-Xu0"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frI-kQ-uII">
-                                <rect key="frame" x="74" y="72" width="194" height="12"/>
+                                <rect key="frame" x="74" y="72" width="26.5" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oin-6H-qNM">
-                                <rect key="frame" x="74" y="90" width="194" height="12"/>
+                                <rect key="frame" x="74" y="90" width="26.5" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -448,7 +430,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UpR-Dl-FoL">
-                                <rect key="frame" x="74" y="110" width="194" height="12"/>
+                                <rect key="frame" x="74" y="110" width="26.5" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -457,21 +439,40 @@
                         <viewLayoutGuide key="safeArea" id="VGi-Zg-cmh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="jpi-Jv-Svu" firstAttribute="leading" secondItem="UpR-Dl-FoL" secondAttribute="trailing" constant="16" id="AGi-Fa-0Nl"/>
                             <constraint firstItem="ZXn-nE-LTE" firstAttribute="leading" secondItem="VGi-Zg-cmh" secondAttribute="leading" constant="16" id="Dek-7z-Qwp"/>
                             <constraint firstItem="frI-kQ-uII" firstAttribute="top" secondItem="ZXn-nE-LTE" secondAttribute="top" id="Lf4-73-0ac"/>
-                            <constraint firstItem="jpi-Jv-Svu" firstAttribute="leading" secondItem="Oin-6H-qNM" secondAttribute="trailing" constant="16" id="TLb-Fg-ZhU"/>
                             <constraint firstItem="frI-kQ-uII" firstAttribute="leading" secondItem="ZXn-nE-LTE" secondAttribute="trailing" constant="8" id="TSz-dJ-ZiQ"/>
                             <constraint firstItem="Oin-6H-qNM" firstAttribute="top" secondItem="frI-kQ-uII" secondAttribute="bottom" constant="6" id="fSU-Tr-BaJ"/>
                             <constraint firstItem="Oin-6H-qNM" firstAttribute="leading" secondItem="ZXn-nE-LTE" secondAttribute="trailing" constant="8" id="hJt-sF-oBo"/>
-                            <constraint firstItem="qqN-iK-EyD" firstAttribute="leading" secondItem="frI-kQ-uII" secondAttribute="trailing" constant="16" id="ih4-n3-7y3"/>
                             <constraint firstItem="UpR-Dl-FoL" firstAttribute="bottom" secondItem="ZXn-nE-LTE" secondAttribute="bottom" id="o1L-56-9dj"/>
                             <constraint firstItem="ZXn-nE-LTE" firstAttribute="top" secondItem="VGi-Zg-cmh" secondAttribute="top" constant="16" id="sdp-63-pHn"/>
                             <constraint firstItem="UpR-Dl-FoL" firstAttribute="leading" secondItem="ZXn-nE-LTE" secondAttribute="trailing" constant="8" id="w9W-gF-Oh6"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="vJN-sb-XGd"/>
-                    <navigationItem key="navigationItem" id="Dfh-YZ-IvI"/>
+                    <navigationItem key="navigationItem" title="Home" id="Dfh-YZ-IvI">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="54B-Mc-51E">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="qqN-iK-EyD">
+                                <rect key="frame" x="20" y="11" width="117" height="34.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Logout"/>
+                                <connections>
+                                    <action selector="didTapLogout:" destination="W1R-eu-xkp" eventType="touchUpInside" id="ZgJ-Nw-Xu0"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="mad-pH-ScN">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="jpi-Jv-Svu">
+                                <rect key="frame" x="273" y="12.5" width="121" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="New Post"/>
+                                <connections>
+                                    <segue destination="AMS-bt-RPA" kind="show" id="NJD-dg-1hD"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="nameLabel" destination="frI-kQ-uII" id="hlG-1l-tws"/>
                         <outlet property="nativeLanguageLabel" destination="Oin-6H-qNM" id="mpC-gn-1i4"/>
@@ -482,7 +483,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QDy-sP-rVX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2671.0144927536235" y="1837.5"/>
+            <point key="canvasLocation" x="-1760.8695652173915" y="1837.5"/>
         </scene>
         <!--Post Detail View Controller-->
         <scene sceneID="MWw-vq-3uL">
@@ -620,7 +621,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Z4-9l-1Rr">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Messages Yet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Z4-9l-1Rr">
                                                     <rect key="frame" x="84" y="45" width="314" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -670,7 +671,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J1R-Xx-JuA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-791" y="1838"/>
+            <point key="canvasLocation" x="118.84057971014494" y="1837.5"/>
         </scene>
         <!--Search Users To Message View Controller-->
         <scene sceneID="Uub-bo-qY4">
@@ -750,7 +751,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E2Y-hd-pjp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-75" y="1838"/>
+            <point key="canvasLocation" x="834.78260869565224" y="1837.5"/>
         </scene>
         <!--Direct Message View Controller-->
         <scene sceneID="2ia-5p-Qxk">
@@ -889,7 +890,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BK9-wp-97f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="816" y="1838"/>
+            <point key="canvasLocation" x="1726.0869565217392" y="1837.5"/>
         </scene>
         <!--Compose Post View Controller-->
         <scene sceneID="XEJ-9e-6KK">
@@ -1086,7 +1087,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uhn-wX-a7m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1720" y="1838"/>
+            <point key="canvasLocation" x="-810.14492753623199" y="1837.5"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="mFN-Z8-Lyn">
@@ -1172,7 +1173,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="W1R-eu-xkp" kind="relationship" relationship="viewControllers" id="eFQ-ry-dza"/>
+                        <segue destination="xoo-j5-aLF" kind="relationship" relationship="viewControllers" id="eFQ-ry-dza"/>
                         <segue destination="2BI-YE-DHC" kind="relationship" relationship="viewControllers" id="RvM-D2-I43"/>
                         <segue destination="Wn5-my-FRv" kind="relationship" relationship="viewControllers" id="VAR-xb-L1H"/>
                         <segue destination="MVt-wa-9CY" kind="relationship" relationship="viewControllers" id="GSq-Qz-weo"/>
@@ -1426,7 +1427,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7GV-hL-COj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1931.8840579710147" y="1837.5"/>
+            <point key="canvasLocation" x="2842.0289855072465" y="1837.5"/>
         </scene>
         <!--Saved Posts View Controller-->
         <scene sceneID="QRU-Ua-iry">
@@ -1476,7 +1477,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u66-O0-Vji" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2666.666666666667" y="1837.5"/>
+            <point key="canvasLocation" x="3576.811594202899" y="1837.5"/>
         </scene>
         <!--View Profile View Controller-->
         <scene sceneID="TX1-fW-ZAH">
@@ -1700,11 +1701,30 @@
             </objects>
             <point key="canvasLocation" x="526" y="372"/>
         </scene>
+        <!--Home-->
+        <scene sceneID="2ED-tD-wOm">
+            <objects>
+                <navigationController storyboardIdentifier="HomeFeed" automaticallyAdjustsScrollViewInsets="NO" id="xoo-j5-aLF" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" id="vJN-sb-XGd"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BUw-nO-JR5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="W1R-eu-xkp" kind="relationship" relationship="rootViewController" id="FkF-J0-xlu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ggj-4u-Dli" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2471" y="1838"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="wTC-3H-oL6"/>
         <segue reference="wRR-2n-7rX"/>
-        <segue reference="wBg-Rh-3qM"/>
+        <segue reference="gS8-Ms-r7q"/>
         <segue reference="zcI-tg-bt3"/>
     </inferredMetricsTieBreakers>
     <resources>
