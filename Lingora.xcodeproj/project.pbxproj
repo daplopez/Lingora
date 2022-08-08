@@ -50,6 +50,7 @@
 		8DC5AA1E28762BCE00011509 /* HomeFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5AA1D28762BCE00011509 /* HomeFeedViewController.m */; };
 		8DC5AA212876561A00011509 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5AA202876561A00011509 /* Post.m */; };
 		8DC5AA242877B3F400011509 /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5AA232877B3F400011509 /* PostTableViewCell.m */; };
+		8DE8831B28A1A22D000F46C7 /* SearchUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE8831A28A1A22D000F46C7 /* SearchUsersViewController.m */; };
 		8DEDC5CE289484330048AEB9 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DEDC5CD289484330048AEB9 /* Keys.plist */; };
 		8DFC725728932DE20088E08D /* ConversationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFC725628932DE20088E08D /* ConversationHandler.m */; };
 		8DFC725A28932F0F0088E08D /* ConversationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFC725928932F0F0088E08D /* ConversationManager.m */; };
@@ -159,6 +160,8 @@
 		8DC5AA202876561A00011509 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		8DC5AA222877B3F400011509 /* PostTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostTableViewCell.h; sourceTree = "<group>"; };
 		8DC5AA232877B3F400011509 /* PostTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostTableViewCell.m; sourceTree = "<group>"; };
+		8DE8831928A1A22D000F46C7 /* SearchUsersViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchUsersViewController.h; sourceTree = "<group>"; };
+		8DE8831A28A1A22D000F46C7 /* SearchUsersViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchUsersViewController.m; sourceTree = "<group>"; };
 		8DEDC5CD289484330048AEB9 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		8DFC725528932DE20088E08D /* ConversationHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationHandler.h; sourceTree = "<group>"; };
 		8DFC725628932DE20088E08D /* ConversationHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConversationHandler.m; sourceTree = "<group>"; };
@@ -287,6 +290,8 @@
 		8D08BC722874D7E500E2D93D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8DE8831928A1A22D000F46C7 /* SearchUsersViewController.h */,
+				8DE8831A28A1A22D000F46C7 /* SearchUsersViewController.m */,
 				8D63C1AA288F0F23007F99DE /* SearchUsersToMessageViewController.h */,
 				8D63C1AB288F0F23007F99DE /* SearchUsersToMessageViewController.m */,
 				8D1A7D762880A1AE005146C4 /* MapViewController.h */,
@@ -694,6 +699,7 @@
 				8D4CCE8E289B108100C2A0CA /* RecommendUsersHandler.m in Sources */,
 				8DBA3EBA28789A720030EBEF /* ComposePostViewController.m in Sources */,
 				8DC5AA18287612FF00011509 /* WelcomeViewController.m in Sources */,
+				8DE8831B28A1A22D000F46C7 /* SearchUsersViewController.m in Sources */,
 				8DC5AA1E28762BCE00011509 /* HomeFeedViewController.m in Sources */,
 				8D42F8F4287F65930078FD29 /* PostDetailViewController.m in Sources */,
 				8DBA3EBE2878B8D40030EBEF /* ProfileViewController.m in Sources */,
