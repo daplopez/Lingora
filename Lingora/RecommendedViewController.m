@@ -89,10 +89,10 @@
     double score1 = [RecommendUsersHandler getUserScore:user1];
     double score2 = [RecommendUsersHandler getUserScore:user2];
     if (score1 > score2) {
-        return (NSComparisonResult)NSOrderedAscending;
+        return (NSComparisonResult)NSOrderedDescending;
     }
     if (score1 < score2) {
-        return (NSComparisonResult)NSOrderedDescending;
+        return (NSComparisonResult)NSOrderedAscending;
     }
     return (NSComparisonResult)NSOrderedSame;
 }
