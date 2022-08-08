@@ -58,17 +58,17 @@
         So to get a score for location, divide 1 over the distance
         and multiply by 100 - incase the user's distance is multiple
         miles then we don't want the number to be too small */
-        double score = (1 / distance) * 100;
+        //double score = (1 / distance) * 100;
         
-        return score;
+        return distance;
 }
 
 
 + (double)getLanguageScoreFromUser:(PFUser *)user {
     NSString *nativeLanguage = user[@"nativeLanguage"];
-    double score = 1;
+    double score = 5;
     if ([nativeLanguage isEqualToString:PFUser.currentUser[@"targetLanguage"]]) {
-        score = 5;
+        score = 1;
     }
     return score;
 }
@@ -78,9 +78,9 @@
     // handle cases for no native language speakers near you
     // create tests
     NSString *proficiency = user[@"proficiencyLevel"];
-    double score = 1.5;
+    double score = 3;
     if ([proficiency isEqualToString:PFUser.currentUser[@"proficiencyLevel"]]) {
-        score = 3;
+        score = 1.5;
     }
     return  score;
 }
@@ -96,7 +96,7 @@
             score += 1;
         }
     }
-    return score;
+    return 1 / (1+ score);
 }
 
 @end
