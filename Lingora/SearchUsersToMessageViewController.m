@@ -27,12 +27,19 @@
 }
 
 - (void)queryForUsers {
-    PFQuery *query = [PFQuery queryWithClassName:@"_User"];
-    [query whereKey:@"username" notEqualTo:PFUser.currentUser.username];
-    [query whereKey:@"nativeLanguage" equalTo:PFUser.currentUser[@"targetLanguage"]];
-    [query whereKey:@"targetLanguage" equalTo:PFUser.currentUser[@"nativeLanguage"]];
-    [query orderByDescending:@"createdAt"];
+    PFQuery *oppositeQuery = [PFQuery queryWithClassName:@"_User"];
+    [oppositeQuery whereKey:@"username" notEqualTo:PFUser.currentUser.username];
+    [oppositeQuery whereKey:@"nativeLanguage" equalTo:PFUser.currentUser[@"targetLanguage"]];
+    [oppositeQuery whereKey:@"targetLanguage" equalTo:PFUser.currentUser[@"nativeLanguage"]];
+    
+    PFQuery *sameTargetQuery = [PFQuery queryWithClassName:@"_User"];
+    [sameTargetQuery whereKey:@"username" notEqualTo:PFUser.currentUser.username];
+    [sameTargetQuery whereKey:@"targetLanguage" equalTo:PFUser.currentUser[@"targetLanguage"]];
+    
+    PFQuery *query = [PFQuery orQueryWithSubqueries:[[NSArray alloc] initWithObjects:oppositeQuery, sameTargetQuery, nil]];
     query.limit = 20;
+    [query orderByDescending:@"createdAt"];
+
     
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
