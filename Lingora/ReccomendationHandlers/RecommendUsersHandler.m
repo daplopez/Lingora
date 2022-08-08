@@ -37,6 +37,7 @@
         distance += diff * diff;
     }
     distance = sqrt(distance);
+    distance = 1 / (1 + distance);
     return distance;
 }
 

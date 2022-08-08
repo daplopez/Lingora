@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *nativeLanguagePickerView;
 @property (weak, nonatomic) IBOutlet UIPickerView *targetLanguagePickerView;
 @property (weak, nonatomic) IBOutlet UIPickerView *proficiencyPickerView;
+@property (strong, nonatomic) NSString *targetLanguageTag;
+@property (strong, nonatomic) NSString *nativeLanguageTag;
 @property (strong, nonatomic) NSArray *languageTags;
 @property (strong, nonatomic) NSArray *languages;
 @property (strong, nonatomic) NSArray *proficiency;
@@ -61,6 +63,8 @@
     self.languages = [[NSArray alloc] initWithObjects:@"Arabic", @"Dutch", @"Chinese", @"English", @"German", @"Hindi", @"Italian", @"Japanese", @"Korean", @"Malay", @"Portugese", @"Russian", @"Spanish", @"Swahili", @"Tamil", @"Thai", @"Vietnamese", nil];
     
     self.proficiency = [[NSArray alloc] initWithObjects:@"Beginner", @"Intermediate", @"Advanced", nil];
+    
+    self.languageTags = [[NSArray alloc] initWithObjects:@"ar", @"nl", @"zh", @"en", @"de", @"hi", @"it", @"ja", @"ko", @"ms", @"pt", @"ru", @"es", @"sw", @"ta", @"th", @"vi", nil];
 }
 
 
@@ -108,12 +112,11 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     if ([pickerView isEqual:self.nativeLanguagePickerView]) {
         self.nativeLanguageField.text = self.languages[row];
-        PFUser.currentUser[@"nativeLanguageCode"] = self.languageTags[row];
-        [PFUser.currentUser saveInBackground];
+        self.nativeLanguageTag = self.languageTags[row];
         [self.nativeLanguagePickerView setHidden:YES];
     } else if ([pickerView isEqual:self.targetLanguagePickerView]) {
         self.targetLanguageField.text = self.languages[row];
-        PFUser.currentUser[@"targetLanguageCode"] = self.languageTags[row];
+        self.targetLanguageTag = self.languageTags[row];
         [PFUser.currentUser saveInBackground];
         [self.targetLanguagePickerView setHidden:YES];
     } else {
@@ -126,8 +129,6 @@
     // initialize a user object
     PFUser *newUser = [PFUser user];
     
-    self.languageTags = [[NSArray alloc] initWithObjects:@"ar", @"nl", @"zh", @"en", @"de", @"hi", @"it", @"ja", @"ko", @"ms", @"pt", @"ru", @"es", @"sw", @"ta", @"th", @"vi", nil];
-    
     // set user properties
     newUser[@"fullName"] = self.nameField.text;
     newUser.email = self.emailField.text;
@@ -136,6 +137,8 @@
     newUser[@"nativeLanguage"] = self.nativeLanguageField.text;
     newUser[@"targetLanguage"] = self.targetLanguageField.text;
     newUser[@"proficiencyLevel"] = self.proficiencyLevelField.text;
+    newUser[@"targetLanguageTag"] = self.targetLanguageTag;
+    newUser[@"nativeLanguageTag"] = self.nativeLanguageTag;
     
     if ([self.nameField.text isEqual:@""] || [self.usernameField.text isEqual:@""] || [self.passwordField.text isEqual:@""] || [self.nativeLanguageField.text isEqual:@""] || [self.targetLanguageField.text isEqual:@""] || [self.proficiencyLevelField.text isEqual:@""]) {
         [self emptyFieldAlert];
