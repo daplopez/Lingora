@@ -1016,14 +1016,27 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="rXO-FQ-GVC">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FilterInterestsCell" id="rXO-FQ-GVC" customClass="FilterInterestsCollectionViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="123" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="6UD-oE-des">
                                             <rect key="frame" x="0.0" y="0.0" width="123" height="27"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qg0-7s-hzl">
+                                                    <rect key="frame" x="8" y="3" width="115" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </collectionViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
                                         <size key="customSize" width="123" height="27"/>
+                                        <connections>
+                                            <outlet property="interestLabel" destination="Qg0-7s-hzl" id="L31-1k-QO7"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -1063,6 +1076,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="interestsCollectionView" destination="hZg-11-aRu" id="duX-c1-3GZ"/>
                         <outlet property="locationField" destination="RgP-3S-vkW" id="0zM-hC-cNP"/>
                         <outlet property="targetLanguageField" destination="63J-tk-nxk" id="EyZ-J5-A9L"/>
                     </connections>
@@ -1979,6 +1993,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
