@@ -903,6 +903,7 @@
         <!--Search Users View Controller-->
         <scene sceneID="op1-z0-UJL">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cBX-Zc-BiZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="Aun-ug-Ops" customClass="SearchUsersViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0gL-Bb-y4O">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
@@ -927,7 +928,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="108" id="n8W-xq-3WC" customClass="UserSearchTableViewCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userSearchCell" rowHeight="108" id="n8W-xq-3WC" customClass="UserSearchTableViewCell">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="108"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n8W-xq-3WC" id="TqR-TA-ZRa">
@@ -967,8 +968,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="2m5-j1-iaO"/>
+                    <connections>
+                        <outlet property="tableView" destination="NtL-Wy-vYA" id="oMN-xt-XXI"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cBX-Zc-BiZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2881.1594202898555" y="2787.7232142857142"/>
         </scene>
