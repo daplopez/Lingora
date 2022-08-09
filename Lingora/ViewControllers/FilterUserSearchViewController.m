@@ -63,7 +63,8 @@
 
 
 - (IBAction)didTapSearch:(id)sender {
-    
+    __weak typeof(self) weakSelf = self;
+    [weakSelf.delegate sendFiltersBack:self.targetLanguageField.text withRange:self.locationField.text interests:self.interests];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -76,14 +77,6 @@
     NSString *interest = self.interests[indexPath.row];
     cell.interestLabel.text = interest;
     return cell;
-}
-
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
 
 @end

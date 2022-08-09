@@ -9,7 +9,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol FilterUserSearchDelegate <NSObject>
+
+-(void)sendFiltersBack:(NSString *)language withRange:(NSString *)miles interests:(NSArray *)interests;
+
+@end
+
 @interface FilterUserSearchViewController : UIViewController
+
+@property (nonatomic, weak) id<FilterUserSearchDelegate> delegate;
 
 @end
 
