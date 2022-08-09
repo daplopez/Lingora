@@ -982,6 +982,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="2m5-j1-iaO"/>
                     <connections>
+                        <outlet property="searchBar" destination="c60-MO-rzj" id="wnn-mo-L6N"/>
                         <outlet property="tableView" destination="NtL-Wy-vYA" id="oMN-xt-XXI"/>
                     </connections>
                 </viewController>
@@ -1687,26 +1688,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TIJ-jZ-Yk5">
-                                <rect key="frame" x="0.0" y="56" width="414" height="786"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="savedPostCell" rowHeight="119" id="TD3-1s-6K2" customClass="SavedPostsTableViewCell">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="119"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="savedPostCell" rowHeight="60" id="TD3-1s-6K2" customClass="SavedPostsTableViewCell">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TD3-1s-6K2" id="43N-Gh-2X5">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="119"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ObB-X0-lXp">
-                                                    <rect key="frame" x="31" y="11" width="229" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" systemColor="linkColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ObB-X0-lXp">
+                                                    <rect key="frame" x="16" y="16" width="382" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ObB-X0-lXp" firstAttribute="leading" secondItem="43N-Gh-2X5" secondAttribute="leading" constant="16" id="CrU-iB-nwj"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ObB-X0-lXp" secondAttribute="bottom" constant="16" id="SfH-JP-80z"/>
+                                                <constraint firstAttribute="trailing" secondItem="ObB-X0-lXp" secondAttribute="trailing" constant="16" id="Uuf-cr-2Q5"/>
+                                                <constraint firstItem="ObB-X0-lXp" firstAttribute="top" secondItem="43N-Gh-2X5" secondAttribute="top" constant="16" id="ecD-2U-YcH"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="postTextLabel" destination="ObB-X0-lXp" id="6oX-rE-Kfo"/>
@@ -1726,7 +1731,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u66-O0-Vji" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4470" y="1829"/>
+            <point key="canvasLocation" x="4469.5652173913049" y="1828.7946428571427"/>
         </scene>
         <!--View Profile View Controller-->
         <scene sceneID="TX1-fW-ZAH">
@@ -2040,8 +2045,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="WkG-bs-GOA"/>
         <segue reference="wRR-2n-7rX"/>
-        <segue reference="gS8-Ms-r7q"/>
-        <segue reference="zcI-tg-bt3"/>
+        <segue reference="wBg-Rh-3qM"/>
+        <segue reference="vW6-ge-osT"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
@@ -2050,9 +2055,6 @@
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -11,10 +11,12 @@
 #import "ViewProfileViewController.h"
 #import "UIScrollView+EmptyDataSet.h"
 
-@interface SearchUsersViewController () <FilterUserSearchDelegate, UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
+@interface SearchUsersViewController () <FilterUserSearchDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @property (strong, nonatomic) NSArray *users;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) NSArray *filteredData;
 
 @end
 
@@ -30,6 +32,7 @@
 - (void)setDelegates {
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.searchBar.delegate = self;
     self.tableView.emptyDataSetSource = self;
     self.tableView.emptyDataSetDelegate = self;
 }
@@ -54,7 +57,7 @@
         if (users != nil) {
             NSLog(@"Successfully got users");
             self.users = [[NSArray alloc] initWithArray:users];
-            //[self setDataToFilterBy];
+            self.filteredData = [[NSArray alloc] initWithArray:users];
             [self.tableView reloadData];
         } else {
             NSLog(@"%@", error.localizedDescription);
@@ -70,17 +73,37 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.users.count;
+    return self.filteredData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UserSearchTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"userSearchCell" forIndexPath:indexPath];
-    cell.profilePicture.file = self.users[indexPath.row][@"image"];
+    
+    cell.profilePicture.file = self.filteredData[indexPath.row][@"image"];
     [cell.profilePicture loadInBackground];
-    //cell.nameLabel.text = self.filteredData[indexPath.row];
-    cell.nameLabel.text = self.users[indexPath.row][@"username"];
-    cell.targetLanguageLabel.text = self.users[indexPath.row][@"username"];
+    
+    cell.nameLabel.text = self.filteredData[indexPath.row][@"username"];
+    
+    cell.targetLanguageLabel.text = self.filteredData[indexPath.row][@"targetLanguage"];
     return cell;
+}
+
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    
+    if (searchText.length != 0) {
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"username CONTAINS[cd] %@", searchText];
+        self.filteredData = [self.users filteredArrayUsingPredicate:predicate];
+              
+        NSLog(@"%@", self.filteredData);
+              
+    } else {
+        self.filteredData = self.users;
+    }
+    
+    [self.tableView reloadData];
+ 
 }
 
 #pragma mark - Navigation
@@ -89,7 +112,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"searchUserToProfile"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        PFUser *dataToPass = self.users[indexPath.row];
+        PFUser *dataToPass = self.filteredData[indexPath.row];
         ViewProfileViewController *viewProfileVC = (ViewProfileViewController *) [segue destinationViewController];
         viewProfileVC.user = dataToPass;
     } else {
