@@ -16,7 +16,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "Parse/PFGeoPoint.h"
 
-@interface HomeFeedViewController () <UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate>
+@interface HomeFeedViewController () <UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UISearchBarDelegate>
 // current user info
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet PFImageView *profilePicture;
@@ -24,7 +24,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *nativeLanguageLabel;
 @property (weak, nonatomic) IBOutlet UILabel *targetLanguageLabel;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSArray *posts;
+@property (strong, nonatomic) NSArray *filteredPosts;
 // location
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation * _Nullable currentLocation;
@@ -37,7 +39,7 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    
+    self.searchBar.delegate = self;
     
     [self initLocationManager];
     
@@ -103,6 +105,7 @@
         if (posts != nil) {
             NSLog(@"Successfully got posts");
             self.posts = posts;
+            self.filteredPosts = posts;
             [self.tableView reloadData];
         } else {
             NSLog(@"%@", error.localizedDescription);
@@ -122,7 +125,7 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     PostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"];
-    Post *post = self.posts[indexPath.row];
+    Post *post = self.filteredPosts[indexPath.row];
     cell.postTextLabel.text = post[@"postText"];
     cell.layer.cornerRadius = 10;
     cell.layer.masksToBounds = YES;
@@ -130,7 +133,7 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.posts.count;
+    return self.filteredPosts.count;
 }
 
 
@@ -140,6 +143,19 @@
         cell.alpha = 1;
     }];
 }
+
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    if (searchText.length != 0) {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"postText CONTAINS[cd] %@", searchText];
+        self.filteredPosts = [self.posts filteredArrayUsingPredicate:predicate];
+    } else {
+        self.filteredPosts = self.posts;
+    }
+    [self.tableView reloadData];
+ 
+}
+
 
 #pragma mark - Navigation
 
