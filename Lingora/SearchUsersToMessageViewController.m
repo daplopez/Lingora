@@ -76,31 +76,22 @@
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     if (searchText.length != 0) {
-            
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"username CONTAINS[cd] %@", searchText];
-            self.filteredData = [self.users filteredArrayUsingPredicate:predicate];
-            
-            NSLog(@"%@", self.filteredData);
-            
-        }
-        else {
-            self.filteredData = self.users;
-        }
-        
-        [self.tableView reloadData];
+        self.filteredData = [self.users filteredArrayUsingPredicate:predicate];
+    } else {
+        self.filteredData = self.users;
+    }
+    [self.tableView reloadData];
 }
 
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+// Segue to direct message vc, passing the user selected
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"SearchToDM"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         PFUser *dataToPass = self.filteredData[indexPath.row];
-        NSLog(@"\n%@\n", dataToPass);
         DirectMessageViewController *messageVC = (DirectMessageViewController *) [segue destinationViewController];
         messageVC.user = dataToPass;
     }

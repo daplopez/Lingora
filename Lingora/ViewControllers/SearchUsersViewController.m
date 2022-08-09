@@ -90,18 +90,12 @@
 
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    
     if (searchText.length != 0) {
-        
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"username CONTAINS[cd] %@", searchText];
         self.filteredData = [self.users filteredArrayUsingPredicate:predicate];
-              
-        NSLog(@"%@", self.filteredData);
-              
     } else {
         self.filteredData = self.users;
     }
-    
     [self.tableView reloadData];
  
 }
