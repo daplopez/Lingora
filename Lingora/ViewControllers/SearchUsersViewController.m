@@ -32,7 +32,9 @@
 
 - (void)queryForUsers {
     PFQuery *query = [PFQuery queryWithClassName:@"_User"];
-    if (self.interests != nil) {
+    [query whereKey:@"username" notEqualTo:PFUser.currentUser.username];
+    
+    if (self.interests.count != 0) {
         [query whereKey:@"interests" containsAllObjectsInArray:self.interests];
     }
     if (self.locationField != nil) {

@@ -64,6 +64,14 @@
 
 - (IBAction)didTapSearch:(id)sender {
     __weak typeof(self) weakSelf = self;
+    if ([self.targetLanguageField.text isEqualToString:@""]) {
+        self.targetLanguageField = nil;
+        self.targetLanguageField.text = nil;
+    }
+    if ([self.locationField.text isEqualToString:@""]) {
+        self.locationField = nil;
+        self.locationField.text = nil;
+    }
     [weakSelf.delegate sendFiltersBack:self.targetLanguageField.text withRange:self.locationField.text interests:self.interests];
     [self dismissViewControllerAnimated:YES completion:^{
             NSLog(@"DISMISSED");
