@@ -65,6 +65,9 @@
 - (IBAction)didTapSearch:(id)sender {
     __weak typeof(self) weakSelf = self;
     [weakSelf.delegate sendFiltersBack:self.targetLanguageField.text withRange:self.locationField.text interests:self.interests];
+    [self dismissViewControllerAnimated:YES completion:^{
+            NSLog(@"DISMISSED");
+    }];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
