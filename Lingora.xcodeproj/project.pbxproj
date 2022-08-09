@@ -53,6 +53,7 @@
 		8DE8831B28A1A22D000F46C7 /* SearchUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE8831A28A1A22D000F46C7 /* SearchUsersViewController.m */; };
 		8DE8832728A1CD27000F46C7 /* FilterUserSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE8832628A1CD27000F46C7 /* FilterUserSearchViewController.m */; };
 		8DE8832A28A1D107000F46C7 /* FilterInterestsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE8832928A1D107000F46C7 /* FilterInterestsCollectionViewCell.m */; };
+		8DE8832D28A1E1D8000F46C7 /* UserSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE8832C28A1E1D8000F46C7 /* UserSearchTableViewCell.m */; };
 		8DEDC5CE289484330048AEB9 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DEDC5CD289484330048AEB9 /* Keys.plist */; };
 		8DFC725728932DE20088E08D /* ConversationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFC725628932DE20088E08D /* ConversationHandler.m */; };
 		8DFC725A28932F0F0088E08D /* ConversationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFC725928932F0F0088E08D /* ConversationManager.m */; };
@@ -168,6 +169,8 @@
 		8DE8832628A1CD27000F46C7 /* FilterUserSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterUserSearchViewController.m; sourceTree = "<group>"; };
 		8DE8832828A1D107000F46C7 /* FilterInterestsCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterInterestsCollectionViewCell.h; sourceTree = "<group>"; };
 		8DE8832928A1D107000F46C7 /* FilterInterestsCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterInterestsCollectionViewCell.m; sourceTree = "<group>"; };
+		8DE8832B28A1E1D8000F46C7 /* UserSearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSearchTableViewCell.h; sourceTree = "<group>"; };
+		8DE8832C28A1E1D8000F46C7 /* UserSearchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserSearchTableViewCell.m; sourceTree = "<group>"; };
 		8DEDC5CD289484330048AEB9 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		8DFC725528932DE20088E08D /* ConversationHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationHandler.h; sourceTree = "<group>"; };
 		8DFC725628932DE20088E08D /* ConversationHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConversationHandler.m; sourceTree = "<group>"; };
@@ -376,6 +379,8 @@
 		8DC5AA252877B40100011509 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				8DE8832B28A1E1D8000F46C7 /* UserSearchTableViewCell.h */,
+				8DE8832C28A1E1D8000F46C7 /* UserSearchTableViewCell.m */,
 				8D63C1B3288F389B007F99DE /* DirectMessageTableViewCell.h */,
 				8D63C1B4288F389B007F99DE /* DirectMessageTableViewCell.m */,
 				8D01F069289B506C00AF1484 /* SavedPostsTableViewCell.h */,
@@ -721,6 +726,7 @@
 				8D181DE228874ECC00011E25 /* ChatViewController.m in Sources */,
 				8D42F8EB287F47050078FD29 /* PostProfileImagesCollectionViewCell.m in Sources */,
 				8D63C1B5288F389B007F99DE /* DirectMessageTableViewCell.m in Sources */,
+				8DE8832D28A1E1D8000F46C7 /* UserSearchTableViewCell.m in Sources */,
 				8D01F06B289B506C00AF1484 /* SavedPostsTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
