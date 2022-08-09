@@ -15,7 +15,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *users;
 @property (strong, nonatomic) NSArray *filteredData;
-@property (strong, nonatomic) NSMutableArray *dataToFilterBy;
 @end
 
 @implementation SearchUsersToMessageViewController
@@ -46,7 +45,7 @@
         if (users != nil) {
             NSLog(@"Successfully got users");
             self.users = [[NSArray alloc] initWithArray:users];
-            [self setDataToFilterBy];
+            self.filteredData = [[NSArray alloc] initWithArray:users];
             [self.tableView reloadData];
         } else {
             NSLog(@"%@", error.localizedDescription);
@@ -61,32 +60,16 @@
 }
 
 
-- (void)setDataToFilterBy {
-    self.dataToFilterBy = [[NSMutableArray alloc] initWithCapacity:self.users.count];
-    for (int i = 0; i < self.users.count; i++) {
-        NSString *name = self.users[i][@"fullName"];
-        NSLog(@"\nHELLLOOOOO\n");
-        NSLog(@"%@", name);
-        [self.dataToFilterBy addObject:name];
-        NSLog(@"%@", self.dataToFilterBy[i]);
-    }
-    self.filteredData = [[NSArray alloc] initWithArray:self.dataToFilterBy];
-    NSLog(@"%@", self.dataToFilterBy[0]);
-    NSLog(@"%@", self.filteredData[0]);
-    NSLog(@"\n");
-}
-
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.filteredData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ChatUserSearchTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"ChatSearchCell" forIndexPath:indexPath];
-    cell.profilePicture.file = self.users[indexPath.row][@"image"];
+    cell.profilePicture.file = self.filteredData[indexPath.row][@"image"];
     [cell.profilePicture loadInBackground];
-    cell.nameLabel.text = self.filteredData[indexPath.row];
-    cell.usernameLabel.text = self.users[indexPath.row][@"username"];
+    cell.nameLabel.text = self.filteredData[indexPath.row][@"fullName"];
+    cell.usernameLabel.text = self.filteredData[indexPath.row][@"username"];
     return cell;
 }
 
@@ -94,16 +77,14 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     if (searchText.length != 0) {
             
-            NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSString *evaluatedObject, NSDictionary *bindings) {
-                return [evaluatedObject containsString:searchText];
-            }];
-            self.filteredData = [self.dataToFilterBy filteredArrayUsingPredicate:predicate];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"username CONTAINS[cd] %@", searchText];
+            self.filteredData = [self.users filteredArrayUsingPredicate:predicate];
             
-            NSLog(@"%@", self.dataToFilterBy);
+            NSLog(@"%@", self.filteredData);
             
         }
         else {
-            self.filteredData = self.dataToFilterBy;
+            self.filteredData = self.users;
         }
         
         [self.tableView reloadData];
@@ -118,7 +99,7 @@
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"SearchToDM"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        PFUser *dataToPass = self.users[indexPath.row];
+        PFUser *dataToPass = self.filteredData[indexPath.row];
         NSLog(@"\n%@\n", dataToPass);
         DirectMessageViewController *messageVC = (DirectMessageViewController *) [segue destinationViewController];
         messageVC.user = dataToPass;
