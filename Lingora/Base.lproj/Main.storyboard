@@ -436,7 +436,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUn-Tv-IJx">
-                                <rect key="frame" x="320" y="72" width="46" height="31"/>
+                                <rect key="frame" x="321" y="91" width="46" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
@@ -957,6 +957,7 @@
                                             <outlet property="nameLabel" destination="Zok-uT-s7q" id="WiK-oo-jCt"/>
                                             <outlet property="profilePicture" destination="5FD-OZ-fNw" id="kOR-WJ-PcC"/>
                                             <outlet property="targetLanguageLabel" destination="egc-VJ-JC5" id="NJZ-48-MXV"/>
+                                            <segue destination="ofW-9V-iD7" kind="show" identifier="searchUserToProfile" id="WkG-bs-GOA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2007,10 +2008,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wTC-3H-oL6"/>
+        <segue reference="GfF-nn-gPr"/>
         <segue reference="wRR-2n-7rX"/>
         <segue reference="4uq-lq-MK9"/>
-        <segue reference="vW6-ge-osT"/>
+        <segue reference="zcI-tg-bt3"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>

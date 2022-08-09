@@ -8,6 +8,7 @@
 #import "SearchUsersViewController.h"
 #import "Parse/Parse.h"
 #import "UserSearchTableViewCell.h"
+#import "ViewProfileViewController.h"
 
 @interface SearchUsersViewController () <FilterUserSearchDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -50,9 +51,6 @@
         if (users != nil) {
             NSLog(@"Successfully got users");
             self.users = [[NSArray alloc] initWithArray:users];
-            NSLog(@"%d", self.users.count);
-            NSLog(@"%d", users.count);
-            NSLog(@"CHECK");
             //[self setDataToFilterBy];
             [self.tableView reloadData];
         } else {
@@ -69,8 +67,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"%d", self.users.count);
-    NSLog(@"CHECK");
     return self.users.count;
 }
 
@@ -80,6 +76,7 @@
     [cell.profilePicture loadInBackground];
     //cell.nameLabel.text = self.filteredData[indexPath.row];
     cell.nameLabel.text = self.users[indexPath.row][@"username"];
+    cell.targetLanguageLabel.text = self.users[indexPath.row][@"username"];
     return cell;
 }
 
@@ -87,8 +84,15 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    FilterUserSearchViewController *filterVC = [segue destinationViewController];
-    filterVC.delegate = self;
+    if([segue.identifier isEqualToString:@"searchUserToProfile"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        PFUser *dataToPass = self.users[indexPath.row];
+        ViewProfileViewController *viewProfileVC = (ViewProfileViewController *) [segue destinationViewController];
+        viewProfileVC.user = dataToPass;
+    } else {
+        FilterUserSearchViewController *filterVC = [segue destinationViewController];
+        filterVC.delegate = self;
+    }
 }
 
 @end
