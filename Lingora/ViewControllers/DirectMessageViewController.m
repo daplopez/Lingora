@@ -13,13 +13,17 @@
 #import "UIScrollView+EmptyDataSet.h"
 @import ParseLiveQuery;
 
-@interface DirectMessageViewController () <UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
+@interface DirectMessageViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet PFImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (strong, nonatomic) NSMutableArray *messages;
 @property (weak, nonatomic) IBOutlet UITextField *messageTextField;
+@property (weak, nonatomic) IBOutlet UIButton *sendButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *messageTextFieldTopView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *sendButtonTopView;
+
 @property (strong, nonatomic) PFLiveQueryClient *client;
 @property (strong, nonatomic) PFQuery *query;
 @property (strong, nonatomic) PFLiveQuerySubscription *subscription;
@@ -39,11 +43,48 @@
         [self queryForConversation];
         
     }
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     [self.tableView reloadData];
 }
 
 
+// Move up message field when keyboard shows
+-(void) keyboardWillShow:(NSNotification *)notification {
+    if(notification.userInfo != nil) {
+        if(notification.userInfo[UIKeyboardFrameEndUserInfoKey] != nil) {
+            if(self.messageTextField.frame.origin.y > 700) {
+                NSValue *value = notification.userInfo[UIKeyboardFrameEndUserInfoKey];
+                CGRect rect = value.CGRectValue;
+                CGRect viewFrame = self.messageTextField.frame;
+                viewFrame.origin.y -= rect.size.height - 64;
+                self.messageTextField.frame = viewFrame;
+                
+                self.messageTextFieldTopView.constant -= rect.size.height - 64;
+            }
+        }
+    }
+}
+
+// Hide keyboard and move message field down again
+-(void) keyboardWillHide:(NSNotification *)notification {
+    if(self.messageTextField.frame.origin.y != 768) {
+        CGRect viewFrame = self.messageTextField.frame;
+        viewFrame.origin.y = 768;
+        self.messageTextField.frame = viewFrame;
+        
+        self.messageTextFieldTopView.constant = 0;
+    }
+}
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    NSLog(@"Text field was dismissed by the delegate");
+    
+    [textField resignFirstResponder];
+    
+    return YES;
+}
 
 - (void)setUpUserProperties {
     self.profileImage.file = self.user[@"image"];
@@ -57,6 +98,7 @@
     self.tableView.dataSource = self;
     self.tableView.emptyDataSetSource = self;
     self.tableView.emptyDataSetDelegate = self;
+    self.messageTextField.delegate = self;
 }
 
 
