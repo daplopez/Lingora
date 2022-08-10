@@ -569,6 +569,9 @@
                                 <rect key="frame" x="292" y="170" width="48" height="38"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="bookmark-unsaved"/>
+                                <connections>
+                                    <action selector="didTapBookmark:" destination="tN0-KZ-pLV" eventType="touchUpInside" id="Rkl-8n-rdI"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="I8s-Iz-dzX"/>

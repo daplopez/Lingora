@@ -57,20 +57,26 @@
 - (void)handleTapGesture:(UITapGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateRecognized) {
         NSLog(@"Double tap recognized");
-        if (self.savedPosts.count != 0) {
-            NSMutableArray *saved = [[NSMutableArray alloc] initWithArray:self.savedPosts];
-            if (![self checkIfPostIsSaved]) {
-                [saved addObject:self.post];
-                PFUser.currentUser[@"savedPosts"] = [[NSArray alloc] initWithArray:saved];
-            }
-        } else {
-            NSArray *saved = [[NSArray alloc] initWithObjects:self.post, nil];
-            PFUser.currentUser[@"savedPosts"] = saved;
-        }
-        [self.bookmarkButton setImage:[UIImage imageNamed:@"bookmark-saved"] forState:UIControlStateNormal];
-        [PFUser.currentUser saveInBackground];
+        [self handleBookmarkingPost];
     }
 }
+
+
+- (void)handleBookmarkingPost {
+    if (self.savedPosts.count != 0) {
+        NSMutableArray *saved = [[NSMutableArray alloc] initWithArray:self.savedPosts];
+        if (![self checkIfPostIsSaved]) {
+            [saved addObject:self.post];
+            PFUser.currentUser[@"savedPosts"] = [[NSArray alloc] initWithArray:saved];
+        }
+    } else {
+        NSArray *saved = [[NSArray alloc] initWithObjects:self.post, nil];
+        PFUser.currentUser[@"savedPosts"] = saved;
+    }
+    [self.bookmarkButton setImage:[UIImage imageNamed:@"bookmark-saved"] forState:UIControlStateNormal];
+    [PFUser.currentUser saveInBackground];
+}
+
 
 - (BOOL)checkIfPostIsSaved {
     NSString *postObjectId = self.post.objectId;
@@ -83,6 +89,12 @@
     }
     return NO;
 }
+
+
+- (IBAction)didTapBookmark:(id)sender {
+    [self handleBookmarkingPost];
+}
+
 
 #pragma mark - Navigation
 
