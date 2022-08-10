@@ -20,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nativeLanguageLabel;
 @property (weak, nonatomic) IBOutlet UILabel *targetLanguageLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) NSArray *posts;
+@property (strong, nonatomic) NSArray *posts;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) NSMutableArray *userInterests;
 @property (strong, nonatomic) NSMutableArray *myImages;
@@ -100,12 +100,13 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query orderByDescending:@"createdAt"];
     [query whereKey:@"author" equalTo:[PFUser currentUser]];
+    [query includeKey:@"postText"];
 
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
             NSLog(@"Successfully got posts");
-            self.posts = posts;
+            self.posts = [[NSArray alloc] initWithArray:posts];;
             [self.tableView reloadData];
         } else {
             NSLog(@"%@", error.localizedDescription);
@@ -121,7 +122,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ProfileTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfileCell"];
     Post *post = self.posts[indexPath.row];
-    cell.postTextLabel.text = post[@"postText"];
+    cell.postTextLabel.text = post.postText;
     return cell;
 }
 
