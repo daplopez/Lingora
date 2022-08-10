@@ -165,7 +165,7 @@
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"PostDetail"]) {
         NSIndexPath *indexPath =[self.tableView indexPathForCell:sender];
-        Post *dataToPass = self.posts[indexPath.row];
+        Post *dataToPass = self.filteredPosts[indexPath.row];
         dataToPass.author = [dataToPass.author fetchIfNeeded];
         PostDetailViewController *detailsVC = (PostDetailViewController *) [segue destinationViewController];
         detailsVC.post = dataToPass;

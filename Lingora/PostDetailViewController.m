@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *postTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *languageLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
+@property (weak, nonatomic) IBOutlet UIButton *bookmarkButton;
+@property (strong, nonatomic) NSArray *savedPosts;
 
 @end
 
@@ -39,6 +41,10 @@
     self.postTextLabel.text = self.post.postText;
     self.languageLabel.text = user[@"nativeLanguage"];
     self.timestampLabel.text = [self.post.createdAt shortTimeAgoSinceNow];
+    self.savedPosts = PFUser.currentUser[@"savedPosts"];
+    if ([self checkIfPostIsSaved]) {
+        [self.bookmarkButton setImage:[UIImage imageNamed:@"bookmark-saved"] forState:UIControlStateNormal];
+    }
 }
 
 
@@ -51,9 +57,9 @@
 - (void)handleTapGesture:(UITapGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateRecognized) {
         NSLog(@"Double tap recognized");
-        if (PFUser.currentUser[@"savedPosts"] != nil) {
-            NSMutableArray *saved = [[NSMutableArray alloc] initWithArray:PFUser.currentUser[@"savedPosts"]];
-            if (![saved containsObject:self.post]) {
+        if (self.savedPosts.count != 0) {
+            NSMutableArray *saved = [[NSMutableArray alloc] initWithArray:self.savedPosts];
+            if (![self checkIfPostIsSaved]) {
                 [saved addObject:self.post];
                 PFUser.currentUser[@"savedPosts"] = [[NSArray alloc] initWithArray:saved];
             }
@@ -61,8 +67,21 @@
             NSArray *saved = [[NSArray alloc] initWithObjects:self.post, nil];
             PFUser.currentUser[@"savedPosts"] = saved;
         }
+        [self.bookmarkButton setImage:[UIImage imageNamed:@"bookmark-saved"] forState:UIControlStateNormal];
         [PFUser.currentUser saveInBackground];
     }
+}
+
+- (BOOL)checkIfPostIsSaved {
+    NSString *postObjectId = self.post.objectId;
+    for (int i = 0; i < self.savedPosts.count; i++)  {
+        Post *curPost = self.savedPosts[i];
+        NSString *objectId = curPost.objectId;
+        if ([objectId isEqualToString:postObjectId]) {
+            return YES;
+        }
+    }
+    return NO;
 }
 
 #pragma mark - Navigation
