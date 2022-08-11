@@ -1783,7 +1783,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u66-O0-Vji" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4469.5652173913049" y="1828.7946428571427"/>
+            <point key="canvasLocation" x="4670" y="2058"/>
         </scene>
         <!--View Profile View Controller-->
         <scene sceneID="TX1-fW-ZAH">
@@ -1805,8 +1805,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oW7-1s-S7t">
-                                <rect key="frame" x="112" y="131" width="286" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oW7-1s-S7t">
+                                <rect key="frame" x="112" y="131" width="220" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1958,9 +1958,8 @@
                                     <segue destination="pFh-l4-2be" kind="show" identifier="DMSegue" id="wBg-Rh-3qM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pNg-h7-wUH">
-                                <rect key="frame" x="347" y="121" width="50" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pNg-h7-wUH">
+                                <rect key="frame" x="348" y="121" width="50" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="house" catalog="system"/>
                                 <connections>
@@ -1980,8 +1979,8 @@
                             <constraint firstItem="qvC-9L-Kde" firstAttribute="leading" secondItem="gdf-Dr-bpl" secondAttribute="leading" constant="16" id="9rW-OI-KIv"/>
                             <constraint firstItem="uWM-uy-W2V" firstAttribute="top" secondItem="MlJ-J1-Vbe" secondAttribute="bottom" constant="16" id="CDD-US-kjU"/>
                             <constraint firstItem="eSc-As-CdT" firstAttribute="leading" secondItem="gdf-Dr-bpl" secondAttribute="leading" constant="20" id="DtV-7R-lyM"/>
+                            <constraint firstItem="gdf-Dr-bpl" firstAttribute="trailing" secondItem="pNg-h7-wUH" secondAttribute="trailing" constant="16" id="DyC-3W-ibL"/>
                             <constraint firstItem="oW7-1s-S7t" firstAttribute="bottom" secondItem="KBM-wb-ni8" secondAttribute="bottom" id="Gt6-Pg-ngV"/>
-                            <constraint firstItem="gdf-Dr-bpl" firstAttribute="trailing" secondItem="oW7-1s-S7t" secondAttribute="trailing" constant="16" id="HDm-Oh-X7P"/>
                             <constraint firstItem="2Yz-9M-atL" firstAttribute="leading" secondItem="KBM-wb-ni8" secondAttribute="trailing" constant="16" id="HIC-o1-ful"/>
                             <constraint firstItem="gdf-Dr-bpl" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="GWM-31-PTB" secondAttribute="bottom" constant="16" id="IXf-Y1-zUT"/>
                             <constraint firstItem="eSc-As-CdT" firstAttribute="top" secondItem="qvC-9L-Kde" secondAttribute="bottom" constant="16" id="LZ3-Uj-hFm"/>
@@ -1991,12 +1990,14 @@
                             <constraint firstItem="gdf-Dr-bpl" firstAttribute="trailing" secondItem="pk5-tb-njV" secondAttribute="trailing" constant="16" id="TMH-Fg-3yz"/>
                             <constraint firstItem="gdf-Dr-bpl" firstAttribute="trailing" secondItem="uWM-uy-W2V" secondAttribute="trailing" constant="16" id="TWM-uB-pJi"/>
                             <constraint firstItem="uWM-uy-W2V" firstAttribute="leading" secondItem="gdf-Dr-bpl" secondAttribute="leading" constant="20" id="U1c-8g-oIc"/>
+                            <constraint firstItem="pNg-h7-wUH" firstAttribute="bottom" secondItem="oW7-1s-S7t" secondAttribute="bottom" id="Un5-Db-Y4N"/>
                             <constraint firstItem="MlJ-J1-Vbe" firstAttribute="top" secondItem="KBM-wb-ni8" secondAttribute="bottom" constant="16" id="Zsp-dk-7QF"/>
                             <constraint firstItem="24K-9t-5fE" firstAttribute="centerY" secondItem="KBM-wb-ni8" secondAttribute="centerY" id="bDc-83-Ybc"/>
                             <constraint firstItem="qvC-9L-Kde" firstAttribute="top" secondItem="uWM-uy-W2V" secondAttribute="bottom" constant="16" id="pN5-SW-ZEX"/>
                             <constraint firstItem="GWM-31-PTB" firstAttribute="top" secondItem="eSc-As-CdT" secondAttribute="bottom" constant="16" id="qG2-Li-xuN"/>
                             <constraint firstItem="pk5-tb-njV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2Yz-9M-atL" secondAttribute="trailing" constant="175" id="sFC-vG-Q12"/>
                             <constraint firstItem="KBM-wb-ni8" firstAttribute="top" secondItem="gdf-Dr-bpl" secondAttribute="top" constant="16" id="tCn-Vf-LaE"/>
+                            <constraint firstItem="pNg-h7-wUH" firstAttribute="leading" secondItem="oW7-1s-S7t" secondAttribute="trailing" constant="16" id="ujc-Xr-Hd3"/>
                             <constraint firstItem="pk5-tb-njV" firstAttribute="top" secondItem="2Yz-9M-atL" secondAttribute="top" id="zIv-kl-pXO"/>
                         </constraints>
                     </view>
@@ -2053,11 +2054,11 @@
             </objects>
             <point key="canvasLocation" x="762" y="342"/>
         </scene>
-        <!--Home-->
+        <!--Navigation Controller-->
         <scene sceneID="2ED-tD-wOm">
             <objects>
                 <navigationController storyboardIdentifier="HomeFeed" automaticallyAdjustsScrollViewInsets="NO" id="xoo-j5-aLF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="vJN-sb-XGd"/>
+                    <tabBarItem key="tabBarItem" title="" image="house" catalog="system" id="vJN-sb-XGd"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BUw-nO-JR5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -2072,11 +2073,11 @@
             </objects>
             <point key="canvasLocation" x="-5013" y="1831"/>
         </scene>
-        <!--Find-->
+        <!--Navigation Controller-->
         <scene sceneID="guY-M6-kxc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ii9-dp-Ioe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Find" id="86i-fJ-PK6"/>
+                    <tabBarItem key="tabBarItem" title="" image="recommendedUsersIcon" id="86i-fJ-PK6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="v9F-83-klW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -2091,11 +2092,11 @@
             </objects>
             <point key="canvasLocation" x="-3346" y="1831"/>
         </scene>
-        <!--Chat-->
+        <!--Navigation Controller-->
         <scene sceneID="Jif-UX-pdw">
             <objects>
                 <navigationController storyboardIdentifier="ChatVC" automaticallyAdjustsScrollViewInsets="NO" id="EbQ-m8-cPl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Chat" id="U4q-HX-pIu"/>
+                    <tabBarItem key="tabBarItem" title="" image="messageIcon" id="U4q-HX-pIu"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xJu-vc-vcz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -2110,11 +2111,11 @@
             </objects>
             <point key="canvasLocation" x="-1513" y="1831"/>
         </scene>
-        <!--Map-->
+        <!--Navigation Controller-->
         <scene sceneID="BdV-N0-zpo">
             <objects>
                 <navigationController storyboardIdentifier="MapNav" automaticallyAdjustsScrollViewInsets="NO" id="r6a-aq-qs8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" id="P37-W7-Kaj"/>
+                    <tabBarItem key="tabBarItem" title="" image="map" catalog="system" id="P37-W7-Kaj"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="M22-ck-keG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -2129,11 +2130,11 @@
             </objects>
             <point key="canvasLocation" x="1003" y="1831"/>
         </scene>
-        <!--Profile-->
+        <!--Navigation Controller-->
         <scene sceneID="woG-uo-yIJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UwR-2p-qFQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="imm-5H-1jO"/>
+                    <tabBarItem key="tabBarItem" title="" image="profileIcon" id="imm-5H-1jO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="axr-P5-3YB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -2159,8 +2160,12 @@
         <image name="bookmark-unsaved" width="24" height="24"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="map" catalog="system" width="128" height="110"/>
         <image name="message" catalog="system" width="128" height="113"/>
+        <image name="messageIcon" width="24" height="24"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <image name="profileIcon" width="24" height="24"/>
+        <image name="recommendedUsersIcon" width="24" height="24"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
