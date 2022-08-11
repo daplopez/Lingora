@@ -125,17 +125,31 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     PostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"];
-    Post *post = self.filteredPosts[indexPath.row];
+    Post *post = self.filteredPosts[indexPath.section]; //.row to section
     cell.postTextLabel.text = post[@"postText"];
     cell.layer.cornerRadius = 10;
     cell.layer.masksToBounds = YES;
+    
+    // add border and color
+    cell.backgroundColor = UIColor.whiteColor;
+    cell.layer.borderColor = [UIColor.lightGrayColor CGColor];
+    cell.layer.borderWidth = 1;
+    //cell.layer.cornerRadius = 8;
+    cell.clipsToBounds = true;
+    
+    
     return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.filteredPosts.count;
+    //return self.filteredPosts.count;
+    return  1;
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return self.filteredPosts.count;
+    return  1;
+}
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     cell.alpha = 0;
@@ -144,6 +158,17 @@
     }];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    CGFloat cellSpacingHeight = 1;
+    return cellSpacingHeight;
+}
+
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [UIView new];
+    [view setBackgroundColor:[UIColor clearColor]];
+    return view;
+}
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     if (searchText.length != 0) {
