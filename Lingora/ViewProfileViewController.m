@@ -13,6 +13,7 @@
 #import "PostProfileImagesCollectionViewCell.h"
 #import "PostInterestCollectionViewCell.h"
 #import "DirectMessageViewController.h"
+#import "MapViewController.h"
 
 @interface ViewProfileViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet PFImageView *profilePicture;
@@ -116,6 +117,17 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     myDelegate.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBar"];
 }
+
+
+
+- (IBAction)didTapHomeButton:(id)sender {
+    // go to home screen
+    SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UITabBarController *tabBarVC = [storyboard instantiateViewControllerWithIdentifier:@"TabBar"];
+    myDelegate.window.rootViewController = tabBarVC;
+}
+
 
 #pragma mark - Navigation
 

@@ -909,7 +909,7 @@
         <!--Map-->
         <scene sceneID="T8A-nS-KID">
             <objects>
-                <viewController id="MVt-wa-9CY" customClass="MapViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapVC" id="MVt-wa-9CY" customClass="MapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q5I-Zt-9CL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1958,6 +1958,15 @@
                                     <segue destination="pFh-l4-2be" kind="show" identifier="DMSegue" id="wBg-Rh-3qM"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pNg-h7-wUH">
+                                <rect key="frame" x="347" y="121" width="50" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="house" catalog="system"/>
+                                <connections>
+                                    <action selector="didTapHomeButton:" destination="ofW-9V-iD7" eventType="touchUpInside" id="fVP-bL-Fqy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gdf-Dr-bpl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2104,7 +2113,7 @@
         <!--Map-->
         <scene sceneID="BdV-N0-zpo">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="r6a-aq-qs8" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MapNav" automaticallyAdjustsScrollViewInsets="NO" id="r6a-aq-qs8" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Map" id="P37-W7-Kaj"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="M22-ck-keG">
@@ -2141,13 +2150,14 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wTC-3H-oL6"/>
+        <segue reference="ClM-qD-quL"/>
         <segue reference="wRR-2n-7rX"/>
         <segue reference="wBg-Rh-3qM"/>
         <segue reference="vW6-ge-osT"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bookmark-unsaved" width="24" height="24"/>
+        <image name="house" catalog="system" width="128" height="106"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="message" catalog="system" width="128" height="113"/>
         <image name="person" catalog="system" width="128" height="117"/>
