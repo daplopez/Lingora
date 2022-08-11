@@ -82,13 +82,16 @@
 
 - (void)addMarkersToMap {
     for (int i = 0; i < self.users.count; i++) {
-        PFGeoPoint *point = self.users[i][@"location"];
-        GMSMarker *marker = [[GMSMarker alloc] init];
-        marker.position = CLLocationCoordinate2DMake(point.latitude, point.longitude);
-        marker.title = self.users[i][@"fullName"];
-        marker.snippet = self.users[i][@"username"];
-        marker.userData = self.users[i];
-        marker.map = self.mapView;
+        NSNumber *locationAccess = self.users[i][@"locationAccess"];
+        if ([locationAccess isEqualToNumber:[NSNumber numberWithInt:1]]) {
+            PFGeoPoint *point = self.users[i][@"location"];
+            GMSMarker *marker = [[GMSMarker alloc] init];
+            marker.position = CLLocationCoordinate2DMake(point.latitude, point.longitude);
+            marker.title = self.users[i][@"fullName"];
+            marker.snippet = self.users[i][@"username"];
+            marker.userData = self.users[i];
+            marker.map = self.mapView;
+        }
     }
 }
 
@@ -113,7 +116,7 @@
 {
     CLLocation *location = locations.lastObject;
     NSLog(@"Location: %@", location);
-  
+    NSLog(@"CHECK");
     float zoomLevel = self.locationManager.accuracyAuthorization == CLAccuracyAuthorizationFullAccuracy ? self.preciseLocationZoomLevel:self.approximateLocationZoomLevel;
     GMSCameraPosition * camera = [GMSCameraPosition cameraWithLatitude:location.coordinate.latitude
                                                            longitude:location.coordinate.longitude zoom:zoomLevel];
@@ -143,12 +146,17 @@
       break;
     case kCLAuthorizationStatusDenied:
       NSLog(@"User denied access to location.");
+      PFUser.currentUser[@"locationAccess"] = [NSNumber numberWithInt:0];
+      [PFUser.currentUser saveInBackground];
       // Display the map using the default location.
       self.mapView.hidden = NO;
+      break;
     case kCLAuthorizationStatusNotDetermined:
       NSLog(@"Location status not determined.");
     case kCLAuthorizationStatusAuthorizedAlways:
     case kCLAuthorizationStatusAuthorizedWhenInUse:
+      PFUser.currentUser[@"locationAccess"] = [NSNumber numberWithInt:1];
+      [PFUser.currentUser saveInBackground];
       NSLog(@"Location status is OK.");
   }
 }

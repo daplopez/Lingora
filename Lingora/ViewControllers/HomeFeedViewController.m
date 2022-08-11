@@ -219,10 +219,15 @@
       break;
     case kCLAuthorizationStatusDenied:
       NSLog(@"User denied access to location.");
+      PFUser.currentUser[@"locationAccess"] = [NSNumber numberWithInt:0];
+      [PFUser.currentUser saveInBackground];
+      break;
     case kCLAuthorizationStatusNotDetermined:
       NSLog(@"Location status not determined.");
     case kCLAuthorizationStatusAuthorizedAlways:
     case kCLAuthorizationStatusAuthorizedWhenInUse:
+      PFUser.currentUser[@"locationAccess"] = [NSNumber numberWithInt:1];
+      [PFUser.currentUser saveInBackground];
       NSLog(@"Location status is OK.");
   }
 }

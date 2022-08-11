@@ -54,6 +54,7 @@
 		8DE8832728A1CD27000F46C7 /* FilterUserSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE8832628A1CD27000F46C7 /* FilterUserSearchViewController.m */; };
 		8DE8832A28A1D107000F46C7 /* FilterInterestsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE8832928A1D107000F46C7 /* FilterInterestsCollectionViewCell.m */; };
 		8DE8832D28A1E1D8000F46C7 /* UserSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE8832C28A1E1D8000F46C7 /* UserSearchTableViewCell.m */; };
+		8DE8833028A56D77000F46C7 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE8832F28A56D77000F46C7 /* SettingsViewController.m */; };
 		8DEDC5CE289484330048AEB9 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DEDC5CD289484330048AEB9 /* Keys.plist */; };
 		8DFC725728932DE20088E08D /* ConversationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFC725628932DE20088E08D /* ConversationHandler.m */; };
 		8DFC725A28932F0F0088E08D /* ConversationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFC725928932F0F0088E08D /* ConversationManager.m */; };
@@ -171,6 +172,8 @@
 		8DE8832928A1D107000F46C7 /* FilterInterestsCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterInterestsCollectionViewCell.m; sourceTree = "<group>"; };
 		8DE8832B28A1E1D8000F46C7 /* UserSearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSearchTableViewCell.h; sourceTree = "<group>"; };
 		8DE8832C28A1E1D8000F46C7 /* UserSearchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserSearchTableViewCell.m; sourceTree = "<group>"; };
+		8DE8832E28A56D77000F46C7 /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		8DE8832F28A56D77000F46C7 /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		8DEDC5CD289484330048AEB9 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		8DFC725528932DE20088E08D /* ConversationHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationHandler.h; sourceTree = "<group>"; };
 		8DFC725628932DE20088E08D /* ConversationHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConversationHandler.m; sourceTree = "<group>"; };
@@ -333,6 +336,8 @@
 				8D7396E2289DBA9900748374 /* RankInterestsViewController.m */,
 				8DE8832528A1CD27000F46C7 /* FilterUserSearchViewController.h */,
 				8DE8832628A1CD27000F46C7 /* FilterUserSearchViewController.m */,
+				8DE8832E28A56D77000F46C7 /* SettingsViewController.h */,
+				8DE8832F28A56D77000F46C7 /* SettingsViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -714,6 +719,7 @@
 				8D62442B287CBBE300B82B98 /* RecommendedViewController.m in Sources */,
 				8D4CCE8E289B108100C2A0CA /* RecommendUsersHandler.m in Sources */,
 				8DBA3EBA28789A720030EBEF /* ComposePostViewController.m in Sources */,
+				8DE8833028A56D77000F46C7 /* SettingsViewController.m in Sources */,
 				8DC5AA18287612FF00011509 /* WelcomeViewController.m in Sources */,
 				8DE8831B28A1A22D000F46C7 /* SearchUsersViewController.m in Sources */,
 				8DC5AA1E28762BCE00011509 /* HomeFeedViewController.m in Sources */,

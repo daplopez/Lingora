@@ -1716,7 +1716,19 @@
                             <constraint firstItem="J4a-uP-edJ" firstAttribute="top" secondItem="8h3-T0-1Cr" secondAttribute="bottom" constant="4" id="zku-Tb-LI9"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="3nd-gH-KeX"/>
+                    <navigationItem key="navigationItem" title="Profile" id="3nd-gH-KeX">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Bmp-Th-Pcj">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="imd-69-Byx">
+                                <rect key="frame" x="302" y="9" width="92" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="settingsIcon"/>
+                                <connections>
+                                    <segue destination="Ido-5L-7Tk" kind="show" id="lEP-D8-aOQ"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="imagesCollectionView" destination="whI-Y9-agY" id="Wgz-eM-txo"/>
                         <outlet property="interestsCollectionView" destination="uVZ-qi-WQR" id="qcL-Gg-ayc"/>
@@ -1730,6 +1742,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7GV-hL-COj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3740.579710144928" y="1828.7946428571427"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="E5t-2S-G4o">
+            <objects>
+                <viewController id="Ido-5L-7Tk" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Sbm-HP-KVQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="View Location On Map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ix-CN-YGH">
+                                <rect key="frame" x="16" y="125" width="301" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LSS-EF-TLe">
+                                <rect key="frame" x="333" y="120" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dP-LH-5Qh">
+                                <rect key="frame" x="16" y="72" width="382" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="F93-zf-6WL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="F93-zf-6WL" firstAttribute="trailing" secondItem="LSS-EF-TLe" secondAttribute="trailing" constant="32" id="6fd-Cc-Rdt"/>
+                            <constraint firstItem="6dP-LH-5Qh" firstAttribute="leading" secondItem="F93-zf-6WL" secondAttribute="leading" constant="16" id="DzS-rF-33J"/>
+                            <constraint firstItem="LSS-EF-TLe" firstAttribute="leading" secondItem="4Ix-CN-YGH" secondAttribute="trailing" constant="16" id="Fhi-Nn-346"/>
+                            <constraint firstItem="LSS-EF-TLe" firstAttribute="centerY" secondItem="4Ix-CN-YGH" secondAttribute="centerY" id="Rcu-1g-5AY"/>
+                            <constraint firstItem="6dP-LH-5Qh" firstAttribute="top" secondItem="F93-zf-6WL" secondAttribute="top" constant="16" id="Tib-pX-PM6"/>
+                            <constraint firstItem="4Ix-CN-YGH" firstAttribute="leading" secondItem="F93-zf-6WL" secondAttribute="leading" constant="16" id="oWU-L3-7HX"/>
+                            <constraint firstItem="F93-zf-6WL" firstAttribute="trailing" secondItem="6dP-LH-5Qh" secondAttribute="trailing" constant="16" id="qFg-7W-xhY"/>
+                            <constraint firstItem="4Ix-CN-YGH" firstAttribute="top" secondItem="6dP-LH-5Qh" secondAttribute="bottom" constant="32" id="sy0-Tc-zuM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="cYw-Up-2yK"/>
+                    <connections>
+                        <outlet property="locationSwitch" destination="LSS-EF-TLe" id="oFm-78-NTe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XLn-jT-NF3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4670" y="1387"/>
         </scene>
         <!--Saved Posts View Controller-->
         <scene sceneID="QRU-Ua-iry">
@@ -2167,6 +2225,7 @@
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="profileIcon" width="24" height="24"/>
         <image name="recommendedUsersIcon" width="24" height="24"/>
+        <image name="settingsIcon" width="24" height="24"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
