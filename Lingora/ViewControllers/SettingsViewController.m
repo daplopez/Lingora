@@ -30,5 +30,19 @@
 }
 
 
+- (IBAction)didTapLocationSwitch:(id)sender {
+    NSNumber *locationAccess = PFUser.currentUser[@"locationAccess"];
+    if ([locationAccess isEqualToNumber:[NSNumber numberWithInt:1]]) {
+        locationAccess = [NSNumber numberWithInt:0];
+        PFUser.currentUser[@"locationAccess"] = [NSNumber numberWithInt:0];
+        [PFUser.currentUser saveInBackground];
+        [self.locationSwitch setOn:NO];
+    } else {
+        PFUser.currentUser[@"locationAccess"] = [NSNumber numberWithInt:1];
+        [PFUser.currentUser saveInBackground];
+        [self.locationSwitch setOn:YES];
+    }
+}
+
 
 @end
