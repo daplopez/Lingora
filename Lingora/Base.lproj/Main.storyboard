@@ -2058,7 +2058,7 @@
         <scene sceneID="2ED-tD-wOm">
             <objects>
                 <navigationController storyboardIdentifier="HomeFeed" automaticallyAdjustsScrollViewInsets="NO" id="xoo-j5-aLF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="house" catalog="system" id="vJN-sb-XGd"/>
+                    <tabBarItem key="tabBarItem" title="" image="homeIcon" id="vJN-sb-XGd"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BUw-nO-JR5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -2115,7 +2115,7 @@
         <scene sceneID="BdV-N0-zpo">
             <objects>
                 <navigationController storyboardIdentifier="MapNav" automaticallyAdjustsScrollViewInsets="NO" id="r6a-aq-qs8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="map" catalog="system" id="P37-W7-Kaj"/>
+                    <tabBarItem key="tabBarItem" title="" image="mapIcon" id="P37-W7-Kaj"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="M22-ck-keG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -2158,9 +2158,10 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bookmark-unsaved" width="24" height="24"/>
+        <image name="homeIcon" width="24" height="24"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <image name="map" catalog="system" width="128" height="110"/>
+        <image name="mapIcon" width="24" height="24"/>
         <image name="message" catalog="system" width="128" height="113"/>
         <image name="messageIcon" width="24" height="24"/>
         <image name="person" catalog="system" width="128" height="117"/>
