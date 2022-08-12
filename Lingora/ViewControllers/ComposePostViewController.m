@@ -35,13 +35,14 @@
 
 - (IBAction)didTapShare:(id)sender {
     [Post postUserPost:self.postTextView.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-            if (error) {
-                NSLog(@"Error sharing post");
-            } else {
-                NSLog(@"Successfully posted");
-            }
+        if (error) {
+            NSLog(@"Error sharing post");
+        } else {
+            NSLog(@"Successfully posted");
+        }
     }];
-    
+    NSLog(@"%@", sender);
+    NSLog(@"CHECK");
     SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     myDelegate.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBar"];

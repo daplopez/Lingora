@@ -373,4 +373,9 @@
     [self.imagesCollectionView reloadData];
 }
 
+
+- (IBAction)didTapNewPost:(id)sender {
+    
+}
+
 @end

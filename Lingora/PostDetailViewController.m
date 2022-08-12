@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
 @property (weak, nonatomic) IBOutlet UIButton *bookmarkButton;
 @property (strong, nonatomic) NSArray *savedPosts;
+@property (strong, nonatomic) NSString *translatedText;
 
 @end
 
