@@ -7,6 +7,7 @@
 
 #import "SettingsViewController.h"
 #import "Parse/Parse.h"
+#import "SceneDelegate.h"
 
 @interface SettingsViewController ()
 @property (weak, nonatomic) IBOutlet UISwitch *locationSwitch;
@@ -44,5 +45,13 @@
     }
 }
 
+- (IBAction)didTapLogout:(id)sender {
+    // Logout current user
+    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {}];
+    // Return to Login screen
+    SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    myDelegate.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"WelcomeVC"];
+}
 
 @end

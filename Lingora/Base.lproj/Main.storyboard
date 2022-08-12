@@ -1765,6 +1765,14 @@
                                     <action selector="didTapLocationSwitch:" destination="Ido-5L-7Tk" eventType="valueChanged" id="7cB-Pl-7ac"/>
                                 </connections>
                             </switch>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZI-dw-JD8">
+                                <rect key="frame" x="172" y="766" width="70" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Logout"/>
+                                <connections>
+                                    <action selector="didTapLogout:" destination="Ido-5L-7Tk" eventType="touchUpInside" id="0SH-gd-CuO"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dP-LH-5Qh">
                                 <rect key="frame" x="16" y="72" width="382" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1780,9 +1788,12 @@
                             <constraint firstItem="LSS-EF-TLe" firstAttribute="leading" secondItem="4Ix-CN-YGH" secondAttribute="trailing" constant="16" id="Fhi-Nn-346"/>
                             <constraint firstItem="LSS-EF-TLe" firstAttribute="centerY" secondItem="4Ix-CN-YGH" secondAttribute="centerY" id="Rcu-1g-5AY"/>
                             <constraint firstItem="6dP-LH-5Qh" firstAttribute="top" secondItem="F93-zf-6WL" secondAttribute="top" constant="16" id="Tib-pX-PM6"/>
+                            <constraint firstItem="F93-zf-6WL" firstAttribute="bottom" secondItem="HZI-dw-JD8" secondAttribute="bottom" constant="16" id="hCR-Xv-qQd"/>
+                            <constraint firstItem="HZI-dw-JD8" firstAttribute="top" relation="greaterThanOrEqual" secondItem="4Ix-CN-YGH" secondAttribute="bottom" constant="500" id="kW9-SV-OIk"/>
                             <constraint firstItem="4Ix-CN-YGH" firstAttribute="leading" secondItem="F93-zf-6WL" secondAttribute="leading" constant="16" id="oWU-L3-7HX"/>
                             <constraint firstItem="F93-zf-6WL" firstAttribute="trailing" secondItem="6dP-LH-5Qh" secondAttribute="trailing" constant="16" id="qFg-7W-xhY"/>
                             <constraint firstItem="4Ix-CN-YGH" firstAttribute="top" secondItem="6dP-LH-5Qh" secondAttribute="bottom" constant="32" id="sy0-Tc-zuM"/>
+                            <constraint firstItem="HZI-dw-JD8" firstAttribute="centerX" secondItem="F93-zf-6WL" secondAttribute="centerX" id="tDG-sB-xgY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cYw-Up-2yK"/>
