@@ -216,23 +216,94 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DirectMessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DMCell"];
+
+    //DL Ediit
+    if (!cell) {
+        cell = [[DirectMessageTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DMCell"];
+        cell.frame = CGRectMake(2, 2, tableView.frame.size.width - 4, 30);
+        cell.backgroundColor = [UIColor whiteColor];
+        cell.layer.borderColor = [UIColor.clearColor CGColor];
+    }
+    
+    [cell.messageTextView removeFromSuperview];
+    cell.messageTextView = nil;
+    
     Message *message = [self.messages[indexPath.row] fetchIfNeeded];
-    cell.messageTextLabel.text = message[@"messageText"];
-    cell.senderNameLabel.text = message.username;
+    
+    NSString *senderId = message.author.objectId;
+    
+    cell.messageTextView = [[UITextView alloc] init];
+    cell.messageTextView.text = message[@"messageText"];
+    
+    // set font and text size (I'm using custom colors here defined in a category)
+    [cell.messageTextView setFont:[UIFont fontWithName:@"System" size:14]];
+    [cell.messageTextView setTextColor:[UIColor blackColor]];
+    
+    UIColor *msgColor = ([senderId isEqualToString:PFUser.currentUser.objectId]) ? [UIColor lightGrayColor] : [UIColor greenColor];
+    
+    cell.backgroundColor = [UIColor clearColor];
+    cell.layer.borderColor = [UIColor.clearColor CGColor];
+    cell.messageTextView.backgroundColor = msgColor;
+    cell.messageTextView.layer.cornerRadius = 10.0;
+    
+    CGSize newSize = [cell.messageTextView sizeThatFits:CGSizeMake(150, MAXFLOAT)];
+    CGRect newFrame;
+    
+    int msgWidth = 150;
+    float originX = ([senderId isEqualToString:PFUser.currentUser.objectId]) ? cell.frame.size.width - msgWidth - 15 : 15;
+    
+    // set our origin at our calculated x-point, and y position of 10
+    newFrame.origin = CGPointMake(originX, 10);
+
+    // set our message width and newly calculated height
+    newFrame.size = CGSizeMake(fmaxf(newSize.width, msgWidth), newSize.height);
+
+    // set the frame of our textview and disable scrolling of the textview
+    cell.messageTextView.frame = newFrame;
+    cell.messageTextView.scrollEnabled  = NO;
+    cell.userInteractionEnabled = NO;
+
+    // add our textview to our cell
+    [cell addSubview:cell.messageTextView];
+
+
+    
+    // End DL Edit
+//    cell.backgroundColor = [UIColor whiteColor];
+//    cell.layer.borderColor = [UIColor.clearColor CGColor];
     return cell;
 }
+
+// DL Edit
+-(CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // we need to make sure our cell is tall enough so we don't cut off our message bubble
+    DirectMessageTableViewCell *cell = (DirectMessageTableViewCell *)[self tableView:self.tableView cellForRowAtIndexPath:indexPath];
+    int msgWidth = 150;
+    // get the size of the message for this cell
+    CGSize newSize = [cell.messageTextView sizeThatFits:CGSizeMake(msgWidth, MAXFLOAT)];
+
+    // get the height of the bubble and add a little buffer of 20
+    CGFloat textHeight  = newSize.height + 20;
+
+    // don't make our cell any smaller than 60
+    textHeight = (textHeight < 60) ? 60 : textHeight;
+
+    return textHeight;
+}
+
 
 - (IBAction)didTapSend:(id)sender {
     // create new message
     [Message sendMessage:self.messageTextField.text conversation:self.conversation withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-            if (succeeded) {
-                NSLog(@"Successfully sent message");
-                // clear message field once sent
-                //[self liveQuerySetup];
-                self.messageTextField.text = @"";
-            } else {
-                NSLog(@"Failed to send message");
-            }
+        if (succeeded) {
+            NSLog(@"Successfully sent message");
+            // clear message field once sent
+            //[self liveQuerySetup];
+            self.messageTextField.text = @"";
+        } else {
+            NSLog(@"Failed to send message");
+        }
     }];
 }
 

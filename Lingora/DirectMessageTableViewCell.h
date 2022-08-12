@@ -10,8 +10,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DirectMessageTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *messageTextLabel;
-@property (weak, nonatomic) IBOutlet UILabel *senderNameLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *messageTextLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *senderNameLabel;
+@property (strong, nonatomic) IBOutlet UITextView *messageTextView;
 
 @end
 
