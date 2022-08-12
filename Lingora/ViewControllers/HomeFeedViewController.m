@@ -159,7 +159,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    CGFloat cellSpacingHeight = 1;
+    CGFloat cellSpacingHeight = .5;
     return cellSpacingHeight;
 }
 
@@ -190,7 +190,7 @@
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"PostDetail"]) {
         NSIndexPath *indexPath =[self.tableView indexPathForCell:sender];
-        Post *dataToPass = self.filteredPosts[indexPath.row];
+        Post *dataToPass = self.filteredPosts[indexPath.section];
         dataToPass.author = [dataToPass.author fetchIfNeeded];
         PostDetailViewController *detailsVC = (PostDetailViewController *) [segue destinationViewController];
         detailsVC.post = dataToPass;
